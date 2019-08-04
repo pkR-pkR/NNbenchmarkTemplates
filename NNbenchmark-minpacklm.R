@@ -1,19 +1,24 @@
 
 
-
-## ===============================================
-## 2019-07-29 NEURAL NETWORKS AND minpack.lm, nlsr 
-##            (REQUIRE NNbenchmark_1.8.tar.gz)
-## ===============================================
+## ==============================================
+## 2019-08-04 NNbenchmark TEMPLATE FOR minpack.lm
+##            Author: PATRICE KIENER
+##            (REQUIRE at least NNbenchmark_2.0)
+## ==============================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
-setwd("D:/DevGSoC/results") ; getwd()
+
+
+## =====================================================
+## SET YOUR WORKING DIRECTORY (CSV FILES ARE SAVED HERE)
+## =====================================================
+setwd("D:/WindowsDir") ; getwd()
 # setwd("~/LinuxDir") ; getwd()
 
 
 ## ====================================================================
-## AVAILABLE DATASETS IN NNbenchmark (u = UNIVARIATE, m = MULTIVARIATE)
+## AVAILABLE DATASETS IN NNbenchmark (u = UNIVARIATE, m = MULTIVARIATE)
 ## ====================================================================
 for (dd in NNdatasets) cat(ncol(dd$Z)-1, "inputs,", dd$neur, "hidden neurons,", 
                            dd$nparNN, "parameters =>", dd$ds, "\n")
@@ -23,26 +28,25 @@ names(NNdatasets)
 
 
  
-## ===============================================================
-## pdf() IS BILA's APPROACH TO KEEP A RECORD OF ALL TRAININGS WHEN 
-## THE LOOP BELOW IS ACTIVATED. COMMENT pdf() FOR A STANDARD PLOT
-## ===============================================================
+## ==================================================
+## COMMENT pdf() FOR A STANDARD PLOT
+## UNCOMMENT pdf() TO RECORDS ALL PLOTS IN A PDF FILE
+## ==================================================
 rm(list=ls(all=TRUE))
 # pdf()
 
 
 ## =================================================================
 ## AFTER clearNN(donotremove), YOU CAN START FROM HERE
-## SELECT ONE DATASET OR UNCOMMENT THE LOOP TO RUN ALL DATASETS
-## IF THE LOOP IS ACTIVATED, YOU CAN RUN THIS FULL PAGE IN EXTENSO
-## (AND APPRECIATE THE SPEED OF minpack.lm LEVENBERG-MARQUARDT ALGO)
+## SELECT ONE DATASET OR UNCOMMENT THE LOOP TO RUN ALL DATASETS
+## IF THE LOOP IS ACTIVATED, YOU CAN RUN THIS FULL PAGE IN EXTENSO
+## (AND APPRECIATE THE SPEED OF minpack.lm LEVENBERG-MARQUARDT ALGO)
 ## =================================================================
 # dset   <- "mRef153"
 for (dset in names(NNdatasets)) {
 
 
-
-## AUTO
+## AUTO
 ds     <- NNdatasets[[dset]]$ds
 Z      <- NNdatasets[[dset]]$Z
 neur   <- NNdatasets[[dset]]$neur
@@ -54,10 +58,10 @@ donotremove2 <- c("dset", "dsets")
 
 
 
-## ===================================================
+## ===================================================
 ## SELECT THE FORMAT REQUIRED BY THE PACKAGE/ALGORITHM
 ## d = data.frame, m = matrix, v = vector/numeric
-## ATTACH THE OBJECTS CREATED (x, y, Zxy, ... )
+## ATTACH THE OBJECTS CREATED (x, y, Zxy, ... )
 ## ===================================================
 ZZ     <- prepareZZ(Z, xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
 attach(ZZ)
@@ -66,16 +70,16 @@ ls()
 
 
 
-## ==============================================
-## SELECT THE PACKAGE USED FOR THE TRAINING
-## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
+## ==============================================
+## SELECT THE PACKAGE USED FOR THE TRAINING
+## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## nruns => SELECT THE NUMBER OF INDEPENDANT RUNS
-## maxiter => SELECT THE MAX NUMBER OF ITERATIONS
-## TF    => PLOT THE RESULTS TRUE/FALSE
-## stars => EVALUATION OF THE PACKAGE::ALGORITHMS
-## params => maxiter/lr AS CHARACTER
-## printmsg => PRINT timeR DURING THE TRAINING
-## ==============================================
+## maxiter => SELECT THE MAX NUMBER OF ITERATIONS
+## TF    => PLOT THE RESULTS TRUE/FALSE
+## stars => EVALUATION OF THE PACKAGE::ALGORITHMS
+## params => maxiter/lr AS CHARACTER
+## printmsg => PRINT timeR DURING THE TRAINING
+## ==============================================
 library(minpack.lm)
 options(warn = 0)  # warnings are printed (default)
 # options(warn = -1) # warnings are not printed
@@ -91,7 +95,7 @@ timer    <- createTimer()
 printmsg <- FALSE
 
 
-## AUTO
+## AUTO
 descr  <- paste(dset, "minpack.lm::nlsLM", sep = "_")
 plotNN(xory, y0, uni, TF, main = descr)
 Ypred  <- list()
@@ -129,8 +133,8 @@ getTimer(timer)
 
 
 ## ===========================================================
-## PLOT THE MODEL WITH THE BEST RMSE
-## (NOT NECESSARY THE BEST MODEL: WE WILL NOT DISCUSS IT HERE)
+## PLOT THE MODEL WITH THE BEST RMSE
+## (NOT NECESSARY THE BEST MODEL: WE WILL NOT DISCUSS IT HERE)
 ## ===========================================================
 best ; Rmse[[best]]
 plotNN(xory, y0, uni, TF, main = descr)
@@ -138,9 +142,9 @@ lipoNN(xory, Ypred[[best]], uni, TF, col = 4, lwd = 4)
 
 
 
-## ================
+## ================
 ## SAVE THE RESULTS
-## ================
+## ================
 add2csv(getTimer(timer), file = paste0(dset, "-results-stars.csv"))
 
 
@@ -148,9 +152,9 @@ add2csv(getTimer(timer), file = paste0(dset, "-results-stars.csv"))
 
 
 ## ===================================================
-## DETACH ZZ
-## REMOVE OBJECTS NOT PROTECTED BY donotremove IN ls() 
-## REMOVE PACKAGES NOT INCLUDED IN donotdetach
+## DETACH ZZ
+## REMOVE OBJECTS NOT PROTECTED BY donotremove IN ls() 
+## REMOVE PACKAGES NOT INCLUDED IN donotdetach
 ## ===================================================
 options(warn = 0)
 clearNN(donotremove)
@@ -167,13 +171,13 @@ search()
 dev.off()
 
 
-## ===========================
+## ===========================
 ## PRINT THE (HIDDEN) WARNINGS
-## ===========================
+## ===========================
 summary(warnings())
 
 
-## END
+## END
 ## END
 
 
