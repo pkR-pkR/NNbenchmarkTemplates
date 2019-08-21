@@ -1,0 +1,36 @@
+event,start,end,duration,RMSE,MAE,stars,params,comment
+mRef153_nlsr::nlxb_01,15:36:48.585,15:36:48.710,0.125,3.7508,2.7385,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_nlsr::nlxb_02,15:36:48.710,15:36:48.850,0.14,3.5674,2.6812,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_nlsr::nlxb_03,15:36:48.850,15:36:48.897,0.047,3.1128,2.1804,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_nlsr::nlxb_04,15:36:48.897,15:36:49.038,0.141,3.7388,2.7094,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_nlsr::nlxb_05,15:36:49.038,15:36:49.116,0.078,3.3341,2.3356,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_nlsr::nlxb_06,15:36:49.116,15:36:49.272,0.156,3.7927,2.7419,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_nlsr::nlxb_07,15:36:49.272,15:36:49.413,0.141,3.7117,2.5527,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_nlsr::nlxb_08,15:36:49.413,15:36:49.506,0.093,3.1128,2.1804,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_nlsr::nlxb_09,15:36:49.506,15:36:49.647,0.141,3.2551,2.2662,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_nlsr::nlxb_10,15:36:49.647,15:36:49.772,0.125,3.5779,2.5948,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_01,15:46:28.272,15:46:28.366,0.094,3.6859,2.5881,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_02,15:46:28.366,15:46:28.460,0.094,3.8844,2.7706,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_03,15:46:28.460,15:46:28.522,0.062,3.4317,2.4682,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_04,15:46:28.522,15:46:28.554,0.032,3.3341,2.3356,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_05,15:46:28.554,15:46:28.632,0.078,27.8983,25.1873,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_06,15:46:28.632,15:46:28.725,0.093,3.7082,2.6284,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_07,15:46:28.725,15:46:28.819,0.094,27.8983,25.1873,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_08,15:46:28.819,15:46:28.897,0.078,3.5041,2.5734,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_09,15:46:28.897,15:46:28.991,0.094,3.8753,2.5786,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_10,15:46:28.991,15:46:29.069,0.078,3.5665,2.6554,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_h2o::h2o.deeplearning_01,15:53:58.421,15:53:58.999,0.578,3.84,2.7886,,maxiter=200,Bad on univariate datasets
+mRef153_h2o::h2o.deeplearning_02,15:53:59.015,15:53:59.625,0.61,3.7013,2.7135,,maxiter=200,Bad on univariate datasets
+mRef153_h2o::h2o.deeplearning_03,15:53:59.625,15:54:00.234,0.609,3.8088,2.7734,,maxiter=200,Bad on univariate datasets
+mRef153_h2o::h2o.deeplearning_04,15:54:00.234,15:54:00.765,0.531,3.8551,2.8,,maxiter=200,Bad on univariate datasets
+mRef153_h2o::h2o.deeplearning_05,15:54:00.765,15:54:01.452,0.687,3.891,2.8723,,maxiter=200,Bad on univariate datasets
+mRef153_h2o::h2o.deeplearning_06,15:54:01.468,15:54:02.030,0.562,3.7312,2.7805,,maxiter=200,Bad on univariate datasets
+mRef153_h2o::h2o.deeplearning_07,15:54:02.030,15:54:02.655,0.625,3.9,2.8971,,maxiter=200,Bad on univariate datasets
+mRef153_h2o::h2o.deeplearning_08,15:54:02.655,15:54:03.249,0.594,3.6931,2.7739,,maxiter=200,Bad on univariate datasets
+mRef153_h2o::h2o.deeplearning_09,15:54:03.249,15:54:03.811,0.562,3.8515,2.8351,,maxiter=200,Bad on univariate datasets
+mRef153_h2o::h2o.deeplearning_10,15:54:03.811,15:54:04.421,0.61,3.7837,2.8289,,maxiter=200,Bad on univariate datasets
+mRef153_neuralnet::neuralnet_rprop+_01,18:10:36.310,18:10:37.122,0.812,3.2359,2.2035,,,Erratic on difficult datasets
+mRef153_neuralnet::neuralnet_rprop+_02,18:10:37.122,18:10:37.341,0.219,3.5722,2.6555,,,Erratic on difficult datasets
+mRef153_neuralnet::neuralnet_rprop+_03,18:10:37.357,18:10:37.513,0.156,3.2772,2.3772,,,Erratic on difficult datasets
+mRef153_neuralnet::neuralnet_rprop+_04,18:10:37.513,18:10:38.638,1.125,3.1932,2.2485,,,Erratic on difficult datasets
+mRef153_neuralnet::neuralnet_rprop+_05,18:10:38.653,18:10:38.934,0.281,3.5711,2.6605,,,Erratic on difficult datasets

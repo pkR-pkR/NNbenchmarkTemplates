@@ -1,0 +1,36 @@
+event,start,end,duration,RMSE,MAE,stars,params,comment
+uDmod2_nlsr::nlxb_01,15:36:50.650,15:36:50.728,0.078,0.0406,0.0326,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_nlsr::nlxb_02,15:36:50.728,15:36:50.791,0.063,0.0452,0.0363,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_nlsr::nlxb_03,15:36:50.806,15:36:50.869,0.063,0.0427,0.0333,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_nlsr::nlxb_04,15:36:50.869,15:36:50.947,0.078,0.0649,0.053,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_nlsr::nlxb_05,15:36:50.947,15:36:51.010,0.063,0.0589,0.0467,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_nlsr::nlxb_06,15:36:51.010,15:36:51.088,0.078,0.1053,0.082,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_nlsr::nlxb_07,15:36:51.088,15:36:51.166,0.078,0.0793,0.0627,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_nlsr::nlxb_08,15:36:51.166,15:36:51.228,0.062,0.0427,0.0333,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_nlsr::nlxb_09,15:36:51.228,15:36:51.275,0.047,0.0427,0.0333,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_nlsr::nlxb_10,15:36:51.275,15:36:51.353,0.078,0.0405,0.0327,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_minpack.lm::nlsLM_01,15:46:29.616,15:46:29.663,0.047,0.0514,0.0416,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_minpack.lm::nlsLM_02,15:46:29.663,15:46:29.710,0.047,0.052,0.0419,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_minpack.lm::nlsLM_03,15:46:29.710,15:46:29.725,0.015,0.0427,0.0333,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_minpack.lm::nlsLM_04,15:46:29.725,15:46:29.772,0.047,0.0449,0.036,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_minpack.lm::nlsLM_05,15:46:29.772,15:46:29.803,0.031,0.0646,0.053,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_minpack.lm::nlsLM_06,15:46:29.819,15:46:29.850,0.031,0.0649,0.053,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_minpack.lm::nlsLM_07,15:46:29.850,15:46:29.897,0.047,0.0933,0.0717,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_minpack.lm::nlsLM_08,15:46:29.897,15:46:29.928,0.031,0.0596,0.0503,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_minpack.lm::nlsLM_09,15:46:29.928,15:46:29.960,0.032,0.0449,0.036,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_minpack.lm::nlsLM_10,15:46:29.975,15:46:30.006,0.031,0.0792,0.0627,**,maxiter = 150,Require hand-made formulas and scaling
+uDmod2_h2o::h2o.deeplearning_01,15:54:10.606,15:54:11.090,0.484,0.3212,0.2606,,maxiter=200,Bad on univariate datasets
+uDmod2_h2o::h2o.deeplearning_02,15:54:11.106,15:54:11.669,0.563,0.3075,0.2634,,maxiter=200,Bad on univariate datasets
+uDmod2_h2o::h2o.deeplearning_03,15:54:11.669,15:54:12.231,0.562,0.3186,0.2539,,maxiter=200,Bad on univariate datasets
+uDmod2_h2o::h2o.deeplearning_04,15:54:12.231,15:54:12.918,0.687,0.3217,0.267,,maxiter=200,Bad on univariate datasets
+uDmod2_h2o::h2o.deeplearning_05,15:54:12.918,15:54:13.387,0.469,0.197,0.1619,,maxiter=200,Bad on univariate datasets
+uDmod2_h2o::h2o.deeplearning_06,15:54:13.387,15:54:13.871,0.484,0.3144,0.2685,,maxiter=200,Bad on univariate datasets
+uDmod2_h2o::h2o.deeplearning_07,15:54:13.871,15:54:14.434,0.563,0.3117,0.2625,,maxiter=200,Bad on univariate datasets
+uDmod2_h2o::h2o.deeplearning_08,15:54:14.434,15:54:14.965,0.531,0.3065,0.2506,,maxiter=200,Bad on univariate datasets
+uDmod2_h2o::h2o.deeplearning_09,15:54:14.965,15:54:15.637,0.672,0.3165,0.2626,,maxiter=200,Bad on univariate datasets
+uDmod2_h2o::h2o.deeplearning_10,15:54:15.637,15:54:16.183,0.546,0.3195,0.2644,,maxiter=200,Bad on univariate datasets
+uDmod2_neuralnet::neuralnet_rprop+_01,18:10:44.293,18:10:45.042,0.749,0.0473,0.0385,,,Erratic on difficult datasets
+uDmod2_neuralnet::neuralnet_rprop+_02,18:10:45.042,18:10:47.792,2.75,0.0811,0.0641,,,Erratic on difficult datasets
+uDmod2_neuralnet::neuralnet_rprop+_03,18:10:47.792,18:10:48.776,0.984,0.0467,0.0376,,,Erratic on difficult datasets
+uDmod2_neuralnet::neuralnet_rprop+_04,18:10:48.776,18:10:50.401,1.625,0.0464,0.0373,,,Erratic on difficult datasets
+uDmod2_neuralnet::neuralnet_rprop+_05,18:10:50.401,18:10:57.508,7.107,0.5176,0.4253,,,Erratic on difficult datasets

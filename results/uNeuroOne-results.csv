@@ -1,0 +1,36 @@
+event,start,end,duration,RMSE,MAE,stars,params,comment
+uNeuroOne_nlsr::nlxb_01,15:36:55.100,15:36:55.115,0.015,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_02,15:36:55.115,15:36:55.115,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_03,15:36:55.115,15:36:55.131,0.016,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_04,15:36:55.131,15:36:55.147,0.016,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_05,15:36:55.147,15:36:55.162,0.015,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_06,15:36:55.162,15:36:55.162,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_07,15:36:55.162,15:36:55.178,0.016,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_08,15:36:55.178,15:36:55.194,0.016,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_09,15:36:55.194,15:36:55.209,0.015,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_10,15:36:55.209,15:36:55.209,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpack.lm::nlsLM_01,15:46:32.341,15:46:32.341,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpack.lm::nlsLM_02,15:46:32.341,15:46:32.341,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpack.lm::nlsLM_03,15:46:32.341,15:46:32.341,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpack.lm::nlsLM_04,15:46:32.356,15:46:32.356,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpack.lm::nlsLM_05,15:46:32.356,15:46:32.356,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpack.lm::nlsLM_06,15:46:32.356,15:46:32.372,0.016,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpack.lm::nlsLM_07,15:46:32.372,15:46:32.372,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpack.lm::nlsLM_08,15:46:32.372,15:46:32.372,0,1.272,1.1104,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpack.lm::nlsLM_09,15:46:32.372,15:46:32.387,0.015,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpack.lm::nlsLM_10,15:46:32.387,15:46:32.387,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_h2o::h2o.deeplearning_01,15:54:47.155,15:54:47.781,0.626,0.4022,0.3192,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_02,15:54:47.781,15:54:48.374,0.593,0.3813,0.2994,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_03,15:54:48.374,15:54:48.874,0.5,0.2959,0.2455,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_04,15:54:48.874,15:54:49.484,0.61,0.3912,0.3085,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_05,15:54:49.484,15:54:50.030,0.546,0.4822,0.3705,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_06,15:54:50.030,15:54:50.608,0.578,0.3642,0.301,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_07,15:54:50.608,15:54:51.233,0.625,0.6903,0.5618,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_08,15:54:51.233,15:54:51.827,0.594,0.2956,0.2449,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_09,15:54:51.827,15:54:52.421,0.594,0.3159,0.2583,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_10,15:54:52.421,15:54:52.983,0.562,0.2935,0.2447,,maxiter=200,Bad on univariate datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_01,18:11:51.573,18:11:51.604,0.031,0.2831,0.2316,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_02,18:11:51.604,18:11:51.620,0.016,0.6162,0.5031,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_03,18:11:51.620,18:11:51.651,0.031,0.283,0.2315,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_04,18:11:51.651,18:11:51.698,0.047,0.283,0.2316,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_05,18:11:51.698,18:11:51.729,0.031,0.2831,0.2317,,,Erratic on difficult datasets

@@ -1,0 +1,36 @@
+event,start,end,duration,RMSE,MAE,stars,params,comment
+uDreyfus1_nlsr::nlxb_01,15:36:51.366,15:36:51.398,0.032,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_nlsr::nlxb_02,15:36:51.398,15:36:51.413,0.015,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_nlsr::nlxb_03,15:36:51.413,15:36:51.429,0.016,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_nlsr::nlxb_04,15:36:51.429,15:36:51.460,0.031,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_nlsr::nlxb_05,15:36:51.460,15:36:51.476,0.016,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_nlsr::nlxb_06,15:36:51.476,15:36:51.491,0.015,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_nlsr::nlxb_07,15:36:51.491,15:36:51.522,0.031,0.1132,0.0799,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_nlsr::nlxb_08,15:36:51.522,15:36:51.538,0.016,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_nlsr::nlxb_09,15:36:51.538,15:36:51.585,0.047,0.0932,0.0738,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_nlsr::nlxb_10,15:36:51.601,15:36:51.616,0.015,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_01,15:46:30.022,15:46:30.022,0,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_02,15:46:30.022,15:46:30.038,0.016,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_03,15:46:30.038,15:46:30.053,0.015,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_04,15:46:30.053,15:46:30.069,0.016,0.0932,0.0737,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_05,15:46:30.069,15:46:30.085,0.016,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_06,15:46:30.085,15:46:30.085,0,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_07,15:46:30.085,15:46:30.100,0.015,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_08,15:46:30.100,15:46:30.116,0.016,0.1132,0.0799,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_09,15:46:30.116,15:46:30.116,0,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_10,15:46:30.116,15:46:30.116,0,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_h2o::h2o.deeplearning_01,15:54:16.527,15:54:17.121,0.594,0.3655,0.2663,,maxiter=200,Bad on univariate datasets
+uDreyfus1_h2o::h2o.deeplearning_02,15:54:17.121,15:54:17.699,0.578,0.2988,0.2583,,maxiter=200,Bad on univariate datasets
+uDreyfus1_h2o::h2o.deeplearning_03,15:54:17.699,15:54:18.214,0.515,0.314,0.2569,,maxiter=200,Bad on univariate datasets
+uDreyfus1_h2o::h2o.deeplearning_04,15:54:18.214,15:54:18.792,0.578,0.3556,0.2716,,maxiter=200,Bad on univariate datasets
+uDreyfus1_h2o::h2o.deeplearning_05,15:54:18.792,15:54:19.370,0.578,0.2813,0.2409,,maxiter=200,Bad on univariate datasets
+uDreyfus1_h2o::h2o.deeplearning_06,15:54:19.370,15:54:19.964,0.594,0.3533,0.2711,,maxiter=200,Bad on univariate datasets
+uDreyfus1_h2o::h2o.deeplearning_07,15:54:19.964,15:54:20.542,0.578,0.3376,0.2704,,maxiter=200,Bad on univariate datasets
+uDreyfus1_h2o::h2o.deeplearning_08,15:54:20.542,15:54:21.104,0.562,0.3287,0.2744,,maxiter=200,Bad on univariate datasets
+uDreyfus1_h2o::h2o.deeplearning_09,15:54:21.104,15:54:21.682,0.578,0.3477,0.2744,,maxiter=200,Bad on univariate datasets
+uDreyfus1_h2o::h2o.deeplearning_10,15:54:21.682,15:54:22.228,0.546,0.3282,0.2774,,maxiter=200,Bad on univariate datasets
+uDreyfus1_neuralnet::neuralnet_rprop+_01,18:10:57.524,18:10:57.602,0.078,0.0102,0.0079,,,Erratic on difficult datasets
+uDreyfus1_neuralnet::neuralnet_rprop+_02,18:10:57.602,18:10:57.868,0.266,0.0203,0.0172,,,Erratic on difficult datasets
+uDreyfus1_neuralnet::neuralnet_rprop+_03,18:10:57.883,18:10:57.930,0.047,0.0745,0.0546,,,Erratic on difficult datasets
+uDreyfus1_neuralnet::neuralnet_rprop+_04,18:10:57.946,18:10:58.071,0.125,0.0237,0.0206,,,Erratic on difficult datasets
+uDreyfus1_neuralnet::neuralnet_rprop+_05,18:10:58.086,18:10:58.164,0.078,0.0174,0.0149,,,Erratic on difficult datasets

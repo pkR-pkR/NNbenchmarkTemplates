@@ -1,0 +1,36 @@
+event,start,end,duration,RMSE,MAE,stars,params,comment
+uGauss2_nlsr::nlxb_01,15:36:53.585,15:36:53.631,0.046,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_02,15:36:53.631,15:36:53.772,0.141,4.9923,3.7651,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_03,15:36:53.772,15:36:53.835,0.063,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_04,15:36:53.835,15:36:53.866,0.031,8.0767,5.1869,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_05,15:36:53.866,15:36:53.928,0.062,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_06,15:36:53.928,15:36:54.038,0.11,2.9793,2.3882,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_07,15:36:54.038,15:36:54.100,0.062,8.3737,5.801,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_08,15:36:54.100,15:36:54.147,0.047,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_09,15:36:54.147,15:36:54.256,0.109,2.3386,1.8372,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_10,15:36:54.256,15:36:54.319,0.063,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpack.lm::nlsLM_01,15:46:31.231,15:46:31.294,0.063,6.0691,4.6394,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpack.lm::nlsLM_02,15:46:31.294,15:46:31.325,0.031,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpack.lm::nlsLM_03,15:46:31.325,15:46:31.388,0.063,2.3331,1.8309,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpack.lm::nlsLM_04,15:46:31.388,15:46:31.450,0.062,2.3326,1.8306,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpack.lm::nlsLM_05,15:46:31.450,15:46:31.481,0.031,8.3794,5.7628,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpack.lm::nlsLM_06,15:46:31.481,15:46:31.544,0.063,8.3739,5.8035,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpack.lm::nlsLM_07,15:46:31.544,15:46:31.591,0.047,8.3794,5.7628,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpack.lm::nlsLM_08,15:46:31.591,15:46:31.606,0.015,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpack.lm::nlsLM_09,15:46:31.606,15:46:31.669,0.063,6.0885,4.6224,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpack.lm::nlsLM_10,15:46:31.669,15:46:31.731,0.062,2.3338,1.8316,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_h2o::h2o.deeplearning_01,15:54:34.283,15:54:34.878,0.595,9.6988,7.0654,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_02,15:54:34.878,15:54:35.534,0.656,8.7599,6.3565,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_03,15:54:35.534,15:54:36.095,0.561,12.9048,10.5043,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_04,15:54:36.095,15:54:36.721,0.626,9.6128,6.953,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_05,15:54:36.721,15:54:37.299,0.578,9.2767,7.1923,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_06,15:54:37.299,15:54:37.846,0.547,6.9879,5.0515,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_07,15:54:37.846,15:54:38.455,0.609,10.4949,7.5995,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_08,15:54:38.455,15:54:39.017,0.562,7.0887,5.2485,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_09,15:54:39.017,15:54:39.689,0.672,8.7844,6.6171,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_10,15:54:39.689,15:54:40.298,0.609,9.6741,7.1449,,maxiter=200,Bad on univariate datasets
+uGauss2_neuralnet::neuralnet_rprop+_01,18:11:34.608,18:11:35.046,0.438,3.5031,2.6058,,,Erratic on difficult datasets
+uGauss2_neuralnet::neuralnet_rprop+_02,18:11:35.046,18:11:35.499,0.453,3.5026,2.6044,,,Erratic on difficult datasets
+uGauss2_neuralnet::neuralnet_rprop+_03,18:11:35.499,18:11:35.811,0.312,8.0784,5.184,,,Erratic on difficult datasets
+uGauss2_neuralnet::neuralnet_rprop+_04,18:11:35.811,18:11:36.483,0.672,3.508,2.6092,,,Erratic on difficult datasets
+uGauss2_neuralnet::neuralnet_rprop+_05,18:11:36.483,18:11:46.105,9.622,2.4326,1.9185,,,Erratic on difficult datasets

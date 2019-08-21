@@ -1,0 +1,36 @@
+event,start,end,duration,RMSE,MAE,stars,params,comment
+mDette_nlsr::nlxb_01,15:36:27.895,15:36:28.285,0.39,0.7028,0.5658,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_02,15:36:28.285,15:36:28.645,0.36,0.2522,0.2003,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_03,15:36:28.645,15:36:29.035,0.39,0.5741,0.4581,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_04,15:36:29.035,15:36:29.379,0.344,1.8427,1.3839,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_05,15:36:29.379,15:36:29.738,0.359,0.1665,0.1335,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_06,15:36:29.738,15:36:30.097,0.359,1.3769,1.1922,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_07,15:36:30.097,15:36:30.488,0.391,0.6139,0.5108,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_08,15:36:30.488,15:36:30.832,0.344,0.2352,0.1887,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_09,15:36:30.832,15:36:31.191,0.359,2.2297,1.5181,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_10,15:36:31.191,15:36:31.550,0.359,0.2239,0.18,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpack.lm::nlsLM_01,15:46:10.034,15:46:10.317,0.283,2.0236,1.4585,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpack.lm::nlsLM_02,15:46:10.317,15:46:10.601,0.284,0.1043,0.0832,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpack.lm::nlsLM_03,15:46:10.601,15:46:10.894,0.293,0.1328,0.1062,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpack.lm::nlsLM_04,15:46:10.902,15:46:11.175,0.273,1.3856,1.1977,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpack.lm::nlsLM_05,15:46:11.177,15:46:11.431,0.254,1.365,1.1826,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpack.lm::nlsLM_06,15:46:11.431,15:46:11.742,0.311,1.8602,1.4688,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpack.lm::nlsLM_07,15:46:11.744,15:46:12.026,0.282,0.4033,0.3111,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpack.lm::nlsLM_08,15:46:12.028,15:46:12.338,0.31,0.3527,0.2715,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpack.lm::nlsLM_09,15:46:12.338,15:46:12.603,0.265,0.1905,0.1441,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpack.lm::nlsLM_10,15:46:12.603,15:46:12.900,0.297,2.1034,1.4772,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_h2o::h2o.deeplearning_01,15:53:26.418,15:53:28.295,1.877,2.5593,1.8938,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_02,15:53:28.311,15:53:30.074,1.763,2.468,1.8149,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_03,15:53:30.089,15:53:31.782,1.693,2.6061,1.9522,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_04,15:53:31.797,15:53:33.436,1.639,2.6979,2.0258,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_05,15:53:33.451,15:53:34.029,0.578,2.4087,1.7651,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_06,15:53:34.045,15:53:34.560,0.515,2.3295,1.6713,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_07,15:53:34.576,15:53:37.514,2.938,2.653,2.0127,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_08,15:53:37.529,15:53:38.170,0.641,2.6931,2.0627,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_09,15:53:38.201,15:53:39.933,1.732,2.4557,1.7397,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_10,15:53:39.948,15:53:40.604,0.656,2.4688,1.7683,,maxiter=200,Bad on univariate datasets
+mDette_neuralnet::neuralnet_rprop+_01,18:05:12.102,18:05:29.082,16.98,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_rprop+_02,18:05:29.098,18:05:45.188,16.09,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_rprop+_03,18:05:45.204,18:06:03.137,17.933,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_rprop+_04,18:06:03.152,18:06:19.336,16.184,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_rprop+_05,18:06:19.352,18:06:35.239,15.887,8.1656,6.5262,,,Erratic on difficult datasets
