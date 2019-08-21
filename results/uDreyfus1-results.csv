@@ -34,3 +34,8 @@ uDreyfus1_neuralnet::neuralnet_rprop+_02,18:10:57.602,18:10:57.868,0.266,0.0203,
 uDreyfus1_neuralnet::neuralnet_rprop+_03,18:10:57.883,18:10:57.930,0.047,0.0745,0.0546,,,Erratic on difficult datasets
 uDreyfus1_neuralnet::neuralnet_rprop+_04,18:10:57.946,18:10:58.071,0.125,0.0237,0.0206,,,Erratic on difficult datasets
 uDreyfus1_neuralnet::neuralnet_rprop+_05,18:10:58.086,18:10:58.164,0.078,0.0174,0.0149,,,Erratic on difficult datasets
+uDreyfus1_neuralnet::neuralnet_backprop_01,21:18:55.010,21:19:00.321,5.311,1.6122,1.3725,,,Fails on difficult datasets
+uDreyfus1_neuralnet::neuralnet_backprop_02,21:19:00.321,21:19:03.039,2.718,0.0865,0.0655,,,Fails on difficult datasets
+uDreyfus1_neuralnet::neuralnet_backprop_03,21:19:03.039,21:19:05.882,2.843,0.0249,0.0209,,,Fails on difficult datasets
+uDreyfus1_neuralnet::neuralnet_backprop_04,21:19:05.882,21:19:10.943,5.061,0.0343,0.0279,,,Fails on difficult datasets
+uDreyfus1_neuralnet::neuralnet_backprop_05,21:19:10.943,21:19:14.849,3.906,0.0199,0.0176,,,Fails on difficult datasets

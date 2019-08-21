@@ -34,3 +34,8 @@ uNeuroOne_neuralnet::neuralnet_rprop+_02,18:11:51.604,18:11:51.620,0.016,0.6162,
 uNeuroOne_neuralnet::neuralnet_rprop+_03,18:11:51.620,18:11:51.651,0.031,0.283,0.2315,,,Erratic on difficult datasets
 uNeuroOne_neuralnet::neuralnet_rprop+_04,18:11:51.651,18:11:51.698,0.047,0.283,0.2316,,,Erratic on difficult datasets
 uNeuroOne_neuralnet::neuralnet_rprop+_05,18:11:51.698,18:11:51.729,0.031,0.2831,0.2317,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_01,21:21:32.625,21:21:34.734,2.109,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_02,21:21:34.734,21:21:36.499,1.765,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_03,21:21:36.499,21:21:38.530,2.031,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_04,21:21:38.545,21:21:40.685,2.14,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_05,21:21:40.685,21:21:42.732,2.047,0.2832,0.2311,,,Fails on difficult datasets

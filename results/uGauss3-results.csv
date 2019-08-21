@@ -34,3 +34,8 @@ uGauss3_neuralnet::neuralnet_rprop+_02,18:11:47.011,18:11:48.574,1.563,3.1765,2.
 uGauss3_neuralnet::neuralnet_rprop+_03,18:11:48.574,18:11:48.980,0.406,2.4806,1.954,,,Erratic on difficult datasets
 uGauss3_neuralnet::neuralnet_rprop+_04,18:11:48.980,18:11:50.479,1.499,3.1802,2.5117,,,Erratic on difficult datasets
 uGauss3_neuralnet::neuralnet_rprop+_05,18:11:50.479,18:11:51.542,1.063,2.3342,1.8767,,,Erratic on difficult datasets
+uGauss3_neuralnet::neuralnet_backprop_01,21:20:49.322,21:20:57.976,8.654,40.0663,34.1007,,,Fails on difficult datasets
+uGauss3_neuralnet::neuralnet_backprop_02,21:20:57.976,21:21:06.381,8.405,40.0663,34.1007,,,Fails on difficult datasets
+uGauss3_neuralnet::neuralnet_backprop_03,21:21:06.381,21:21:14.973,8.592,40.0663,34.1007,,,Fails on difficult datasets
+uGauss3_neuralnet::neuralnet_backprop_04,21:21:14.973,21:21:23.877,8.904,40.0663,34.1007,,,Fails on difficult datasets
+uGauss3_neuralnet::neuralnet_backprop_05,21:21:23.892,21:21:32.593,8.701,40.0663,34.1007,,,Fails on difficult datasets

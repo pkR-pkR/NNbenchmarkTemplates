@@ -34,3 +34,8 @@ mDette_neuralnet::neuralnet_rprop+_02,18:05:29.098,18:05:45.188,16.09,8.1656,6.5
 mDette_neuralnet::neuralnet_rprop+_03,18:05:45.204,18:06:03.137,17.933,8.1656,6.5262,,,Erratic on difficult datasets
 mDette_neuralnet::neuralnet_rprop+_04,18:06:03.152,18:06:19.336,16.184,8.1656,6.5262,,,Erratic on difficult datasets
 mDette_neuralnet::neuralnet_rprop+_05,18:06:19.352,18:06:35.239,15.887,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_backprop_01,21:12:24.176,21:12:40.734,16.558,8.1656,6.5262,,,Fails on difficult datasets
+mDette_neuralnet::neuralnet_backprop_02,21:12:40.750,21:12:57.512,16.762,8.1656,6.5262,,,Fails on difficult datasets
+mDette_neuralnet::neuralnet_backprop_03,21:12:57.527,21:13:13.883,16.356,8.1656,6.5262,,,Fails on difficult datasets
+mDette_neuralnet::neuralnet_backprop_04,21:13:13.898,21:13:30.285,16.387,8.1656,6.5262,,,Fails on difficult datasets
+mDette_neuralnet::neuralnet_backprop_05,21:13:30.301,21:13:46.909,16.608,8.1656,6.5262,,,Fails on difficult datasets

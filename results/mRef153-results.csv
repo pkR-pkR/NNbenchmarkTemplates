@@ -34,3 +34,8 @@ mRef153_neuralnet::neuralnet_rprop+_02,18:10:37.122,18:10:37.341,0.219,3.5722,2.
 mRef153_neuralnet::neuralnet_rprop+_03,18:10:37.357,18:10:37.513,0.156,3.2772,2.3772,,,Erratic on difficult datasets
 mRef153_neuralnet::neuralnet_rprop+_04,18:10:37.513,18:10:38.638,1.125,3.1932,2.2485,,,Erratic on difficult datasets
 mRef153_neuralnet::neuralnet_rprop+_05,18:10:38.653,18:10:38.934,0.281,3.5711,2.6605,,,Erratic on difficult datasets
+mRef153_neuralnet::neuralnet_backprop_01,21:17:33.145,21:17:35.457,2.312,3.3035,2.4035,,,Fails on difficult datasets
+mRef153_neuralnet::neuralnet_backprop_02,21:17:35.473,21:17:40.128,4.655,3.6961,2.7053,,,Fails on difficult datasets
+mRef153_neuralnet::neuralnet_backprop_03,21:17:40.128,21:17:45.736,5.608,3.4972,2.4522,,,Fails on difficult datasets
+mRef153_neuralnet::neuralnet_backprop_04,21:17:45.736,21:17:53.047,7.311,27.8983,25.1873,,,Fails on difficult datasets
+mRef153_neuralnet::neuralnet_backprop_05,21:17:53.047,21:17:55.171,2.124,3.6677,2.6746,,,Fails on difficult datasets

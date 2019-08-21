@@ -45,7 +45,7 @@ names(NNdatasets)
 ## SELECT ONE DATASET OR UNCOMMENT THE LOOP TO RUN ALL DATASETS
 ## IF THE LOOP IS ACTIVATED, YOU CAN RUN THIS FULL PAGE IN EXTENSO
 ## ===============================================================
-# dset   <- "uDmod1"
+# dset   <- "uGauss1"
 for (dset in names(NNdatasets)) {
 
 
@@ -83,14 +83,14 @@ attach(ZZ)
 ## printmsg => PRINT timeR DURING THE TRAINING
 ## =================================================
 nruns   <- 5
-algo    <- "rprop+"
+algo    <- "backprop"
 stepmax <- 1e+05
 lr      <- 0.001
 TF      <- TRUE 
 stars   <- ""
 params  <- ""
-comment <- "Erratic on difficult datasets"
-descr   <- paste(dset,  "neuralnet::neuralnet_rprop+", sep = "_")
+comment <- "Fails on difficult datasets"
+descr   <- paste(dset,  "neuralnet::neuralnet_backprop", sep = "_")
 
 
 timer    <- createTimer()
@@ -107,7 +107,7 @@ for(i in 1:nruns){
     timer$start(event)
     #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
 	#### DO NOT MODIFY THE <error> LINE IN tryCatch() 
-    bb         <- round(rnorm(nparNN, sd = 0.1), 4)
+    bb         <- round(rnorm(nparNN, sd = 1), 4)
     names(bb)  <- paste0("b", 1:nparNN)
     NNreg      <- tryCatch(
                     neuralnet::neuralnet(formula = fmla, data = Zxy, 

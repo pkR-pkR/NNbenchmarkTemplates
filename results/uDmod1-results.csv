@@ -34,3 +34,8 @@ uDmod1_neuralnet::neuralnet_rprop+_02,18:10:40.012,18:10:41.699,1.687,0.0615,0.0
 uDmod1_neuralnet::neuralnet_rprop+_03,18:10:41.699,18:10:42.402,0.703,0.0469,0.038,,,Erratic on difficult datasets
 uDmod1_neuralnet::neuralnet_rprop+_04,18:10:42.402,18:10:43.402,1,0.0493,0.0395,,,Erratic on difficult datasets
 uDmod1_neuralnet::neuralnet_rprop+_05,18:10:43.402,18:10:44.261,0.859,0.0616,0.0473,,,Erratic on difficult datasets
+uDmod1_neuralnet::neuralnet_backprop_01,21:17:55.218,21:18:01.389,6.171,0.5884,0.5069,,,Fails on difficult datasets
+uDmod1_neuralnet::neuralnet_backprop_02,21:18:01.389,21:18:07.512,6.123,0.5884,0.5069,,,Fails on difficult datasets
+uDmod1_neuralnet::neuralnet_backprop_03,21:18:07.512,21:18:13.558,6.046,0.5884,0.5069,,,Fails on difficult datasets
+uDmod1_neuralnet::neuralnet_backprop_04,21:18:13.558,21:18:19.603,6.045,0.5884,0.5069,,,Fails on difficult datasets
+uDmod1_neuralnet::neuralnet_backprop_05,21:18:19.603,21:18:25.695,6.092,0.5884,0.5069,,,Fails on difficult datasets

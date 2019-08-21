@@ -34,3 +34,8 @@ mIshigami_neuralnet::neuralnet_rprop+_02,18:08:31.416,18:09:00.822,29.406,3.6898
 mIshigami_neuralnet::neuralnet_rprop+_03,18:09:00.837,18:09:29.971,29.134,3.6898,2.9776,,,Erratic on difficult datasets
 mIshigami_neuralnet::neuralnet_rprop+_04,18:09:29.987,18:10:06.660,36.673,3.6898,2.9776,,,Erratic on difficult datasets
 mIshigami_neuralnet::neuralnet_rprop+_05,18:10:06.676,18:10:36.216,29.54,3.6898,2.9776,,,Erratic on difficult datasets
+mIshigami_neuralnet::neuralnet_backprop_01,21:15:12.788,21:15:40.919,28.131,3.6898,2.9776,,,Fails on difficult datasets
+mIshigami_neuralnet::neuralnet_backprop_02,21:15:40.950,21:16:08.647,27.697,3.6898,2.9776,,,Fails on difficult datasets
+mIshigami_neuralnet::neuralnet_backprop_03,21:16:08.663,21:16:37.277,28.614,3.6898,2.9776,,,Fails on difficult datasets
+mIshigami_neuralnet::neuralnet_backprop_04,21:16:37.293,21:17:05.140,27.847,3.6898,2.9776,,,Fails on difficult datasets
+mIshigami_neuralnet::neuralnet_backprop_05,21:17:05.155,21:17:33.067,27.912,3.6898,2.9776,,,Fails on difficult datasets
