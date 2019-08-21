@@ -84,7 +84,7 @@ attach(ZZ)
 ## =================================================
 nruns   <- 10
 maxiter <- 150
-TF      <- FALSE 
+TF      <- TRUE 
 stars   <- "**"
 params  <- "maxiter = 150"
 comment <- "Require hand-made formulas and scaling"
