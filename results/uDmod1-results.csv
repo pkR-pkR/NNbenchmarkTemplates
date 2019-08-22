@@ -39,3 +39,83 @@ uDmod1_neuralnet::neuralnet_backprop_02,21:18:01.389,21:18:07.512,6.123,0.5884,0
 uDmod1_neuralnet::neuralnet_backprop_03,21:18:07.512,21:18:13.558,6.046,0.5884,0.5069,,,Fails on difficult datasets
 uDmod1_neuralnet::neuralnet_backprop_04,21:18:13.558,21:18:19.603,6.045,0.5884,0.5069,,,Fails on difficult datasets
 uDmod1_neuralnet::neuralnet_backprop_05,21:18:19.603,21:18:25.695,6.092,0.5884,0.5069,,,Fails on difficult datasets
+uDmod1_brnn::brnn_gaussNewton_01,10:21:53.726,10:21:53.742,0.016,0.5885,0.5088,***,,Different NN
+uDmod1_brnn::brnn_gaussNewton_02,10:21:53.742,10:21:53.758,0.016,0.5885,0.5088,***,,Different NN
+uDmod1_brnn::brnn_gaussNewton_03,10:21:53.758,10:21:53.758,0,0.5885,0.5088,***,,Different NN
+uDmod1_brnn::brnn_gaussNewton_04,10:21:53.758,10:21:53.773,0.015,0.334,0.2909,***,,Different NN
+uDmod1_brnn::brnn_gaussNewton_05,10:21:53.773,10:21:53.820,0.047,0.0726,0.0559,***,,Different NN
+uDmod1_brnn::brnn_gaussNewton_06,10:21:53.820,10:21:53.851,0.031,0.1172,0.0908,***,,Different NN
+uDmod1_brnn::brnn_gaussNewton_07,10:21:53.851,10:21:53.851,0,0.5885,0.5088,***,,Different NN
+uDmod1_brnn::brnn_gaussNewton_08,10:21:53.851,10:21:53.883,0.032,0.0603,0.0449,***,,Different NN
+uDmod1_brnn::brnn_gaussNewton_09,10:21:53.883,10:21:53.914,0.031,0.0455,0.0365,***,,Different NN
+uDmod1_brnn::brnn_gaussNewton_10,10:21:53.914,10:21:53.945,0.031,0.1164,0.0898,***,,Different NN
+uDmod1_AMORE::train_ADAPTgd_01,13:56:35.894,13:56:36.035,0.141,0.1487,0.1147,*,iter=3500, lr=0.01. Require scaling,
+uDmod1_AMORE::train_ADAPTgd_02,13:56:36.035,13:56:36.175,0.14,0.13,0.1093,*,iter=3500, lr=0.01. Require scaling,
+uDmod1_AMORE::train_ADAPTgd_03,13:56:36.175,13:56:36.332,0.157,0.1102,0.0913,*,iter=3500, lr=0.01. Require scaling,
+uDmod1_AMORE::train_ADAPTgd_04,13:56:36.332,13:56:36.472,0.14,0.1812,0.1237,*,iter=3500, lr=0.01. Require scaling,
+uDmod1_AMORE::train_ADAPTgd_05,13:56:36.472,13:56:36.628,0.156,0.1617,0.1094,*,iter=3500, lr=0.01. Require scaling,
+uDmod1_AMORE::train_ADAPTgd_06,13:56:36.628,13:56:36.785,0.157,0.1736,0.1241,*,iter=3500, lr=0.01. Require scaling,
+uDmod1_AMORE::train_ADAPTgd_07,13:56:36.785,13:56:36.937,0.152,0.1962,0.1379,*,iter=3500, lr=0.01. Require scaling,
+uDmod1_AMORE::train_ADAPTgd_08,13:56:36.937,13:56:37.092,0.155,0.1366,0.11,*,iter=3500, lr=0.01. Require scaling,
+uDmod1_AMORE::train_ADAPTgd_09,13:56:37.092,13:56:37.244,0.152,0.1247,0.1027,*,iter=3500, lr=0.01. Require scaling,
+uDmod1_AMORE::train_ADAPTgd_10,13:56:37.244,13:56:37.385,0.141,0.1717,0.1157,*,iter=3500, lr=0.01. Require scaling,
+uDmod1_AMORE::train_ADAPTgdwm_01,14:16:29.382,14:16:29.913,0.531,0.1034,0.0847,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDmod1_AMORE::train_ADAPTgdwm_02,14:16:29.913,14:16:30.444,0.531,0.1394,0.1006,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDmod1_AMORE::train_ADAPTgdwm_03,14:16:30.444,14:16:30.975,0.531,0.095,0.0811,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDmod1_AMORE::train_ADAPTgdwm_04,14:16:30.975,14:16:31.507,0.532,0.0949,0.0798,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDmod1_AMORE::train_ADAPTgdwm_05,14:16:31.507,14:16:32.038,0.531,0.0998,0.0838,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDmod1_AMORE::train_ADAPTgdwm_06,14:16:32.038,14:16:32.569,0.531,0.1079,0.087,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDmod1_AMORE::train_ADAPTgdwm_07,14:16:32.569,14:16:33.131,0.562,0.1383,0.0981,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDmod1_AMORE::train_ADAPTgdwm_08,14:16:33.147,14:16:33.662,0.515,0.1006,0.0829,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDmod1_AMORE::train_ADAPTgdwm_09,14:16:33.662,14:16:34.193,0.531,0.1169,0.0954,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDmod1_AMORE::train_ADAPTgdwm_10,14:16:34.193,14:16:34.709,0.516,0.1101,0.0921,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDmod1_AMORE::train_BATCHgd_01,14:36:31.616,14:36:33.244,1.628,0.5136,0.4504,,iter=7500, lr=0.05, sigmoid,very bad
+uDmod1_AMORE::train_BATCHgd_02,14:36:33.244,14:36:34.835,1.591,0.4972,0.4339,,iter=7500, lr=0.05, sigmoid,very bad
+uDmod1_AMORE::train_BATCHgd_03,14:36:34.835,14:36:36.290,1.455,0.5132,0.4508,,iter=7500, lr=0.05, sigmoid,very bad
+uDmod1_AMORE::train_BATCHgd_04,14:36:36.290,14:36:37.542,1.252,0.5674,0.5073,,iter=7500, lr=0.05, sigmoid,very bad
+uDmod1_AMORE::train_BATCHgd_05,14:36:37.542,14:36:38.807,1.265,0.4722,0.4093,,iter=7500, lr=0.05, sigmoid,very bad
+uDmod1_AMORE::train_BATCHgdwm_01,15:03:29.098,15:03:32.286,3.188,0.5792,0.5167,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uDmod1_AMORE::train_BATCHgdwm_02,15:03:32.286,15:03:35.281,2.995,0.5754,0.5144,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uDmod1_AMORE::train_BATCHgdwm_03,15:03:35.281,15:03:38.228,2.947,0.5743,0.5138,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uDmod1_AMORE::train_BATCHgdwm_04,15:03:38.228,15:03:41.316,3.088,0.58,0.5168,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uDmod1_AMORE::train_BATCHgdwm_05,15:03:41.316,15:03:44.318,3.002,0.5794,0.5169,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uDmod1_ANN2::neuralnetwork_sgd_01,16:27:43.593,16:27:43.655,0.062,0.3381,0.2867,*,iter=4000, lr=0.01,Require fine tuning
+uDmod1_ANN2::neuralnetwork_sgd_02,16:27:43.655,16:27:43.718,0.063,0.3319,0.2894,*,iter=4000, lr=0.01,Require fine tuning
+uDmod1_ANN2::neuralnetwork_sgd_03,16:27:43.718,16:27:43.780,0.062,0.3326,0.29,*,iter=4000, lr=0.01,Require fine tuning
+uDmod1_ANN2::neuralnetwork_sgd_04,16:27:43.796,16:27:43.858,0.062,0.2016,0.1621,*,iter=4000, lr=0.01,Require fine tuning
+uDmod1_ANN2::neuralnetwork_sgd_05,16:27:43.858,16:27:43.921,0.063,0.2065,0.1621,*,iter=4000, lr=0.01,Require fine tuning
+uDmod1_ANN2::neuralnetwork_sgd_06,16:27:43.937,16:27:43.999,0.062,0.2047,0.1608,*,iter=4000, lr=0.01,Require fine tuning
+uDmod1_ANN2::neuralnetwork_sgd_07,16:27:44.015,16:27:44.077,0.062,0.2049,0.16,*,iter=4000, lr=0.01,Require fine tuning
+uDmod1_ANN2::neuralnetwork_sgd_08,16:27:44.077,16:27:44.140,0.063,0.3399,0.299,*,iter=4000, lr=0.01,Require fine tuning
+uDmod1_ANN2::neuralnetwork_sgd_09,16:27:44.140,16:27:44.218,0.078,0.3343,0.2928,*,iter=4000, lr=0.01,Require fine tuning
+uDmod1_ANN2::neuralnetwork_sgd_10,16:27:44.218,16:27:44.280,0.062,0.2063,0.1634,*,iter=4000, lr=0.01,Require fine tuning
+uDmod1_ANN2::neuralnetwork_adam_01,16:35:22.249,16:35:22.326,0.077,0.1481,0.1166,*,iter=4000, lr=0.02,Require fine tuning
+uDmod1_ANN2::neuralnetwork_adam_02,16:35:22.328,16:35:22.403,0.075,0.2052,0.1609,*,iter=4000, lr=0.02,Require fine tuning
+uDmod1_ANN2::neuralnetwork_adam_03,16:35:22.405,16:35:22.482,0.077,0.2,0.1599,*,iter=4000, lr=0.02,Require fine tuning
+uDmod1_ANN2::neuralnetwork_adam_04,16:35:22.484,16:35:22.559,0.075,0.1813,0.1488,*,iter=4000, lr=0.02,Require fine tuning
+uDmod1_ANN2::neuralnetwork_adam_05,16:35:22.561,16:35:22.638,0.077,0.338,0.287,*,iter=4000, lr=0.02,Require fine tuning
+uDmod1_ANN2::neuralnetwork_adam_06,16:35:22.640,16:35:22.717,0.077,0.167,0.1336,*,iter=4000, lr=0.02,Require fine tuning
+uDmod1_ANN2::neuralnetwork_adam_07,16:35:22.719,16:35:22.794,0.075,0.1987,0.1559,*,iter=4000, lr=0.02,Require fine tuning
+uDmod1_ANN2::neuralnetwork_adam_08,16:35:22.797,16:35:22.873,0.076,0.1846,0.1521,*,iter=4000, lr=0.02,Require fine tuning
+uDmod1_ANN2::neuralnetwork_adam_09,16:35:22.875,16:35:22.951,0.076,0.1306,0.1072,*,iter=4000, lr=0.02,Require fine tuning
+uDmod1_ANN2::neuralnetwork_adam_10,16:35:22.953,16:35:23.023,0.07,0.3344,0.2877,*,iter=4000, lr=0.02,Require fine tuning
+uDmod1_ANN2::neuralnetwork_rmsprop_01,16:41:45.528,16:41:45.590,0.062,0.3447,0.2967,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDmod1_ANN2::neuralnetwork_rmsprop_02,16:41:45.590,16:41:45.653,0.063,0.2279,0.1846,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDmod1_ANN2::neuralnetwork_rmsprop_03,16:41:45.669,16:41:45.731,0.062,0.2011,0.1592,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDmod1_ANN2::neuralnetwork_rmsprop_04,16:41:45.731,16:41:45.793,0.062,0.3362,0.2926,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDmod1_ANN2::neuralnetwork_rmsprop_05,16:41:45.793,16:41:45.872,0.079,0.1988,0.158,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDmod1_ANN2::neuralnetwork_rmsprop_06,16:41:45.887,16:41:45.950,0.063,0.3377,0.2951,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDmod1_ANN2::neuralnetwork_rmsprop_07,16:41:45.950,16:41:46.012,0.062,0.209,0.1654,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDmod1_ANN2::neuralnetwork_rmsprop_08,16:41:46.012,16:41:46.090,0.078,0.1834,0.1416,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDmod1_ANN2::neuralnetwork_rmsprop_09,16:41:46.090,16:41:46.153,0.063,0.1703,0.1331,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDmod1_ANN2::neuralnetwork_rmsprop_10,16:41:46.168,16:41:46.231,0.063,0.208,0.1657,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDmod1_deepnet::gradientdescent_01,17:29:50.544,17:29:50.669,0.125,0.2715,0.2264,,numepochs=1000,Bad on univariate datasets
+uDmod1_deepnet::gradientdescent_02,17:29:50.669,17:29:50.794,0.125,0.3373,0.2886,,numepochs=1000,Bad on univariate datasets
+uDmod1_deepnet::gradientdescent_03,17:29:50.794,17:29:50.919,0.125,0.2886,0.2362,,numepochs=1000,Bad on univariate datasets
+uDmod1_deepnet::gradientdescent_04,17:29:50.919,17:29:51.044,0.125,0.3009,0.2505,,numepochs=1000,Bad on univariate datasets
+uDmod1_deepnet::gradientdescent_05,17:29:51.044,17:29:51.169,0.125,0.2961,0.2528,,numepochs=1000,Bad on univariate datasets
+uDmod1_deepnet::gradientdescent_06,17:29:51.169,17:29:51.294,0.125,0.2654,0.2177,,numepochs=1000,Bad on univariate datasets
+uDmod1_deepnet::gradientdescent_07,17:29:51.310,17:29:51.435,0.125,0.2938,0.2382,,numepochs=1000,Bad on univariate datasets
+uDmod1_deepnet::gradientdescent_08,17:29:51.435,17:29:51.560,0.125,0.2959,0.2524,,numepochs=1000,Bad on univariate datasets
+uDmod1_deepnet::gradientdescent_09,17:29:51.560,17:29:51.685,0.125,0.2569,0.2049,,numepochs=1000,Bad on univariate datasets
+uDmod1_deepnet::gradientdescent_10,17:29:51.685,17:29:51.810,0.125,0.3055,0.25,,numepochs=1000,Bad on univariate datasets

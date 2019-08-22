@@ -1,10 +1,10 @@
 
 
-## ==============================================
-## 2019-08-13 NNbenchmark TEMPLATE FOR nlsr
-##            Author: PATRICE KIENER
+## ==================================================================
+## 2019-08-22 NNbenchmark TEMPLATE FOR neuralnet_1.44.2 + algo rprop+
+##            Authors: PATRICE KIENER + SALSABILA MAHDI
 ##            (REQUIRE at least NNbenchmark_2.2)
-## ==============================================
+## ==================================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)

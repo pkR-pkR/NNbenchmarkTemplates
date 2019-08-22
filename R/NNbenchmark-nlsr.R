@@ -1,10 +1,11 @@
 
 
-## ==============================================
-## 2019-08-13 NNbenchmark TEMPLATE FOR nlsr
-##            Author: PATRICE KIENER
+## ==================================================
+## 2019-08-22 NNbenchmark TEMPLATE FOR nlsr_2019.8.21
+##            Authors: PATRICE KIENER + JOHN NASH
 ##            (REQUIRE at least NNbenchmark_2.2)
-## ==============================================
+##            (REQUIRE at least nlsr_2019.8.21)
+## ==================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
@@ -113,7 +114,7 @@ for(i in 1:nruns){
 					error = function(y) {lm(y ~ 0, data = Zxy)}
                   )
     y_pred     <- tryCatch(
-                    ym0 + ysd0*nlsr::nlsr.predict(Zxy, NNreg),
+                    ym0 + ysd0*as.numeric(predict(NNreg, Zxy)),
                     error = function(NNreg) rep(ym0, nrow(Zxy))
                   )
     ####

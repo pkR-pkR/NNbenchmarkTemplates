@@ -1,10 +1,10 @@
 
 
-## ====================================================
-## 2019-08-13 NNbenchmark TEMPLATE FOR minpack.lm_1.2.1
-##            Author: PATRICE KIENER
-##            (REQUIRE at least NNbenchmark_2.2)
-## ====================================================
+## =================================================
+## 2019-08-22 NNbenchmark TEMPLATE FOR deepnet_0.2
+##            Authors: PATRICE KIENER + AKSHAJ VERMA
+##            (REQUIRE at least NNbenchmark_2.3)
+## =================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
@@ -14,9 +14,9 @@ options("digits.secs" = 3)
 ## SELECT THE PACKAGE USED FOR THE TRAINING
 ## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## ===========================================
-library(minpack.lm)
-# options(warn = 0)  # warnings are printed (default)
-options(warn = -1) # warnings are not printed
+library(deepnet)
+options(warn = 0)  # warnings are printed (default)
+# options(warn = -1) # warnings are not printed
 
 
 ## =====================================================
@@ -45,7 +45,7 @@ names(NNdatasets)
 ## SELECT ONE DATASET OR UNCOMMENT THE LOOP TO RUN ALL DATASETS
 ## IF THE LOOP IS ACTIVATED, YOU CAN RUN THIS FULL PAGE IN EXTENSO
 ## ===============================================================
-# dset   <- "uGauss2"
+# dset   <- "uDreyfus2"
 for (dset in names(NNdatasets)) {
 
 
@@ -82,13 +82,16 @@ attach(ZZ)
 ## comment  => comment2: free (short) text
 ## printmsg => PRINT timeR DURING THE TRAINING
 ## =================================================
-nruns   <- 10
-maxiter <- 150
 TF      <- TRUE 
-stars   <- "**"
-params  <- "maxiter = 150"
-comment <- "Require hand-made formulas and scaling"
-descr   <- paste(dset, "minpack.lm::nlsLM", sep = "_")
+descr   <- paste(dset,  "deepnet::gradientdescent", sep = "_")
+nruns   <- 10
+method  <- "gradient descent"
+numepochs <- 1000
+lr        <- 0.8
+momentum  <- 0.5
+stars   <- ""
+params  <- "numepochs=1000"
+comment <- "Bad on univariate datasets"
 
 
 timer    <- createTimer()
@@ -105,15 +108,20 @@ for(i in 1:nruns){
     timer$start(event)
     #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
 	#### DO NOT MODIFY THE <error> LINE IN tryCatch() 
-    bb         <- round(rnorm(nparNN, sd = 0.1), 4)
-    names(bb)  <- paste0("b", 1:nparNN)
+    # bb         <- round(rnorm(nparNN, sd = 1), 4)
+    # names(bb)  <- paste0("b", 1:nparNN)
     NNreg      <- tryCatch(
-                    minpack.lm::nlsLM(fmlaNN, data = Zxy, start = bb, 
-                                      control = list(maxiter = maxiter)),
+                     deepnet::nn.train(x = x, y = y, 
+							hidden = c(neur), 
+							activationfun = "sigm", 
+							learningrate = lr, 
+							momentum = momentum, 
+							output = "linear", 
+							numepochs = numepochs),
 					error = function(y) {lm(y ~ 0, data = Zxy)}
                   )
     y_pred     <- tryCatch(
-                    ym0 + ysd0*fitted(NNreg),
+                    ym0 + ysd0*as.numeric(deepnet::nn.predict(nn = NNreg, x = x)),
                     error = function(NNreg) rep(ym0, nrow(Zxy))
                   )
     ####

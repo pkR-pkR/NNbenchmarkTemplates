@@ -1,10 +1,10 @@
 
 
-## =============================================
-## 2019-08-12 NNbenchmark TEMPLATE FOR h2o
+## =================================================
+## 2019-08-12 NNbenchmark TEMPLATE FOR h2o_3.2.6.0.2
 ##            Author: PATRICE KIENER
 ##            (REQUIRE at least NNbenchmark_2.1)
-## =============================================
+## =================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)

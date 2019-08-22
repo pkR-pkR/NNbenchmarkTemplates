@@ -39,3 +39,83 @@ uGauss2_neuralnet::neuralnet_backprop_02,21:20:14.319,21:20:23.044,8.725,37.6867
 uGauss2_neuralnet::neuralnet_backprop_03,21:20:23.044,21:20:31.924,8.88,37.6867,31.6105,,,Fails on difficult datasets
 uGauss2_neuralnet::neuralnet_backprop_04,21:20:31.932,21:20:40.637,8.705,37.6867,31.6105,,,Fails on difficult datasets
 uGauss2_neuralnet::neuralnet_backprop_05,21:20:40.637,21:20:49.291,8.654,37.6867,31.6105,,,Fails on difficult datasets
+uGauss2_brnn::brnn_gaussNewton_01,10:21:55.023,10:21:55.070,0.047,2.353,1.8475,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_02,10:21:55.070,10:21:55.132,0.062,5.3042,4.32,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_03,10:21:55.148,10:21:55.179,0.031,2.353,1.8475,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_04,10:21:55.179,10:21:55.242,0.063,2.5623,2.0394,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_05,10:21:55.242,10:21:55.289,0.047,2.5392,2.0226,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_06,10:21:55.304,10:21:55.351,0.047,5.2016,4.2335,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_07,10:21:55.367,10:21:55.413,0.046,2.588,2.0591,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_08,10:21:55.413,10:21:55.476,0.063,5.3098,4.326,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_09,10:21:55.476,10:21:55.538,0.062,5.2831,4.3023,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_10,10:21:55.538,10:21:55.601,0.063,2.3538,1.8483,***,,Different NN
+uGauss2_AMORE::train_ADAPTgd_01,13:56:43.982,13:56:44.230,0.248,5.6776,3.6586,*,iter=3500, lr=0.01. Require scaling,
+uGauss2_AMORE::train_ADAPTgd_02,13:56:44.230,13:56:44.482,0.252,3.0407,2.4664,*,iter=3500, lr=0.01. Require scaling,
+uGauss2_AMORE::train_ADAPTgd_03,13:56:44.490,13:56:44.745,0.255,5.0146,3.5894,*,iter=3500, lr=0.01. Require scaling,
+uGauss2_AMORE::train_ADAPTgd_04,13:56:44.745,13:56:44.997,0.252,6.2623,3.9166,*,iter=3500, lr=0.01. Require scaling,
+uGauss2_AMORE::train_ADAPTgd_05,13:56:45.005,13:56:45.250,0.245,4.9502,3.293,*,iter=3500, lr=0.01. Require scaling,
+uGauss2_AMORE::train_ADAPTgd_06,13:56:45.258,13:56:45.510,0.252,5.0257,3.5951,*,iter=3500, lr=0.01. Require scaling,
+uGauss2_AMORE::train_ADAPTgd_07,13:56:45.512,13:56:45.765,0.253,5.0529,3.3471,*,iter=3500, lr=0.01. Require scaling,
+uGauss2_AMORE::train_ADAPTgd_08,13:56:45.773,13:56:46.017,0.244,5.1713,3.6494,*,iter=3500, lr=0.01. Require scaling,
+uGauss2_AMORE::train_ADAPTgd_09,13:56:46.025,13:56:46.279,0.254,5.5212,3.5932,*,iter=3500, lr=0.01. Require scaling,
+uGauss2_AMORE::train_ADAPTgd_10,13:56:46.279,13:56:46.532,0.253,5.0338,3.634,*,iter=3500, lr=0.01. Require scaling,
+uGauss2_AMORE::train_ADAPTgdwm_01,14:16:58.995,14:16:59.964,0.969,7.1495,5.0052,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_02,14:16:59.964,14:17:00.948,0.984,3.0808,2.4916,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_03,14:17:00.948,14:17:01.916,0.968,4.2646,2.9343,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_04,14:17:01.916,14:17:02.869,0.953,12.1899,6.3193,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_05,14:17:02.885,14:17:03.853,0.968,3.0391,2.481,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_06,14:17:03.853,14:17:04.822,0.969,4.2622,2.9338,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_07,14:17:04.838,14:17:05.806,0.968,2.9527,2.3943,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_08,14:17:05.806,14:17:06.775,0.969,2.9516,2.3865,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_09,14:17:06.775,14:17:07.743,0.968,12.3006,6.3499,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_10,14:17:07.759,14:17:08.727,0.968,3.002,2.4405,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uGauss2_AMORE::train_BATCHgd_01,14:37:02.576,14:37:03.841,1.265,19.3663,15.202,,iter=7500, lr=0.05, sigmoid,very bad
+uGauss2_AMORE::train_BATCHgd_02,14:37:03.841,14:37:05.075,1.234,19.0447,14.9266,,iter=7500, lr=0.05, sigmoid,very bad
+uGauss2_AMORE::train_BATCHgd_03,14:37:05.075,14:37:06.400,1.325,17.1381,13.2071,,iter=7500, lr=0.05, sigmoid,very bad
+uGauss2_AMORE::train_BATCHgd_04,14:37:06.415,14:37:07.634,1.219,19.3785,14.7244,,iter=7500, lr=0.05, sigmoid,very bad
+uGauss2_AMORE::train_BATCHgd_05,14:37:07.634,14:37:08.961,1.327,16.7894,12.9925,,iter=7500, lr=0.05, sigmoid,very bad
+uGauss2_AMORE::train_BATCHgdwm_01,15:04:38.226,15:04:41.148,2.922,25.4158,21.3838,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uGauss2_AMORE::train_BATCHgdwm_02,15:04:41.148,15:04:44.116,2.968,22.4737,18.0465,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uGauss2_AMORE::train_BATCHgdwm_03,15:04:44.116,15:04:47.084,2.968,24.0175,19.7101,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uGauss2_AMORE::train_BATCHgdwm_04,15:04:47.084,15:04:49.974,2.89,23.7286,19.2779,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uGauss2_AMORE::train_BATCHgdwm_05,15:04:49.974,15:04:52.879,2.905,23.7432,19.3066,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uGauss2_ANN2::neuralnetwork_sgd_01,16:27:50.389,16:27:50.777,0.388,4.5099,3.1866,*,iter=4000, lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_02,16:27:50.780,16:27:51.155,0.375,3.3792,2.6737,*,iter=4000, lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_03,16:27:51.155,16:27:51.546,0.391,3.5018,2.7619,*,iter=4000, lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_04,16:27:51.546,16:27:51.936,0.39,3.5003,2.7587,*,iter=4000, lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_05,16:27:51.936,16:27:52.343,0.407,3.4389,2.7266,*,iter=4000, lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_06,16:27:52.343,16:27:52.749,0.406,3.6154,2.8356,*,iter=4000, lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_07,16:27:52.749,16:27:53.140,0.391,5.1764,3.6507,*,iter=4000, lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_08,16:27:53.140,16:27:53.530,0.39,3.4112,2.7015,*,iter=4000, lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_09,16:27:53.530,16:27:53.921,0.391,4.606,3.2489,*,iter=4000, lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_10,16:27:53.921,16:27:54.326,0.405,3.5536,2.8062,*,iter=4000, lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_01,16:35:29.684,16:35:30.103,0.419,2.5416,2.0158,*,iter=4000, lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_02,16:35:30.106,16:35:30.527,0.421,2.7823,2.1966,*,iter=4000, lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_03,16:35:30.530,16:35:30.942,0.412,3.4476,2.7495,*,iter=4000, lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_04,16:35:30.944,16:35:31.359,0.415,3.4057,2.6841,*,iter=4000, lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_05,16:35:31.362,16:35:31.777,0.415,3.2478,2.5769,*,iter=4000, lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_06,16:35:31.780,16:35:32.193,0.413,3.3545,2.6671,*,iter=4000, lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_07,16:35:32.196,16:35:32.606,0.41,3.0183,2.4438,*,iter=4000, lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_08,16:35:32.614,16:35:33.025,0.411,2.7435,2.2104,*,iter=4000, lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_09,16:35:33.027,16:35:33.449,0.422,3.5107,2.8875,*,iter=4000, lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_10,16:35:33.451,16:35:33.879,0.428,2.848,2.2578,*,iter=4000, lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_rmsprop_01,16:41:52.699,16:41:53.089,0.39,3.9189,3.0288,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uGauss2_ANN2::neuralnetwork_rmsprop_02,16:41:53.089,16:41:53.495,0.406,3.0204,2.4757,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uGauss2_ANN2::neuralnetwork_rmsprop_03,16:41:53.495,16:41:53.886,0.391,3.8498,3.2342,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uGauss2_ANN2::neuralnetwork_rmsprop_04,16:41:53.886,16:41:54.276,0.39,3.9559,3.1837,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uGauss2_ANN2::neuralnetwork_rmsprop_05,16:41:54.292,16:41:54.683,0.391,4.2659,3.4603,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uGauss2_ANN2::neuralnetwork_rmsprop_06,16:41:54.683,16:41:55.073,0.39,4.3337,3.5079,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uGauss2_ANN2::neuralnetwork_rmsprop_07,16:41:55.073,16:41:55.464,0.391,5.6706,4.6848,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uGauss2_ANN2::neuralnetwork_rmsprop_08,16:41:55.480,16:41:55.870,0.39,3.8341,3.1382,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uGauss2_ANN2::neuralnetwork_rmsprop_09,16:41:55.870,16:41:56.261,0.391,4.6516,3.6987,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uGauss2_ANN2::neuralnetwork_rmsprop_10,16:41:56.261,16:41:56.651,0.39,3.7252,2.9401,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uGauss2_deepnet::gradientdescent_01,17:29:59.402,17:29:59.777,0.375,7.3709,5.6625,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_02,17:29:59.777,17:30:00.152,0.375,7.4606,5.6887,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_03,17:30:00.152,17:30:00.573,0.421,7.9216,6.0059,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_04,17:30:00.573,17:30:00.933,0.36,8.8312,7.0469,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_05,17:30:00.933,17:30:01.308,0.375,7.794,5.9365,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_06,17:30:01.308,17:30:01.667,0.359,9.939,8.1903,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_07,17:30:01.667,17:30:02.026,0.359,7.9114,6.1298,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_08,17:30:02.042,17:30:02.401,0.359,6.7735,4.8847,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_09,17:30:02.401,17:30:02.776,0.375,7.3524,5.6277,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_10,17:30:02.776,17:30:03.135,0.359,7.332,5.3924,,numepochs=1000,Bad on univariate datasets

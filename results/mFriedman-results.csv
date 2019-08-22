@@ -39,3 +39,83 @@ mFriedman_neuralnet::neuralnet_backprop_02,21:14:03.759,21:14:20.989,17.23,0.234
 mFriedman_neuralnet::neuralnet_backprop_03,21:14:21.005,21:14:38.030,17.025,0.2348,0.188,,,Fails on difficult datasets
 mFriedman_neuralnet::neuralnet_backprop_04,21:14:38.046,21:14:55.323,17.277,0.2348,0.188,,,Fails on difficult datasets
 mFriedman_neuralnet::neuralnet_backprop_05,21:14:55.339,21:15:12.725,17.386,0.2348,0.188,,,Fails on difficult datasets
+mFriedman_brnn::brnn_gaussNewton_01,10:21:48.287,10:21:48.474,0.187,0.0063,0.005,***,,Different NN
+mFriedman_brnn::brnn_gaussNewton_02,10:21:48.490,10:21:48.693,0.203,0.0052,0.0042,***,,Different NN
+mFriedman_brnn::brnn_gaussNewton_03,10:21:48.708,10:21:48.896,0.188,0.0053,0.0043,***,,Different NN
+mFriedman_brnn::brnn_gaussNewton_04,10:21:48.911,10:21:49.099,0.188,0.0062,0.005,***,,Different NN
+mFriedman_brnn::brnn_gaussNewton_05,10:21:49.114,10:21:49.302,0.188,0.0052,0.0042,***,,Different NN
+mFriedman_brnn::brnn_gaussNewton_06,10:21:49.318,10:21:49.505,0.187,0.0065,0.0053,***,,Different NN
+mFriedman_brnn::brnn_gaussNewton_07,10:21:49.521,10:21:49.708,0.187,0.0053,0.0043,***,,Different NN
+mFriedman_brnn::brnn_gaussNewton_08,10:21:49.724,10:21:49.911,0.187,0.0053,0.0043,***,,Different NN
+mFriedman_brnn::brnn_gaussNewton_09,10:21:49.927,10:21:50.114,0.187,0.0052,0.0042,***,,Different NN
+mFriedman_brnn::brnn_gaussNewton_10,10:21:50.130,10:21:50.317,0.187,0.0052,0.0042,***,,Different NN
+mFriedman_AMORE::train_ADAPTgd_01,13:56:17.820,13:56:18.398,0.578,0.0303,0.0243,*,iter=3500, lr=0.01. Require scaling,
+mFriedman_AMORE::train_ADAPTgd_02,13:56:18.413,13:56:18.976,0.563,0.0304,0.0243,*,iter=3500, lr=0.01. Require scaling,
+mFriedman_AMORE::train_ADAPTgd_03,13:56:18.991,13:56:19.554,0.563,0.0305,0.0243,*,iter=3500, lr=0.01. Require scaling,
+mFriedman_AMORE::train_ADAPTgd_04,13:56:19.569,13:56:20.147,0.578,0.0386,0.027,*,iter=3500, lr=0.01. Require scaling,
+mFriedman_AMORE::train_ADAPTgd_05,13:56:20.163,13:56:20.741,0.578,0.0305,0.0243,*,iter=3500, lr=0.01. Require scaling,
+mFriedman_AMORE::train_ADAPTgd_06,13:56:20.757,13:56:21.319,0.562,0.0305,0.0244,*,iter=3500, lr=0.01. Require scaling,
+mFriedman_AMORE::train_ADAPTgd_07,13:56:21.335,13:56:21.944,0.609,0.0384,0.0269,*,iter=3500, lr=0.01. Require scaling,
+mFriedman_AMORE::train_ADAPTgd_08,13:56:21.960,13:56:22.522,0.562,0.0267,0.0214,*,iter=3500, lr=0.01. Require scaling,
+mFriedman_AMORE::train_ADAPTgd_09,13:56:22.538,13:56:23.116,0.578,0.0385,0.027,*,iter=3500, lr=0.01. Require scaling,
+mFriedman_AMORE::train_ADAPTgd_10,13:56:23.131,13:56:23.694,0.563,0.0386,0.027,*,iter=3500, lr=0.01. Require scaling,
+mFriedman_AMORE::train_ADAPTgdwm_01,14:15:14.478,14:15:17.102,2.624,0.0421,0.0327,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mFriedman_AMORE::train_ADAPTgdwm_02,14:15:17.118,14:15:19.695,2.577,0.0421,0.0327,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mFriedman_AMORE::train_ADAPTgdwm_03,14:15:19.711,14:15:22.288,2.577,0.0421,0.0327,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mFriedman_AMORE::train_ADAPTgdwm_04,14:15:22.304,14:15:24.835,2.531,0.0392,0.0302,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mFriedman_AMORE::train_ADAPTgdwm_05,14:15:24.850,14:15:27.412,2.562,0.0417,0.0325,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mFriedman_AMORE::train_ADAPTgdwm_06,14:15:27.428,14:15:29.990,2.562,0.0417,0.0325,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mFriedman_AMORE::train_ADAPTgdwm_07,14:15:30.005,14:15:32.552,2.547,0.0417,0.0325,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mFriedman_AMORE::train_ADAPTgdwm_08,14:15:32.567,14:15:35.129,2.562,0.0392,0.0302,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mFriedman_AMORE::train_ADAPTgdwm_09,14:15:35.145,14:15:37.675,2.53,0.0392,0.0302,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mFriedman_AMORE::train_ADAPTgdwm_10,14:15:37.691,14:15:40.269,2.578,0.0888,0.0718,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mFriedman_AMORE::train_BATCHgd_01,14:36:05.076,14:36:06.795,1.719,0.1274,0.0991,,iter=7500, lr=0.05, sigmoid,very bad
+mFriedman_AMORE::train_BATCHgd_02,14:36:06.811,14:36:08.572,1.761,0.1362,0.1067,,iter=7500, lr=0.05, sigmoid,very bad
+mFriedman_AMORE::train_BATCHgd_03,14:36:08.587,14:36:10.296,1.709,0.13,0.1016,,iter=7500, lr=0.05, sigmoid,very bad
+mFriedman_AMORE::train_BATCHgd_04,14:36:10.312,14:36:11.997,1.685,0.1317,0.1031,,iter=7500, lr=0.05, sigmoid,very bad
+mFriedman_AMORE::train_BATCHgd_05,14:36:12.013,14:36:13.713,1.7,0.1307,0.1022,,iter=7500, lr=0.05, sigmoid,very bad
+mFriedman_AMORE::train_BATCHgdwm_01,15:02:29.520,15:02:33.404,3.884,0.1467,0.1142,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mFriedman_AMORE::train_BATCHgdwm_02,15:02:33.420,15:02:37.287,3.867,0.1469,0.1142,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mFriedman_AMORE::train_BATCHgdwm_03,15:02:37.303,15:02:41.090,3.787,0.1452,0.1127,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mFriedman_AMORE::train_BATCHgdwm_04,15:02:41.106,15:02:44.870,3.764,0.1467,0.1142,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mFriedman_AMORE::train_BATCHgdwm_05,15:02:44.886,15:02:48.725,3.839,0.1474,0.1147,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mFriedman_ANN2::neuralnetwork_sgd_01,16:27:15.228,16:27:16.274,1.046,0.0238,0.0193,*,iter=4000, lr=0.01,Require fine tuning
+mFriedman_ANN2::neuralnetwork_sgd_02,16:27:16.290,16:27:17.321,1.031,0.021,0.0166,*,iter=4000, lr=0.01,Require fine tuning
+mFriedman_ANN2::neuralnetwork_sgd_03,16:27:17.337,16:27:18.421,1.084,0.0176,0.0139,*,iter=4000, lr=0.01,Require fine tuning
+mFriedman_ANN2::neuralnetwork_sgd_04,16:27:18.437,16:27:19.471,1.034,0.0162,0.0129,*,iter=4000, lr=0.01,Require fine tuning
+mFriedman_ANN2::neuralnetwork_sgd_05,16:27:19.487,16:27:20.527,1.04,0.0177,0.0145,*,iter=4000, lr=0.01,Require fine tuning
+mFriedman_ANN2::neuralnetwork_sgd_06,16:27:20.545,16:27:21.587,1.042,0.0171,0.0134,*,iter=4000, lr=0.01,Require fine tuning
+mFriedman_ANN2::neuralnetwork_sgd_07,16:27:21.607,16:27:22.676,1.069,0.0236,0.0191,*,iter=4000, lr=0.01,Require fine tuning
+mFriedman_ANN2::neuralnetwork_sgd_08,16:27:22.696,16:27:23.755,1.059,0.0167,0.0133,*,iter=4000, lr=0.01,Require fine tuning
+mFriedman_ANN2::neuralnetwork_sgd_09,16:27:23.765,16:27:24.814,1.049,0.0195,0.0157,*,iter=4000, lr=0.01,Require fine tuning
+mFriedman_ANN2::neuralnetwork_sgd_10,16:27:24.836,16:27:25.909,1.073,0.0836,0.0739,*,iter=4000, lr=0.01,Require fine tuning
+mFriedman_ANN2::neuralnetwork_adam_01,16:34:50.896,16:34:52.123,1.227,0.0266,0.0212,*,iter=4000, lr=0.02,Require fine tuning
+mFriedman_ANN2::neuralnetwork_adam_02,16:34:52.139,16:34:53.376,1.237,0.0254,0.0201,*,iter=4000, lr=0.02,Require fine tuning
+mFriedman_ANN2::neuralnetwork_adam_03,16:34:53.393,16:34:54.610,1.217,0.0292,0.0235,*,iter=4000, lr=0.02,Require fine tuning
+mFriedman_ANN2::neuralnetwork_adam_04,16:34:54.626,16:34:55.882,1.256,0.0826,0.0735,*,iter=4000, lr=0.02,Require fine tuning
+mFriedman_ANN2::neuralnetwork_adam_05,16:34:55.898,16:34:57.124,1.226,0.0269,0.0215,*,iter=4000, lr=0.02,Require fine tuning
+mFriedman_ANN2::neuralnetwork_adam_06,16:34:57.140,16:34:58.362,1.222,0.0243,0.02,*,iter=4000, lr=0.02,Require fine tuning
+mFriedman_ANN2::neuralnetwork_adam_07,16:34:58.378,16:34:59.595,1.217,0.0226,0.018,*,iter=4000, lr=0.02,Require fine tuning
+mFriedman_ANN2::neuralnetwork_adam_08,16:34:59.611,16:35:00.842,1.231,0.0363,0.029,*,iter=4000, lr=0.02,Require fine tuning
+mFriedman_ANN2::neuralnetwork_adam_09,16:35:00.858,16:35:02.062,1.204,0.0246,0.0201,*,iter=4000, lr=0.02,Require fine tuning
+mFriedman_ANN2::neuralnetwork_adam_10,16:35:02.100,16:35:03.326,1.226,0.026,0.0205,*,iter=4000, lr=0.02,Require fine tuning
+mFriedman_ANN2::neuralnetwork_rmsprop_01,16:41:16.518,16:41:17.612,1.094,0.0871,0.0745,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mFriedman_ANN2::neuralnetwork_rmsprop_02,16:41:17.627,16:41:18.721,1.094,0.0364,0.0291,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mFriedman_ANN2::neuralnetwork_rmsprop_03,16:41:18.736,16:41:19.814,1.078,0.0425,0.0345,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mFriedman_ANN2::neuralnetwork_rmsprop_04,16:41:19.830,16:41:20.908,1.078,0.0398,0.0331,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mFriedman_ANN2::neuralnetwork_rmsprop_05,16:41:20.923,16:41:22.001,1.078,0.0448,0.0361,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mFriedman_ANN2::neuralnetwork_rmsprop_06,16:41:22.017,16:41:23.110,1.093,0.0508,0.0429,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mFriedman_ANN2::neuralnetwork_rmsprop_07,16:41:23.126,16:41:24.204,1.078,0.0406,0.0329,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mFriedman_ANN2::neuralnetwork_rmsprop_08,16:41:24.220,16:41:25.297,1.077,0.0433,0.0355,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mFriedman_ANN2::neuralnetwork_rmsprop_09,16:41:25.313,16:41:26.375,1.062,0.048,0.0395,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mFriedman_ANN2::neuralnetwork_rmsprop_10,16:41:26.407,16:41:27.484,1.077,0.049,0.0399,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mFriedman_deepnet::gradientdescent_01,17:29:30.064,17:29:30.845,0.781,0.0456,0.0364,,numepochs=1000,Bad on univariate datasets
+mFriedman_deepnet::gradientdescent_02,17:29:30.861,17:29:31.642,0.781,0.0846,0.0746,,numepochs=1000,Bad on univariate datasets
+mFriedman_deepnet::gradientdescent_03,17:29:31.657,17:29:32.454,0.797,0.0882,0.0776,,numepochs=1000,Bad on univariate datasets
+mFriedman_deepnet::gradientdescent_04,17:29:32.470,17:29:33.235,0.765,0.0858,0.0764,,numepochs=1000,Bad on univariate datasets
+mFriedman_deepnet::gradientdescent_05,17:29:33.251,17:29:34.047,0.796,0.0309,0.0242,,numepochs=1000,Bad on univariate datasets
+mFriedman_deepnet::gradientdescent_06,17:29:34.063,17:29:34.860,0.797,0.0378,0.0289,,numepochs=1000,Bad on univariate datasets
+mFriedman_deepnet::gradientdescent_07,17:29:34.875,17:29:35.657,0.782,0.0883,0.0769,,numepochs=1000,Bad on univariate datasets
+mFriedman_deepnet::gradientdescent_08,17:29:35.672,17:29:36.453,0.781,0.0327,0.0266,,numepochs=1000,Bad on univariate datasets
+mFriedman_deepnet::gradientdescent_09,17:29:36.469,17:29:37.266,0.797,0.0375,0.0312,,numepochs=1000,Bad on univariate datasets
+mFriedman_deepnet::gradientdescent_10,17:29:37.282,17:29:38.063,0.781,0.0887,0.0772,,numepochs=1000,Bad on univariate datasets

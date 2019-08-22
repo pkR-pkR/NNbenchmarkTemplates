@@ -1,10 +1,10 @@
 
 
-## ====================================================
-## 2019-08-13 NNbenchmark TEMPLATE FOR minpack.lm_1.2.1
-##            Author: PATRICE KIENER
-##            (REQUIRE at least NNbenchmark_2.2)
-## ====================================================
+## =============================================================
+## 2019-08-22 NNbenchmark TEMPLATE FOR ANN2_2.3.2 + algo rmsprop
+##            Authors: PATRICE KIENER + AKSHAJ VERMA
+##            (REQUIRE at least NNbenchmark_2.3)
+## =============================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
@@ -14,9 +14,9 @@ options("digits.secs" = 3)
 ## SELECT THE PACKAGE USED FOR THE TRAINING
 ## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## ===========================================
-library(minpack.lm)
-# options(warn = 0)  # warnings are printed (default)
-options(warn = -1) # warnings are not printed
+library(ANN2)
+options(warn = 0)  # warnings are printed (default)
+# options(warn = -1) # warnings are not printed
 
 
 ## =====================================================
@@ -45,7 +45,7 @@ names(NNdatasets)
 ## SELECT ONE DATASET OR UNCOMMENT THE LOOP TO RUN ALL DATASETS
 ## IF THE LOOP IS ACTIVATED, YOU CAN RUN THIS FULL PAGE IN EXTENSO
 ## ===============================================================
-# dset   <- "uGauss2"
+# dset   <- "mIshigami"
 for (dset in names(NNdatasets)) {
 
 
@@ -66,7 +66,7 @@ donotremove2 <- c("dset", "dsets")
 ## d = data.frame, m = matrix, v = vector/numeric
 ## ATTACH THE OBJECTS CREATED (x, y, Zxy, ... )
 ## ===================================================
-ZZ     <- prepareZZ(Z, xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
+ZZ     <- prepareZZ(Z, xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)
 attach(ZZ)
 # ls(ZZ)
 # ls()
@@ -82,13 +82,15 @@ attach(ZZ)
 ## comment  => comment2: free (short) text
 ## printmsg => PRINT timeR DURING THE TRAINING
 ## =================================================
-nruns   <- 10
-maxiter <- 150
 TF      <- TRUE 
-stars   <- "**"
-params  <- "maxiter = 150"
-comment <- "Require hand-made formulas and scaling"
-descr   <- paste(dset, "minpack.lm::nlsLM", sep = "_")
+descr   <- paste(dset,  "ANN2::neuralnetwork_rmsprop", sep = "_")
+nruns   <- 10
+method  <- "rmsprop"
+iter    <- 4000
+lr      <- 0.02
+stars   <- ""
+params  <- "iter=4000, lr=0.03"
+comment <- "Inaccurate. Sometimes good"
 
 
 timer    <- createTimer()
@@ -105,15 +107,25 @@ for(i in 1:nruns){
     timer$start(event)
     #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
 	#### DO NOT MODIFY THE <error> LINE IN tryCatch() 
-    bb         <- round(rnorm(nparNN, sd = 0.1), 4)
+    bb         <- round(rnorm(nparNN, sd = 1), 4)
     names(bb)  <- paste0("b", 1:nparNN)
     NNreg      <- tryCatch(
-                    minpack.lm::nlsLM(fmlaNN, data = Zxy, start = bb, 
-                                      control = list(maxiter = maxiter)),
+                    ANN2::neuralnetwork(X = x, y = y, 
+							   val.prop = 0, 
+							   standardize = FALSE, 
+							   hidden.layers = neur, 
+							   regression = TRUE, 
+							   loss.type = "squared", 
+							   n.epochs = iter, 
+							   optim.type = method, 
+							   learn.rates = lr,
+							   verbose = FALSE,
+							   random.seed = as.integer(runif(1)*10000000)
+							   ),
 					error = function(y) {lm(y ~ 0, data = Zxy)}
                   )
     y_pred     <- tryCatch(
-                    ym0 + ysd0*fitted(NNreg),
+                    ym0 + ysd0*as.numeric(predict(NNreg, newdata = x)$predictions),
                     error = function(NNreg) rep(ym0, nrow(Zxy))
                   )
     ####

@@ -39,3 +39,83 @@ mRef153_neuralnet::neuralnet_backprop_02,21:17:35.473,21:17:40.128,4.655,3.6961,
 mRef153_neuralnet::neuralnet_backprop_03,21:17:40.128,21:17:45.736,5.608,3.4972,2.4522,,,Fails on difficult datasets
 mRef153_neuralnet::neuralnet_backprop_04,21:17:45.736,21:17:53.047,7.311,27.8983,25.1873,,,Fails on difficult datasets
 mRef153_neuralnet::neuralnet_backprop_05,21:17:53.047,21:17:55.171,2.124,3.6677,2.6746,,,Fails on difficult datasets
+mRef153_brnn::brnn_gaussNewton_01,10:21:53.426,10:21:53.442,0.016,3.1485,2.1277,***,,Different NN
+mRef153_brnn::brnn_gaussNewton_02,10:21:53.457,10:21:53.473,0.016,3.466,2.4164,***,,Different NN
+mRef153_brnn::brnn_gaussNewton_03,10:21:53.488,10:21:53.504,0.016,3.43,2.4354,***,,Different NN
+mRef153_brnn::brnn_gaussNewton_04,10:21:53.520,10:21:53.535,0.015,3.1485,2.1277,***,,Different NN
+mRef153_brnn::brnn_gaussNewton_05,10:21:53.551,10:21:53.567,0.016,3.1485,2.1277,***,,Different NN
+mRef153_brnn::brnn_gaussNewton_06,10:21:53.567,10:21:53.598,0.031,3.1485,2.1277,***,,Different NN
+mRef153_brnn::brnn_gaussNewton_07,10:21:53.598,10:21:53.613,0.015,3.466,2.4165,***,,Different NN
+mRef153_brnn::brnn_gaussNewton_08,10:21:53.629,10:21:53.645,0.016,3.466,2.4165,***,,Different NN
+mRef153_brnn::brnn_gaussNewton_09,10:21:53.645,10:21:53.660,0.015,3.4659,2.4164,***,,Different NN
+mRef153_brnn::brnn_gaussNewton_10,10:21:53.676,10:21:53.691,0.015,3.4659,2.4163,***,,Different NN
+mRef153_AMORE::train_ADAPTgd_01,13:56:33.910,13:56:34.098,0.188,3.2678,2.2767,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_02,13:56:34.098,13:56:34.285,0.187,3.2622,2.2703,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_03,13:56:34.301,13:56:34.488,0.187,3.2604,2.2678,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_04,13:56:34.488,13:56:34.676,0.188,3.2653,2.2733,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_05,13:56:34.691,13:56:34.879,0.188,3.2856,2.2652,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_06,13:56:34.879,13:56:35.066,0.187,3.2536,2.2592,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_07,13:56:35.082,13:56:35.269,0.187,3.253,2.2574,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_08,13:56:35.269,13:56:35.457,0.188,3.4431,2.4902,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_09,13:56:35.472,13:56:35.660,0.188,3.2612,2.2701,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_10,13:56:35.660,13:56:35.847,0.187,3.2599,2.2658,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgdwm_01,14:16:22.071,14:16:22.806,0.735,3.611,2.7146,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_02,14:16:22.806,14:16:23.524,0.718,3.2653,2.2437,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_03,14:16:23.524,14:16:24.258,0.734,3.6422,2.7765,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_04,14:16:24.274,14:16:24.992,0.718,3.3033,2.2924,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_05,14:16:24.992,14:16:25.727,0.735,3.3046,2.2881,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_06,14:16:25.727,14:16:26.445,0.718,3.2653,2.2438,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_07,14:16:26.445,14:16:27.179,0.734,3.4981,2.4712,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_08,14:16:27.179,14:16:27.898,0.719,3.2653,2.2438,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_09,14:16:27.898,14:16:28.617,0.719,3.2653,2.2438,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_10,14:16:28.617,14:16:29.351,0.734,3.3148,2.3255,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_BATCHgd_01,14:36:25.680,14:36:26.867,1.187,4.8674,3.6258,,iter=7500, lr=0.05, sigmoid,very bad
+mRef153_AMORE::train_BATCHgd_02,14:36:26.867,14:36:28.070,1.203,4.8339,3.6226,,iter=7500, lr=0.05, sigmoid,very bad
+mRef153_AMORE::train_BATCHgd_03,14:36:28.070,14:36:29.194,1.124,4.4827,3.3717,,iter=7500, lr=0.05, sigmoid,very bad
+mRef153_AMORE::train_BATCHgd_04,14:36:29.194,14:36:30.397,1.203,4.336,3.1412,,iter=7500, lr=0.05, sigmoid,very bad
+mRef153_AMORE::train_BATCHgd_05,14:36:30.413,14:36:31.584,1.171,4.5744,3.472,,iter=7500, lr=0.05, sigmoid,very bad
+mRef153_AMORE::train_BATCHgdwm_01,15:03:15.673,15:03:18.344,2.671,5.8569,4.7155,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mRef153_AMORE::train_BATCHgdwm_02,15:03:18.344,15:03:20.973,2.629,6.393,5.2137,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mRef153_AMORE::train_BATCHgdwm_03,15:03:20.988,15:03:23.679,2.691,5.8865,4.7805,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mRef153_AMORE::train_BATCHgdwm_04,15:03:23.695,15:03:26.379,2.684,5.7718,4.6552,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mRef153_AMORE::train_BATCHgdwm_05,15:03:26.386,15:03:29.066,2.68,6.2626,5.0953,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mRef153_ANN2::neuralnetwork_sgd_01,16:27:41.343,16:27:41.546,0.203,3.2989,2.2977,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_02,16:27:41.561,16:27:41.780,0.219,3.2557,2.2339,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_03,16:27:41.780,16:27:41.999,0.219,3.2835,2.2777,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_04,16:27:41.999,16:27:42.227,0.228,3.2638,2.249,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_05,16:27:42.233,16:27:42.450,0.217,3.2936,2.3011,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_06,16:27:42.457,16:27:42.673,0.216,3.4714,2.4975,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_07,16:27:42.679,16:27:42.896,0.217,3.2854,2.2525,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_08,16:27:42.902,16:27:43.109,0.207,3.2603,2.2305,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_09,16:27:43.124,16:27:43.327,0.203,3.2786,2.3225,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_10,16:27:43.343,16:27:43.546,0.203,3.5146,2.6101,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_01,16:35:19.775,16:35:20.018,0.243,3.4881,2.4629,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_02,16:35:20.025,16:35:20.262,0.237,3.8664,2.8605,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_03,16:35:20.269,16:35:20.507,0.238,3.6939,2.8293,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_04,16:35:20.513,16:35:20.754,0.241,3.2436,2.4072,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_05,16:35:20.760,16:35:21.001,0.241,3.1403,2.2129,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_06,16:35:21.007,16:35:21.250,0.243,3.7224,2.6171,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_07,16:35:21.255,16:35:21.487,0.232,3.5057,2.5991,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_08,16:35:21.493,16:35:21.729,0.236,3.1525,2.2068,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_09,16:35:21.736,16:35:21.970,0.234,3.3362,2.2594,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_10,16:35:21.976,16:35:22.211,0.235,3.3072,2.3836,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_rmsprop_01,16:41:43.200,16:41:43.419,0.219,3.1879,2.2072,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_02,16:41:43.435,16:41:43.653,0.218,3.8467,2.908,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_03,16:41:43.653,16:41:43.872,0.219,3.7313,2.897,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_04,16:41:43.888,16:41:44.106,0.218,3.6234,2.6291,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_05,16:41:44.122,16:41:44.341,0.219,3.5161,2.4965,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_06,16:41:44.341,16:41:44.575,0.234,3.8199,2.7584,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_07,16:41:44.575,16:41:44.794,0.219,3.6506,2.797,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_08,16:41:44.809,16:41:45.028,0.219,3.566,2.4907,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_09,16:41:45.028,16:41:45.247,0.219,3.6786,2.822,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_10,16:41:45.262,16:41:45.481,0.219,3.5168,2.5945,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_deepnet::gradientdescent_01,17:29:47.826,17:29:48.092,0.266,3.8387,2.9709,,numepochs=1000,Bad on univariate datasets
+mRef153_deepnet::gradientdescent_02,17:29:48.092,17:29:48.357,0.265,3.4302,2.4169,,numepochs=1000,Bad on univariate datasets
+mRef153_deepnet::gradientdescent_03,17:29:48.357,17:29:48.623,0.266,3.4656,2.5493,,numepochs=1000,Bad on univariate datasets
+mRef153_deepnet::gradientdescent_04,17:29:48.639,17:29:48.889,0.25,3.9098,3.0444,,numepochs=1000,Bad on univariate datasets
+mRef153_deepnet::gradientdescent_05,17:29:48.904,17:29:49.170,0.266,3.3864,2.4251,,numepochs=1000,Bad on univariate datasets
+mRef153_deepnet::gradientdescent_06,17:29:49.170,17:29:49.435,0.265,3.5113,2.5268,,numepochs=1000,Bad on univariate datasets
+mRef153_deepnet::gradientdescent_07,17:29:49.435,17:29:49.701,0.266,3.4371,2.5081,,numepochs=1000,Bad on univariate datasets
+mRef153_deepnet::gradientdescent_08,17:29:49.701,17:29:49.966,0.265,3.7664,2.7268,,numepochs=1000,Bad on univariate datasets
+mRef153_deepnet::gradientdescent_09,17:29:49.966,17:29:50.232,0.266,3.3923,2.4754,,numepochs=1000,Bad on univariate datasets
+mRef153_deepnet::gradientdescent_10,17:29:50.232,17:29:50.498,0.266,3.4908,2.4632,,numepochs=1000,Bad on univariate datasets
