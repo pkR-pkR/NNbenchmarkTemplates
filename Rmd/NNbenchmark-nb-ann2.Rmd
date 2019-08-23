@@ -1,7 +1,14 @@
 ---
 title: "NNbenchmark | ANN2"
 author: Akshaj Verma
-output: html_notebook
+output:
+    html_document:
+        toc: true
+        toc_float: true
+        df_print: paged
+        number_sections: true
+        theme: darkly
+        highlight: tango
 ---
 
 
@@ -32,9 +39,9 @@ NNdataSummary(NNdatasets)
 hyperParams <- function(optim_method) {
     
     if (!is.element(optim_method, c("sgd", "adam", "rmsprop"))) stop("Invalid Parameters.")
-    if (optim_method == "sgd") { iter <- 10; lr <- 0.01; params <- paste0("method=", optim_method, "_", "lr=", lr, "_", "iter=", iter)} 
-    if (optim_method == "adam") { iter <- 15; lr <- 0.02; params <- paste0("method=", optim_method, "_", "lr=", lr, "_", "iter=", iter)} 
-    if (optim_method == "rmsprop") { iter <- 20; lr <- 0.03; params <- paste0("method=", optim_method, "_", "lr=", lr, "_", "iter=", iter)} 
+    if (optim_method == "sgd") { iter <- 4000; lr <- 0.001} 
+    if (optim_method == "adam") { iter <- 3000; lr <- 0.007} 
+    if (optim_method == "rmsprop") { iter <- 3000; lr <- 0.005} 
     
     params <- paste0("method=", optim_method, "_", "lr=", lr, "_", "iter=", iter)
     
@@ -70,7 +77,7 @@ NNtrain <- function(x, y, hidden_neur, optim_method) {
 
 
 ## Main Loop
-```{r fig.height=5, fig.width=14}
+```{r fig.height=5, fig.width=14, message=FALSE, warning=FALSE}
 for (dset in names(NNdatasets)) {
 
     ## =============================================
@@ -103,7 +110,7 @@ for (dset in names(NNdatasets)) {
     ## =============================================
 
     
-    nrep   <- 5
+    nrep   <- 10
     TF     <- TRUE 
 
     method <- c("sgd", "adam", "rmsprop")
@@ -171,15 +178,16 @@ dfr0 <- getTimer(timer)
 dfr  <- data.frame(
     ds_pkg.fun_algo = stringr::str_sub(dfr0[ ,1], 1, -4),
     run     = stringr::str_sub(dfr0[ ,1], -2, -1),
+    dfr0[, c("RMSE","MAE")],
     dataset = stringr::str_replace_all(stringr::str_extract(dfr0[, 1], pattern = "^\\w*_"), fixed("_"), ""),
     method = stringr::str_replace_all(stringr::str_extract(dfr0[, 1], pattern = "_\\w*_"), fixed("_"), ""),
     Elapsed = round(dfr0[ ,4], 5),
-    params = dfr0$params,
-    dfr0[, c("RMSE","MAE")]
+    params = dfr0$params
 )
 
 
-dfr
+dfr %>%
+    select(-c(dataset, method))
 ```
 
 ## Best Results
@@ -196,5 +204,4 @@ dfr %>%
 ```{r}
 clearNN(donotremove)
 ```
-
 
