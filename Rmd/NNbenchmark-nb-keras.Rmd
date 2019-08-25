@@ -41,8 +41,8 @@ hyperParams <- function(optim_method) {
     if (!is.element(optim_method, c("adam", "rmsprop", "sgd", "adagrad", "adadelta"))) stop("Invalid Parameters.")
     
     hidden_activation = "tanh"
-    iter <- 3000
-    lr <- 0.01
+    iter <- 10000
+    lr <- 0.001
     
     params <- paste0("method=", optim_method, "_iter=", iter, "_lr=", lr, "_hidden_activation=", hidden_activation)
     
@@ -82,7 +82,7 @@ NNtrain <- function(x, y, model, iter, optim_method) {
         
     hyper_params <- hyperParams(optim_method)
     iter <- hyper_params$iter
-    early_stop <- callback_early_stopping(monitor = "val_loss", patience = 100)
+    early_stop <- callback_early_stopping(monitor = "val_loss", patience = 20, restore_best_weights = TRUE, mode = "auto", min_delta = 0.00001)
 
     NNreg <- model %>% fit(x, y, epochs = iter, verbose = 0, callbacks = list(early_stop))
 
@@ -126,7 +126,7 @@ for (dset in names(NNdatasets)) {
     ## =============================================
 
     
-    nrep   <- 5
+    nrep   <- 10
     TF     <- TRUE 
 
     method <- c("adam", "rmsprop", "sgd", "adadelta", "adagrad")
