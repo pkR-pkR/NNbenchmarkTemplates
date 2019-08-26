@@ -9,16 +9,16 @@ uDreyfus1_nlsr::nlxb_07,15:36:51.491,15:36:51.522,0.031,0.1132,0.0799,**,maxiter
 uDreyfus1_nlsr::nlxb_08,15:36:51.522,15:36:51.538,0.016,0,0,**,maxiter = 150,Require hand-made formulas and scaling
 uDreyfus1_nlsr::nlxb_09,15:36:51.538,15:36:51.585,0.047,0.0932,0.0738,**,maxiter = 150,Require hand-made formulas and scaling
 uDreyfus1_nlsr::nlxb_10,15:36:51.601,15:36:51.616,0.015,0,0,**,maxiter = 150,Require hand-made formulas and scaling
-uDreyfus1_minpacklm::nlsLM_01,15:46:30.022,15:46:30.022,0,0,0,**,maxiter = 150,Require hand-made formulas and scaling
-uDreyfus1_minpacklm::nlsLM_02,15:46:30.022,15:46:30.038,0.016,0,0,**,maxiter = 150,Require hand-made formulas and scaling
-uDreyfus1_minpacklm::nlsLM_03,15:46:30.038,15:46:30.053,0.015,0,0,**,maxiter = 150,Require hand-made formulas and scaling
-uDreyfus1_minpacklm::nlsLM_04,15:46:30.053,15:46:30.069,0.016,0.0932,0.0737,**,maxiter = 150,Require hand-made formulas and scaling
-uDreyfus1_minpacklm::nlsLM_05,15:46:30.069,15:46:30.085,0.016,0,0,**,maxiter = 150,Require hand-made formulas and scaling
-uDreyfus1_minpacklm::nlsLM_06,15:46:30.085,15:46:30.085,0,0,0,**,maxiter = 150,Require hand-made formulas and scaling
-uDreyfus1_minpacklm::nlsLM_07,15:46:30.085,15:46:30.100,0.015,0,0,**,maxiter = 150,Require hand-made formulas and scaling
-uDreyfus1_minpacklm::nlsLM_08,15:46:30.100,15:46:30.116,0.016,0.1132,0.0799,**,maxiter = 150,Require hand-made formulas and scaling
-uDreyfus1_minpacklm::nlsLM_09,15:46:30.116,15:46:30.116,0,0,0,**,maxiter = 150,Require hand-made formulas and scaling
-uDreyfus1_minpacklm::nlsLM_10,15:46:30.116,15:46:30.116,0,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_01,15:46:30.022,15:46:30.022,0,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_02,15:46:30.022,15:46:30.038,0.016,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_03,15:46:30.038,15:46:30.053,0.015,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_04,15:46:30.053,15:46:30.069,0.016,0.0932,0.0737,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_05,15:46:30.069,15:46:30.085,0.016,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_06,15:46:30.085,15:46:30.085,0,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_07,15:46:30.085,15:46:30.100,0.015,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_08,15:46:30.100,15:46:30.116,0.016,0.1132,0.0799,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_09,15:46:30.116,15:46:30.116,0,0,0,**,maxiter = 150,Require hand-made formulas and scaling
+uDreyfus1_minpack.lm::nlsLM_10,15:46:30.116,15:46:30.116,0,0,0,**,maxiter = 150,Require hand-made formulas and scaling
 uDreyfus1_h2o::h2o.deeplearning_01,15:54:16.527,15:54:17.121,0.594,0.3655,0.2663,,maxiter=200,Bad on univariate datasets
 uDreyfus1_h2o::h2o.deeplearning_02,15:54:17.121,15:54:17.699,0.578,0.2988,0.2583,,maxiter=200,Bad on univariate datasets
 uDreyfus1_h2o::h2o.deeplearning_03,15:54:17.699,15:54:18.214,0.515,0.314,0.2569,,maxiter=200,Bad on univariate datasets
@@ -49,66 +49,66 @@ uDreyfus1_brnn::brnn_gaussNewton_07,10:21:54.273,10:21:54.273,0,0.0309,0.0238,**
 uDreyfus1_brnn::brnn_gaussNewton_08,10:21:54.273,10:21:54.289,0.016,0.0307,0.0236,***,,Different NN
 uDreyfus1_brnn::brnn_gaussNewton_09,10:21:54.289,10:21:54.304,0.015,0.0301,0.0235,***,,Different NN
 uDreyfus1_brnn::brnn_gaussNewton_10,10:21:54.304,10:21:54.304,0,0.0301,0.0235,***,,Different NN
-uDreyfus1_AMORE::train_ADAPTgd_01,13:56:38.817,13:56:38.933,0.116,0.2508,0.2008,*,iter=3500 lr=0.01, Require scaling
-uDreyfus1_AMORE::train_ADAPTgd_02,13:56:38.933,13:56:39.050,0.117,0.3333,0.2801,*,iter=3500 lr=0.01, Require scaling
-uDreyfus1_AMORE::train_ADAPTgd_03,13:56:39.050,13:56:39.161,0.111,0.3232,0.2747,*,iter=3500 lr=0.01, Require scaling
-uDreyfus1_AMORE::train_ADAPTgd_04,13:56:39.161,13:56:39.273,0.112,0.3064,0.2577,*,iter=3500 lr=0.01, Require scaling
-uDreyfus1_AMORE::train_ADAPTgd_05,13:56:39.273,13:56:39.384,0.111,0.1122,0.0758,*,iter=3500 lr=0.01, Require scaling
-uDreyfus1_AMORE::train_ADAPTgd_06,13:56:39.384,13:56:39.495,0.111,0.2757,0.232,*,iter=3500 lr=0.01, Require scaling
-uDreyfus1_AMORE::train_ADAPTgd_07,13:56:39.503,13:56:39.615,0.112,0.1782,0.1364,*,iter=3500 lr=0.01, Require scaling
-uDreyfus1_AMORE::train_ADAPTgd_08,13:56:39.617,13:56:39.728,0.111,0.2678,0.2278,*,iter=3500 lr=0.01, Require scaling
-uDreyfus1_AMORE::train_ADAPTgd_09,13:56:39.728,13:56:39.839,0.111,0.3009,0.2543,*,iter=3500 lr=0.01, Require scaling
-uDreyfus1_AMORE::train_ADAPTgd_10,13:56:39.839,13:56:39.958,0.119,0.2334,0.1778,*,iter=3500 lr=0.01, Require scaling
-uDreyfus1_AMORE::train_ADAPTgdwm_01,14:16:39.642,14:16:40.027,0.385,0.0435,0.0347,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-uDreyfus1_AMORE::train_ADAPTgdwm_02,14:16:40.027,14:16:40.412,0.385,0.0542,0.0447,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-uDreyfus1_AMORE::train_ADAPTgdwm_03,14:16:40.412,14:16:40.796,0.384,0.0499,0.0408,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-uDreyfus1_AMORE::train_ADAPTgdwm_04,14:16:40.796,14:16:41.180,0.384,0.0593,0.0497,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-uDreyfus1_AMORE::train_ADAPTgdwm_05,14:16:41.188,14:16:41.574,0.386,0.0505,0.0413,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-uDreyfus1_AMORE::train_ADAPTgdwm_06,14:16:41.574,14:16:41.958,0.384,0.0509,0.041,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-uDreyfus1_AMORE::train_ADAPTgdwm_07,14:16:41.958,14:16:42.352,0.394,0.0548,0.0454,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-uDreyfus1_AMORE::train_ADAPTgdwm_08,14:16:42.352,14:16:42.747,0.395,0.0563,0.0465,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-uDreyfus1_AMORE::train_ADAPTgdwm_09,14:16:42.747,14:16:43.139,0.392,0.0596,0.0494,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-uDreyfus1_AMORE::train_ADAPTgdwm_10,14:16:43.141,14:16:43.525,0.384,0.0545,0.0452,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-uDreyfus1_AMORE::train_BATCHgd_01,14:36:44.826,14:36:45.883,1.057,0.3703,0.2835,,iter=7500 lr=0.05 sigmoid,very bad
-uDreyfus1_AMORE::train_BATCHgd_02,14:36:45.883,14:36:46.911,1.028,0.3707,0.2825,,iter=7500 lr=0.05 sigmoid,very bad
-uDreyfus1_AMORE::train_BATCHgd_03,14:36:46.926,14:36:47.965,1.039,0.362,0.2819,,iter=7500 lr=0.05 sigmoid,very bad
-uDreyfus1_AMORE::train_BATCHgd_04,14:36:47.965,14:36:49.006,1.041,0.3644,0.2823,,iter=7500 lr=0.05 sigmoid,very bad
-uDreyfus1_AMORE::train_BATCHgd_05,14:36:49.006,14:36:50.039,1.033,0.3526,0.2758,,iter=7500 lr=0.05 sigmoid,very bad
-uDreyfus1_AMORE::train_BATCHgdwm_01,15:03:58.307,15:04:00.682,2.375,0.4331,0.3362,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
-uDreyfus1_AMORE::train_BATCHgdwm_02,15:04:00.682,15:04:03.094,2.412,0.4538,0.3535,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
-uDreyfus1_AMORE::train_BATCHgdwm_03,15:04:03.094,15:04:05.451,2.357,0.4476,0.3525,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
-uDreyfus1_AMORE::train_BATCHgdwm_04,15:04:05.451,15:04:07.839,2.388,0.4815,0.3921,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
-uDreyfus1_AMORE::train_BATCHgdwm_05,15:04:07.839,15:04:10.201,2.362,0.4397,0.3337,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
-uDreyfus1_ANN2::neuralnetwork_sgd_01,16:27:44.952,16:27:45.015,0.063,0.3404,0.2776,*,iter=4000 lr=0.01,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_sgd_02,16:27:45.015,16:27:45.062,0.047,0.2038,0.1345,*,iter=4000 lr=0.01,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_sgd_03,16:27:45.062,16:27:45.124,0.062,0.2863,0.2315,*,iter=4000 lr=0.01,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_sgd_04,16:27:45.124,16:27:45.171,0.047,0.341,0.2782,*,iter=4000 lr=0.01,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_sgd_05,16:27:45.171,16:27:45.234,0.063,0.3521,0.2771,*,iter=4000 lr=0.01,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_sgd_06,16:27:45.234,16:27:45.280,0.046,0.3444,0.2774,*,iter=4000 lr=0.01,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_sgd_07,16:27:45.280,16:27:45.327,0.047,0.3431,0.2786,*,iter=4000 lr=0.01,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_sgd_08,16:27:45.327,16:27:45.374,0.047,0.3428,0.278,*,iter=4000 lr=0.01,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_sgd_09,16:27:45.390,16:27:45.437,0.047,0.3206,0.2594,*,iter=4000 lr=0.01,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_sgd_10,16:27:45.437,16:27:45.484,0.047,0.3295,0.2743,*,iter=4000 lr=0.01,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_adam_01,16:35:23.780,16:35:23.839,0.059,0.0538,0.0437,*,iter=4000 lr=0.02,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_adam_02,16:35:23.841,16:35:23.897,0.056,0.0893,0.0684,*,iter=4000 lr=0.02,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_adam_03,16:35:23.899,16:35:23.955,0.056,0.0863,0.0707,*,iter=4000 lr=0.02,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_adam_04,16:35:23.957,16:35:24.011,0.054,0.0833,0.0564,*,iter=4000 lr=0.02,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_adam_05,16:35:24.013,16:35:24.069,0.056,0.0172,0.0135,*,iter=4000 lr=0.02,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_adam_06,16:35:24.070,16:35:24.126,0.056,0.0515,0.0413,*,iter=4000 lr=0.02,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_adam_07,16:35:24.128,16:35:24.184,0.056,0.0409,0.0328,*,iter=4000 lr=0.02,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_adam_08,16:35:24.185,16:35:24.242,0.057,0.0323,0.0257,*,iter=4000 lr=0.02,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_adam_09,16:35:24.244,16:35:24.302,0.058,0.068,0.0558,*,iter=4000 lr=0.02,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_adam_10,16:35:24.304,16:35:24.361,0.057,0.0506,0.0397,*,iter=4000 lr=0.02,Require fine tuning
-uDreyfus1_ANN2::neuralnetwork_rmsprop_01,16:41:46.981,16:41:47.028,0.047,0.1758,0.1597,,iter=4000 lr=0.03,Erratic
-uDreyfus1_ANN2::neuralnetwork_rmsprop_02,16:41:47.028,16:41:47.090,0.062,0.0696,0.054,,iter=4000 lr=0.03,Erratic
-uDreyfus1_ANN2::neuralnetwork_rmsprop_03,16:41:47.090,16:41:47.137,0.047,0.0651,0.0489,,iter=4000 lr=0.03,Erratic
-uDreyfus1_ANN2::neuralnetwork_rmsprop_04,16:41:47.137,16:41:47.200,0.063,0.0417,0.0333,,iter=4000 lr=0.03,Erratic
-uDreyfus1_ANN2::neuralnetwork_rmsprop_05,16:41:47.200,16:41:47.247,0.047,0.0629,0.0551,,iter=4000 lr=0.03,Erratic
-uDreyfus1_ANN2::neuralnetwork_rmsprop_06,16:41:47.247,16:41:47.309,0.062,0.0673,0.0603,,iter=4000 lr=0.03,Erratic
-uDreyfus1_ANN2::neuralnetwork_rmsprop_07,16:41:47.309,16:41:47.356,0.047,0.055,0.0445,,iter=4000 lr=0.03,Erratic
-uDreyfus1_ANN2::neuralnetwork_rmsprop_08,16:41:47.356,16:41:47.418,0.062,0.117,0.1049,,iter=4000 lr=0.03,Erratic
-uDreyfus1_ANN2::neuralnetwork_rmsprop_09,16:41:47.418,16:41:47.465,0.047,0.1098,0.0899,,iter=4000 lr=0.03,Erratic
-uDreyfus1_ANN2::neuralnetwork_rmsprop_10,16:41:47.465,16:41:47.528,0.063,0.0902,0.0748,,iter=4000 lr=0.03,Erratic
+uDreyfus1_AMORE::train_ADAPTgd_01,13:56:38.817,13:56:38.933,0.116,0.2508,0.2008,*,iter=3500, lr=0.01. Require scaling,
+uDreyfus1_AMORE::train_ADAPTgd_02,13:56:38.933,13:56:39.050,0.117,0.3333,0.2801,*,iter=3500, lr=0.01. Require scaling,
+uDreyfus1_AMORE::train_ADAPTgd_03,13:56:39.050,13:56:39.161,0.111,0.3232,0.2747,*,iter=3500, lr=0.01. Require scaling,
+uDreyfus1_AMORE::train_ADAPTgd_04,13:56:39.161,13:56:39.273,0.112,0.3064,0.2577,*,iter=3500, lr=0.01. Require scaling,
+uDreyfus1_AMORE::train_ADAPTgd_05,13:56:39.273,13:56:39.384,0.111,0.1122,0.0758,*,iter=3500, lr=0.01. Require scaling,
+uDreyfus1_AMORE::train_ADAPTgd_06,13:56:39.384,13:56:39.495,0.111,0.2757,0.232,*,iter=3500, lr=0.01. Require scaling,
+uDreyfus1_AMORE::train_ADAPTgd_07,13:56:39.503,13:56:39.615,0.112,0.1782,0.1364,*,iter=3500, lr=0.01. Require scaling,
+uDreyfus1_AMORE::train_ADAPTgd_08,13:56:39.617,13:56:39.728,0.111,0.2678,0.2278,*,iter=3500, lr=0.01. Require scaling,
+uDreyfus1_AMORE::train_ADAPTgd_09,13:56:39.728,13:56:39.839,0.111,0.3009,0.2543,*,iter=3500, lr=0.01. Require scaling,
+uDreyfus1_AMORE::train_ADAPTgd_10,13:56:39.839,13:56:39.958,0.119,0.2334,0.1778,*,iter=3500, lr=0.01. Require scaling,
+uDreyfus1_AMORE::train_ADAPTgdwm_01,14:16:39.642,14:16:40.027,0.385,0.0435,0.0347,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDreyfus1_AMORE::train_ADAPTgdwm_02,14:16:40.027,14:16:40.412,0.385,0.0542,0.0447,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDreyfus1_AMORE::train_ADAPTgdwm_03,14:16:40.412,14:16:40.796,0.384,0.0499,0.0408,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDreyfus1_AMORE::train_ADAPTgdwm_04,14:16:40.796,14:16:41.180,0.384,0.0593,0.0497,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDreyfus1_AMORE::train_ADAPTgdwm_05,14:16:41.188,14:16:41.574,0.386,0.0505,0.0413,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDreyfus1_AMORE::train_ADAPTgdwm_06,14:16:41.574,14:16:41.958,0.384,0.0509,0.041,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDreyfus1_AMORE::train_ADAPTgdwm_07,14:16:41.958,14:16:42.352,0.394,0.0548,0.0454,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDreyfus1_AMORE::train_ADAPTgdwm_08,14:16:42.352,14:16:42.747,0.395,0.0563,0.0465,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDreyfus1_AMORE::train_ADAPTgdwm_09,14:16:42.747,14:16:43.139,0.392,0.0596,0.0494,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDreyfus1_AMORE::train_ADAPTgdwm_10,14:16:43.141,14:16:43.525,0.384,0.0545,0.0452,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+uDreyfus1_AMORE::train_BATCHgd_01,14:36:44.826,14:36:45.883,1.057,0.3703,0.2835,,iter=7500, lr=0.05, sigmoid,very bad
+uDreyfus1_AMORE::train_BATCHgd_02,14:36:45.883,14:36:46.911,1.028,0.3707,0.2825,,iter=7500, lr=0.05, sigmoid,very bad
+uDreyfus1_AMORE::train_BATCHgd_03,14:36:46.926,14:36:47.965,1.039,0.362,0.2819,,iter=7500, lr=0.05, sigmoid,very bad
+uDreyfus1_AMORE::train_BATCHgd_04,14:36:47.965,14:36:49.006,1.041,0.3644,0.2823,,iter=7500, lr=0.05, sigmoid,very bad
+uDreyfus1_AMORE::train_BATCHgd_05,14:36:49.006,14:36:50.039,1.033,0.3526,0.2758,,iter=7500, lr=0.05, sigmoid,very bad
+uDreyfus1_AMORE::train_BATCHgdwm_01,15:03:58.307,15:04:00.682,2.375,0.4331,0.3362,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uDreyfus1_AMORE::train_BATCHgdwm_02,15:04:00.682,15:04:03.094,2.412,0.4538,0.3535,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uDreyfus1_AMORE::train_BATCHgdwm_03,15:04:03.094,15:04:05.451,2.357,0.4476,0.3525,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uDreyfus1_AMORE::train_BATCHgdwm_04,15:04:05.451,15:04:07.839,2.388,0.4815,0.3921,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uDreyfus1_AMORE::train_BATCHgdwm_05,15:04:07.839,15:04:10.201,2.362,0.4397,0.3337,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+uDreyfus1_ANN2::neuralnetwork_sgd_01,16:27:44.952,16:27:45.015,0.063,0.3404,0.2776,*,iter=4000, lr=0.01,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_sgd_02,16:27:45.015,16:27:45.062,0.047,0.2038,0.1345,*,iter=4000, lr=0.01,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_sgd_03,16:27:45.062,16:27:45.124,0.062,0.2863,0.2315,*,iter=4000, lr=0.01,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_sgd_04,16:27:45.124,16:27:45.171,0.047,0.341,0.2782,*,iter=4000, lr=0.01,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_sgd_05,16:27:45.171,16:27:45.234,0.063,0.3521,0.2771,*,iter=4000, lr=0.01,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_sgd_06,16:27:45.234,16:27:45.280,0.046,0.3444,0.2774,*,iter=4000, lr=0.01,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_sgd_07,16:27:45.280,16:27:45.327,0.047,0.3431,0.2786,*,iter=4000, lr=0.01,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_sgd_08,16:27:45.327,16:27:45.374,0.047,0.3428,0.278,*,iter=4000, lr=0.01,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_sgd_09,16:27:45.390,16:27:45.437,0.047,0.3206,0.2594,*,iter=4000, lr=0.01,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_sgd_10,16:27:45.437,16:27:45.484,0.047,0.3295,0.2743,*,iter=4000, lr=0.01,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_adam_01,16:35:23.780,16:35:23.839,0.059,0.0538,0.0437,*,iter=4000, lr=0.02,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_adam_02,16:35:23.841,16:35:23.897,0.056,0.0893,0.0684,*,iter=4000, lr=0.02,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_adam_03,16:35:23.899,16:35:23.955,0.056,0.0863,0.0707,*,iter=4000, lr=0.02,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_adam_04,16:35:23.957,16:35:24.011,0.054,0.0833,0.0564,*,iter=4000, lr=0.02,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_adam_05,16:35:24.013,16:35:24.069,0.056,0.0172,0.0135,*,iter=4000, lr=0.02,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_adam_06,16:35:24.070,16:35:24.126,0.056,0.0515,0.0413,*,iter=4000, lr=0.02,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_adam_07,16:35:24.128,16:35:24.184,0.056,0.0409,0.0328,*,iter=4000, lr=0.02,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_adam_08,16:35:24.185,16:35:24.242,0.057,0.0323,0.0257,*,iter=4000, lr=0.02,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_adam_09,16:35:24.244,16:35:24.302,0.058,0.068,0.0558,*,iter=4000, lr=0.02,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_adam_10,16:35:24.304,16:35:24.361,0.057,0.0506,0.0397,*,iter=4000, lr=0.02,Require fine tuning
+uDreyfus1_ANN2::neuralnetwork_rmsprop_01,16:41:46.981,16:41:47.028,0.047,0.1758,0.1597,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDreyfus1_ANN2::neuralnetwork_rmsprop_02,16:41:47.028,16:41:47.090,0.062,0.0696,0.054,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDreyfus1_ANN2::neuralnetwork_rmsprop_03,16:41:47.090,16:41:47.137,0.047,0.0651,0.0489,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDreyfus1_ANN2::neuralnetwork_rmsprop_04,16:41:47.137,16:41:47.200,0.063,0.0417,0.0333,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDreyfus1_ANN2::neuralnetwork_rmsprop_05,16:41:47.200,16:41:47.247,0.047,0.0629,0.0551,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDreyfus1_ANN2::neuralnetwork_rmsprop_06,16:41:47.247,16:41:47.309,0.062,0.0673,0.0603,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDreyfus1_ANN2::neuralnetwork_rmsprop_07,16:41:47.309,16:41:47.356,0.047,0.055,0.0445,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDreyfus1_ANN2::neuralnetwork_rmsprop_08,16:41:47.356,16:41:47.418,0.062,0.117,0.1049,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDreyfus1_ANN2::neuralnetwork_rmsprop_09,16:41:47.418,16:41:47.465,0.047,0.1098,0.0899,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+uDreyfus1_ANN2::neuralnetwork_rmsprop_10,16:41:47.465,16:41:47.528,0.063,0.0902,0.0748,,iter=4000, lr=0.03,Inaccurate. Sometimes good
 uDreyfus1_deepnet::gradientdescent_01,17:29:53.106,17:29:53.216,0.11,0.3085,0.2454,,numepochs=1000,Bad on univariate datasets
 uDreyfus1_deepnet::gradientdescent_02,17:29:53.231,17:29:53.341,0.11,0.2631,0.2096,,numepochs=1000,Bad on univariate datasets
 uDreyfus1_deepnet::gradientdescent_03,17:29:53.341,17:29:53.450,0.109,0.3217,0.269,,numepochs=1000,Bad on univariate datasets
@@ -119,16 +119,16 @@ uDreyfus1_deepnet::gradientdescent_07,17:29:53.794,17:29:53.903,0.109,0.3278,0.2
 uDreyfus1_deepnet::gradientdescent_08,17:29:53.919,17:29:54.028,0.109,0.3179,0.2643,,numepochs=1000,Bad on univariate datasets
 uDreyfus1_deepnet::gradientdescent_09,17:29:54.028,17:29:54.137,0.109,0.2902,0.233,,numepochs=1000,Bad on univariate datasets
 uDreyfus1_deepnet::gradientdescent_10,17:29:54.153,17:29:54.247,0.094,0.3323,0.2761,,numepochs=1000,Bad on univariate datasets
-uDreyfus1_MachineShop::fit.NNetModel_01,03:19:13.491,03:19:13.491,0,0.0716,0.0444,,maxiter = 150,uses nnet
-uDreyfus1_MachineShop::fit.NNetModel_02,03:19:13.491,03:19:13.507,0.016,0.0031,0.0025,,maxiter = 150,uses nnet
-uDreyfus1_MachineShop::fit.NNetModel_03,03:19:13.507,03:19:13.507,0,0.0021,0.0017,,maxiter = 150,uses nnet
-uDreyfus1_MachineShop::fit.NNetModel_04,03:19:13.507,03:19:13.507,0,0.0023,0.0019,,maxiter = 150,uses nnet
-uDreyfus1_MachineShop::fit.NNetModel_05,03:19:13.507,03:19:13.522,0.015,0.0023,0.0019,,maxiter = 150,uses nnet
-uDreyfus1_MachineShop::fit.NNetModel_06,03:19:13.522,03:19:13.522,0,0.0023,0.0018,,maxiter = 150,uses nnet
-uDreyfus1_MachineShop::fit.NNetModel_07,03:19:13.522,03:19:13.539,0.017,0.0021,0.0018,,maxiter = 150,uses nnet
-uDreyfus1_MachineShop::fit.NNetModel_08,03:19:13.540,03:19:13.546,0.006,0.0033,0.0027,,maxiter = 150,uses nnet
-uDreyfus1_MachineShop::fit.NNetModel_09,03:19:13.547,03:19:13.551,0.004,0.1917,0.1482,,maxiter = 150,uses nnet
-uDreyfus1_MachineShop::fit.NNetModel_10,03:19:13.551,03:19:13.551,0,0.0022,0.0018,,maxiter = 150,uses nnet
+uDreyfus1_MachineShop::fit.NNetModel()_01,03:19:13.491,03:19:13.491,0,0.0716,0.0444,,maxiter = 150,uses nnet
+uDreyfus1_MachineShop::fit.NNetModel()_02,03:19:13.491,03:19:13.507,0.016,0.0031,0.0025,,maxiter = 150,uses nnet
+uDreyfus1_MachineShop::fit.NNetModel()_03,03:19:13.507,03:19:13.507,0,0.0021,0.0017,,maxiter = 150,uses nnet
+uDreyfus1_MachineShop::fit.NNetModel()_04,03:19:13.507,03:19:13.507,0,0.0023,0.0019,,maxiter = 150,uses nnet
+uDreyfus1_MachineShop::fit.NNetModel()_05,03:19:13.507,03:19:13.522,0.015,0.0023,0.0019,,maxiter = 150,uses nnet
+uDreyfus1_MachineShop::fit.NNetModel()_06,03:19:13.522,03:19:13.522,0,0.0023,0.0018,,maxiter = 150,uses nnet
+uDreyfus1_MachineShop::fit.NNetModel()_07,03:19:13.522,03:19:13.539,0.017,0.0021,0.0018,,maxiter = 150,uses nnet
+uDreyfus1_MachineShop::fit.NNetModel()_08,03:19:13.540,03:19:13.546,0.006,0.0033,0.0027,,maxiter = 150,uses nnet
+uDreyfus1_MachineShop::fit.NNetModel()_09,03:19:13.547,03:19:13.551,0.004,0.1917,0.1482,,maxiter = 150,uses nnet
+uDreyfus1_MachineShop::fit.NNetModel()_10,03:19:13.551,03:19:13.551,0,0.0022,0.0018,,maxiter = 150,uses nnet
 uDreyfus1_momlp::monmlp.fit_BFGS_01,03:20:01.754,03:20:01.904,0.15,0.0625,0.0559,,maxiter = 300,uses optimx
 uDreyfus1_momlp::monmlp.fit_BFGS_02,03:20:01.904,03:20:02.057,0.153,0.0197,0.0159,,maxiter = 300,uses optimx
 uDreyfus1_momlp::monmlp.fit_BFGS_03,03:20:02.057,03:20:02.210,0.153,0.035,0.0268,,maxiter = 300,uses optimx
@@ -159,11 +159,11 @@ uDreyfus1_neuralnet::neuralnet_backprop_02,03:52:55.448,03:52:56.801,1.353,0.076
 uDreyfus1_neuralnet::neuralnet_backprop_03,03:52:56.801,03:52:59.878,3.077,0.0343,0.0279,,,Fails on difficult datasets
 uDreyfus1_neuralnet::neuralnet_backprop_04,03:52:59.878,03:53:02.858,2.98,0.0341,0.0278,,,Fails on difficult datasets
 uDreyfus1_neuralnet::neuralnet_backprop_05,03:53:02.859,03:53:06.639,3.78,1.6122,1.3725,,,Fails on difficult datasets
-uDreyfus1_neuralnet::neuralnet_rprop-_01,03:59:11.437,03:59:11.484,0.047,0.0166,0.0146,,,Erratic on multivariate datasets
-uDreyfus1_neuralnet::neuralnet_rprop-_02,03:59:11.484,03:59:11.546,0.062,0.0161,0.0136,,,Erratic on multivariate datasets
-uDreyfus1_neuralnet::neuralnet_rprop-_03,03:59:11.562,03:59:11.593,0.031,0.1154,0.0811,,,Erratic on multivariate datasets
-uDreyfus1_neuralnet::neuralnet_rprop-_04,03:59:11.593,03:59:11.624,0.031,0.1179,0.0867,,,Erratic on multivariate datasets
-uDreyfus1_neuralnet::neuralnet_rprop-_05,03:59:11.624,03:59:11.702,0.078,0.011,0.0086,,,Erratic on multivariate datasets
+uDreyfus1_neuralnet::neuralnet_rprop-_01,03:59:11.437,03:59:11.484,0.047,0.0166,0.0146,,,Fails on mIshigami. mDette and mFriedman sometimes
+uDreyfus1_neuralnet::neuralnet_rprop-_02,03:59:11.484,03:59:11.546,0.062,0.0161,0.0136,,,Fails on mIshigami. mDette and mFriedman sometimes
+uDreyfus1_neuralnet::neuralnet_rprop-_03,03:59:11.562,03:59:11.593,0.031,0.1154,0.0811,,,Fails on mIshigami. mDette and mFriedman sometimes
+uDreyfus1_neuralnet::neuralnet_rprop-_04,03:59:11.593,03:59:11.624,0.031,0.1179,0.0867,,,Fails on mIshigami. mDette and mFriedman sometimes
+uDreyfus1_neuralnet::neuralnet_rprop-_05,03:59:11.624,03:59:11.702,0.078,0.011,0.0086,,,Fails on mIshigami. mDette and mFriedman sometimes
 uDreyfus1_neuralnet::neuralnet_sag_01,04:12:14.292,04:12:19.086,4.794,1.6122,1.3725,,,
 uDreyfus1_neuralnet::neuralnet_sag_02,04:12:19.086,04:12:24.104,5.018,1.6122,1.3725,,,
 uDreyfus1_neuralnet::neuralnet_sag_03,04:12:24.105,04:12:28.927,4.822,1.6122,1.3725,,,
@@ -179,16 +179,16 @@ uDreyfus1_neuralnet::neuralnet_rprop+_02,04:24:55.125,04:24:55.187,0.062,0.0123,
 uDreyfus1_neuralnet::neuralnet_rprop+_03,04:24:55.187,04:24:55.281,0.094,0.0207,0.0181,,,Erratic on difficult datasets
 uDreyfus1_neuralnet::neuralnet_rprop+_04,04:24:55.281,04:24:55.344,0.063,0.0127,0.0098,,,Erratic on difficult datasets
 uDreyfus1_neuralnet::neuralnet_rprop+_05,04:24:55.344,04:24:55.375,0.031,0.0712,0.0467,,,Erratic on difficult datasets
-uDreyfus1_nnet::nnet_01,04:25:33.052,04:25:33.055,0.003,0.1153,0.0843,,maxiter = 150,uses optim BFGS
-uDreyfus1_nnet::nnet_02,04:25:33.057,04:25:33.060,0.003,0.0022,0.0018,,maxiter = 150,uses optim BFGS
-uDreyfus1_nnet::nnet_03,04:25:33.062,04:25:33.066,0.004,0.0717,0.0467,,maxiter = 150,uses optim BFGS
-uDreyfus1_nnet::nnet_04,04:25:33.067,04:25:33.072,0.005,0.002,0.0016,,maxiter = 150,uses optim BFGS
-uDreyfus1_nnet::nnet_05,04:25:33.073,04:25:33.077,0.004,0.0022,0.0017,,maxiter = 150,uses optim BFGS
-uDreyfus1_nnet::nnet_06,04:25:33.078,04:25:33.082,0.004,0.0717,0.046,,maxiter = 150,uses optim BFGS
-uDreyfus1_nnet::nnet_07,04:25:33.083,04:25:33.088,0.005,0.0049,0.004,,maxiter = 150,uses optim BFGS
-uDreyfus1_nnet::nnet_08,04:25:33.089,04:25:33.094,0.005,0.0023,0.0018,,maxiter = 150,uses optim BFGS
-uDreyfus1_nnet::nnet_09,04:25:33.096,04:25:33.101,0.005,0.0027,0.0021,,maxiter = 150,uses optim BFGS
-uDreyfus1_nnet::nnet_10,04:25:33.102,04:25:33.105,0.003,0.0022,0.0017,,maxiter = 150,uses optim BFGS
+uDreyfus1_nnet::nnet_01,04:25:33.052,04:25:33.055,0.003,0.1153,0.0843,,maxiter = 150,uses optim BFGS, fast
+uDreyfus1_nnet::nnet_02,04:25:33.057,04:25:33.060,0.003,0.0022,0.0018,,maxiter = 150,uses optim BFGS, fast
+uDreyfus1_nnet::nnet_03,04:25:33.062,04:25:33.066,0.004,0.0717,0.0467,,maxiter = 150,uses optim BFGS, fast
+uDreyfus1_nnet::nnet_04,04:25:33.067,04:25:33.072,0.005,0.002,0.0016,,maxiter = 150,uses optim BFGS, fast
+uDreyfus1_nnet::nnet_05,04:25:33.073,04:25:33.077,0.004,0.0022,0.0017,,maxiter = 150,uses optim BFGS, fast
+uDreyfus1_nnet::nnet_06,04:25:33.078,04:25:33.082,0.004,0.0717,0.046,,maxiter = 150,uses optim BFGS, fast
+uDreyfus1_nnet::nnet_07,04:25:33.083,04:25:33.088,0.005,0.0049,0.004,,maxiter = 150,uses optim BFGS, fast
+uDreyfus1_nnet::nnet_08,04:25:33.089,04:25:33.094,0.005,0.0023,0.0018,,maxiter = 150,uses optim BFGS, fast
+uDreyfus1_nnet::nnet_09,04:25:33.096,04:25:33.101,0.005,0.0027,0.0021,,maxiter = 150,uses optim BFGS, fast
+uDreyfus1_nnet::nnet_10,04:25:33.102,04:25:33.105,0.003,0.0022,0.0017,,maxiter = 150,uses optim BFGS, fast
 uDreyfus1_qrnn::qrnn.fit_01,04:26:00.390,04:26:00.570,0.18,0.2133,0.1273,,maxiter = 700,
 uDreyfus1_qrnn::qrnn.fit_02,04:26:00.586,04:26:00.922,0.336,0.0067,0.0046,,maxiter = 700,
 uDreyfus1_qrnn::qrnn.fit_03,04:26:00.922,04:26:01.066,0.144,0,0,,maxiter = 700,
@@ -199,16 +199,16 @@ uDreyfus1_qrnn::qrnn.fit_07,04:26:01.660,04:26:01.847,0.187,0.1203,0.0753,,maxit
 uDreyfus1_qrnn::qrnn.fit_08,04:26:01.849,04:26:02.041,0.192,0.2743,0.1609,,maxiter = 700,
 uDreyfus1_qrnn::qrnn.fit_09,04:26:02.042,04:26:02.222,0.18,0.0444,0.023,,maxiter = 700,
 uDreyfus1_qrnn::qrnn.fit_10,04:26:02.224,04:26:02.564,0.34,0.0061,0.0042,,maxiter = 700,
-uDreyfus1_radiantmodel::radiantmodel_01,04:27:36.385,04:27:36.400,0.015,0.0045,0.0034,,maxiter=10000 preset,uses nnet
-uDreyfus1_radiantmodel::radiantmodel_02,04:27:36.400,04:27:36.416,0.016,0.0765,0.0571,,maxiter=10000 preset,uses nnet
-uDreyfus1_radiantmodel::radiantmodel_03,04:27:36.416,04:27:36.431,0.015,0.0045,0.0035,,maxiter=10000 preset,uses nnet
-uDreyfus1_radiantmodel::radiantmodel_04,04:27:36.447,04:27:36.463,0.016,0.0047,0.0039,,maxiter=10000 preset,uses nnet
-uDreyfus1_radiantmodel::radiantmodel_05,04:27:36.478,04:27:36.509,0.031,0.0046,0.0037,,maxiter=10000 preset,uses nnet
-uDreyfus1_radiantmodel::radiantmodel_06,04:27:36.509,04:27:36.525,0.016,0.0045,0.0036,,maxiter=10000 preset,uses nnet
-uDreyfus1_radiantmodel::radiantmodel_07,04:27:36.525,04:27:36.541,0.016,0.0045,0.0036,,maxiter=10000 preset,uses nnet
-uDreyfus1_radiantmodel::radiantmodel_08,04:27:36.541,04:27:36.556,0.015,0.0045,0.0034,,maxiter=10000 preset,uses nnet
-uDreyfus1_radiantmodel::radiantmodel_09,04:27:36.556,04:27:36.578,0.022,0.0044,0.003,,maxiter=10000 preset,uses nnet
-uDreyfus1_radiantmodel::radiantmodel_10,04:27:36.579,04:27:36.632,0.053,0.0046,0.0037,,maxiter=10000 preset,uses nnet
+uDreyfus1_radiant.model::radiant.model_01,04:27:36.385,04:27:36.400,0.015,0.0045,0.0034,,maxiter = 10000, preset,uses nnet
+uDreyfus1_radiant.model::radiant.model_02,04:27:36.400,04:27:36.416,0.016,0.0765,0.0571,,maxiter = 10000, preset,uses nnet
+uDreyfus1_radiant.model::radiant.model_03,04:27:36.416,04:27:36.431,0.015,0.0045,0.0035,,maxiter = 10000, preset,uses nnet
+uDreyfus1_radiant.model::radiant.model_04,04:27:36.447,04:27:36.463,0.016,0.0047,0.0039,,maxiter = 10000, preset,uses nnet
+uDreyfus1_radiant.model::radiant.model_05,04:27:36.478,04:27:36.509,0.031,0.0046,0.0037,,maxiter = 10000, preset,uses nnet
+uDreyfus1_radiant.model::radiant.model_06,04:27:36.509,04:27:36.525,0.016,0.0045,0.0036,,maxiter = 10000, preset,uses nnet
+uDreyfus1_radiant.model::radiant.model_07,04:27:36.525,04:27:36.541,0.016,0.0045,0.0036,,maxiter = 10000, preset,uses nnet
+uDreyfus1_radiant.model::radiant.model_08,04:27:36.541,04:27:36.556,0.015,0.0045,0.0034,,maxiter = 10000, preset,uses nnet
+uDreyfus1_radiant.model::radiant.model_09,04:27:36.556,04:27:36.578,0.022,0.0044,0.003,,maxiter = 10000, preset,uses nnet
+uDreyfus1_radiant.model::radiant.model_10,04:27:36.579,04:27:36.632,0.053,0.0046,0.0037,,maxiter = 10000, preset,uses nnet
 uDreyfus1_rcane::rlm_01,04:27:45.201,04:27:45.202,0.001,1.6305,1.2963,,maxiter = 1000,linear only
 uDreyfus1_rcane::rlm_02,04:27:45.203,04:27:45.204,0.001,1.6305,1.2963,,maxiter = 1000,linear only
 uDreyfus1_rcane::rlm_03,04:27:45.206,04:27:45.206,0,1.6305,1.2963,,maxiter = 1000,linear only
@@ -349,53 +349,78 @@ uDreyfus1_tsensembler::tsensembler_07,04:51:01.310,04:51:01.388,0.078,0.1267,0.0
 uDreyfus1_tsensembler::tsensembler_08,04:51:01.390,04:51:01.455,0.065,0.1267,0.0851,,maxiter = 150,uses nnet
 uDreyfus1_tsensembler::tsensembler_09,04:51:01.455,04:51:01.546,0.091,0.1267,0.0851,,maxiter = 150,uses nnet
 uDreyfus1_tsensembler::tsensembler_10,04:51:01.546,04:51:01.635,0.089,0.1267,0.0851,,maxiter = 150,uses nnet
-uDreyfus1_validann::ann_BFGS_01,04:53:37.704,04:53:38.070,0.366,0.0032,0.0025,,maxiter = 200,optim
-uDreyfus1_validann::ann_BFGS_02,04:53:38.071,04:53:38.436,0.365,0.0029,0.0023,,maxiter = 200,optim
-uDreyfus1_validann::ann_BFGS_03,04:53:38.438,04:53:38.660,0.222,0.0023,0.0019,,maxiter = 200,optim
-uDreyfus1_validann::ann_BFGS_04,04:53:38.661,04:53:39.029,0.368,0.0717,0.046,,maxiter = 200,optim
-uDreyfus1_validann::ann_BFGS_05,04:53:39.030,04:53:39.398,0.368,0.0038,0.0031,,maxiter = 200,optim
-uDreyfus1_validann::ann_BFGS_06,04:53:39.398,04:53:39.707,0.309,0.0023,0.0018,,maxiter = 200,optim
-uDreyfus1_validann::ann_BFGS_07,04:53:39.709,04:53:39.961,0.252,0.0023,0.0018,,maxiter = 200,optim
-uDreyfus1_validann::ann_BFGS_08,04:53:39.962,04:53:40.176,0.214,0.0023,0.0016,,maxiter = 200,optim
-uDreyfus1_validann::ann_BFGS_09,04:53:40.178,04:53:40.327,0.149,0.002,0.0016,,maxiter = 200,optim
-uDreyfus1_validann::ann_BFGS_10,04:53:40.327,04:53:40.599,0.272,0.0022,0.0017,,maxiter = 200,optim
-uDreyfus1_validann::ann_CG_01,05:04:41.269,05:04:43.791,2.522,0.0154,0.0119,,maxiter = 1000,optim
-uDreyfus1_validann::ann_CG_02,05:04:43.791,05:04:46.335,2.544,0.0204,0.0156,,maxiter = 1000,optim
-uDreyfus1_validann::ann_CG_03,05:04:46.335,05:04:48.861,2.526,0.0059,0.0047,,maxiter = 1000,optim
-uDreyfus1_validann::ann_CG_04,05:04:48.861,05:04:51.405,2.544,0.0114,0.0086,,maxiter = 1000,optim
-uDreyfus1_validann::ann_CG_05,05:04:51.405,05:04:53.967,2.562,0.0066,0.005,,maxiter = 1000,optim
-uDreyfus1_validann::ann_CG_06,05:04:53.967,05:04:56.607,2.64,0.0076,0.0059,,maxiter = 1000,optim
-uDreyfus1_validann::ann_CG_07,05:04:56.607,05:04:59.110,2.503,0.0095,0.0071,,maxiter = 1000,optim
-uDreyfus1_validann::ann_CG_08,05:04:59.111,05:05:01.608,2.497,0.0072,0.0054,,maxiter = 1000,optim
-uDreyfus1_validann::ann_CG_09,05:05:01.608,05:05:04.139,2.531,0.0074,0.0056,,maxiter = 1000,optim
-uDreyfus1_validann::ann_CG_10,05:05:04.154,05:05:06.672,2.518,0.0066,0.0049,,maxiter = 1000,optim
-uDreyfus1_validann::ann_L-BFGS-B_01,05:09:51.873,05:09:52.309,0.436,0.0028,0.0023,,maxiter = 200,optim
-uDreyfus1_validann::ann_L-BFGS-B_02,05:09:52.309,05:09:52.730,0.421,0.0059,0.0046,,maxiter = 200,optim
-uDreyfus1_validann::ann_L-BFGS-B_03,05:09:52.732,05:09:53.163,0.431,0.0903,0.0457,,maxiter = 200,optim
-uDreyfus1_validann::ann_L-BFGS-B_04,05:09:53.164,05:09:53.606,0.442,0.1485,0.1312,,maxiter = 200,optim
-uDreyfus1_validann::ann_L-BFGS-B_05,05:09:53.608,05:09:54.046,0.438,0.0584,0.0385,,maxiter = 200,optim
-uDreyfus1_validann::ann_L-BFGS-B_06,05:09:54.048,05:09:54.473,0.425,0.008,0.0065,,maxiter = 200,optim
-uDreyfus1_validann::ann_L-BFGS-B_07,05:09:54.473,05:09:54.911,0.438,0.0417,0.0329,,maxiter = 200,optim
-uDreyfus1_validann::ann_L-BFGS-B_08,05:09:54.911,05:09:55.333,0.422,0.0525,0.0429,,maxiter = 200,optim
-uDreyfus1_validann::ann_L-BFGS-B_09,05:09:55.333,05:09:55.753,0.42,0.0142,0.0105,,maxiter = 200,optim
-uDreyfus1_validann::ann_L-BFGS-B_10,05:09:55.754,05:09:56.145,0.391,0.1141,0.0837,,maxiter = 200,optim
-uDreyfus1_validann::ann_Nelder-Mead_01,05:12:13.530,05:12:13.702,0.172,0.1225,0.0975,,maxiter = 10000,optim
-uDreyfus1_validann::ann_Nelder-Mead_02,05:12:13.702,05:12:14.039,0.337,0.1185,0.0923,,maxiter = 10000,optim
-uDreyfus1_validann::ann_Nelder-Mead_03,05:12:14.039,05:12:14.242,0.203,0.2356,0.1897,,maxiter = 10000,optim
-uDreyfus1_validann::ann_Nelder-Mead_04,05:12:14.242,05:12:14.804,0.562,0.1936,0.1683,,maxiter = 10000,optim
-uDreyfus1_validann::ann_Nelder-Mead_05,05:12:14.805,05:12:15.149,0.344,0.2473,0.2193,,maxiter = 10000,optim
-uDreyfus1_validann::ann_Nelder-Mead_06,05:12:15.149,05:12:15.537,0.388,0.2591,0.2227,,maxiter = 10000,optim
-uDreyfus1_validann::ann_Nelder-Mead_07,05:12:15.537,05:12:15.942,0.405,0.2638,0.1968,,maxiter = 10000,optim
-uDreyfus1_validann::ann_Nelder-Mead_08,05:12:15.943,05:12:16.546,0.603,0.0799,0.0578,,maxiter = 10000,optim
-uDreyfus1_validann::ann_Nelder-Mead_09,05:12:16.546,05:12:17.083,0.537,0.2719,0.2218,,maxiter = 10000,optim
-uDreyfus1_validann::ann_Nelder-Mead_10,05:12:17.086,05:12:17.510,0.424,0.0849,0.0703,,maxiter = 10000,optim
-uDreyfus1_validann::ann_SANN_01,05:14:25.998,05:14:26.890,0.892,1.0777,0.92,,maxiter = 10000,optim
-uDreyfus1_validann::ann_SANN_02,05:14:26.905,05:14:27.807,0.902,1.04,0.935,,maxiter = 10000,optim
-uDreyfus1_validann::ann_SANN_03,05:14:27.807,05:14:28.711,0.904,1.1029,0.9878,,maxiter = 10000,optim
-uDreyfus1_validann::ann_SANN_04,05:14:28.712,05:14:29.605,0.893,1.0901,0.9082,,maxiter = 10000,optim
-uDreyfus1_validann::ann_SANN_05,05:14:29.605,05:14:30.527,0.922,1.1113,0.9919,,maxiter = 10000,optim
-uDreyfus1_validann::ann_SANN_06,05:14:30.527,05:14:31.471,0.944,0.9226,0.7951,,maxiter = 10000,optim
-uDreyfus1_validann::ann_SANN_07,05:14:31.471,05:14:32.515,1.044,0.9617,0.826,,maxiter = 10000,optim
-uDreyfus1_validann::ann_SANN_08,05:14:32.515,05:14:33.483,0.968,1.0177,0.8429,,maxiter = 10000,optim
-uDreyfus1_validann::ann_SANN_09,05:14:33.483,05:14:34.406,0.923,1.0288,0.9126,,maxiter = 10000,optim
-uDreyfus1_validann::ann_SANN_10,05:14:34.406,05:14:35.298,0.892,1.1001,0.9578,,maxiter = 10000,optim
+uDreyfus1_validann::ann_BFGS_01,04:53:37.704,04:53:38.070,0.366,0.0032,0.0025,,maxiter = 200,optim()
+uDreyfus1_validann::ann_BFGS_02,04:53:38.071,04:53:38.436,0.365,0.0029,0.0023,,maxiter = 200,optim()
+uDreyfus1_validann::ann_BFGS_03,04:53:38.438,04:53:38.660,0.222,0.0023,0.0019,,maxiter = 200,optim()
+uDreyfus1_validann::ann_BFGS_04,04:53:38.661,04:53:39.029,0.368,0.0717,0.046,,maxiter = 200,optim()
+uDreyfus1_validann::ann_BFGS_05,04:53:39.030,04:53:39.398,0.368,0.0038,0.0031,,maxiter = 200,optim()
+uDreyfus1_validann::ann_BFGS_06,04:53:39.398,04:53:39.707,0.309,0.0023,0.0018,,maxiter = 200,optim()
+uDreyfus1_validann::ann_BFGS_07,04:53:39.709,04:53:39.961,0.252,0.0023,0.0018,,maxiter = 200,optim()
+uDreyfus1_validann::ann_BFGS_08,04:53:39.962,04:53:40.176,0.214,0.0023,0.0016,,maxiter = 200,optim()
+uDreyfus1_validann::ann_BFGS_09,04:53:40.178,04:53:40.327,0.149,0.002,0.0016,,maxiter = 200,optim()
+uDreyfus1_validann::ann_BFGS_10,04:53:40.327,04:53:40.599,0.272,0.0022,0.0017,,maxiter = 200,optim()
+uDreyfus1_validann::ann_CG_01,05:04:41.269,05:04:43.791,2.522,0.0154,0.0119,,maxiter = 1000,optim()
+uDreyfus1_validann::ann_CG_02,05:04:43.791,05:04:46.335,2.544,0.0204,0.0156,,maxiter = 1000,optim()
+uDreyfus1_validann::ann_CG_03,05:04:46.335,05:04:48.861,2.526,0.0059,0.0047,,maxiter = 1000,optim()
+uDreyfus1_validann::ann_CG_04,05:04:48.861,05:04:51.405,2.544,0.0114,0.0086,,maxiter = 1000,optim()
+uDreyfus1_validann::ann_CG_05,05:04:51.405,05:04:53.967,2.562,0.0066,0.005,,maxiter = 1000,optim()
+uDreyfus1_validann::ann_CG_06,05:04:53.967,05:04:56.607,2.64,0.0076,0.0059,,maxiter = 1000,optim()
+uDreyfus1_validann::ann_CG_07,05:04:56.607,05:04:59.110,2.503,0.0095,0.0071,,maxiter = 1000,optim()
+uDreyfus1_validann::ann_CG_08,05:04:59.111,05:05:01.608,2.497,0.0072,0.0054,,maxiter = 1000,optim()
+uDreyfus1_validann::ann_CG_09,05:05:01.608,05:05:04.139,2.531,0.0074,0.0056,,maxiter = 1000,optim()
+uDreyfus1_validann::ann_CG_10,05:05:04.154,05:05:06.672,2.518,0.0066,0.0049,,maxiter = 1000,optim()
+uDreyfus1_validann::ann_L-BFGS-B_01,05:09:51.873,05:09:52.309,0.436,0.0028,0.0023,,maxiter = 200,optim()
+uDreyfus1_validann::ann_L-BFGS-B_02,05:09:52.309,05:09:52.730,0.421,0.0059,0.0046,,maxiter = 200,optim()
+uDreyfus1_validann::ann_L-BFGS-B_03,05:09:52.732,05:09:53.163,0.431,0.0903,0.0457,,maxiter = 200,optim()
+uDreyfus1_validann::ann_L-BFGS-B_04,05:09:53.164,05:09:53.606,0.442,0.1485,0.1312,,maxiter = 200,optim()
+uDreyfus1_validann::ann_L-BFGS-B_05,05:09:53.608,05:09:54.046,0.438,0.0584,0.0385,,maxiter = 200,optim()
+uDreyfus1_validann::ann_L-BFGS-B_06,05:09:54.048,05:09:54.473,0.425,0.008,0.0065,,maxiter = 200,optim()
+uDreyfus1_validann::ann_L-BFGS-B_07,05:09:54.473,05:09:54.911,0.438,0.0417,0.0329,,maxiter = 200,optim()
+uDreyfus1_validann::ann_L-BFGS-B_08,05:09:54.911,05:09:55.333,0.422,0.0525,0.0429,,maxiter = 200,optim()
+uDreyfus1_validann::ann_L-BFGS-B_09,05:09:55.333,05:09:55.753,0.42,0.0142,0.0105,,maxiter = 200,optim()
+uDreyfus1_validann::ann_L-BFGS-B_10,05:09:55.754,05:09:56.145,0.391,0.1141,0.0837,,maxiter = 200,optim()
+uDreyfus1_validann::ann_Nelder-Mead_01,05:12:13.530,05:12:13.702,0.172,0.1225,0.0975,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_Nelder-Mead_02,05:12:13.702,05:12:14.039,0.337,0.1185,0.0923,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_Nelder-Mead_03,05:12:14.039,05:12:14.242,0.203,0.2356,0.1897,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_Nelder-Mead_04,05:12:14.242,05:12:14.804,0.562,0.1936,0.1683,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_Nelder-Mead_05,05:12:14.805,05:12:15.149,0.344,0.2473,0.2193,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_Nelder-Mead_06,05:12:15.149,05:12:15.537,0.388,0.2591,0.2227,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_Nelder-Mead_07,05:12:15.537,05:12:15.942,0.405,0.2638,0.1968,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_Nelder-Mead_08,05:12:15.943,05:12:16.546,0.603,0.0799,0.0578,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_Nelder-Mead_09,05:12:16.546,05:12:17.083,0.537,0.2719,0.2218,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_Nelder-Mead_10,05:12:17.086,05:12:17.510,0.424,0.0849,0.0703,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_SANN_01,17:20:53.898,17:20:54.822,0.924,0.2412,0.1772,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_SANN_02,17:20:54.824,17:20:55.747,0.923,0.2432,0.1952,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_SANN_03,17:20:55.748,17:20:56.676,0.928,0.1927,0.1514,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_SANN_04,17:20:56.678,17:20:57.618,0.94,0.3192,0.252,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_SANN_05,17:20:57.620,17:20:58.476,0.856,0.3078,0.2388,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_SANN_06,17:20:58.476,17:20:59.390,0.914,0.1412,0.1128,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_SANN_07,17:20:59.391,17:21:00.294,0.903,0.1949,0.1562,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_SANN_08,17:21:00.311,17:21:01.220,0.909,0.1317,0.1046,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_SANN_09,17:21:01.220,17:21:02.113,0.893,0.1488,0.1315,,maxiter = 10000,optim()
+uDreyfus1_validann::ann_SANN_10,17:21:02.115,17:21:03.022,0.907,0.2914,0.2451,,maxiter = 10000,optim()
+uDreyfus1_tensorflow::AdagradOptimizer_01,18:32:11.704,18:32:24.916,13.212,1.3505,1.1493,,maxiter = 10000,
+uDreyfus1_tensorflow::AdagradOptimizer_02,18:32:24.916,18:32:38.252,13.336,1.3505,1.1493,,maxiter = 10000,
+uDreyfus1_tensorflow::AdagradOptimizer_03,18:32:38.252,18:32:51.308,13.056,1.3505,1.1493,,maxiter = 10000,
+uDreyfus1_tensorflow::AdagradOptimizer_04,18:32:51.308,18:33:04.554,13.246,1.3505,1.1493,,maxiter = 10000,
+uDreyfus1_tensorflow::AdagradOptimizer_05,18:33:04.554,18:33:18.895,14.341,1.3505,1.1493,,maxiter = 10000,
+uDreyfus1_tensorflow::AdamOptimizer_01,18:51:28.653,18:51:43.440,14.787,0.6399,0.4912,,maxiter = 10000,
+uDreyfus1_tensorflow::AdamOptimizer_02,18:51:43.440,18:51:58.115,14.675,0.6399,0.4912,,maxiter = 10000,
+uDreyfus1_tensorflow::AdamOptimizer_03,18:51:58.116,18:52:13.877,15.761,0.6399,0.4912,,maxiter = 10000,
+uDreyfus1_tensorflow::AdamOptimizer_04,18:52:13.877,18:52:29.257,15.38,0.6399,0.4912,,maxiter = 10000,
+uDreyfus1_tensorflow::AdamOptimizer_05,18:52:29.258,18:52:44.817,15.559,0.6399,0.4912,,maxiter = 10000,
+uDreyfus1_tensorflow::FtrlOptimizer_01,19:15:21.980,19:15:37.759,15.779,1.3505,1.1493,,maxiter = 10000,
+uDreyfus1_tensorflow::FtrlOptimizer_02,19:15:37.759,19:15:53.975,16.216,1.3505,1.1493,,maxiter = 10000,
+uDreyfus1_tensorflow::FtrlOptimizer_03,19:15:53.976,19:16:09.679,15.703,1.3505,1.1493,,maxiter = 10000,
+uDreyfus1_tensorflow::FtrlOptimizer_04,19:16:09.679,19:16:26.121,16.442,1.3505,1.1493,,maxiter = 10000,
+uDreyfus1_tensorflow::FtrlOptimizer_05,19:16:26.123,19:16:42.423,16.3,1.3505,1.1493,,maxiter = 10000,
+uDreyfus1_tensorflow::GradientDescentOptimizer_01,19:33:06.027,19:33:20.022,13.995,0.6542,0.4585,,maxiter = 10000,
+uDreyfus1_tensorflow::GradientDescentOptimizer_02,19:33:20.022,19:33:34.382,14.36,0.6542,0.4585,,maxiter = 10000,
+uDreyfus1_tensorflow::GradientDescentOptimizer_03,19:33:34.384,19:33:48.761,14.377,0.6542,0.4585,,maxiter = 10000,
+uDreyfus1_tensorflow::GradientDescentOptimizer_04,19:33:48.763,19:34:02.959,14.196,0.6542,0.4585,,maxiter = 10000,
+uDreyfus1_tensorflow::GradientDescentOptimizer_05,19:34:02.961,19:34:17.099,14.138,0.6542,0.4585,,maxiter = 10000,
+uDreyfus1_tensorflow::MomentumOptimizer_01,20:06:58.740,20:07:13.650,14.91,0.6401,0.4869,,maxiter = 10000,
+uDreyfus1_tensorflow::MomentumOptimizer_02,20:07:13.652,20:07:28.299,14.647,0.6401,0.4869,,maxiter = 10000,
+uDreyfus1_tensorflow::MomentumOptimizer_03,20:07:28.301,20:07:42.947,14.646,0.6401,0.4869,,maxiter = 10000,
+uDreyfus1_tensorflow::MomentumOptimizer_04,20:07:42.963,20:07:57.752,14.789,0.6401,0.4869,,maxiter = 10000,
+uDreyfus1_tensorflow::MomentumOptimizer_05,20:07:57.752,20:08:12.527,14.775,0.6401,0.4869,,maxiter = 10000,

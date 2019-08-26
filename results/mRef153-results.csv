@@ -9,16 +9,16 @@ mRef153_nlsr::nlxb_07,15:36:49.272,15:36:49.413,0.141,3.7117,2.5527,**,maxiter =
 mRef153_nlsr::nlxb_08,15:36:49.413,15:36:49.506,0.093,3.1128,2.1804,**,maxiter = 150,Require hand-made formulas and scaling
 mRef153_nlsr::nlxb_09,15:36:49.506,15:36:49.647,0.141,3.2551,2.2662,**,maxiter = 150,Require hand-made formulas and scaling
 mRef153_nlsr::nlxb_10,15:36:49.647,15:36:49.772,0.125,3.5779,2.5948,**,maxiter = 150,Require hand-made formulas and scaling
-mRef153_minpacklm::nlsLM_01,15:46:28.272,15:46:28.366,0.094,3.6859,2.5881,**,maxiter = 150,Require hand-made formulas and scaling
-mRef153_minpacklm::nlsLM_02,15:46:28.366,15:46:28.460,0.094,3.8844,2.7706,**,maxiter = 150,Require hand-made formulas and scaling
-mRef153_minpacklm::nlsLM_03,15:46:28.460,15:46:28.522,0.062,3.4317,2.4682,**,maxiter = 150,Require hand-made formulas and scaling
-mRef153_minpacklm::nlsLM_04,15:46:28.522,15:46:28.554,0.032,3.3341,2.3356,**,maxiter = 150,Require hand-made formulas and scaling
-mRef153_minpacklm::nlsLM_05,15:46:28.554,15:46:28.632,0.078,27.8983,25.1873,**,maxiter = 150,Require hand-made formulas and scaling
-mRef153_minpacklm::nlsLM_06,15:46:28.632,15:46:28.725,0.093,3.7082,2.6284,**,maxiter = 150,Require hand-made formulas and scaling
-mRef153_minpacklm::nlsLM_07,15:46:28.725,15:46:28.819,0.094,27.8983,25.1873,**,maxiter = 150,Require hand-made formulas and scaling
-mRef153_minpacklm::nlsLM_08,15:46:28.819,15:46:28.897,0.078,3.5041,2.5734,**,maxiter = 150,Require hand-made formulas and scaling
-mRef153_minpacklm::nlsLM_09,15:46:28.897,15:46:28.991,0.094,3.8753,2.5786,**,maxiter = 150,Require hand-made formulas and scaling
-mRef153_minpacklm::nlsLM_10,15:46:28.991,15:46:29.069,0.078,3.5665,2.6554,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_01,15:46:28.272,15:46:28.366,0.094,3.6859,2.5881,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_02,15:46:28.366,15:46:28.460,0.094,3.8844,2.7706,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_03,15:46:28.460,15:46:28.522,0.062,3.4317,2.4682,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_04,15:46:28.522,15:46:28.554,0.032,3.3341,2.3356,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_05,15:46:28.554,15:46:28.632,0.078,27.8983,25.1873,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_06,15:46:28.632,15:46:28.725,0.093,3.7082,2.6284,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_07,15:46:28.725,15:46:28.819,0.094,27.8983,25.1873,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_08,15:46:28.819,15:46:28.897,0.078,3.5041,2.5734,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_09,15:46:28.897,15:46:28.991,0.094,3.8753,2.5786,**,maxiter = 150,Require hand-made formulas and scaling
+mRef153_minpack.lm::nlsLM_10,15:46:28.991,15:46:29.069,0.078,3.5665,2.6554,**,maxiter = 150,Require hand-made formulas and scaling
 mRef153_h2o::h2o.deeplearning_01,15:53:58.421,15:53:58.999,0.578,3.84,2.7886,,maxiter=200,Bad on univariate datasets
 mRef153_h2o::h2o.deeplearning_02,15:53:59.015,15:53:59.625,0.61,3.7013,2.7135,,maxiter=200,Bad on univariate datasets
 mRef153_h2o::h2o.deeplearning_03,15:53:59.625,15:54:00.234,0.609,3.8088,2.7734,,maxiter=200,Bad on univariate datasets
@@ -49,66 +49,66 @@ mRef153_brnn::brnn_gaussNewton_07,10:21:53.598,10:21:53.613,0.015,3.466,2.4165,*
 mRef153_brnn::brnn_gaussNewton_08,10:21:53.629,10:21:53.645,0.016,3.466,2.4165,***,,Different NN
 mRef153_brnn::brnn_gaussNewton_09,10:21:53.645,10:21:53.660,0.015,3.4659,2.4164,***,,Different NN
 mRef153_brnn::brnn_gaussNewton_10,10:21:53.676,10:21:53.691,0.015,3.4659,2.4163,***,,Different NN
-mRef153_AMORE::train_ADAPTgd_01,13:56:33.910,13:56:34.098,0.188,3.2678,2.2767,*,iter=3500 lr=0.01, Require scaling
-mRef153_AMORE::train_ADAPTgd_02,13:56:34.098,13:56:34.285,0.187,3.2622,2.2703,*,iter=3500 lr=0.01, Require scaling
-mRef153_AMORE::train_ADAPTgd_03,13:56:34.301,13:56:34.488,0.187,3.2604,2.2678,*,iter=3500 lr=0.01, Require scaling
-mRef153_AMORE::train_ADAPTgd_04,13:56:34.488,13:56:34.676,0.188,3.2653,2.2733,*,iter=3500 lr=0.01, Require scaling
-mRef153_AMORE::train_ADAPTgd_05,13:56:34.691,13:56:34.879,0.188,3.2856,2.2652,*,iter=3500 lr=0.01, Require scaling
-mRef153_AMORE::train_ADAPTgd_06,13:56:34.879,13:56:35.066,0.187,3.2536,2.2592,*,iter=3500 lr=0.01, Require scaling
-mRef153_AMORE::train_ADAPTgd_07,13:56:35.082,13:56:35.269,0.187,3.253,2.2574,*,iter=3500 lr=0.01, Require scaling
-mRef153_AMORE::train_ADAPTgd_08,13:56:35.269,13:56:35.457,0.188,3.4431,2.4902,*,iter=3500 lr=0.01, Require scaling
-mRef153_AMORE::train_ADAPTgd_09,13:56:35.472,13:56:35.660,0.188,3.2612,2.2701,*,iter=3500 lr=0.01, Require scaling
-mRef153_AMORE::train_ADAPTgd_10,13:56:35.660,13:56:35.847,0.187,3.2599,2.2658,*,iter=3500 lr=0.01, Require scaling
-mRef153_AMORE::train_ADAPTgdwm_01,14:16:22.071,14:16:22.806,0.735,3.611,2.7146,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-mRef153_AMORE::train_ADAPTgdwm_02,14:16:22.806,14:16:23.524,0.718,3.2653,2.2437,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-mRef153_AMORE::train_ADAPTgdwm_03,14:16:23.524,14:16:24.258,0.734,3.6422,2.7765,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-mRef153_AMORE::train_ADAPTgdwm_04,14:16:24.274,14:16:24.992,0.718,3.3033,2.2924,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-mRef153_AMORE::train_ADAPTgdwm_05,14:16:24.992,14:16:25.727,0.735,3.3046,2.2881,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-mRef153_AMORE::train_ADAPTgdwm_06,14:16:25.727,14:16:26.445,0.718,3.2653,2.2438,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-mRef153_AMORE::train_ADAPTgdwm_07,14:16:26.445,14:16:27.179,0.734,3.4981,2.4712,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-mRef153_AMORE::train_ADAPTgdwm_08,14:16:27.179,14:16:27.898,0.719,3.2653,2.2438,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-mRef153_AMORE::train_ADAPTgdwm_09,14:16:27.898,14:16:28.617,0.719,3.2653,2.2438,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-mRef153_AMORE::train_ADAPTgdwm_10,14:16:28.617,14:16:29.351,0.734,3.3148,2.3255,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
-mRef153_AMORE::train_BATCHgd_01,14:36:25.680,14:36:26.867,1.187,4.8674,3.6258,,iter=7500 lr=0.05 sigmoid,very bad
-mRef153_AMORE::train_BATCHgd_02,14:36:26.867,14:36:28.070,1.203,4.8339,3.6226,,iter=7500 lr=0.05 sigmoid,very bad
-mRef153_AMORE::train_BATCHgd_03,14:36:28.070,14:36:29.194,1.124,4.4827,3.3717,,iter=7500 lr=0.05 sigmoid,very bad
-mRef153_AMORE::train_BATCHgd_04,14:36:29.194,14:36:30.397,1.203,4.336,3.1412,,iter=7500 lr=0.05 sigmoid,very bad
-mRef153_AMORE::train_BATCHgd_05,14:36:30.413,14:36:31.584,1.171,4.5744,3.472,,iter=7500 lr=0.05 sigmoid,very bad
-mRef153_AMORE::train_BATCHgdwm_01,15:03:15.673,15:03:18.344,2.671,5.8569,4.7155,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
-mRef153_AMORE::train_BATCHgdwm_02,15:03:18.344,15:03:20.973,2.629,6.393,5.2137,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
-mRef153_AMORE::train_BATCHgdwm_03,15:03:20.988,15:03:23.679,2.691,5.8865,4.7805,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
-mRef153_AMORE::train_BATCHgdwm_04,15:03:23.695,15:03:26.379,2.684,5.7718,4.6552,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
-mRef153_AMORE::train_BATCHgdwm_05,15:03:26.386,15:03:29.066,2.68,6.2626,5.0953,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
-mRef153_ANN2::neuralnetwork_sgd_01,16:27:41.343,16:27:41.546,0.203,3.2989,2.2977,*,iter=4000 lr=0.01,Require fine tuning
-mRef153_ANN2::neuralnetwork_sgd_02,16:27:41.561,16:27:41.780,0.219,3.2557,2.2339,*,iter=4000 lr=0.01,Require fine tuning
-mRef153_ANN2::neuralnetwork_sgd_03,16:27:41.780,16:27:41.999,0.219,3.2835,2.2777,*,iter=4000 lr=0.01,Require fine tuning
-mRef153_ANN2::neuralnetwork_sgd_04,16:27:41.999,16:27:42.227,0.228,3.2638,2.249,*,iter=4000 lr=0.01,Require fine tuning
-mRef153_ANN2::neuralnetwork_sgd_05,16:27:42.233,16:27:42.450,0.217,3.2936,2.3011,*,iter=4000 lr=0.01,Require fine tuning
-mRef153_ANN2::neuralnetwork_sgd_06,16:27:42.457,16:27:42.673,0.216,3.4714,2.4975,*,iter=4000 lr=0.01,Require fine tuning
-mRef153_ANN2::neuralnetwork_sgd_07,16:27:42.679,16:27:42.896,0.217,3.2854,2.2525,*,iter=4000 lr=0.01,Require fine tuning
-mRef153_ANN2::neuralnetwork_sgd_08,16:27:42.902,16:27:43.109,0.207,3.2603,2.2305,*,iter=4000 lr=0.01,Require fine tuning
-mRef153_ANN2::neuralnetwork_sgd_09,16:27:43.124,16:27:43.327,0.203,3.2786,2.3225,*,iter=4000 lr=0.01,Require fine tuning
-mRef153_ANN2::neuralnetwork_sgd_10,16:27:43.343,16:27:43.546,0.203,3.5146,2.6101,*,iter=4000 lr=0.01,Require fine tuning
-mRef153_ANN2::neuralnetwork_adam_01,16:35:19.775,16:35:20.018,0.243,3.4881,2.4629,*,iter=4000 lr=0.02,Require fine tuning
-mRef153_ANN2::neuralnetwork_adam_02,16:35:20.025,16:35:20.262,0.237,3.8664,2.8605,*,iter=4000 lr=0.02,Require fine tuning
-mRef153_ANN2::neuralnetwork_adam_03,16:35:20.269,16:35:20.507,0.238,3.6939,2.8293,*,iter=4000 lr=0.02,Require fine tuning
-mRef153_ANN2::neuralnetwork_adam_04,16:35:20.513,16:35:20.754,0.241,3.2436,2.4072,*,iter=4000 lr=0.02,Require fine tuning
-mRef153_ANN2::neuralnetwork_adam_05,16:35:20.760,16:35:21.001,0.241,3.1403,2.2129,*,iter=4000 lr=0.02,Require fine tuning
-mRef153_ANN2::neuralnetwork_adam_06,16:35:21.007,16:35:21.250,0.243,3.7224,2.6171,*,iter=4000 lr=0.02,Require fine tuning
-mRef153_ANN2::neuralnetwork_adam_07,16:35:21.255,16:35:21.487,0.232,3.5057,2.5991,*,iter=4000 lr=0.02,Require fine tuning
-mRef153_ANN2::neuralnetwork_adam_08,16:35:21.493,16:35:21.729,0.236,3.1525,2.2068,*,iter=4000 lr=0.02,Require fine tuning
-mRef153_ANN2::neuralnetwork_adam_09,16:35:21.736,16:35:21.970,0.234,3.3362,2.2594,*,iter=4000 lr=0.02,Require fine tuning
-mRef153_ANN2::neuralnetwork_adam_10,16:35:21.976,16:35:22.211,0.235,3.3072,2.3836,*,iter=4000 lr=0.02,Require fine tuning
-mRef153_ANN2::neuralnetwork_rmsprop_01,16:41:43.200,16:41:43.419,0.219,3.1879,2.2072,,iter=4000 lr=0.03,Erratic
-mRef153_ANN2::neuralnetwork_rmsprop_02,16:41:43.435,16:41:43.653,0.218,3.8467,2.908,,iter=4000 lr=0.03,Erratic
-mRef153_ANN2::neuralnetwork_rmsprop_03,16:41:43.653,16:41:43.872,0.219,3.7313,2.897,,iter=4000 lr=0.03,Erratic
-mRef153_ANN2::neuralnetwork_rmsprop_04,16:41:43.888,16:41:44.106,0.218,3.6234,2.6291,,iter=4000 lr=0.03,Erratic
-mRef153_ANN2::neuralnetwork_rmsprop_05,16:41:44.122,16:41:44.341,0.219,3.5161,2.4965,,iter=4000 lr=0.03,Erratic
-mRef153_ANN2::neuralnetwork_rmsprop_06,16:41:44.341,16:41:44.575,0.234,3.8199,2.7584,,iter=4000 lr=0.03,Erratic
-mRef153_ANN2::neuralnetwork_rmsprop_07,16:41:44.575,16:41:44.794,0.219,3.6506,2.797,,iter=4000 lr=0.03,Erratic
-mRef153_ANN2::neuralnetwork_rmsprop_08,16:41:44.809,16:41:45.028,0.219,3.566,2.4907,,iter=4000 lr=0.03,Erratic
-mRef153_ANN2::neuralnetwork_rmsprop_09,16:41:45.028,16:41:45.247,0.219,3.6786,2.822,,iter=4000 lr=0.03,Erratic
-mRef153_ANN2::neuralnetwork_rmsprop_10,16:41:45.262,16:41:45.481,0.219,3.5168,2.5945,,iter=4000 lr=0.03,Erratic
+mRef153_AMORE::train_ADAPTgd_01,13:56:33.910,13:56:34.098,0.188,3.2678,2.2767,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_02,13:56:34.098,13:56:34.285,0.187,3.2622,2.2703,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_03,13:56:34.301,13:56:34.488,0.187,3.2604,2.2678,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_04,13:56:34.488,13:56:34.676,0.188,3.2653,2.2733,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_05,13:56:34.691,13:56:34.879,0.188,3.2856,2.2652,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_06,13:56:34.879,13:56:35.066,0.187,3.2536,2.2592,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_07,13:56:35.082,13:56:35.269,0.187,3.253,2.2574,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_08,13:56:35.269,13:56:35.457,0.188,3.4431,2.4902,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_09,13:56:35.472,13:56:35.660,0.188,3.2612,2.2701,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgd_10,13:56:35.660,13:56:35.847,0.187,3.2599,2.2658,*,iter=3500, lr=0.01. Require scaling,
+mRef153_AMORE::train_ADAPTgdwm_01,14:16:22.071,14:16:22.806,0.735,3.611,2.7146,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_02,14:16:22.806,14:16:23.524,0.718,3.2653,2.2437,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_03,14:16:23.524,14:16:24.258,0.734,3.6422,2.7765,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_04,14:16:24.274,14:16:24.992,0.718,3.3033,2.2924,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_05,14:16:24.992,14:16:25.727,0.735,3.3046,2.2881,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_06,14:16:25.727,14:16:26.445,0.718,3.2653,2.2438,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_07,14:16:26.445,14:16:27.179,0.734,3.4981,2.4712,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_08,14:16:27.179,14:16:27.898,0.719,3.2653,2.2438,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_09,14:16:27.898,14:16:28.617,0.719,3.2653,2.2438,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_ADAPTgdwm_10,14:16:28.617,14:16:29.351,0.734,3.3148,2.3255,*,iter=10000, lr=0.009, momentum=0.8, sigmoid,
+mRef153_AMORE::train_BATCHgd_01,14:36:25.680,14:36:26.867,1.187,4.8674,3.6258,,iter=7500, lr=0.05, sigmoid,very bad
+mRef153_AMORE::train_BATCHgd_02,14:36:26.867,14:36:28.070,1.203,4.8339,3.6226,,iter=7500, lr=0.05, sigmoid,very bad
+mRef153_AMORE::train_BATCHgd_03,14:36:28.070,14:36:29.194,1.124,4.4827,3.3717,,iter=7500, lr=0.05, sigmoid,very bad
+mRef153_AMORE::train_BATCHgd_04,14:36:29.194,14:36:30.397,1.203,4.336,3.1412,,iter=7500, lr=0.05, sigmoid,very bad
+mRef153_AMORE::train_BATCHgd_05,14:36:30.413,14:36:31.584,1.171,4.5744,3.472,,iter=7500, lr=0.05, sigmoid,very bad
+mRef153_AMORE::train_BATCHgdwm_01,15:03:15.673,15:03:18.344,2.671,5.8569,4.7155,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mRef153_AMORE::train_BATCHgdwm_02,15:03:18.344,15:03:20.973,2.629,6.393,5.2137,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mRef153_AMORE::train_BATCHgdwm_03,15:03:20.988,15:03:23.679,2.691,5.8865,4.7805,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mRef153_AMORE::train_BATCHgdwm_04,15:03:23.695,15:03:26.379,2.684,5.7718,4.6552,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mRef153_AMORE::train_BATCHgdwm_05,15:03:26.386,15:03:29.066,2.68,6.2626,5.0953,,iter=9000, lr=0.008, momentum=0.7, tansig,Bad. No example
+mRef153_ANN2::neuralnetwork_sgd_01,16:27:41.343,16:27:41.546,0.203,3.2989,2.2977,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_02,16:27:41.561,16:27:41.780,0.219,3.2557,2.2339,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_03,16:27:41.780,16:27:41.999,0.219,3.2835,2.2777,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_04,16:27:41.999,16:27:42.227,0.228,3.2638,2.249,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_05,16:27:42.233,16:27:42.450,0.217,3.2936,2.3011,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_06,16:27:42.457,16:27:42.673,0.216,3.4714,2.4975,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_07,16:27:42.679,16:27:42.896,0.217,3.2854,2.2525,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_08,16:27:42.902,16:27:43.109,0.207,3.2603,2.2305,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_09,16:27:43.124,16:27:43.327,0.203,3.2786,2.3225,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_sgd_10,16:27:43.343,16:27:43.546,0.203,3.5146,2.6101,*,iter=4000, lr=0.01,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_01,16:35:19.775,16:35:20.018,0.243,3.4881,2.4629,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_02,16:35:20.025,16:35:20.262,0.237,3.8664,2.8605,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_03,16:35:20.269,16:35:20.507,0.238,3.6939,2.8293,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_04,16:35:20.513,16:35:20.754,0.241,3.2436,2.4072,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_05,16:35:20.760,16:35:21.001,0.241,3.1403,2.2129,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_06,16:35:21.007,16:35:21.250,0.243,3.7224,2.6171,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_07,16:35:21.255,16:35:21.487,0.232,3.5057,2.5991,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_08,16:35:21.493,16:35:21.729,0.236,3.1525,2.2068,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_09,16:35:21.736,16:35:21.970,0.234,3.3362,2.2594,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_adam_10,16:35:21.976,16:35:22.211,0.235,3.3072,2.3836,*,iter=4000, lr=0.02,Require fine tuning
+mRef153_ANN2::neuralnetwork_rmsprop_01,16:41:43.200,16:41:43.419,0.219,3.1879,2.2072,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_02,16:41:43.435,16:41:43.653,0.218,3.8467,2.908,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_03,16:41:43.653,16:41:43.872,0.219,3.7313,2.897,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_04,16:41:43.888,16:41:44.106,0.218,3.6234,2.6291,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_05,16:41:44.122,16:41:44.341,0.219,3.5161,2.4965,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_06,16:41:44.341,16:41:44.575,0.234,3.8199,2.7584,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_07,16:41:44.575,16:41:44.794,0.219,3.6506,2.797,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_08,16:41:44.809,16:41:45.028,0.219,3.566,2.4907,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_09,16:41:45.028,16:41:45.247,0.219,3.6786,2.822,,iter=4000, lr=0.03,Inaccurate. Sometimes good
+mRef153_ANN2::neuralnetwork_rmsprop_10,16:41:45.262,16:41:45.481,0.219,3.5168,2.5945,,iter=4000, lr=0.03,Inaccurate. Sometimes good
 mRef153_deepnet::gradientdescent_01,17:29:47.826,17:29:48.092,0.266,3.8387,2.9709,,numepochs=1000,Bad on univariate datasets
 mRef153_deepnet::gradientdescent_02,17:29:48.092,17:29:48.357,0.265,3.4302,2.4169,,numepochs=1000,Bad on univariate datasets
 mRef153_deepnet::gradientdescent_03,17:29:48.357,17:29:48.623,0.266,3.4656,2.5493,,numepochs=1000,Bad on univariate datasets
@@ -119,16 +119,16 @@ mRef153_deepnet::gradientdescent_07,17:29:49.435,17:29:49.701,0.266,3.4371,2.508
 mRef153_deepnet::gradientdescent_08,17:29:49.701,17:29:49.966,0.265,3.7664,2.7268,,numepochs=1000,Bad on univariate datasets
 mRef153_deepnet::gradientdescent_09,17:29:49.966,17:29:50.232,0.266,3.3923,2.4754,,numepochs=1000,Bad on univariate datasets
 mRef153_deepnet::gradientdescent_10,17:29:50.232,17:29:50.498,0.266,3.4908,2.4632,,numepochs=1000,Bad on univariate datasets
-mRef153_MachineShop::fit.NNetModel_01,03:19:12.980,03:19:13.003,0.023,3.4008,2.4478,,maxiter = 150,uses nnet
-mRef153_MachineShop::fit.NNetModel_02,03:19:13.003,03:19:13.019,0.016,3.5956,2.5972,,maxiter = 150,uses nnet
-mRef153_MachineShop::fit.NNetModel_03,03:19:13.019,03:19:13.061,0.042,3.5675,2.6863,,maxiter = 150,uses nnet
-mRef153_MachineShop::fit.NNetModel_04,03:19:13.064,03:19:13.074,0.01,3.3381,2.3052,,maxiter = 150,uses nnet
-mRef153_MachineShop::fit.NNetModel_05,03:19:13.079,03:19:13.093,0.014,3.1128,2.1808,,maxiter = 150,uses nnet
-mRef153_MachineShop::fit.NNetModel_06,03:19:13.097,03:19:13.101,0.004,3.3927,2.4206,,maxiter = 150,uses nnet
-mRef153_MachineShop::fit.NNetModel_07,03:19:13.101,03:19:13.117,0.016,3.5697,2.6831,,maxiter = 150,uses nnet
-mRef153_MachineShop::fit.NNetModel_08,03:19:13.132,03:19:13.132,0,3.113,2.1792,,maxiter = 150,uses nnet
-mRef153_MachineShop::fit.NNetModel_09,03:19:13.148,03:19:13.163,0.015,3.2961,2.3902,,maxiter = 150,uses nnet
-mRef153_MachineShop::fit.NNetModel_10,03:19:13.163,03:19:13.180,0.017,3.3341,2.3356,,maxiter = 150,uses nnet
+mRef153_MachineShop::fit.NNetModel()_01,03:19:12.980,03:19:13.003,0.023,3.4008,2.4478,,maxiter = 150,uses nnet
+mRef153_MachineShop::fit.NNetModel()_02,03:19:13.003,03:19:13.019,0.016,3.5956,2.5972,,maxiter = 150,uses nnet
+mRef153_MachineShop::fit.NNetModel()_03,03:19:13.019,03:19:13.061,0.042,3.5675,2.6863,,maxiter = 150,uses nnet
+mRef153_MachineShop::fit.NNetModel()_04,03:19:13.064,03:19:13.074,0.01,3.3381,2.3052,,maxiter = 150,uses nnet
+mRef153_MachineShop::fit.NNetModel()_05,03:19:13.079,03:19:13.093,0.014,3.1128,2.1808,,maxiter = 150,uses nnet
+mRef153_MachineShop::fit.NNetModel()_06,03:19:13.097,03:19:13.101,0.004,3.3927,2.4206,,maxiter = 150,uses nnet
+mRef153_MachineShop::fit.NNetModel()_07,03:19:13.101,03:19:13.117,0.016,3.5697,2.6831,,maxiter = 150,uses nnet
+mRef153_MachineShop::fit.NNetModel()_08,03:19:13.132,03:19:13.132,0,3.113,2.1792,,maxiter = 150,uses nnet
+mRef153_MachineShop::fit.NNetModel()_09,03:19:13.148,03:19:13.163,0.015,3.2961,2.3902,,maxiter = 150,uses nnet
+mRef153_MachineShop::fit.NNetModel()_10,03:19:13.163,03:19:13.180,0.017,3.3341,2.3356,,maxiter = 150,uses nnet
 mRef153_momlp::monmlp.fit_BFGS_01,03:19:56.274,03:19:56.468,0.194,3.2325,2.1969,,maxiter = 300,uses optimx
 mRef153_momlp::monmlp.fit_BFGS_02,03:19:56.469,03:19:56.678,0.209,3.196,2.2566,,maxiter = 300,uses optimx
 mRef153_momlp::monmlp.fit_BFGS_03,03:19:56.680,03:19:56.867,0.187,3.1941,2.2478,,maxiter = 300,uses optimx
@@ -159,11 +159,11 @@ mRef153_neuralnet::neuralnet_backprop_02,03:51:59.218,03:52:01.292,2.074,3.5769,
 mRef153_neuralnet::neuralnet_backprop_03,03:52:01.292,03:52:06.632,5.34,27.8983,25.1873,,,Fails on difficult datasets
 mRef153_neuralnet::neuralnet_backprop_04,03:52:06.634,03:52:08.071,1.437,3.3191,2.3957,,,Fails on difficult datasets
 mRef153_neuralnet::neuralnet_backprop_05,03:52:08.072,03:52:09.884,1.812,3.2442,2.1972,,,Fails on difficult datasets
-mRef153_neuralnet::neuralnet_rprop-_01,03:58:51.280,03:58:51.702,0.422,3.571,2.6815,,,Erratic on multivariate datasets
-mRef153_neuralnet::neuralnet_rprop-_02,03:58:51.702,03:58:51.827,0.125,3.3415,2.3213,,,Erratic on multivariate datasets
-mRef153_neuralnet::neuralnet_rprop-_03,03:58:51.827,03:58:51.952,0.125,3.5741,2.6809,,,Erratic on multivariate datasets
-mRef153_neuralnet::neuralnet_rprop-_04,03:58:51.952,03:58:52.011,0.059,3.7117,2.6389,,,Erratic on multivariate datasets
-mRef153_neuralnet::neuralnet_rprop-_05,03:58:52.011,03:58:52.308,0.297,3.5398,2.5814,,,Erratic on multivariate datasets
+mRef153_neuralnet::neuralnet_rprop-_01,03:58:51.280,03:58:51.702,0.422,3.571,2.6815,,,Fails on mIshigami. mDette and mFriedman sometimes
+mRef153_neuralnet::neuralnet_rprop-_02,03:58:51.702,03:58:51.827,0.125,3.3415,2.3213,,,Fails on mIshigami. mDette and mFriedman sometimes
+mRef153_neuralnet::neuralnet_rprop-_03,03:58:51.827,03:58:51.952,0.125,3.5741,2.6809,,,Fails on mIshigami. mDette and mFriedman sometimes
+mRef153_neuralnet::neuralnet_rprop-_04,03:58:51.952,03:58:52.011,0.059,3.7117,2.6389,,,Fails on mIshigami. mDette and mFriedman sometimes
+mRef153_neuralnet::neuralnet_rprop-_05,03:58:52.011,03:58:52.308,0.297,3.5398,2.5814,,,Fails on mIshigami. mDette and mFriedman sometimes
 mRef153_neuralnet::neuralnet_sag_01,04:10:47.947,04:10:54.521,6.574,27.8983,25.1873,,,
 mRef153_neuralnet::neuralnet_sag_02,04:10:54.521,04:11:01.087,6.566,27.8983,25.1873,,,
 mRef153_neuralnet::neuralnet_sag_03,04:11:01.087,04:11:07.632,6.545,27.8983,25.1873,,,
@@ -179,16 +179,16 @@ mRef153_neuralnet::neuralnet_rprop+_02,04:24:30.538,04:24:30.733,0.195,3.5705,2.
 mRef153_neuralnet::neuralnet_rprop+_03,04:24:30.735,04:24:30.878,0.143,3.5764,2.5535,,,Erratic on difficult datasets
 mRef153_neuralnet::neuralnet_rprop+_04,04:24:30.879,04:24:31.042,0.163,3.7276,2.6651,,,Erratic on difficult datasets
 mRef153_neuralnet::neuralnet_rprop+_05,04:24:31.043,04:24:31.257,0.214,3.459,2.4858,,,Erratic on difficult datasets
-mRef153_nnet::nnet_01,04:25:32.706,04:25:32.720,0.014,3.5659,2.6579,,maxiter = 150,uses optim BFGS
-mRef153_nnet::nnet_02,04:25:32.722,04:25:32.734,0.012,3.5877,2.6035,,maxiter = 150,uses optim BFGS
-mRef153_nnet::nnet_03,04:25:32.736,04:25:32.747,0.011,3.1128,2.1804,,maxiter = 150,uses optim BFGS
-mRef153_nnet::nnet_04,04:25:32.749,04:25:32.762,0.013,3.2256,2.1852,,maxiter = 150,uses optim BFGS
-mRef153_nnet::nnet_05,04:25:32.764,04:25:32.778,0.014,3.3504,2.4007,,maxiter = 150,uses optim BFGS
-mRef153_nnet::nnet_06,04:25:32.779,04:25:32.790,0.011,3.3381,2.3051,,maxiter = 150,uses optim BFGS
-mRef153_nnet::nnet_07,04:25:32.791,04:25:32.804,0.013,3.5798,2.5963,,maxiter = 150,uses optim BFGS
-mRef153_nnet::nnet_08,04:25:32.806,04:25:32.818,0.012,3.1128,2.1804,,maxiter = 150,uses optim BFGS
-mRef153_nnet::nnet_09,04:25:32.819,04:25:32.832,0.013,3.4268,2.5276,,maxiter = 150,uses optim BFGS
-mRef153_nnet::nnet_10,04:25:32.834,04:25:32.847,0.013,3.559,2.5766,,maxiter = 150,uses optim BFGS
+mRef153_nnet::nnet_01,04:25:32.706,04:25:32.720,0.014,3.5659,2.6579,,maxiter = 150,uses optim BFGS, fast
+mRef153_nnet::nnet_02,04:25:32.722,04:25:32.734,0.012,3.5877,2.6035,,maxiter = 150,uses optim BFGS, fast
+mRef153_nnet::nnet_03,04:25:32.736,04:25:32.747,0.011,3.1128,2.1804,,maxiter = 150,uses optim BFGS, fast
+mRef153_nnet::nnet_04,04:25:32.749,04:25:32.762,0.013,3.2256,2.1852,,maxiter = 150,uses optim BFGS, fast
+mRef153_nnet::nnet_05,04:25:32.764,04:25:32.778,0.014,3.3504,2.4007,,maxiter = 150,uses optim BFGS, fast
+mRef153_nnet::nnet_06,04:25:32.779,04:25:32.790,0.011,3.3381,2.3051,,maxiter = 150,uses optim BFGS, fast
+mRef153_nnet::nnet_07,04:25:32.791,04:25:32.804,0.013,3.5798,2.5963,,maxiter = 150,uses optim BFGS, fast
+mRef153_nnet::nnet_08,04:25:32.806,04:25:32.818,0.012,3.1128,2.1804,,maxiter = 150,uses optim BFGS, fast
+mRef153_nnet::nnet_09,04:25:32.819,04:25:32.832,0.013,3.4268,2.5276,,maxiter = 150,uses optim BFGS, fast
+mRef153_nnet::nnet_10,04:25:32.834,04:25:32.847,0.013,3.559,2.5766,,maxiter = 150,uses optim BFGS, fast
 mRef153_qrnn::qrnn.fit_01,04:25:52.673,04:25:52.904,0.231,3.2999,2.0624,,maxiter = 700,
 mRef153_qrnn::qrnn.fit_02,04:25:52.906,04:25:53.052,0.146,3.3497,2.0801,,maxiter = 700,
 mRef153_qrnn::qrnn.fit_03,04:25:53.054,04:25:53.468,0.414,3.8086,2.5118,,maxiter = 700,
@@ -199,16 +199,16 @@ mRef153_qrnn::qrnn.fit_07,04:25:54.121,04:25:54.359,0.238,3.3008,2.0628,,maxiter
 mRef153_qrnn::qrnn.fit_08,04:25:54.359,04:25:54.590,0.231,3.3002,2.0627,,maxiter = 700,
 mRef153_qrnn::qrnn.fit_09,04:25:54.590,04:25:54.816,0.226,3.5403,2.1362,,maxiter = 700,
 mRef153_qrnn::qrnn.fit_10,04:25:54.816,04:25:55.047,0.231,3.5403,2.1362,,maxiter = 700,
-mRef153_radiantmodel::radiantmodel_01,04:27:35.182,04:27:35.213,0.031,3.179,2.2334,,maxiter=10000 preset,uses nnet
-mRef153_radiantmodel::radiantmodel_02,04:27:35.213,04:27:35.244,0.031,3.2253,2.1875,,maxiter=10000 preset,uses nnet
-mRef153_radiantmodel::radiantmodel_03,04:27:35.244,04:27:35.275,0.031,3.225,2.1882,,maxiter=10000 preset,uses nnet
-mRef153_radiantmodel::radiantmodel_04,04:27:35.275,04:27:35.307,0.032,3.2249,2.1871,,maxiter=10000 preset,uses nnet
-mRef153_radiantmodel::radiantmodel_05,04:27:35.307,04:27:35.366,0.059,3.113,2.1802,,maxiter=10000 preset,uses nnet
-mRef153_radiantmodel::radiantmodel_06,04:27:35.366,04:27:35.397,0.031,3.1793,2.2325,,maxiter=10000 preset,uses nnet
-mRef153_radiantmodel::radiantmodel_07,04:27:35.397,04:27:35.460,0.063,3.1774,2.2204,,maxiter=10000 preset,uses nnet
-mRef153_radiantmodel::radiantmodel_08,04:27:35.460,04:27:35.507,0.047,3.2728,2.388,,maxiter=10000 preset,uses nnet
-mRef153_radiantmodel::radiantmodel_09,04:27:35.507,04:27:35.538,0.031,3.1774,2.2199,,maxiter=10000 preset,uses nnet
-mRef153_radiantmodel::radiantmodel_10,04:27:35.553,04:27:35.585,0.032,3.1791,2.2341,,maxiter=10000 preset,uses nnet
+mRef153_radiant.model::radiant.model_01,04:27:35.182,04:27:35.213,0.031,3.179,2.2334,,maxiter = 10000, preset,uses nnet
+mRef153_radiant.model::radiant.model_02,04:27:35.213,04:27:35.244,0.031,3.2253,2.1875,,maxiter = 10000, preset,uses nnet
+mRef153_radiant.model::radiant.model_03,04:27:35.244,04:27:35.275,0.031,3.225,2.1882,,maxiter = 10000, preset,uses nnet
+mRef153_radiant.model::radiant.model_04,04:27:35.275,04:27:35.307,0.032,3.2249,2.1871,,maxiter = 10000, preset,uses nnet
+mRef153_radiant.model::radiant.model_05,04:27:35.307,04:27:35.366,0.059,3.113,2.1802,,maxiter = 10000, preset,uses nnet
+mRef153_radiant.model::radiant.model_06,04:27:35.366,04:27:35.397,0.031,3.1793,2.2325,,maxiter = 10000, preset,uses nnet
+mRef153_radiant.model::radiant.model_07,04:27:35.397,04:27:35.460,0.063,3.1774,2.2204,,maxiter = 10000, preset,uses nnet
+mRef153_radiant.model::radiant.model_08,04:27:35.460,04:27:35.507,0.047,3.2728,2.388,,maxiter = 10000, preset,uses nnet
+mRef153_radiant.model::radiant.model_09,04:27:35.507,04:27:35.538,0.031,3.1774,2.2199,,maxiter = 10000, preset,uses nnet
+mRef153_radiant.model::radiant.model_10,04:27:35.553,04:27:35.585,0.032,3.1791,2.2341,,maxiter = 10000, preset,uses nnet
 mRef153_rcane::rlm_01,04:27:45.097,04:27:45.097,0,57.2337,49.9739,,maxiter = 1000,linear only
 mRef153_rcane::rlm_02,04:27:45.113,04:27:45.113,0,57.2337,49.9739,,maxiter = 1000,linear only
 mRef153_rcane::rlm_03,04:27:45.113,04:27:45.113,0,57.2337,49.9739,,maxiter = 1000,linear only
@@ -349,53 +349,83 @@ mRef153_tsensembler::tsensembler_07,04:50:57.507,04:50:57.942,0.435,2.4695,1.573
 mRef153_tsensembler::tsensembler_08,04:50:57.944,04:50:58.280,0.336,2.4859,1.5942,,maxiter = 150,uses nnet
 mRef153_tsensembler::tsensembler_09,04:50:58.282,04:50:58.750,0.468,2.4767,1.5848,,maxiter = 150,uses nnet
 mRef153_tsensembler::tsensembler_10,04:50:58.751,04:50:59.187,0.436,2.5404,1.6746,,maxiter = 150,uses nnet
-mRef153_validann::ann_BFGS_01,04:53:18.264,04:53:19.140,0.876,3.8488,2.8364,,maxiter = 200,optim
-mRef153_validann::ann_BFGS_02,04:53:19.140,04:53:19.683,0.543,3.3381,2.305,,maxiter = 200,optim
-mRef153_validann::ann_BFGS_03,04:53:19.683,04:53:20.534,0.851,3.1128,2.1804,,maxiter = 200,optim
-mRef153_validann::ann_BFGS_04,04:53:20.534,04:53:21.051,0.517,3.2736,2.2964,,maxiter = 200,optim
-mRef153_validann::ann_BFGS_05,04:53:21.051,04:53:21.678,0.627,3.2736,2.2964,,maxiter = 200,optim
-mRef153_validann::ann_BFGS_06,04:53:21.678,04:53:22.210,0.532,3.1128,2.1804,,maxiter = 200,optim
-mRef153_validann::ann_BFGS_07,04:53:22.225,04:53:22.739,0.514,3.1128,2.1804,,maxiter = 200,optim
-mRef153_validann::ann_BFGS_08,04:53:22.741,04:53:23.294,0.553,3.1128,2.1804,,maxiter = 200,optim
-mRef153_validann::ann_BFGS_09,04:53:23.295,04:53:24.133,0.838,3.4829,2.5258,,maxiter = 200,optim
-mRef153_validann::ann_BFGS_10,04:53:24.135,04:53:24.866,0.731,3.1128,2.1804,,maxiter = 200,optim
-mRef153_validann::ann_CG_01,05:02:19.876,05:02:25.405,5.529,3.2393,2.1991,,maxiter = 1000,optim
-mRef153_validann::ann_CG_02,05:02:25.405,05:02:30.954,5.549,3.2392,2.2251,,maxiter = 1000,optim
-mRef153_validann::ann_CG_03,05:02:30.954,05:02:36.624,5.67,3.7167,2.655,,maxiter = 1000,optim
-mRef153_validann::ann_CG_04,05:02:36.625,05:02:42.248,5.623,3.5711,2.6878,,maxiter = 1000,optim
-mRef153_validann::ann_CG_05,05:02:42.248,05:02:47.748,5.5,3.1181,2.1547,,maxiter = 1000,optim
-mRef153_validann::ann_CG_06,05:02:47.748,05:02:53.294,5.546,3.422,2.457,,maxiter = 1000,optim
-mRef153_validann::ann_CG_07,05:02:53.294,05:02:58.833,5.539,3.57,2.6582,,maxiter = 1000,optim
-mRef153_validann::ann_CG_08,05:02:58.834,05:03:04.576,5.742,3.2019,2.2493,,maxiter = 1000,optim
-mRef153_validann::ann_CG_09,05:03:04.576,05:03:10.091,5.515,3.2317,2.2022,,maxiter = 1000,optim
-mRef153_validann::ann_CG_10,05:03:10.091,05:03:15.638,5.547,3.2343,2.1892,,maxiter = 1000,optim
-mRef153_validann::ann_L-BFGS-B_01,05:09:27.659,05:09:28.582,0.923,3.2372,2.225,,maxiter = 200,optim
-mRef153_validann::ann_L-BFGS-B_02,05:09:28.582,05:09:29.491,0.909,3.5718,2.664,,maxiter = 200,optim
-mRef153_validann::ann_L-BFGS-B_03,05:09:29.491,05:09:30.433,0.942,3.2346,2.1943,,maxiter = 200,optim
-mRef153_validann::ann_L-BFGS-B_04,05:09:30.433,05:09:31.458,1.025,3.5866,2.55,,maxiter = 200,optim
-mRef153_validann::ann_L-BFGS-B_05,05:09:31.458,05:09:32.405,0.947,3.5229,2.4495,,maxiter = 200,optim
-mRef153_validann::ann_L-BFGS-B_06,05:09:32.405,05:09:33.343,0.938,3.1295,2.1508,,maxiter = 200,optim
-mRef153_validann::ann_L-BFGS-B_07,05:09:33.343,05:09:34.291,0.948,3.236,2.1907,,maxiter = 200,optim
-mRef153_validann::ann_L-BFGS-B_08,05:09:34.291,05:09:35.205,0.914,3.245,2.1865,,maxiter = 200,optim
-mRef153_validann::ann_L-BFGS-B_09,05:09:35.205,05:09:36.130,0.925,3.744,2.7049,,maxiter = 200,optim
-mRef153_validann::ann_L-BFGS-B_10,05:09:36.132,05:09:37.064,0.932,3.4598,2.4232,,maxiter = 200,optim
-mRef153_validann::ann_Nelder-Mead_01,05:11:41.436,05:11:42.671,1.235,3.969,3.0046,,maxiter = 10000,optim
-mRef153_validann::ann_Nelder-Mead_02,05:11:42.671,05:11:43.592,0.921,4.6398,3.29,,maxiter = 10000,optim
-mRef153_validann::ann_Nelder-Mead_03,05:11:43.592,05:11:44.826,1.234,3.7742,2.8125,,maxiter = 10000,optim
-mRef153_validann::ann_Nelder-Mead_04,05:11:44.826,05:11:46.077,1.251,3.9795,2.9018,,maxiter = 10000,optim
-mRef153_validann::ann_Nelder-Mead_05,05:11:46.079,05:11:47.321,1.242,3.8272,2.9218,,maxiter = 10000,optim
-mRef153_validann::ann_Nelder-Mead_06,05:11:47.322,05:11:48.562,1.24,4.6008,3.2704,,maxiter = 10000,optim
-mRef153_validann::ann_Nelder-Mead_07,05:11:48.562,05:11:49.608,1.046,4.1056,3.0955,,maxiter = 10000,optim
-mRef153_validann::ann_Nelder-Mead_08,05:11:49.608,05:11:50.561,0.953,4.0644,3.0228,,maxiter = 10000,optim
-mRef153_validann::ann_Nelder-Mead_09,05:11:50.561,05:11:51.812,1.251,4.0666,2.9919,,maxiter = 10000,optim
-mRef153_validann::ann_Nelder-Mead_10,05:11:51.812,05:11:53.062,1.25,4.0164,3.0958,,maxiter = 10000,optim
-mRef153_validann::ann_SANN_01,05:13:56.154,05:13:57.177,1.023,747.6351,694.5815,,maxiter = 10000,optim
-mRef153_validann::ann_SANN_02,05:13:57.179,05:13:58.226,1.047,772.6237,710.4432,,maxiter = 10000,optim
-mRef153_validann::ann_SANN_03,05:13:58.227,05:13:59.322,1.095,720.5031,670.5299,,maxiter = 10000,optim
-mRef153_validann::ann_SANN_04,05:13:59.324,05:14:00.493,1.169,686.8021,638.6879,,maxiter = 10000,optim
-mRef153_validann::ann_SANN_05,05:14:00.496,05:14:01.567,1.071,719.0522,665.5334,,maxiter = 10000,optim
-mRef153_validann::ann_SANN_06,05:14:01.567,05:14:02.656,1.089,778.4524,730.8735,,maxiter = 10000,optim
-mRef153_validann::ann_SANN_07,05:14:02.657,05:14:03.704,1.047,761.3453,689.9534,,maxiter = 10000,optim
-mRef153_validann::ann_SANN_08,05:14:03.704,05:14:04.743,1.039,744.2208,695.2084,,maxiter = 10000,optim
-mRef153_validann::ann_SANN_09,05:14:04.745,05:14:05.774,1.029,722.3868,653.8763,,maxiter = 10000,optim
-mRef153_validann::ann_SANN_10,05:14:05.776,05:14:06.799,1.023,733.651,660.943,,maxiter = 10000,optim
+mRef153_validann::ann_BFGS_01,04:53:18.264,04:53:19.140,0.876,3.8488,2.8364,,maxiter = 200,optim()
+mRef153_validann::ann_BFGS_02,04:53:19.140,04:53:19.683,0.543,3.3381,2.305,,maxiter = 200,optim()
+mRef153_validann::ann_BFGS_03,04:53:19.683,04:53:20.534,0.851,3.1128,2.1804,,maxiter = 200,optim()
+mRef153_validann::ann_BFGS_04,04:53:20.534,04:53:21.051,0.517,3.2736,2.2964,,maxiter = 200,optim()
+mRef153_validann::ann_BFGS_05,04:53:21.051,04:53:21.678,0.627,3.2736,2.2964,,maxiter = 200,optim()
+mRef153_validann::ann_BFGS_06,04:53:21.678,04:53:22.210,0.532,3.1128,2.1804,,maxiter = 200,optim()
+mRef153_validann::ann_BFGS_07,04:53:22.225,04:53:22.739,0.514,3.1128,2.1804,,maxiter = 200,optim()
+mRef153_validann::ann_BFGS_08,04:53:22.741,04:53:23.294,0.553,3.1128,2.1804,,maxiter = 200,optim()
+mRef153_validann::ann_BFGS_09,04:53:23.295,04:53:24.133,0.838,3.4829,2.5258,,maxiter = 200,optim()
+mRef153_validann::ann_BFGS_10,04:53:24.135,04:53:24.866,0.731,3.1128,2.1804,,maxiter = 200,optim()
+mRef153_validann::ann_CG_01,05:02:19.876,05:02:25.405,5.529,3.2393,2.1991,,maxiter = 1000,optim()
+mRef153_validann::ann_CG_02,05:02:25.405,05:02:30.954,5.549,3.2392,2.2251,,maxiter = 1000,optim()
+mRef153_validann::ann_CG_03,05:02:30.954,05:02:36.624,5.67,3.7167,2.655,,maxiter = 1000,optim()
+mRef153_validann::ann_CG_04,05:02:36.625,05:02:42.248,5.623,3.5711,2.6878,,maxiter = 1000,optim()
+mRef153_validann::ann_CG_05,05:02:42.248,05:02:47.748,5.5,3.1181,2.1547,,maxiter = 1000,optim()
+mRef153_validann::ann_CG_06,05:02:47.748,05:02:53.294,5.546,3.422,2.457,,maxiter = 1000,optim()
+mRef153_validann::ann_CG_07,05:02:53.294,05:02:58.833,5.539,3.57,2.6582,,maxiter = 1000,optim()
+mRef153_validann::ann_CG_08,05:02:58.834,05:03:04.576,5.742,3.2019,2.2493,,maxiter = 1000,optim()
+mRef153_validann::ann_CG_09,05:03:04.576,05:03:10.091,5.515,3.2317,2.2022,,maxiter = 1000,optim()
+mRef153_validann::ann_CG_10,05:03:10.091,05:03:15.638,5.547,3.2343,2.1892,,maxiter = 1000,optim()
+mRef153_validann::ann_L-BFGS-B_01,05:09:27.659,05:09:28.582,0.923,3.2372,2.225,,maxiter = 200,optim()
+mRef153_validann::ann_L-BFGS-B_02,05:09:28.582,05:09:29.491,0.909,3.5718,2.664,,maxiter = 200,optim()
+mRef153_validann::ann_L-BFGS-B_03,05:09:29.491,05:09:30.433,0.942,3.2346,2.1943,,maxiter = 200,optim()
+mRef153_validann::ann_L-BFGS-B_04,05:09:30.433,05:09:31.458,1.025,3.5866,2.55,,maxiter = 200,optim()
+mRef153_validann::ann_L-BFGS-B_05,05:09:31.458,05:09:32.405,0.947,3.5229,2.4495,,maxiter = 200,optim()
+mRef153_validann::ann_L-BFGS-B_06,05:09:32.405,05:09:33.343,0.938,3.1295,2.1508,,maxiter = 200,optim()
+mRef153_validann::ann_L-BFGS-B_07,05:09:33.343,05:09:34.291,0.948,3.236,2.1907,,maxiter = 200,optim()
+mRef153_validann::ann_L-BFGS-B_08,05:09:34.291,05:09:35.205,0.914,3.245,2.1865,,maxiter = 200,optim()
+mRef153_validann::ann_L-BFGS-B_09,05:09:35.205,05:09:36.130,0.925,3.744,2.7049,,maxiter = 200,optim()
+mRef153_validann::ann_L-BFGS-B_10,05:09:36.132,05:09:37.064,0.932,3.4598,2.4232,,maxiter = 200,optim()
+mRef153_validann::ann_Nelder-Mead_01,05:11:41.436,05:11:42.671,1.235,3.969,3.0046,,maxiter = 10000,optim()
+mRef153_validann::ann_Nelder-Mead_02,05:11:42.671,05:11:43.592,0.921,4.6398,3.29,,maxiter = 10000,optim()
+mRef153_validann::ann_Nelder-Mead_03,05:11:43.592,05:11:44.826,1.234,3.7742,2.8125,,maxiter = 10000,optim()
+mRef153_validann::ann_Nelder-Mead_04,05:11:44.826,05:11:46.077,1.251,3.9795,2.9018,,maxiter = 10000,optim()
+mRef153_validann::ann_Nelder-Mead_05,05:11:46.079,05:11:47.321,1.242,3.8272,2.9218,,maxiter = 10000,optim()
+mRef153_validann::ann_Nelder-Mead_06,05:11:47.322,05:11:48.562,1.24,4.6008,3.2704,,maxiter = 10000,optim()
+mRef153_validann::ann_Nelder-Mead_07,05:11:48.562,05:11:49.608,1.046,4.1056,3.0955,,maxiter = 10000,optim()
+mRef153_validann::ann_Nelder-Mead_08,05:11:49.608,05:11:50.561,0.953,4.0644,3.0228,,maxiter = 10000,optim()
+mRef153_validann::ann_Nelder-Mead_09,05:11:50.561,05:11:51.812,1.251,4.0666,2.9919,,maxiter = 10000,optim()
+mRef153_validann::ann_Nelder-Mead_10,05:11:51.812,05:11:53.062,1.25,4.0164,3.0958,,maxiter = 10000,optim()
+mRef153_validann::ann_SANN_01,17:20:23.973,17:20:25.006,1.033,5.4219,4.1328,,maxiter = 10000,optim()
+mRef153_validann::ann_SANN_02,17:20:25.010,17:20:26.035,1.025,5.8516,4.4858,,maxiter = 10000,optim()
+mRef153_validann::ann_SANN_03,17:20:26.039,17:20:27.145,1.106,5.2442,4.0347,,maxiter = 10000,optim()
+mRef153_validann::ann_SANN_04,17:20:27.149,17:20:28.202,1.053,6.1585,4.674,,maxiter = 10000,optim()
+mRef153_validann::ann_SANN_05,17:20:28.206,17:20:29.277,1.071,5.3279,4.1007,,maxiter = 10000,optim()
+mRef153_validann::ann_SANN_06,17:20:29.280,17:20:30.325,1.045,5.3816,3.8728,,maxiter = 10000,optim()
+mRef153_validann::ann_SANN_07,17:20:30.329,17:20:31.477,1.148,5.7584,4.1583,,maxiter = 10000,optim()
+mRef153_validann::ann_SANN_08,17:20:31.481,17:20:32.556,1.075,5.5192,4.2421,,maxiter = 10000,optim()
+mRef153_validann::ann_SANN_09,17:20:32.560,17:20:33.622,1.062,5.5932,4.3021,,maxiter = 10000,optim()
+mRef153_validann::ann_SANN_10,17:20:33.626,17:20:34.693,1.067,6.0647,4.5677,,maxiter = 10000,optim()
+mRef153_tensorflow::AdadeltaOptimizer_01,17:30:47.407,17:31:02.723,15.316,26.9699,24.3014,,maxiter = 10000,
+mRef153_tensorflow::AdadeltaOptimizer_02,17:31:02.739,17:31:17.389,14.65,26.9699,24.3014,,maxiter = 10000,
+mRef153_tensorflow::AdadeltaOptimizer_03,17:31:17.394,17:31:32.372,14.978,26.9699,24.3014,,maxiter = 10000,
+mRef153_tensorflow::AdadeltaOptimizer_04,17:31:32.376,17:31:47.600,15.224,26.9699,24.3014,,maxiter = 10000,
+mRef153_tensorflow::AdadeltaOptimizer_05,17:31:47.600,17:32:03.160,15.56,26.9699,24.3014,,maxiter = 10000,
+mRef153_tensorflow::AdagradOptimizer_01,18:28:51.478,18:29:05.262,13.784,19.3251,16.9831,,maxiter = 10000,
+mRef153_tensorflow::AdagradOptimizer_02,18:29:05.262,18:29:18.285,13.023,19.3251,16.9831,,maxiter = 10000,
+mRef153_tensorflow::AdagradOptimizer_03,18:29:18.285,18:29:31.677,13.392,19.3251,16.9831,,maxiter = 10000,
+mRef153_tensorflow::AdagradOptimizer_04,18:29:31.677,18:29:45.376,13.699,19.3251,16.9831,,maxiter = 10000,
+mRef153_tensorflow::AdagradOptimizer_05,18:29:45.376,18:29:58.999,13.623,19.3251,16.9831,,maxiter = 10000,
+mRef153_tensorflow::AdamOptimizer_01,18:47:40.188,18:47:55.214,15.026,7.2721,5.5258,,maxiter = 10000,
+mRef153_tensorflow::AdamOptimizer_02,18:47:55.219,18:48:10.043,14.824,7.2721,5.5258,,maxiter = 10000,
+mRef153_tensorflow::AdamOptimizer_03,18:48:10.047,18:48:26.103,16.056,7.2721,5.5258,,maxiter = 10000,
+mRef153_tensorflow::AdamOptimizer_04,18:48:26.107,18:48:41.607,15.5,7.2721,5.5258,,maxiter = 10000,
+mRef153_tensorflow::AdamOptimizer_05,18:48:41.611,18:48:57.275,15.664,7.2721,5.5258,,maxiter = 10000,
+mRef153_tensorflow::FtrlOptimizer_01,19:11:17.714,19:11:34.291,16.577,19.3251,16.9831,,maxiter = 10000,
+mRef153_tensorflow::FtrlOptimizer_02,19:11:34.295,19:11:50.172,15.877,19.3251,16.9831,,maxiter = 10000,
+mRef153_tensorflow::FtrlOptimizer_03,19:11:50.176,19:12:06.347,16.171,19.3251,16.9831,,maxiter = 10000,
+mRef153_tensorflow::FtrlOptimizer_04,19:12:06.347,19:12:22.756,16.409,19.3251,16.9831,,maxiter = 10000,
+mRef153_tensorflow::FtrlOptimizer_05,19:12:22.756,19:12:39.669,16.913,19.3251,16.9831,,maxiter = 10000,
+mRef153_tensorflow::GradientDescentOptimizer_01,19:29:31.655,19:29:45.938,14.283,8.843,7.3352,,maxiter = 10000,
+mRef153_tensorflow::GradientDescentOptimizer_02,19:29:45.942,19:30:00.374,14.432,8.843,7.3352,,maxiter = 10000,
+mRef153_tensorflow::GradientDescentOptimizer_03,19:30:00.378,19:30:14.932,14.554,8.843,7.3352,,maxiter = 10000,
+mRef153_tensorflow::GradientDescentOptimizer_04,19:30:14.932,19:30:29.348,14.416,8.843,7.3352,,maxiter = 10000,
+mRef153_tensorflow::GradientDescentOptimizer_05,19:30:29.352,19:30:43.857,14.505,8.843,7.3352,,maxiter = 10000,
+mRef153_tensorflow::MomentumOptimizer_01,20:03:17.938,20:03:32.953,15.015,7.4601,5.8094,,maxiter = 10000,
+mRef153_tensorflow::MomentumOptimizer_02,20:03:32.957,20:03:47.516,14.559,7.4601,5.8094,,maxiter = 10000,
+mRef153_tensorflow::MomentumOptimizer_03,20:03:47.520,20:04:02.420,14.9,7.4601,5.8094,,maxiter = 10000,
+mRef153_tensorflow::MomentumOptimizer_04,20:04:02.424,20:04:17.508,15.084,7.4601,5.8094,,maxiter = 10000,
+mRef153_tensorflow::MomentumOptimizer_05,20:04:17.508,20:04:32.531,15.023,7.4601,5.8094,,maxiter = 10000,
