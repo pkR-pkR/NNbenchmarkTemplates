@@ -1,10 +1,10 @@
 
 
-## =========================================================
-## 2019-08-23 NNbenchmark TEMPLATE FOR validann_1.2.1 + SANN
+## =====================================================================
+## 2019-08-23 NNbenchmark TEMPLATE FOR tensorflow_1.14.0.9000 + Adadelta
 ##            Authors: PATRICE KIENER + SALSABILA MAHDI
 ##            (REQUIRES at least NNbenchmark_2.2)
-## =========================================================
+## =====================================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
@@ -14,7 +14,7 @@ options("digits.secs" = 3)
 ## SELECT THE PACKAGE USED FOR THE TRAINING
 ## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## ===========================================
-library(validann)
+library(tensorflow)
 options(warn = 0)  # warnings are printed (default)
 # options(warn = -1) # warnings are not printed
 
@@ -82,19 +82,17 @@ for (dset in names(NNdatasets)) {
   ## comment  => comment2: free (short) text
   ## printmsg => PRINT timeR DURING THE TRAINING
   ## =================================================
-  nruns   <- 10
-  method  <- "SANN"
+  nruns   <- 5
   maxiter <- 10000
   TF      <- TRUE 
   stars   <- ""
   params  <- "maxiter = 10000"
-  comment <- "optim()"
-  descr   <- paste(dset,  "validann::ann_SANN", sep = "_")
+  comment <- ""
+  descr   <- paste(dset,  "tensorflow::AdadeltaOptimizer", sep = "_")
   
   
   timer    <- createTimer()
   printmsg <- FALSE
-  
   
   ## AUTO
   plotNN(xory, y0, uni, TF, main = descr)
@@ -108,15 +106,31 @@ for (dset in names(NNdatasets)) {
     #### DO NOT MODIFY THE <error> LINE IN tryCatch() 
     bb         <- round(rnorm(nparNN, sd = 0.1), 4)
     names(bb)  <- paste0("b", 1:nparNN)
-    NNreg      <- tryCatch(
-      validann::ann(x, y, size = neur, 
-                    method = method, maxit = maxiter),
-      error = function(y) {lm(y ~ 0, data = Zxy)}
-    )
-    y_pred     <- tryCatch(
-      ym0 + ysd0*predict(NNreg),
-      error = function(NNreg) rep(ym0, nrow(Zxy))
-    )
+    X <- tf$compat$v1$placeholder("float", shape = shape(NULL, ncol(x)), name = "x-data")
+    Y <- tf$compat$v1$placeholder("float", shape = shape(NULL, 1), name = "y-data")
+    
+    Weight <- tf$Variable(tf$zeros(list(ncol(x), 1)))
+    biases <- tf$Variable(tf$zeros(list(1, ncol(x))))
+    Wx_plus_b <- tf$matmul(X, Weight) + biases
+    prediction <- tf$nn$tanh(Wx_plus_b)
+    
+    loss <- tf$reduce_mean(tf$square(Y - prediction))
+    generator <- tf$compat$v1$train$AdadeltaOptimizer(learning_rate = 0.001)
+    optimizer <- generator$minimize(loss)
+    init <- tf$compat$v1$global_variables_initializer()
+    sess <- tf$compat$v1$Session()
+    sess$run(init)
+    feed_dict <- dict(X = x, Y = y)
+    feed_dictnew <- dict(X = x)
+    for(j in 1:maxiter){
+      sess$run(optimizer, feed_dict = feed_dict)
+    }
+    prediction_value <- sess$run(prediction, feed_dict = feed_dictnew)
+    if(ncol(Z) > 2){
+      y_pred <- ym0 + ysd0*prediction_value[,1]
+    } else {
+      y_pred <- ym0 + ysd0*prediction_value
+    }
     ####
     Ypred[[i]] <- y_pred
     Rmse[i]    <- funRMSE(y_pred, y0)
