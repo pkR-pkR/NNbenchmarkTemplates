@@ -1,0 +1,431 @@
+event,start,end,duration,RMSE,MAE,stars,params,comment
+mDette_nlsr::nlxb_01,15:36:27.895,15:36:28.285,0.39,0.7028,0.5658,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_02,15:36:28.285,15:36:28.645,0.36,0.2522,0.2003,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_03,15:36:28.645,15:36:29.035,0.39,0.5741,0.4581,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_04,15:36:29.035,15:36:29.379,0.344,1.8427,1.3839,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_05,15:36:29.379,15:36:29.738,0.359,0.1665,0.1335,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_06,15:36:29.738,15:36:30.097,0.359,1.3769,1.1922,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_07,15:36:30.097,15:36:30.488,0.391,0.6139,0.5108,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_08,15:36:30.488,15:36:30.832,0.344,0.2352,0.1887,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_09,15:36:30.832,15:36:31.191,0.359,2.2297,1.5181,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_nlsr::nlxb_10,15:36:31.191,15:36:31.550,0.359,0.2239,0.18,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpacklm::nlsLM_01,15:46:10.034,15:46:10.317,0.283,2.0236,1.4585,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpacklm::nlsLM_02,15:46:10.317,15:46:10.601,0.284,0.1043,0.0832,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpacklm::nlsLM_03,15:46:10.601,15:46:10.894,0.293,0.1328,0.1062,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpacklm::nlsLM_04,15:46:10.902,15:46:11.175,0.273,1.3856,1.1977,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpacklm::nlsLM_05,15:46:11.177,15:46:11.431,0.254,1.365,1.1826,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpacklm::nlsLM_06,15:46:11.431,15:46:11.742,0.311,1.8602,1.4688,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpacklm::nlsLM_07,15:46:11.744,15:46:12.026,0.282,0.4033,0.3111,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpacklm::nlsLM_08,15:46:12.028,15:46:12.338,0.31,0.3527,0.2715,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpacklm::nlsLM_09,15:46:12.338,15:46:12.603,0.265,0.1905,0.1441,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_minpacklm::nlsLM_10,15:46:12.603,15:46:12.900,0.297,2.1034,1.4772,**,maxiter = 150,Require hand-made formulas and scaling
+mDette_h2o::h2o.deeplearning_01,15:53:26.418,15:53:28.295,1.877,2.5593,1.8938,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_02,15:53:28.311,15:53:30.074,1.763,2.468,1.8149,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_03,15:53:30.089,15:53:31.782,1.693,2.6061,1.9522,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_04,15:53:31.797,15:53:33.436,1.639,2.6979,2.0258,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_05,15:53:33.451,15:53:34.029,0.578,2.4087,1.7651,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_06,15:53:34.045,15:53:34.560,0.515,2.3295,1.6713,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_07,15:53:34.576,15:53:37.514,2.938,2.653,2.0127,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_08,15:53:37.529,15:53:38.170,0.641,2.6931,2.0627,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_09,15:53:38.201,15:53:39.933,1.732,2.4557,1.7397,,maxiter=200,Bad on univariate datasets
+mDette_h2o::h2o.deeplearning_10,15:53:39.948,15:53:40.604,0.656,2.4688,1.7683,,maxiter=200,Bad on univariate datasets
+mDette_neuralnet::neuralnet_rprop+_01,18:05:12.102,18:05:29.082,16.98,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_rprop+_02,18:05:29.098,18:05:45.188,16.09,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_rprop+_03,18:05:45.204,18:06:03.137,17.933,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_rprop+_04,18:06:03.152,18:06:19.336,16.184,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_rprop+_05,18:06:19.352,18:06:35.239,15.887,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_backprop_01,21:12:24.176,21:12:40.734,16.558,8.1656,6.5262,,,Fails on difficult datasets
+mDette_neuralnet::neuralnet_backprop_02,21:12:40.750,21:12:57.512,16.762,8.1656,6.5262,,,Fails on difficult datasets
+mDette_neuralnet::neuralnet_backprop_03,21:12:57.527,21:13:13.883,16.356,8.1656,6.5262,,,Fails on difficult datasets
+mDette_neuralnet::neuralnet_backprop_04,21:13:13.898,21:13:30.285,16.387,8.1656,6.5262,,,Fails on difficult datasets
+mDette_neuralnet::neuralnet_backprop_05,21:13:30.301,21:13:46.909,16.608,8.1656,6.5262,,,Fails on difficult datasets
+mDette_brnn::brnn_gaussNewton_01,10:21:46.693,10:21:46.849,0.156,1.5349,1.3048,***,,Different NN
+mDette_brnn::brnn_gaussNewton_02,10:21:46.865,10:21:47.006,0.141,1.549,1.3132,***,,Different NN
+mDette_brnn::brnn_gaussNewton_03,10:21:47.021,10:21:47.177,0.156,0.2659,0.2115,***,,Different NN
+mDette_brnn::brnn_gaussNewton_04,10:21:47.193,10:21:47.334,0.141,0.2639,0.2096,***,,Different NN
+mDette_brnn::brnn_gaussNewton_05,10:21:47.349,10:21:47.490,0.141,1.4978,1.2818,***,,Different NN
+mDette_brnn::brnn_gaussNewton_06,10:21:47.505,10:21:47.584,0.079,1.9622,1.4074,***,,Different NN
+mDette_brnn::brnn_gaussNewton_07,10:21:47.599,10:21:47.740,0.141,1.8805,1.4397,***,,Different NN
+mDette_brnn::brnn_gaussNewton_08,10:21:47.755,10:21:47.896,0.141,0.6267,0.4714,***,,Different NN
+mDette_brnn::brnn_gaussNewton_09,10:21:47.912,10:21:48.052,0.14,1.5395,1.3061,***,,Different NN
+mDette_brnn::brnn_gaussNewton_10,10:21:48.068,10:21:48.224,0.156,1.5378,1.3063,***,,Different NN
+mDette_AMORE::train_ADAPTgd_01,13:56:12.191,13:56:12.754,0.563,1.3718,0.9973,*,iter=3500 lr=0.01, Require scaling
+mDette_AMORE::train_ADAPTgd_02,13:56:12.769,13:56:13.332,0.563,0.4118,0.2914,*,iter=3500 lr=0.01, Require scaling
+mDette_AMORE::train_ADAPTgd_03,13:56:13.347,13:56:13.878,0.531,1.3784,1.0088,*,iter=3500 lr=0.01, Require scaling
+mDette_AMORE::train_ADAPTgd_04,13:56:13.894,13:56:14.425,0.531,1.3702,1.0064,*,iter=3500 lr=0.01, Require scaling
+mDette_AMORE::train_ADAPTgd_05,13:56:14.456,13:56:14.988,0.532,1.38,1.0085,*,iter=3500 lr=0.01, Require scaling
+mDette_AMORE::train_ADAPTgd_06,13:56:15.003,13:56:15.534,0.531,2.2944,1.7975,*,iter=3500 lr=0.01, Require scaling
+mDette_AMORE::train_ADAPTgd_07,13:56:15.550,13:56:16.081,0.531,1.3816,1.0091,*,iter=3500 lr=0.01, Require scaling
+mDette_AMORE::train_ADAPTgd_08,13:56:16.097,13:56:16.628,0.531,1.3691,1.0065,*,iter=3500 lr=0.01, Require scaling
+mDette_AMORE::train_ADAPTgd_09,13:56:16.643,13:56:17.190,0.547,1.3485,1.0021,*,iter=3500 lr=0.01, Require scaling
+mDette_AMORE::train_ADAPTgd_10,13:56:17.206,13:56:17.737,0.531,0.9531,0.6791,*,iter=3500 lr=0.01, Require scaling
+mDette_AMORE::train_ADAPTgdwm_01,14:14:50.786,14:14:53.161,2.375,2.0645,1.6707,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+mDette_AMORE::train_ADAPTgdwm_02,14:14:53.176,14:14:55.457,2.281,0.3743,0.2872,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+mDette_AMORE::train_ADAPTgdwm_03,14:14:55.473,14:14:57.873,2.4,2.0566,1.662,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+mDette_AMORE::train_ADAPTgdwm_04,14:14:57.885,14:15:00.209,2.324,0.3752,0.2886,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+mDette_AMORE::train_ADAPTgdwm_05,14:15:00.228,14:15:02.542,2.314,0.3778,0.2915,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+mDette_AMORE::train_ADAPTgdwm_06,14:15:02.554,14:15:04.949,2.395,2.0765,1.6859,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+mDette_AMORE::train_ADAPTgdwm_07,14:15:04.959,14:15:07.323,2.364,2.2997,1.8543,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+mDette_AMORE::train_ADAPTgdwm_08,14:15:07.339,14:15:09.682,2.343,1.4188,1.0383,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+mDette_AMORE::train_ADAPTgdwm_09,14:15:09.698,14:15:12.056,2.358,2.1017,1.7142,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+mDette_AMORE::train_ADAPTgdwm_10,14:15:12.072,14:15:14.415,2.343,1.4146,1.0338,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+mDette_AMORE::train_BATCHgd_01,14:35:56.380,14:35:58.099,1.719,4.4032,3.2051,,iter=7500 lr=0.05 sigmoid,very bad
+mDette_AMORE::train_BATCHgd_02,14:35:58.114,14:35:59.775,1.661,4.3825,3.2866,,iter=7500 lr=0.05 sigmoid,very bad
+mDette_AMORE::train_BATCHgd_03,14:35:59.791,14:36:01.577,1.786,7.0049,5.6297,,iter=7500 lr=0.05 sigmoid,very bad
+mDette_AMORE::train_BATCHgd_04,14:36:01.592,14:36:03.295,1.703,4.3742,3.1985,,iter=7500 lr=0.05 sigmoid,very bad
+mDette_AMORE::train_BATCHgd_05,14:36:03.311,14:36:05.013,1.702,4.4044,3.1725,,iter=7500 lr=0.05 sigmoid,very bad
+mDette_AMORE::train_BATCHgdwm_01,15:02:08.458,15:02:12.379,3.921,7.3586,5.957,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+mDette_AMORE::train_BATCHgdwm_02,15:02:12.394,15:02:16.190,3.796,7.4748,6.059,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+mDette_AMORE::train_BATCHgdwm_03,15:02:16.221,15:02:20.106,3.885,7.4758,6.0619,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+mDette_AMORE::train_BATCHgdwm_04,15:02:20.121,15:02:23.860,3.739,7.573,6.1357,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+mDette_AMORE::train_BATCHgdwm_05,15:02:23.876,15:02:29.458,5.582,7.6095,6.1604,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+mDette_ANN2::neuralnetwork_sgd_01,16:27:05.214,16:27:06.167,0.953,2.0008,1.605,*,iter=4000 lr=0.01,Require fine tuning
+mDette_ANN2::neuralnetwork_sgd_02,16:27:06.183,16:27:07.151,0.968,0.9188,0.6799,*,iter=4000 lr=0.01,Require fine tuning
+mDette_ANN2::neuralnetwork_sgd_03,16:27:07.167,16:27:08.135,0.968,2.1061,1.6521,*,iter=4000 lr=0.01,Require fine tuning
+mDette_ANN2::neuralnetwork_sgd_04,16:27:08.151,16:27:09.120,0.969,2.0169,1.6473,*,iter=4000 lr=0.01,Require fine tuning
+mDette_ANN2::neuralnetwork_sgd_05,16:27:09.135,16:27:10.151,1.016,1.997,1.4842,*,iter=4000 lr=0.01,Require fine tuning
+mDette_ANN2::neuralnetwork_sgd_06,16:27:10.166,16:27:11.150,0.984,0.8702,0.6612,*,iter=4000 lr=0.01,Require fine tuning
+mDette_ANN2::neuralnetwork_sgd_07,16:27:11.166,16:27:12.150,0.984,1.8522,1.525,*,iter=4000 lr=0.01,Require fine tuning
+mDette_ANN2::neuralnetwork_sgd_08,16:27:12.166,16:27:13.150,0.984,1.9706,1.4812,*,iter=4000 lr=0.01,Require fine tuning
+mDette_ANN2::neuralnetwork_sgd_09,16:27:13.166,16:27:14.165,0.999,0.3886,0.2954,*,iter=4000 lr=0.01,Require fine tuning
+mDette_ANN2::neuralnetwork_sgd_10,16:27:14.181,16:27:15.165,0.984,2.1264,1.6861,*,iter=4000 lr=0.01,Require fine tuning
+mDette_ANN2::neuralnetwork_adam_01,16:34:40.084,16:34:41.151,1.067,0.5761,0.4418,*,iter=4000 lr=0.02,Require fine tuning
+mDette_ANN2::neuralnetwork_adam_02,16:34:41.167,16:34:42.240,1.073,2.0502,1.5425,*,iter=4000 lr=0.02,Require fine tuning
+mDette_ANN2::neuralnetwork_adam_03,16:34:42.255,16:34:43.314,1.059,0.7131,0.5604,*,iter=4000 lr=0.02,Require fine tuning
+mDette_ANN2::neuralnetwork_adam_04,16:34:43.330,16:34:44.392,1.062,0.6697,0.5017,*,iter=4000 lr=0.02,Require fine tuning
+mDette_ANN2::neuralnetwork_adam_05,16:34:44.408,16:34:45.489,1.081,0.5,0.3822,*,iter=4000 lr=0.02,Require fine tuning
+mDette_ANN2::neuralnetwork_adam_06,16:34:45.505,16:34:46.530,1.025,1.3355,1.0388,*,iter=4000 lr=0.02,Require fine tuning
+mDette_ANN2::neuralnetwork_adam_07,16:34:46.546,16:34:47.593,1.047,0.744,0.5882,*,iter=4000 lr=0.02,Require fine tuning
+mDette_ANN2::neuralnetwork_adam_08,16:34:47.608,16:34:48.686,1.078,2.0693,1.579,*,iter=4000 lr=0.02,Require fine tuning
+mDette_ANN2::neuralnetwork_adam_09,16:34:48.702,16:34:49.734,1.032,1.4636,1.0891,*,iter=4000 lr=0.02,Require fine tuning
+mDette_ANN2::neuralnetwork_adam_10,16:34:49.750,16:34:50.831,1.081,2.0218,1.4919,*,iter=4000 lr=0.02,Require fine tuning
+mDette_ANN2::neuralnetwork_rmsprop_01,16:41:05.801,16:41:06.863,1.062,1.0298,0.9024,,iter=4000 lr=0.03,Erratic
+mDette_ANN2::neuralnetwork_rmsprop_02,16:41:06.879,16:41:07.926,1.047,2.1725,1.539,,iter=4000 lr=0.03,Erratic
+mDette_ANN2::neuralnetwork_rmsprop_03,16:41:07.941,16:41:09.004,1.063,2.1347,1.5214,,iter=4000 lr=0.03,Erratic
+mDette_ANN2::neuralnetwork_rmsprop_04,16:41:09.020,16:41:10.066,1.046,1.6216,1.4764,,iter=4000 lr=0.03,Erratic
+mDette_ANN2::neuralnetwork_rmsprop_05,16:41:10.082,16:41:11.128,1.046,2.2853,2.0509,,iter=4000 lr=0.03,Erratic
+mDette_ANN2::neuralnetwork_rmsprop_06,16:41:11.144,16:41:12.191,1.047,2.7621,2.3172,,iter=4000 lr=0.03,Erratic
+mDette_ANN2::neuralnetwork_rmsprop_07,16:41:12.206,16:41:13.253,1.047,2.1149,1.5528,,iter=4000 lr=0.03,Erratic
+mDette_ANN2::neuralnetwork_rmsprop_08,16:41:13.269,16:41:14.331,1.062,2.2449,1.6156,,iter=4000 lr=0.03,Erratic
+mDette_ANN2::neuralnetwork_rmsprop_09,16:41:14.347,16:41:15.393,1.046,2.5525,1.9462,,iter=4000 lr=0.03,Erratic
+mDette_ANN2::neuralnetwork_rmsprop_10,16:41:15.409,16:41:16.456,1.047,2.4139,1.8089,,iter=4000 lr=0.03,Erratic
+mDette_deepnet::gradientdescent_01,17:29:22.191,17:29:22.956,0.765,0.4534,0.3643,,numepochs=1000,Bad on univariate datasets
+mDette_deepnet::gradientdescent_02,17:29:22.972,17:29:23.737,0.765,0.4644,0.3468,,numepochs=1000,Bad on univariate datasets
+mDette_deepnet::gradientdescent_03,17:29:23.753,17:29:24.503,0.75,0.4301,0.3233,,numepochs=1000,Bad on univariate datasets
+mDette_deepnet::gradientdescent_04,17:29:24.534,17:29:25.284,0.75,0.4802,0.3985,,numepochs=1000,Bad on univariate datasets
+mDette_deepnet::gradientdescent_05,17:29:25.299,17:29:26.065,0.766,0.4373,0.3226,,numepochs=1000,Bad on univariate datasets
+mDette_deepnet::gradientdescent_06,17:29:26.080,17:29:26.846,0.766,0.5886,0.4748,,numepochs=1000,Bad on univariate datasets
+mDette_deepnet::gradientdescent_07,17:29:26.862,17:29:27.627,0.765,0.4347,0.3292,,numepochs=1000,Bad on univariate datasets
+mDette_deepnet::gradientdescent_08,17:29:27.643,17:29:28.392,0.749,0.4792,0.3746,,numepochs=1000,Bad on univariate datasets
+mDette_deepnet::gradientdescent_09,17:29:28.408,17:29:29.173,0.765,0.7766,0.6732,,numepochs=1000,Bad on univariate datasets
+mDette_deepnet::gradientdescent_10,17:29:29.189,17:29:30.001,0.812,0.4546,0.3625,,numepochs=1000,Bad on univariate datasets
+mDette_MachineShop::fit.NNetModel_01,03:19:05.655,03:19:05.755,0.1,0.6241,0.5009,,maxiter = 150,uses nnet
+mDette_MachineShop::fit.NNetModel_02,03:19:05.765,03:19:05.829,0.064,1.9178,1.3469,,maxiter = 150,uses nnet
+mDette_MachineShop::fit.NNetModel_03,03:19:05.891,03:19:06.085,0.194,0.6831,0.5427,,maxiter = 150,uses nnet
+mDette_MachineShop::fit.NNetModel_04,03:19:06.096,03:19:06.156,0.06,0.4618,0.3469,,maxiter = 150,uses nnet
+mDette_MachineShop::fit.NNetModel_05,03:19:06.271,03:19:06.456,0.185,0.4713,0.3589,,maxiter = 150,uses nnet
+mDette_MachineShop::fit.NNetModel_06,03:19:06.456,03:19:06.516,0.06,2.0517,1.5242,,maxiter = 150,uses nnet
+mDette_MachineShop::fit.NNetModel_07,03:19:06.668,03:19:06.891,0.223,0.474,0.3577,,maxiter = 150,uses nnet
+mDette_MachineShop::fit.NNetModel_08,03:19:06.901,03:19:06.958,0.057,0.7272,0.5532,,maxiter = 150,uses nnet
+mDette_MachineShop::fit.NNetModel_09,03:19:07.122,03:19:07.400,0.278,2.0432,1.4718,,maxiter = 150,uses nnet
+mDette_MachineShop::fit.NNetModel_10,03:19:07.405,03:19:07.468,0.063,1.8845,1.386,,maxiter = 150,uses nnet
+mDette_momlp::monmlp.fit_BFGS_01,03:19:45.367,03:19:45.745,0.378,0.3785,0.2894,,maxiter = 300,uses optimx
+mDette_momlp::monmlp.fit_BFGS_02,03:19:45.761,03:19:46.022,0.261,0.3911,0.2933,,maxiter = 300,uses optimx
+mDette_momlp::monmlp.fit_BFGS_03,03:19:46.022,03:19:46.276,0.254,0.5691,0.421,,maxiter = 300,uses optimx
+mDette_momlp::monmlp.fit_BFGS_04,03:19:46.276,03:19:46.547,0.271,0.356,0.2699,,maxiter = 300,uses optimx
+mDette_momlp::monmlp.fit_BFGS_05,03:19:46.549,03:19:46.808,0.259,1.615,1.3709,,maxiter = 300,uses optimx
+mDette_momlp::monmlp.fit_BFGS_06,03:19:46.808,03:19:47.084,0.276,0.8183,0.6458,,maxiter = 300,uses optimx
+mDette_momlp::monmlp.fit_BFGS_07,03:19:47.086,03:19:47.352,0.266,0.3014,0.2372,,maxiter = 300,uses optimx
+mDette_momlp::monmlp.fit_BFGS_08,03:19:47.352,03:19:47.628,0.276,0.3353,0.2589,,maxiter = 300,uses optimx
+mDette_momlp::monmlp.fit_BFGS_09,03:19:47.630,03:19:47.895,0.265,0.3873,0.2905,,maxiter = 300,uses optimx
+mDette_momlp::monmlp.fit_BFGS_10,03:19:47.898,03:19:48.154,0.256,0.3411,0.2608,,maxiter = 300,uses optimx
+mDette_momlp::monmlp.fit_Nelder-Mead_01,03:20:22.805,03:20:23.704,0.899,3.3647,2.38,,maxiter = 10000,uses optimx
+mDette_momlp::monmlp.fit_Nelder-Mead_02,03:20:23.704,03:20:24.782,1.078,3.5147,2.6335,,maxiter = 10000,uses optimx
+mDette_momlp::monmlp.fit_Nelder-Mead_03,03:20:24.782,03:20:25.679,0.897,3.9354,2.8765,,maxiter = 10000,uses optimx
+mDette_momlp::monmlp.fit_Nelder-Mead_04,03:20:25.681,03:20:26.739,1.058,3.5394,2.6914,,maxiter = 10000,uses optimx
+mDette_momlp::monmlp.fit_Nelder-Mead_05,03:20:26.741,03:20:27.671,0.93,3.9773,2.8317,,maxiter = 10000,uses optimx
+mDette_momlp::monmlp.fit_Nelder-Mead_06,03:20:27.671,03:20:28.560,0.889,4.0467,3.0228,,maxiter = 10000,uses optimx
+mDette_momlp::monmlp.fit_Nelder-Mead_07,03:20:28.560,03:20:29.481,0.921,3.6,2.7077,,maxiter = 10000,uses optimx
+mDette_momlp::monmlp.fit_Nelder-Mead_08,03:20:29.481,03:20:30.515,1.034,1.9903,1.4652,,maxiter = 10000,uses optimx
+mDette_momlp::monmlp.fit_Nelder-Mead_09,03:20:30.515,03:20:31.390,0.875,3.2212,2.4816,,maxiter = 10000,uses optimx
+mDette_momlp::monmlp.fit_Nelder-Mead_10,03:20:31.390,03:20:32.280,0.89,3.2259,2.4741,,maxiter = 10000,uses optimx
+mDette_neural::mlptrain_01,03:21:23.961,03:22:20.363,56.402,5.9735,4.4623,,maxiter = 1000,classification
+mDette_neural::mlptrain_02,03:22:20.365,03:23:18.793,58.428,6.1429,4.7819,,maxiter = 1000,classification
+mDette_neural::mlptrain_03,03:23:18.796,03:24:16.208,57.412,6.093,4.7552,,maxiter = 1000,classification
+mDette_neural::mlptrain_04,03:24:16.210,03:25:12.587,56.377,6.2958,4.9912,,maxiter = 1000,classification
+mDette_neural::mlptrain_05,03:25:12.587,03:26:08.374,55.787,6.0782,4.6766,,maxiter = 1000,classification
+mDette_neuralnet::neuralnet_backprop_01,03:47:53.907,03:48:06.978,13.071,8.1656,6.5262,,,Fails on difficult datasets
+mDette_neuralnet::neuralnet_backprop_02,03:48:06.979,03:48:19.978,12.999,8.1656,6.5262,,,Fails on difficult datasets
+mDette_neuralnet::neuralnet_backprop_03,03:48:19.981,03:48:32.887,12.906,8.1656,6.5262,,,Fails on difficult datasets
+mDette_neuralnet::neuralnet_backprop_04,03:48:32.887,03:48:45.755,12.868,8.1656,6.5262,,,Fails on difficult datasets
+mDette_neuralnet::neuralnet_backprop_05,03:48:45.755,03:48:58.826,13.071,8.1656,6.5262,,,Fails on difficult datasets
+mDette_neuralnet::neuralnet_rprop-_01,03:54:54.034,03:55:07.674,13.64,8.1656,6.5262,,,Erratic on multivariate datasets
+mDette_neuralnet::neuralnet_rprop-_02,03:55:07.676,03:55:19.903,12.227,8.1656,6.5262,,,Erratic on multivariate datasets
+mDette_neuralnet::neuralnet_rprop-_03,03:55:19.903,03:55:32.971,13.068,8.1656,6.5262,,,Erratic on multivariate datasets
+mDette_neuralnet::neuralnet_rprop-_04,03:55:32.974,03:55:46.532,13.558,8.1656,6.5262,,,Erratic on multivariate datasets
+mDette_neuralnet::neuralnet_rprop-_05,03:55:46.532,03:55:58.623,12.091,8.1656,6.5262,,,Erratic on multivariate datasets
+mDette_neuralnet::neuralnet_sag_01,04:06:26.686,04:06:40.622,13.936,8.1656,6.5262,,,
+mDette_neuralnet::neuralnet_sag_02,04:06:40.622,04:06:55.040,14.418,8.1656,6.5262,,,
+mDette_neuralnet::neuralnet_sag_03,04:06:55.040,04:07:09.839,14.799,8.1656,6.5262,,,
+mDette_neuralnet::neuralnet_sag_04,04:07:09.856,04:07:24.001,14.145,8.1656,6.5262,,,
+mDette_neuralnet::neuralnet_sag_05,04:07:24.003,04:07:38.101,14.098,8.1656,6.5262,,,
+mDette_neuralnet::neuralnet_slr_01,04:15:04.589,04:15:17.301,12.712,8.1656,6.5262,,,
+mDette_neuralnet::neuralnet_slr_02,04:15:17.301,04:15:30.103,12.802,8.1656,6.5262,,,
+mDette_neuralnet::neuralnet_slr_03,04:15:30.103,04:15:42.933,12.83,0.4553,0.3442,,,
+mDette_neuralnet::neuralnet_slr_04,04:15:42.933,04:15:55.742,12.809,8.1656,6.5262,,,
+mDette_neuralnet::neuralnet_slr_05,04:15:55.742,04:16:08.672,12.93,8.1656,6.5262,,,
+mDette_neuralnet::neuralnet_rprop+_01,04:20:20.823,04:20:33.550,12.727,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_rprop+_02,04:20:33.550,04:20:46.489,12.939,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_rprop+_03,04:20:46.489,04:20:59.364,12.875,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_rprop+_04,04:20:59.364,04:21:12.198,12.834,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_neuralnet::neuralnet_rprop+_05,04:21:12.198,04:21:26.136,13.938,8.1656,6.5262,,,Erratic on difficult datasets
+mDette_nnet::nnet_01,04:25:30.044,04:25:30.107,0.063,0.3567,0.2736,,maxiter = 150,uses optim BFGS
+mDette_nnet::nnet_02,04:25:30.107,04:25:30.169,0.062,0.4829,0.3624,,maxiter = 150,uses optim BFGS
+mDette_nnet::nnet_03,04:25:30.169,04:25:30.232,0.063,0.5544,0.4464,,maxiter = 150,uses optim BFGS
+mDette_nnet::nnet_04,04:25:30.232,04:25:30.294,0.062,0.5222,0.3924,,maxiter = 150,uses optim BFGS
+mDette_nnet::nnet_05,04:25:30.294,04:25:30.341,0.047,0.5918,0.4557,,maxiter = 150,uses optim BFGS
+mDette_nnet::nnet_06,04:25:30.341,04:25:30.404,0.063,0.7586,0.6138,,maxiter = 150,uses optim BFGS
+mDette_nnet::nnet_07,04:25:30.404,04:25:30.466,0.062,0.475,0.3573,,maxiter = 150,uses optim BFGS
+mDette_nnet::nnet_08,04:25:30.466,04:25:30.513,0.047,0.3572,0.2735,,maxiter = 150,uses optim BFGS
+mDette_nnet::nnet_09,04:25:30.529,04:25:30.590,0.061,0.3601,0.2776,,maxiter = 150,uses optim BFGS
+mDette_nnet::nnet_10,04:25:30.593,04:25:30.648,0.055,0.521,0.3891,,maxiter = 150,uses optim BFGS
+mDette_qrnn::qrnn.fit_01,04:25:34.253,04:25:34.653,0.4,0.1498,0.1014,,maxiter = 700,
+mDette_qrnn::qrnn.fit_02,04:25:34.656,04:25:35.060,0.404,0.0837,0.0579,,maxiter = 700,
+mDette_qrnn::qrnn.fit_03,04:25:35.063,04:25:35.456,0.393,0.6985,0.5537,,maxiter = 700,
+mDette_qrnn::qrnn.fit_04,04:25:35.456,04:25:36.553,1.097,0.2865,0.2058,,maxiter = 700,
+mDette_qrnn::qrnn.fit_05,04:25:36.554,04:25:37.057,0.503,2.4133,1.1576,,maxiter = 700,
+mDette_qrnn::qrnn.fit_06,04:25:37.057,04:25:37.773,0.716,0.1186,0.0846,,maxiter = 700,
+mDette_qrnn::qrnn.fit_07,04:25:37.773,04:25:38.167,0.394,0.3759,0.2829,,maxiter = 700,
+mDette_qrnn::qrnn.fit_08,04:25:38.167,04:25:38.545,0.378,0.1392,0.1022,,maxiter = 700,
+mDette_qrnn::qrnn.fit_09,04:25:38.561,04:25:38.967,0.406,2.4057,1.1532,,maxiter = 700,
+mDette_qrnn::qrnn.fit_10,04:25:38.969,04:25:39.359,0.39,2.3806,1.1892,,maxiter = 700,
+mDette_radiantmodel::radiantmodel_01,04:27:08.704,04:27:09.421,0.717,0.0966,0.0775,,maxiter=10000 preset,uses nnet
+mDette_radiantmodel::radiantmodel_02,04:27:09.421,04:27:09.614,0.193,2.0767,1.5162,,maxiter=10000 preset,uses nnet
+mDette_radiantmodel::radiantmodel_03,04:27:09.616,04:27:10.571,0.955,0.0944,0.0726,,maxiter=10000 preset,uses nnet
+mDette_radiantmodel::radiantmodel_04,04:27:10.571,04:27:12.006,1.435,0.0871,0.0682,,maxiter=10000 preset,uses nnet
+mDette_radiantmodel::radiantmodel_05,04:27:12.008,04:27:12.296,0.288,0.4479,0.3389,,maxiter=10000 preset,uses nnet
+mDette_radiantmodel::radiantmodel_06,04:27:12.299,04:27:13.952,1.653,0.0703,0.0556,,maxiter=10000 preset,uses nnet
+mDette_radiantmodel::radiantmodel_07,04:27:13.955,04:27:14.817,0.862,0.0865,0.0692,,maxiter=10000 preset,uses nnet
+mDette_radiantmodel::radiantmodel_08,04:27:14.817,04:27:16.217,1.4,0.0759,0.06,,maxiter=10000 preset,uses nnet
+mDette_radiantmodel::radiantmodel_09,04:27:16.220,04:27:17.261,1.041,0.3088,0.2363,,maxiter=10000 preset,uses nnet
+mDette_radiantmodel::radiantmodel_10,04:27:17.261,04:27:18.080,0.819,0.0912,0.0731,,maxiter=10000 preset,uses nnet
+mDette_rcane::rlm_01,04:27:44.982,04:27:44.982,0,14.0137,11.3889,,maxiter = 1000,linear only
+mDette_rcane::rlm_02,04:27:44.982,04:27:44.982,0,14.0137,11.3889,,maxiter = 1000,linear only
+mDette_rcane::rlm_03,04:27:44.982,04:27:44.982,0,14.0137,11.3889,,maxiter = 1000,linear only
+mDette_rcane::rlm_04,04:27:44.998,04:27:44.998,0,14.0137,11.3889,,maxiter = 1000,linear only
+mDette_rcane::rlm_05,04:27:44.998,04:27:44.998,0,14.0137,11.3889,,maxiter = 1000,linear only
+mDette_rcane::rlm_06,04:27:44.998,04:27:44.998,0,14.0137,11.3889,,maxiter = 1000,linear only
+mDette_rcane::rlm_07,04:27:44.998,04:27:44.998,0,14.0137,11.3889,,maxiter = 1000,linear only
+mDette_rcane::rlm_08,04:27:44.998,04:27:44.998,0,14.0137,11.3889,,maxiter = 1000,linear only
+mDette_rcane::rlm_09,04:27:45.013,04:27:45.013,0,14.0137,11.3889,,maxiter = 1000,linear only
+mDette_rcane::rlm_10,04:27:45.013,04:27:45.013,0,14.0137,11.3889,,maxiter = 1000,linear only
+mDette_rminer::fit_01,04:27:49.458,04:27:49.625,0.167,0.3595,0.2771,,maxiter = 150,
+mDette_rminer::fit_02,04:27:49.627,04:27:49.882,0.255,0.4833,0.3727,,maxiter = 150,
+mDette_rminer::fit_03,04:27:49.882,04:27:50.081,0.199,0.3618,0.2797,,maxiter = 150,
+mDette_rminer::fit_04,04:27:50.081,04:27:50.266,0.185,0.361,0.2767,,maxiter = 150,
+mDette_rminer::fit_05,04:27:50.266,04:27:50.446,0.18,0.5507,0.4173,,maxiter = 150,
+mDette_rminer::fit_06,04:27:50.448,04:27:50.627,0.179,0.8954,0.6731,,maxiter = 150,
+mDette_rminer::fit_07,04:27:50.629,04:27:50.782,0.153,0.559,0.4301,,maxiter = 150,
+mDette_rminer::fit_08,04:27:50.798,04:27:50.982,0.184,0.6164,0.4686,,maxiter = 150,
+mDette_rminer::fit_09,04:27:50.999,04:27:51.181,0.182,0.4037,0.3112,,maxiter = 150,
+mDette_rminer::fit_10,04:27:51.183,04:27:51.376,0.193,0.6683,0.5428,,maxiter = 150,
+mDette_RSNNS::mlp_BackpropBatch_01,04:28:24.191,04:28:30.954,6.763,1.8746,1.5139,,maxiter = 10000,
+mDette_RSNNS::mlp_BackpropBatch_02,04:28:30.957,04:28:37.584,6.627,2.0027,1.5398,,maxiter = 10000,
+mDette_RSNNS::mlp_BackpropBatch_03,04:28:37.600,04:28:44.343,6.743,1.967,1.5407,,maxiter = 10000,
+mDette_RSNNS::mlp_BackpropBatch_04,04:28:44.343,04:28:50.756,6.413,0.8625,0.7253,,maxiter = 10000,
+mDette_RSNNS::mlp_BackpropBatch_05,04:28:50.759,04:28:57.188,6.429,2.1697,1.5366,,maxiter = 10000,
+mDette_RSNNS::mlp_BackpropBatch_06,04:28:57.190,04:29:03.682,6.492,1.9894,1.5082,,maxiter = 10000,
+mDette_RSNNS::mlp_BackpropBatch_07,04:29:03.682,04:29:10.104,6.422,1.1576,0.9793,,maxiter = 10000,
+mDette_RSNNS::mlp_BackpropBatch_08,04:29:10.106,04:29:16.436,6.33,1.3737,0.9299,,maxiter = 10000,
+mDette_RSNNS::mlp_BackpropBatch_09,04:29:16.452,04:29:22.790,6.338,1.9033,1.5089,,maxiter = 10000,
+mDette_RSNNS::mlp_BackpropBatch_10,04:29:22.792,04:29:29.128,6.336,0.9111,0.7668,,maxiter = 10000,
+mDette_RSNNS::mlp_BackpropChunk_01,04:34:27.858,04:34:28.494,0.636,0.6249,0.4477,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropChunk_02,04:34:28.512,04:34:29.148,0.636,0.7181,0.5495,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropChunk_03,04:34:29.150,04:34:29.772,0.622,0.6585,0.4998,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropChunk_04,04:34:29.772,04:34:30.556,0.784,0.7409,0.542,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropChunk_05,04:34:30.556,04:34:31.210,0.654,1.4234,1.1319,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropChunk_06,04:34:31.212,04:34:31.835,0.623,0.6721,0.4931,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropChunk_07,04:34:31.837,04:34:32.458,0.621,0.8367,0.6262,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropChunk_08,04:34:32.458,04:34:33.092,0.634,0.6969,0.5358,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropChunk_09,04:34:33.092,04:34:33.875,0.783,0.7562,0.5697,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropChunk_10,04:34:33.877,04:34:34.488,0.611,0.6399,0.4895,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropMomentum_01,04:35:05.620,04:35:06.432,0.812,1.0279,0.709,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropMomentum_02,04:35:06.435,04:35:07.053,0.618,0.7762,0.5508,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropMomentum_03,04:35:07.055,04:35:07.654,0.599,0.7875,0.6409,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropMomentum_04,04:35:07.669,04:35:08.274,0.605,0.647,0.5175,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropMomentum_05,04:35:08.274,04:35:08.896,0.622,0.7731,0.6115,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropMomentum_06,04:35:08.896,04:35:09.666,0.77,0.7105,0.5752,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropMomentum_07,04:35:09.668,04:35:10.277,0.609,0.6133,0.4575,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropMomentum_08,04:35:10.280,04:35:10.896,0.616,1.0011,0.827,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropMomentum_09,04:35:10.898,04:35:11.499,0.601,0.6477,0.4868,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropMomentum_10,04:35:11.499,04:35:12.119,0.62,0.8186,0.673,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropWeightDecay_01,04:35:42.894,04:35:43.552,0.658,0.6435,0.4792,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropWeightDecay_02,04:35:43.552,04:35:44.207,0.655,0.871,0.6603,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropWeightDecay_03,04:35:44.210,04:35:44.978,0.768,0.6413,0.5058,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropWeightDecay_04,04:35:44.994,04:35:45.625,0.631,0.6499,0.5443,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropWeightDecay_05,04:35:45.625,04:35:46.291,0.666,0.8482,0.6386,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropWeightDecay_06,04:35:46.291,04:35:46.908,0.617,0.7434,0.5684,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropWeightDecay_07,04:35:46.908,04:35:47.540,0.632,0.6601,0.5225,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropWeightDecay_08,04:35:47.540,04:35:48.326,0.786,1.029,0.8537,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropWeightDecay_09,04:35:48.329,04:35:48.956,0.627,0.6355,0.4737,,maxiter = 1000,
+mDette_RSNNS::mlp_BackpropWeightDecay_10,04:35:48.958,04:35:49.574,0.616,0.7699,0.5836,,maxiter = 1000,
+mDette_RSNNS::mlp_Quickprop_01,04:36:21.027,04:36:28.188,7.161,8.1656,6.5262,,maxiter = 10000,
+mDette_RSNNS::mlp_Quickprop_02,04:36:28.188,04:36:35.326,7.138,7.6266,6.2792,,maxiter = 10000,
+mDette_RSNNS::mlp_Quickprop_03,04:36:35.326,04:36:42.425,7.099,8.1656,6.5262,,maxiter = 10000,
+mDette_RSNNS::mlp_Quickprop_04,04:36:42.425,04:36:49.462,7.037,7.4209,6.0949,,maxiter = 10000,
+mDette_RSNNS::mlp_Quickprop_05,04:36:49.477,04:36:56.591,7.114,8.1656,6.5262,,maxiter = 10000,
+mDette_RSNNS::mlp_Quickprop_06,04:36:56.591,04:37:03.618,7.027,7.8006,6.4159,,maxiter = 10000,
+mDette_RSNNS::mlp_Quickprop_07,04:37:03.618,04:37:10.740,7.122,8.1656,6.5262,,maxiter = 10000,
+mDette_RSNNS::mlp_Quickprop_08,04:37:10.742,04:37:17.776,7.034,7.4327,6.1339,,maxiter = 10000,
+mDette_RSNNS::mlp_Quickprop_09,04:37:17.778,04:37:24.890,7.112,8.1656,6.5262,,maxiter = 10000,
+mDette_RSNNS::mlp_Quickprop_10,04:37:24.890,04:37:31.965,7.075,7.1102,5.8279,,maxiter = 10000,
+mDette_RSNNS::mlp_Rprop_01,04:42:57.802,04:42:58.434,0.632,3.872,2.8238,,maxiter = 1000,
+mDette_RSNNS::mlp_Rprop_02,04:42:58.434,04:42:59.046,0.612,2.2476,1.5272,,maxiter = 1000,
+mDette_RSNNS::mlp_Rprop_03,04:42:59.048,04:42:59.666,0.618,1.4363,1.1179,,maxiter = 1000,
+mDette_RSNNS::mlp_Rprop_04,04:42:59.669,04:43:00.412,0.743,0.8357,0.6359,,maxiter = 1000,
+mDette_RSNNS::mlp_Rprop_05,04:43:00.412,04:43:01.012,0.6,0.7374,0.5301,,maxiter = 1000,
+mDette_RSNNS::mlp_Rprop_06,04:43:01.012,04:43:01.618,0.606,0.6297,0.4633,,maxiter = 1000,
+mDette_RSNNS::mlp_Rprop_07,04:43:01.618,04:43:02.221,0.603,1.3507,1.0061,,maxiter = 1000,
+mDette_RSNNS::mlp_Rprop_08,04:43:02.221,04:43:02.845,0.624,0.5333,0.3591,,maxiter = 1000,
+mDette_RSNNS::mlp_Rprop_09,04:43:02.848,04:43:03.589,0.741,1.3757,1.0068,,maxiter = 1000,
+mDette_RSNNS::mlp_Rprop_10,04:43:03.589,04:43:04.196,0.607,1.2808,0.9337,,maxiter = 1000,
+mDette_RSNNS::mlp_SCG_01,04:43:35.174,04:43:36.263,1.089,0.4482,0.3428,,maxiter = 1000,
+mDette_RSNNS::mlp_SCG_02,04:43:36.266,04:43:37.367,1.101,0.5201,0.3706,,maxiter = 1000,
+mDette_RSNNS::mlp_SCG_03,04:43:37.367,04:43:38.549,1.182,0.4678,0.3341,,maxiter = 1000,
+mDette_RSNNS::mlp_SCG_04,04:43:38.549,04:43:39.584,1.035,0.4292,0.3153,,maxiter = 1000,
+mDette_RSNNS::mlp_SCG_05,04:43:39.584,04:43:40.663,1.079,1.8257,1.4923,,maxiter = 1000,
+mDette_RSNNS::mlp_SCG_06,04:43:40.666,04:43:41.852,1.186,0.408,0.3029,,maxiter = 1000,
+mDette_RSNNS::mlp_SCG_07,04:43:41.852,04:43:42.748,0.896,2.0985,1.4994,,maxiter = 1000,
+mDette_RSNNS::mlp_SCG_08,04:43:42.748,04:43:43.802,1.054,0.462,0.3476,,maxiter = 1000,
+mDette_RSNNS::mlp_SCG_09,04:43:43.802,04:43:45.007,1.205,1.8025,1.4777,,maxiter = 1000,
+mDette_RSNNS::mlp_SCG_10,04:43:45.009,04:43:45.878,0.869,0.6802,0.5037,,maxiter = 1000,
+mDette_RSNNS::mlp_Std_Backpropagation_01,04:44:35.501,04:44:36.296,0.795,0.7159,0.5857,,maxiter = 1000,
+mDette_RSNNS::mlp_Std_Backpropagation_02,04:44:36.296,04:44:36.900,0.604,0.8031,0.6406,,maxiter = 1000,
+mDette_RSNNS::mlp_Std_Backpropagation_03,04:44:36.900,04:44:37.526,0.626,0.6372,0.477,,maxiter = 1000,
+mDette_RSNNS::mlp_Std_Backpropagation_04,04:44:37.528,04:44:38.147,0.619,0.6387,0.4944,,maxiter = 1000,
+mDette_RSNNS::mlp_Std_Backpropagation_05,04:44:38.150,04:44:38.747,0.597,0.9733,0.755,,maxiter = 1000,
+mDette_RSNNS::mlp_Std_Backpropagation_06,04:44:38.747,04:44:39.510,0.763,0.6681,0.521,,maxiter = 1000,
+mDette_RSNNS::mlp_Std_Backpropagation_07,04:44:39.510,04:44:40.122,0.612,0.6568,0.5208,,maxiter = 1000,
+mDette_RSNNS::mlp_Std_Backpropagation_08,04:44:40.124,04:44:40.731,0.607,0.8674,0.6807,,maxiter = 1000,
+mDette_RSNNS::mlp_Std_Backpropagation_09,04:44:40.733,04:44:41.326,0.593,0.8211,0.6638,,maxiter = 1000,
+mDette_RSNNS::mlp_Std_Backpropagation_10,04:44:41.342,04:44:41.938,0.596,0.655,0.4945,,maxiter = 1000,
+mDette_simpleNeural::sN.MLPtrain_01,04:45:54.019,04:45:54.019,0,14.0137,11.3889,,maxiter = 1000,for bi- or multiclass classification
+mDette_simpleNeural::sN.MLPtrain_02,04:45:54.035,04:45:54.051,0.016,14.0137,11.3889,,maxiter = 1000,for bi- or multiclass classification
+mDette_simpleNeural::sN.MLPtrain_03,04:45:54.066,04:45:54.066,0,14.0137,11.3889,,maxiter = 1000,for bi- or multiclass classification
+mDette_simpleNeural::sN.MLPtrain_04,04:45:54.082,04:45:54.082,0,14.0137,11.3889,,maxiter = 1000,for bi- or multiclass classification
+mDette_simpleNeural::sN.MLPtrain_05,04:45:54.097,04:45:54.097,0,14.0137,11.3889,,maxiter = 1000,for bi- or multiclass classification
+mDette_simpleNeural::sN.MLPtrain_06,04:45:54.115,04:45:54.119,0.004,14.0137,11.3889,,maxiter = 1000,for bi- or multiclass classification
+mDette_simpleNeural::sN.MLPtrain_07,04:45:54.123,04:45:54.123,0,14.0137,11.3889,,maxiter = 1000,for bi- or multiclass classification
+mDette_simpleNeural::sN.MLPtrain_08,04:45:54.138,04:45:54.138,0,14.0137,11.3889,,maxiter = 1000,for bi- or multiclass classification
+mDette_simpleNeural::sN.MLPtrain_09,04:45:54.154,04:45:54.154,0,14.0137,11.3889,,maxiter = 1000,for bi- or multiclass classification
+mDette_simpleNeural::sN.MLPtrain_10,04:45:54.170,04:45:54.170,0,14.0137,11.3889,,maxiter = 1000,for bi- or multiclass classification
+mDette_snnR::snnR_01,04:49:52.467,04:49:52.530,0.063,1.2898,0.9187,,maxiter = 200,better on multi
+mDette_snnR::snnR_02,04:49:52.530,04:49:52.592,0.062,0.8399,0.639,,maxiter = 200,better on multi
+mDette_snnR::snnR_03,04:49:52.592,04:49:52.936,0.344,1.9864,1.5889,,maxiter = 200,better on multi
+mDette_snnR::snnR_04,04:49:52.936,04:49:53.151,0.215,1.9864,1.5889,,maxiter = 200,better on multi
+mDette_snnR::snnR_05,04:49:53.154,04:49:53.294,0.14,0.8399,0.639,,maxiter = 200,better on multi
+mDette_snnR::snnR_06,04:49:53.296,04:49:53.465,0.169,1.9864,1.5889,,maxiter = 200,better on multi
+mDette_snnR::snnR_07,04:49:53.467,04:49:53.534,0.067,1.2898,0.9187,,maxiter = 200,better on multi
+mDette_snnR::snnR_08,04:49:53.534,04:49:53.648,0.114,1.9864,1.5889,,maxiter = 200,better on multi
+mDette_snnR::snnR_09,04:49:53.651,04:49:53.720,0.069,0.8399,0.639,,maxiter = 200,better on multi
+mDette_snnR::snnR_10,04:49:53.723,04:49:53.880,0.157,1.9864,1.5889,,maxiter = 200,better on multi
+mDette_softmaxreg::softmaxreg_01,04:50:01.548,04:50:01.564,0.016,8.1656,6.5262,,maxiter = 1000,
+mDette_softmaxreg::softmaxreg_02,04:50:01.564,04:50:01.564,0,8.1656,6.5262,,maxiter = 1000,
+mDette_softmaxreg::softmaxreg_03,04:50:01.564,04:50:01.564,0,8.1656,6.5262,,maxiter = 1000,
+mDette_softmaxreg::softmaxreg_04,04:50:01.564,04:50:01.564,0,8.1656,6.5262,,maxiter = 1000,
+mDette_softmaxreg::softmaxreg_05,04:50:01.564,04:50:01.579,0.015,8.1656,6.5262,,maxiter = 1000,
+mDette_softmaxreg::softmaxreg_06,04:50:01.579,04:50:01.579,0,8.1656,6.5262,,maxiter = 1000,
+mDette_softmaxreg::softmaxreg_07,04:50:01.579,04:50:01.579,0,8.1656,6.5262,,maxiter = 1000,
+mDette_softmaxreg::softmaxreg_08,04:50:01.579,04:50:01.579,0,8.1656,6.5262,,maxiter = 1000,
+mDette_softmaxreg::softmaxreg_09,04:50:01.595,04:50:01.595,0,8.1656,6.5262,,maxiter = 1000,
+mDette_softmaxreg::softmaxreg_10,04:50:01.595,04:50:01.595,0,8.1656,6.5262,,maxiter = 1000,
+mDette_tsensembler::tsensembler_01,04:50:03.552,04:50:05.228,1.676,0.1726,0.1157,,maxiter = 150,uses nnet
+mDette_tsensembler::tsensembler_02,04:50:05.230,04:50:06.912,1.682,0.1841,0.126,,maxiter = 150,uses nnet
+mDette_tsensembler::tsensembler_03,04:50:06.912,04:50:08.549,1.637,0.1729,0.1156,,maxiter = 150,uses nnet
+mDette_tsensembler::tsensembler_04,04:50:08.549,04:50:10.174,1.625,0.1741,0.1169,,maxiter = 150,uses nnet
+mDette_tsensembler::tsensembler_05,04:50:10.176,04:50:11.780,1.604,0.1728,0.1156,,maxiter = 150,uses nnet
+mDette_tsensembler::tsensembler_06,04:50:11.796,04:50:13.459,1.663,0.1764,0.1192,,maxiter = 150,uses nnet
+mDette_tsensembler::tsensembler_07,04:50:13.459,04:50:15.109,1.65,0.1789,0.122,,maxiter = 150,uses nnet
+mDette_tsensembler::tsensembler_08,04:50:15.112,04:50:16.749,1.637,0.174,0.114,,maxiter = 150,uses nnet
+mDette_tsensembler::tsensembler_09,04:50:16.749,04:50:18.410,1.661,0.1774,0.1185,,maxiter = 150,uses nnet
+mDette_tsensembler::tsensembler_10,04:50:18.410,04:50:20.099,1.689,0.1741,0.1149,,maxiter = 150,uses nnet
+mDette_validann::ann_BFGS_01,04:51:52.150,04:51:53.834,1.684,1.1222,0.8412,,maxiter = 200,optim
+mDette_validann::ann_BFGS_02,04:51:53.834,04:51:55.506,1.672,0.5351,0.4021,,maxiter = 200,optim
+mDette_validann::ann_BFGS_03,04:51:55.509,04:51:57.201,1.692,0.3541,0.2724,,maxiter = 200,optim
+mDette_validann::ann_BFGS_04,04:51:57.203,04:51:58.959,1.756,0.6621,0.5339,,maxiter = 200,optim
+mDette_validann::ann_BFGS_05,04:51:58.959,04:52:00.676,1.717,0.3546,0.2725,,maxiter = 200,optim
+mDette_validann::ann_BFGS_06,04:52:00.678,04:52:02.347,1.669,1.8853,1.4357,,maxiter = 200,optim
+mDette_validann::ann_BFGS_07,04:52:02.347,04:52:04.036,1.689,0.2947,0.2241,,maxiter = 200,optim
+mDette_validann::ann_BFGS_08,04:52:04.038,04:52:05.798,1.76,0.3495,0.2693,,maxiter = 200,optim
+mDette_validann::ann_BFGS_09,04:52:05.800,04:52:07.444,1.644,0.4342,0.3314,,maxiter = 200,optim
+mDette_validann::ann_BFGS_10,04:52:07.444,04:52:09.152,1.708,0.3543,0.2721,,maxiter = 200,optim
+mDette_validann::ann_CG_01,04:54:04.591,04:54:14.299,9.708,0.4831,0.3657,,maxiter = 1000,optim
+mDette_validann::ann_CG_02,04:54:14.299,04:54:24.145,9.846,0.3919,0.3002,,maxiter = 1000,optim
+mDette_validann::ann_CG_03,04:54:24.148,04:54:33.956,9.808,1.8735,1.4998,,maxiter = 1000,optim
+mDette_validann::ann_CG_04,04:54:33.956,04:54:44.017,10.061,0.6179,0.4839,,maxiter = 1000,optim
+mDette_validann::ann_CG_05,04:54:44.017,04:54:53.811,9.794,1.8266,1.4918,,maxiter = 1000,optim
+mDette_validann::ann_CG_06,04:54:53.811,04:55:03.930,10.119,0.5793,0.4441,,maxiter = 1000,optim
+mDette_validann::ann_CG_07,04:55:03.930,04:55:13.819,9.889,0.4285,0.321,,maxiter = 1000,optim
+mDette_validann::ann_CG_08,04:55:13.834,04:55:23.821,9.987,0.6081,0.4741,,maxiter = 1000,optim
+mDette_validann::ann_CG_09,04:55:23.824,04:55:33.852,10.028,0.3906,0.298,,maxiter = 1000,optim
+mDette_validann::ann_CG_10,04:55:33.852,04:55:43.841,9.989,0.3898,0.3001,,maxiter = 1000,optim
+mDette_validann::ann_L-BFGS-B_01,05:07:56.319,05:07:58.046,1.727,1.6658,1.4094,,maxiter = 200,optim
+mDette_validann::ann_L-BFGS-B_02,05:07:58.046,05:07:59.850,1.804,0.4082,0.304,,maxiter = 200,optim
+mDette_validann::ann_L-BFGS-B_03,05:07:59.853,05:08:01.638,1.785,0.537,0.4124,,maxiter = 200,optim
+mDette_validann::ann_L-BFGS-B_04,05:08:01.654,05:08:03.599,1.945,0.4044,0.3091,,maxiter = 200,optim
+mDette_validann::ann_L-BFGS-B_05,05:08:03.601,05:08:05.390,1.789,0.4018,0.3066,,maxiter = 200,optim
+mDette_validann::ann_L-BFGS-B_06,05:08:05.405,05:08:07.186,1.781,0.4539,0.3396,,maxiter = 200,optim
+mDette_validann::ann_L-BFGS-B_07,05:08:07.186,05:08:09.096,1.91,1.8537,1.4752,,maxiter = 200,optim
+mDette_validann::ann_L-BFGS-B_08,05:08:09.098,05:08:10.936,1.838,0.4296,0.3237,,maxiter = 200,optim
+mDette_validann::ann_L-BFGS-B_09,05:08:10.951,05:08:12.802,1.851,0.6161,0.476,,maxiter = 200,optim
+mDette_validann::ann_L-BFGS-B_10,05:08:12.805,05:08:14.733,1.928,0.4284,0.3136,,maxiter = 200,optim
+mDette_validann::ann_Nelder-Mead_01,05:10:24.340,05:10:26.243,1.903,2.8452,2.1023,,maxiter = 10000,optim
+mDette_validann::ann_Nelder-Mead_02,05:10:26.245,05:10:28.217,1.972,3.5292,2.6675,,maxiter = 10000,optim
+mDette_validann::ann_Nelder-Mead_03,05:10:28.217,05:10:30.107,1.89,3.0232,2.1366,,maxiter = 10000,optim
+mDette_validann::ann_Nelder-Mead_04,05:10:30.109,05:10:31.983,1.874,4.7073,3.5893,,maxiter = 10000,optim
+mDette_validann::ann_Nelder-Mead_05,05:10:31.983,05:10:33.861,1.878,3.6934,2.7234,,maxiter = 10000,optim
+mDette_validann::ann_Nelder-Mead_06,05:10:33.863,05:10:35.835,1.972,2.7858,1.9836,,maxiter = 10000,optim
+mDette_validann::ann_Nelder-Mead_07,05:10:35.837,05:10:51.871,16.034,3.7415,2.8787,,maxiter = 10000,optim
+mDette_validann::ann_Nelder-Mead_08,05:10:51.871,05:10:53.778,1.907,3.7699,2.732,,maxiter = 10000,optim
+mDette_validann::ann_Nelder-Mead_09,05:10:53.778,05:10:55.609,1.831,2.6608,1.9403,,maxiter = 10000,optim
+mDette_validann::ann_Nelder-Mead_10,05:10:55.611,05:10:57.452,1.841,4.9036,3.4882,,maxiter = 10000,optim
+mDette_validann::ann_SANN_01,17:19:26.871,17:19:28.485,1.614,2.8331,2.0097,,maxiter = 10000,optim
+mDette_validann::ann_SANN_02,17:19:28.503,17:19:30.143,1.64,2.7494,2.0661,,maxiter = 10000,optim
+mDette_validann::ann_SANN_03,17:19:30.154,17:19:31.840,1.686,3.2015,2.1051,,maxiter = 10000,optim
+mDette_validann::ann_SANN_04,17:19:31.850,17:19:33.487,1.637,3.1103,2.3184,,maxiter = 10000,optim
+mDette_validann::ann_SANN_05,17:19:33.497,17:19:35.127,1.63,3.0508,2.3062,,maxiter = 10000,optim
+mDette_validann::ann_SANN_06,17:19:35.137,17:19:36.791,1.654,2.5496,1.8742,,maxiter = 10000,optim
+mDette_validann::ann_SANN_07,17:19:36.801,17:19:38.457,1.656,2.7254,2.0173,,maxiter = 10000,optim
+mDette_validann::ann_SANN_08,17:19:38.467,17:19:40.183,1.716,2.6336,1.9283,,maxiter = 10000,optim
+mDette_validann::ann_SANN_09,17:19:40.189,17:19:41.879,1.69,3.0177,2.2424,,maxiter = 10000,optim
+mDette_validann::ann_SANN_10,17:19:41.889,17:19:43.614,1.725,3.2085,2.3285,,maxiter = 10000,optim
+mDette_tensorflow::AdadeltaOptimizer_01,17:26:58.284,17:27:17.431,19.147,8.1016,6.4888,,maxiter = 10000,
+mDette_tensorflow::AdadeltaOptimizer_02,17:27:17.441,17:27:32.312,14.871,8.1016,6.4888,,maxiter = 10000,
+mDette_tensorflow::AdadeltaOptimizer_03,17:27:32.322,17:27:47.634,15.312,8.1016,6.4888,,maxiter = 10000,
+mDette_tensorflow::AdadeltaOptimizer_04,17:27:47.644,17:28:01.931,14.287,8.1016,6.4888,,maxiter = 10000,
+mDette_tensorflow::AdadeltaOptimizer_05,17:28:01.941,17:28:17.144,15.203,8.1016,6.4888,,maxiter = 10000,
+mDette_tensorflow::AdagradOptimizer_01,18:25:20.086,18:25:42.154,22.068,7.746,6.2403,,maxiter = 10000,
+mDette_tensorflow::AdagradOptimizer_02,18:25:42.179,18:25:55.601,13.422,7.746,6.2403,,maxiter = 10000,
+mDette_tensorflow::AdagradOptimizer_03,18:25:55.617,18:26:09.132,13.515,7.746,6.2403,,maxiter = 10000,
+mDette_tensorflow::AdagradOptimizer_04,18:26:09.132,18:26:22.650,13.518,7.746,6.2403,,maxiter = 10000,
+mDette_tensorflow::AdagradOptimizer_05,18:26:22.666,18:26:36.046,13.38,7.746,6.2403,,maxiter = 10000,
+mDette_tensorflow::AdamOptimizer_01,18:43:49.941,18:44:09.458,19.517,7.6652,6.1507,,maxiter = 10000,
+mDette_tensorflow::AdamOptimizer_02,18:44:09.476,18:44:24.129,14.653,7.6652,6.1507,,maxiter = 10000,
+mDette_tensorflow::AdamOptimizer_03,18:44:24.139,18:44:39.171,15.032,7.6652,6.1507,,maxiter = 10000,
+mDette_tensorflow::AdamOptimizer_04,18:44:39.183,18:44:53.795,14.612,7.6652,6.1507,,maxiter = 10000,
+mDette_tensorflow::AdamOptimizer_05,18:44:53.805,18:45:08.605,14.8,7.6652,6.1507,,maxiter = 10000,
+mDette_tensorflow::FtrlOptimizer_01,19:07:15.440,19:07:34.964,19.524,7.746,6.2403,,maxiter = 10000,
+mDette_tensorflow::FtrlOptimizer_02,19:07:34.997,19:07:50.772,15.775,7.746,6.2403,,maxiter = 10000,
+mDette_tensorflow::FtrlOptimizer_03,19:07:50.772,19:08:06.592,15.82,7.746,6.2403,,maxiter = 10000,
+mDette_tensorflow::FtrlOptimizer_04,19:08:06.602,19:08:22.374,15.772,7.746,6.2403,,maxiter = 10000,
+mDette_tensorflow::FtrlOptimizer_05,19:08:22.376,19:08:37.952,15.576,7.746,6.2403,,maxiter = 10000,
+mDette_tensorflow::GradientDescentOptimizer_01,19:25:50.091,19:26:07.916,17.825,7.6652,6.1519,,maxiter = 10000,
+mDette_tensorflow::GradientDescentOptimizer_02,19:26:07.940,19:26:22.283,14.343,7.6652,6.1519,,maxiter = 10000,
+mDette_tensorflow::GradientDescentOptimizer_03,19:26:22.293,19:26:37.082,14.789,7.6652,6.1519,,maxiter = 10000,
+mDette_tensorflow::GradientDescentOptimizer_04,19:26:37.092,19:26:50.931,13.839,7.6652,6.1519,,maxiter = 10000,
+mDette_tensorflow::GradientDescentOptimizer_05,19:26:50.941,19:27:05.084,14.143,7.6652,6.1519,,maxiter = 10000,
+mDette_tensorflow::MomentumOptimizer_01,19:59:29.605,19:59:48.604,18.999,7.6652,6.1509,,maxiter = 10000,
+mDette_tensorflow::MomentumOptimizer_02,19:59:48.635,20:00:03.263,14.628,7.6652,6.1509,,maxiter = 10000,
+mDette_tensorflow::MomentumOptimizer_03,20:00:03.279,20:00:18.276,14.997,7.6652,6.1509,,maxiter = 10000,
+mDette_tensorflow::MomentumOptimizer_04,20:00:18.276,20:00:33.353,15.077,7.6652,6.1509,,maxiter = 10000,
+mDette_tensorflow::MomentumOptimizer_05,20:00:33.369,20:00:48.196,14.827,7.6652,6.1509,,maxiter = 10000,

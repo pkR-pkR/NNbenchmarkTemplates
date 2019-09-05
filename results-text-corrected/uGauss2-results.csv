@@ -1,0 +1,431 @@
+event,start,end,duration,RMSE,MAE,stars,params,comment
+uGauss2_nlsr::nlxb_01,15:36:53.585,15:36:53.631,0.046,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_02,15:36:53.631,15:36:53.772,0.141,4.9923,3.7651,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_03,15:36:53.772,15:36:53.835,0.063,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_04,15:36:53.835,15:36:53.866,0.031,8.0767,5.1869,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_05,15:36:53.866,15:36:53.928,0.062,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_06,15:36:53.928,15:36:54.038,0.11,2.9793,2.3882,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_07,15:36:54.038,15:36:54.100,0.062,8.3737,5.801,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_08,15:36:54.100,15:36:54.147,0.047,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_09,15:36:54.147,15:36:54.256,0.109,2.3386,1.8372,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_nlsr::nlxb_10,15:36:54.256,15:36:54.319,0.063,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpacklm::nlsLM_01,15:46:31.231,15:46:31.294,0.063,6.0691,4.6394,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpacklm::nlsLM_02,15:46:31.294,15:46:31.325,0.031,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpacklm::nlsLM_03,15:46:31.325,15:46:31.388,0.063,2.3331,1.8309,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpacklm::nlsLM_04,15:46:31.388,15:46:31.450,0.062,2.3326,1.8306,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpacklm::nlsLM_05,15:46:31.450,15:46:31.481,0.031,8.3794,5.7628,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpacklm::nlsLM_06,15:46:31.481,15:46:31.544,0.063,8.3739,5.8035,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpacklm::nlsLM_07,15:46:31.544,15:46:31.591,0.047,8.3794,5.7628,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpacklm::nlsLM_08,15:46:31.591,15:46:31.606,0.015,3.5011,2.6021,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpacklm::nlsLM_09,15:46:31.606,15:46:31.669,0.063,6.0885,4.6224,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_minpacklm::nlsLM_10,15:46:31.669,15:46:31.731,0.062,2.3338,1.8316,**,maxiter = 150,Require hand-made formulas and scaling
+uGauss2_h2o::h2o.deeplearning_01,15:54:34.283,15:54:34.878,0.595,9.6988,7.0654,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_02,15:54:34.878,15:54:35.534,0.656,8.7599,6.3565,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_03,15:54:35.534,15:54:36.095,0.561,12.9048,10.5043,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_04,15:54:36.095,15:54:36.721,0.626,9.6128,6.953,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_05,15:54:36.721,15:54:37.299,0.578,9.2767,7.1923,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_06,15:54:37.299,15:54:37.846,0.547,6.9879,5.0515,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_07,15:54:37.846,15:54:38.455,0.609,10.4949,7.5995,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_08,15:54:38.455,15:54:39.017,0.562,7.0887,5.2485,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_09,15:54:39.017,15:54:39.689,0.672,8.7844,6.6171,,maxiter=200,Bad on univariate datasets
+uGauss2_h2o::h2o.deeplearning_10,15:54:39.689,15:54:40.298,0.609,9.6741,7.1449,,maxiter=200,Bad on univariate datasets
+uGauss2_neuralnet::neuralnet_rprop+_01,18:11:34.608,18:11:35.046,0.438,3.5031,2.6058,,,Erratic on difficult datasets
+uGauss2_neuralnet::neuralnet_rprop+_02,18:11:35.046,18:11:35.499,0.453,3.5026,2.6044,,,Erratic on difficult datasets
+uGauss2_neuralnet::neuralnet_rprop+_03,18:11:35.499,18:11:35.811,0.312,8.0784,5.184,,,Erratic on difficult datasets
+uGauss2_neuralnet::neuralnet_rprop+_04,18:11:35.811,18:11:36.483,0.672,3.508,2.6092,,,Erratic on difficult datasets
+uGauss2_neuralnet::neuralnet_rprop+_05,18:11:36.483,18:11:46.105,9.622,2.4326,1.9185,,,Erratic on difficult datasets
+uGauss2_neuralnet::neuralnet_backprop_01,21:20:05.650,21:20:14.304,8.654,37.6867,31.6105,,,Fails on difficult datasets
+uGauss2_neuralnet::neuralnet_backprop_02,21:20:14.319,21:20:23.044,8.725,37.6867,31.6105,,,Fails on difficult datasets
+uGauss2_neuralnet::neuralnet_backprop_03,21:20:23.044,21:20:31.924,8.88,37.6867,31.6105,,,Fails on difficult datasets
+uGauss2_neuralnet::neuralnet_backprop_04,21:20:31.932,21:20:40.637,8.705,37.6867,31.6105,,,Fails on difficult datasets
+uGauss2_neuralnet::neuralnet_backprop_05,21:20:40.637,21:20:49.291,8.654,37.6867,31.6105,,,Fails on difficult datasets
+uGauss2_brnn::brnn_gaussNewton_01,10:21:55.023,10:21:55.070,0.047,2.353,1.8475,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_02,10:21:55.070,10:21:55.132,0.062,5.3042,4.32,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_03,10:21:55.148,10:21:55.179,0.031,2.353,1.8475,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_04,10:21:55.179,10:21:55.242,0.063,2.5623,2.0394,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_05,10:21:55.242,10:21:55.289,0.047,2.5392,2.0226,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_06,10:21:55.304,10:21:55.351,0.047,5.2016,4.2335,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_07,10:21:55.367,10:21:55.413,0.046,2.588,2.0591,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_08,10:21:55.413,10:21:55.476,0.063,5.3098,4.326,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_09,10:21:55.476,10:21:55.538,0.062,5.2831,4.3023,***,,Different NN
+uGauss2_brnn::brnn_gaussNewton_10,10:21:55.538,10:21:55.601,0.063,2.3538,1.8483,***,,Different NN
+uGauss2_AMORE::train_ADAPTgd_01,13:56:43.982,13:56:44.230,0.248,5.6776,3.6586,*,iter=3500 lr=0.01, Require scaling
+uGauss2_AMORE::train_ADAPTgd_02,13:56:44.230,13:56:44.482,0.252,3.0407,2.4664,*,iter=3500 lr=0.01, Require scaling
+uGauss2_AMORE::train_ADAPTgd_03,13:56:44.490,13:56:44.745,0.255,5.0146,3.5894,*,iter=3500 lr=0.01, Require scaling
+uGauss2_AMORE::train_ADAPTgd_04,13:56:44.745,13:56:44.997,0.252,6.2623,3.9166,*,iter=3500 lr=0.01, Require scaling
+uGauss2_AMORE::train_ADAPTgd_05,13:56:45.005,13:56:45.250,0.245,4.9502,3.293,*,iter=3500 lr=0.01, Require scaling
+uGauss2_AMORE::train_ADAPTgd_06,13:56:45.258,13:56:45.510,0.252,5.0257,3.5951,*,iter=3500 lr=0.01, Require scaling
+uGauss2_AMORE::train_ADAPTgd_07,13:56:45.512,13:56:45.765,0.253,5.0529,3.3471,*,iter=3500 lr=0.01, Require scaling
+uGauss2_AMORE::train_ADAPTgd_08,13:56:45.773,13:56:46.017,0.244,5.1713,3.6494,*,iter=3500 lr=0.01, Require scaling
+uGauss2_AMORE::train_ADAPTgd_09,13:56:46.025,13:56:46.279,0.254,5.5212,3.5932,*,iter=3500 lr=0.01, Require scaling
+uGauss2_AMORE::train_ADAPTgd_10,13:56:46.279,13:56:46.532,0.253,5.0338,3.634,*,iter=3500 lr=0.01, Require scaling
+uGauss2_AMORE::train_ADAPTgdwm_01,14:16:58.995,14:16:59.964,0.969,7.1495,5.0052,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_02,14:16:59.964,14:17:00.948,0.984,3.0808,2.4916,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_03,14:17:00.948,14:17:01.916,0.968,4.2646,2.9343,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_04,14:17:01.916,14:17:02.869,0.953,12.1899,6.3193,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_05,14:17:02.885,14:17:03.853,0.968,3.0391,2.481,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_06,14:17:03.853,14:17:04.822,0.969,4.2622,2.9338,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_07,14:17:04.838,14:17:05.806,0.968,2.9527,2.3943,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_08,14:17:05.806,14:17:06.775,0.969,2.9516,2.3865,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_09,14:17:06.775,14:17:07.743,0.968,12.3006,6.3499,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uGauss2_AMORE::train_ADAPTgdwm_10,14:17:07.759,14:17:08.727,0.968,3.002,2.4405,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uGauss2_AMORE::train_BATCHgd_01,14:37:02.576,14:37:03.841,1.265,19.3663,15.202,,iter=7500 lr=0.05 sigmoid,very bad
+uGauss2_AMORE::train_BATCHgd_02,14:37:03.841,14:37:05.075,1.234,19.0447,14.9266,,iter=7500 lr=0.05 sigmoid,very bad
+uGauss2_AMORE::train_BATCHgd_03,14:37:05.075,14:37:06.400,1.325,17.1381,13.2071,,iter=7500 lr=0.05 sigmoid,very bad
+uGauss2_AMORE::train_BATCHgd_04,14:37:06.415,14:37:07.634,1.219,19.3785,14.7244,,iter=7500 lr=0.05 sigmoid,very bad
+uGauss2_AMORE::train_BATCHgd_05,14:37:07.634,14:37:08.961,1.327,16.7894,12.9925,,iter=7500 lr=0.05 sigmoid,very bad
+uGauss2_AMORE::train_BATCHgdwm_01,15:04:38.226,15:04:41.148,2.922,25.4158,21.3838,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+uGauss2_AMORE::train_BATCHgdwm_02,15:04:41.148,15:04:44.116,2.968,22.4737,18.0465,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+uGauss2_AMORE::train_BATCHgdwm_03,15:04:44.116,15:04:47.084,2.968,24.0175,19.7101,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+uGauss2_AMORE::train_BATCHgdwm_04,15:04:47.084,15:04:49.974,2.89,23.7286,19.2779,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+uGauss2_AMORE::train_BATCHgdwm_05,15:04:49.974,15:04:52.879,2.905,23.7432,19.3066,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+uGauss2_ANN2::neuralnetwork_sgd_01,16:27:50.389,16:27:50.777,0.388,4.5099,3.1866,*,iter=4000 lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_02,16:27:50.780,16:27:51.155,0.375,3.3792,2.6737,*,iter=4000 lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_03,16:27:51.155,16:27:51.546,0.391,3.5018,2.7619,*,iter=4000 lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_04,16:27:51.546,16:27:51.936,0.39,3.5003,2.7587,*,iter=4000 lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_05,16:27:51.936,16:27:52.343,0.407,3.4389,2.7266,*,iter=4000 lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_06,16:27:52.343,16:27:52.749,0.406,3.6154,2.8356,*,iter=4000 lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_07,16:27:52.749,16:27:53.140,0.391,5.1764,3.6507,*,iter=4000 lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_08,16:27:53.140,16:27:53.530,0.39,3.4112,2.7015,*,iter=4000 lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_09,16:27:53.530,16:27:53.921,0.391,4.606,3.2489,*,iter=4000 lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_sgd_10,16:27:53.921,16:27:54.326,0.405,3.5536,2.8062,*,iter=4000 lr=0.01,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_01,16:35:29.684,16:35:30.103,0.419,2.5416,2.0158,*,iter=4000 lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_02,16:35:30.106,16:35:30.527,0.421,2.7823,2.1966,*,iter=4000 lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_03,16:35:30.530,16:35:30.942,0.412,3.4476,2.7495,*,iter=4000 lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_04,16:35:30.944,16:35:31.359,0.415,3.4057,2.6841,*,iter=4000 lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_05,16:35:31.362,16:35:31.777,0.415,3.2478,2.5769,*,iter=4000 lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_06,16:35:31.780,16:35:32.193,0.413,3.3545,2.6671,*,iter=4000 lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_07,16:35:32.196,16:35:32.606,0.41,3.0183,2.4438,*,iter=4000 lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_08,16:35:32.614,16:35:33.025,0.411,2.7435,2.2104,*,iter=4000 lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_09,16:35:33.027,16:35:33.449,0.422,3.5107,2.8875,*,iter=4000 lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_adam_10,16:35:33.451,16:35:33.879,0.428,2.848,2.2578,*,iter=4000 lr=0.02,Require fine tuning
+uGauss2_ANN2::neuralnetwork_rmsprop_01,16:41:52.699,16:41:53.089,0.39,3.9189,3.0288,,iter=4000 lr=0.03,Erratic
+uGauss2_ANN2::neuralnetwork_rmsprop_02,16:41:53.089,16:41:53.495,0.406,3.0204,2.4757,,iter=4000 lr=0.03,Erratic
+uGauss2_ANN2::neuralnetwork_rmsprop_03,16:41:53.495,16:41:53.886,0.391,3.8498,3.2342,,iter=4000 lr=0.03,Erratic
+uGauss2_ANN2::neuralnetwork_rmsprop_04,16:41:53.886,16:41:54.276,0.39,3.9559,3.1837,,iter=4000 lr=0.03,Erratic
+uGauss2_ANN2::neuralnetwork_rmsprop_05,16:41:54.292,16:41:54.683,0.391,4.2659,3.4603,,iter=4000 lr=0.03,Erratic
+uGauss2_ANN2::neuralnetwork_rmsprop_06,16:41:54.683,16:41:55.073,0.39,4.3337,3.5079,,iter=4000 lr=0.03,Erratic
+uGauss2_ANN2::neuralnetwork_rmsprop_07,16:41:55.073,16:41:55.464,0.391,5.6706,4.6848,,iter=4000 lr=0.03,Erratic
+uGauss2_ANN2::neuralnetwork_rmsprop_08,16:41:55.480,16:41:55.870,0.39,3.8341,3.1382,,iter=4000 lr=0.03,Erratic
+uGauss2_ANN2::neuralnetwork_rmsprop_09,16:41:55.870,16:41:56.261,0.391,4.6516,3.6987,,iter=4000 lr=0.03,Erratic
+uGauss2_ANN2::neuralnetwork_rmsprop_10,16:41:56.261,16:41:56.651,0.39,3.7252,2.9401,,iter=4000 lr=0.03,Erratic
+uGauss2_deepnet::gradientdescent_01,17:29:59.402,17:29:59.777,0.375,7.3709,5.6625,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_02,17:29:59.777,17:30:00.152,0.375,7.4606,5.6887,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_03,17:30:00.152,17:30:00.573,0.421,7.9216,6.0059,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_04,17:30:00.573,17:30:00.933,0.36,8.8312,7.0469,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_05,17:30:00.933,17:30:01.308,0.375,7.794,5.9365,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_06,17:30:01.308,17:30:01.667,0.359,9.939,8.1903,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_07,17:30:01.667,17:30:02.026,0.359,7.9114,6.1298,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_08,17:30:02.042,17:30:02.401,0.359,6.7735,4.8847,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_09,17:30:02.401,17:30:02.776,0.375,7.3524,5.6277,,numepochs=1000,Bad on univariate datasets
+uGauss2_deepnet::gradientdescent_10,17:30:02.776,17:30:03.135,0.359,7.332,5.3924,,numepochs=1000,Bad on univariate datasets
+uGauss2_MachineShop::fit.NNetModel_01,03:19:15.705,03:19:15.713,0.008,7.8987,5.487,,maxiter = 150,uses nnet
+uGauss2_MachineShop::fit.NNetModel_02,03:19:15.713,03:19:15.744,0.031,2.6451,2.1291,,maxiter = 150,uses nnet
+uGauss2_MachineShop::fit.NNetModel_03,03:19:15.744,03:19:15.760,0.016,7.8987,5.4873,,maxiter = 150,uses nnet
+uGauss2_MachineShop::fit.NNetModel_04,03:19:15.760,03:19:15.791,0.031,2.6195,2.1116,,maxiter = 150,uses nnet
+uGauss2_MachineShop::fit.NNetModel_05,03:19:15.791,03:19:15.807,0.016,2.4067,1.8987,,maxiter = 150,uses nnet
+uGauss2_MachineShop::fit.NNetModel_06,03:19:15.807,03:19:15.838,0.031,3.6841,2.732,,maxiter = 150,uses nnet
+uGauss2_MachineShop::fit.NNetModel_07,03:19:15.838,03:19:15.864,0.026,3.4981,2.834,,maxiter = 150,uses nnet
+uGauss2_MachineShop::fit.NNetModel_08,03:19:15.866,03:19:15.874,0.008,3.0316,2.4345,,maxiter = 150,uses nnet
+uGauss2_MachineShop::fit.NNetModel_09,03:19:15.889,03:19:15.913,0.024,6.3143,4.8606,,maxiter = 150,uses nnet
+uGauss2_MachineShop::fit.NNetModel_10,03:19:15.915,03:19:15.939,0.024,3.0657,2.4506,,maxiter = 150,uses nnet
+uGauss2_momlp::monmlp.fit_BFGS_01,03:20:06.781,03:20:06.945,0.164,5.9394,4.5799,,maxiter = 300,uses optimx
+uGauss2_momlp::monmlp.fit_BFGS_02,03:20:06.945,03:20:07.136,0.191,2.9003,2.3193,,maxiter = 300,uses optimx
+uGauss2_momlp::monmlp.fit_BFGS_03,03:20:07.136,03:20:07.319,0.183,3.6079,2.8468,,maxiter = 300,uses optimx
+uGauss2_momlp::monmlp.fit_BFGS_04,03:20:07.319,03:20:07.494,0.175,3.2309,2.5811,,maxiter = 300,uses optimx
+uGauss2_momlp::monmlp.fit_BFGS_05,03:20:07.494,03:20:07.681,0.187,3.3308,2.6895,,maxiter = 300,uses optimx
+uGauss2_momlp::monmlp.fit_BFGS_06,03:20:07.681,03:20:07.866,0.185,7.1463,5.3476,,maxiter = 300,uses optimx
+uGauss2_momlp::monmlp.fit_BFGS_07,03:20:07.866,03:20:08.042,0.176,4.7051,3.7173,,maxiter = 300,uses optimx
+uGauss2_momlp::monmlp.fit_BFGS_08,03:20:08.042,03:20:08.227,0.185,8.5475,6.0366,,maxiter = 300,uses optimx
+uGauss2_momlp::monmlp.fit_BFGS_09,03:20:08.227,03:20:08.402,0.175,3.4249,2.7451,,maxiter = 300,uses optimx
+uGauss2_momlp::monmlp.fit_BFGS_10,03:20:08.402,03:20:08.587,0.185,3.2574,2.6507,,maxiter = 300,uses optimx
+uGauss2_momlp::monmlp.fit_Nelder-Mead_01,03:21:14.746,03:21:15.092,0.346,11.0007,8.8768,,maxiter = 10000,uses optimx
+uGauss2_momlp::monmlp.fit_Nelder-Mead_02,03:21:15.094,03:21:15.373,0.279,10.6361,8.5017,,maxiter = 10000,uses optimx
+uGauss2_momlp::monmlp.fit_Nelder-Mead_03,03:21:15.373,03:21:15.732,0.359,10.3491,8.0353,,maxiter = 10000,uses optimx
+uGauss2_momlp::monmlp.fit_Nelder-Mead_04,03:21:15.733,03:21:16.136,0.403,9.1043,7.1902,,maxiter = 10000,uses optimx
+uGauss2_momlp::monmlp.fit_Nelder-Mead_05,03:21:16.138,03:21:16.499,0.361,11.5825,8.7917,,maxiter = 10000,uses optimx
+uGauss2_momlp::monmlp.fit_Nelder-Mead_06,03:21:16.499,03:21:16.840,0.341,13.5445,10.4237,,maxiter = 10000,uses optimx
+uGauss2_momlp::monmlp.fit_Nelder-Mead_07,03:21:16.840,03:21:17.144,0.304,16.2115,12.9085,,maxiter = 10000,uses optimx
+uGauss2_momlp::monmlp.fit_Nelder-Mead_08,03:21:17.145,03:21:17.619,0.474,10.5159,8.4718,,maxiter = 10000,uses optimx
+uGauss2_momlp::monmlp.fit_Nelder-Mead_09,03:21:17.624,03:21:18.108,0.484,6.9641,5.3787,,maxiter = 10000,uses optimx
+uGauss2_momlp::monmlp.fit_Nelder-Mead_10,03:21:18.109,03:21:18.498,0.389,8.9484,6.61,,maxiter = 10000,uses optimx
+uGauss2_neural::mlptrain_01,03:44:46.809,03:45:04.529,17.72,28.8093,20.0661,,maxiter = 1000,classification
+uGauss2_neural::mlptrain_02,03:45:04.529,03:45:22.061,17.532,28.819,20.095,,maxiter = 1000,classification
+uGauss2_neural::mlptrain_03,03:45:22.062,03:45:39.536,17.474,28.8336,20.1832,,maxiter = 1000,classification
+uGauss2_neural::mlptrain_04,03:45:39.536,03:45:56.992,17.456,28.8318,20.1909,,maxiter = 1000,classification
+uGauss2_neural::mlptrain_05,03:45:56.992,03:46:14.561,17.569,28.8083,20.0674,,maxiter = 1000,classification
+uGauss2_neuralnet::neuralnet_backprop_01,03:53:44.573,03:53:51.305,6.732,37.6867,31.6105,,,Fails on difficult datasets
+uGauss2_neuralnet::neuralnet_backprop_02,03:53:51.307,03:53:57.985,6.678,37.6867,31.6105,,,Fails on difficult datasets
+uGauss2_neuralnet::neuralnet_backprop_03,03:53:57.987,03:54:04.651,6.664,37.6867,31.6105,,,Fails on difficult datasets
+uGauss2_neuralnet::neuralnet_backprop_04,03:54:04.651,03:54:11.301,6.65,37.6867,31.6105,,,Fails on difficult datasets
+uGauss2_neuralnet::neuralnet_backprop_05,03:54:11.301,03:54:18.010,6.709,37.6867,31.6105,,,Fails on difficult datasets
+uGauss2_neuralnet::neuralnet_rprop-_01,03:59:19.707,03:59:20.330,0.623,3.5081,2.6121,,,Erratic on multivariate datasets
+uGauss2_neuralnet::neuralnet_rprop-_02,03:59:20.330,03:59:27.428,7.098,3.1246,2.5028,,,Erratic on multivariate datasets
+uGauss2_neuralnet::neuralnet_rprop-_03,03:59:27.428,03:59:27.615,0.187,8.3799,5.7507,,,Erratic on multivariate datasets
+uGauss2_neuralnet::neuralnet_rprop-_04,03:59:27.615,03:59:27.814,0.199,3.5159,2.6169,,,Erratic on multivariate datasets
+uGauss2_neuralnet::neuralnet_rprop-_05,03:59:27.814,03:59:27.908,0.094,8.0785,5.1801,,,Erratic on multivariate datasets
+uGauss2_neuralnet::neuralnet_sag_01,04:13:34.629,04:13:42.359,7.73,37.6867,31.6105,,,
+uGauss2_neuralnet::neuralnet_sag_02,04:13:42.359,04:13:50.300,7.941,37.6867,31.6105,,,
+uGauss2_neuralnet::neuralnet_sag_03,04:13:50.301,04:13:58.171,7.87,37.6867,31.6105,,,
+uGauss2_neuralnet::neuralnet_sag_04,04:13:58.173,04:14:05.726,7.553,37.6867,31.6105,,,
+uGauss2_neuralnet::neuralnet_sag_05,04:14:05.726,04:14:13.612,7.886,37.6867,31.6105,,,
+uGauss2_neuralnet::neuralnet_slr_01,04:20:13.604,04:20:13.816,0.212,3.5051,2.6051,,,
+uGauss2_neuralnet::neuralnet_slr_02,04:20:13.818,04:20:16.920,3.102,3.1244,2.5028,,,
+uGauss2_neuralnet::neuralnet_slr_03,04:20:16.920,04:20:17.352,0.432,3.5347,2.6744,,,
+uGauss2_neuralnet::neuralnet_slr_04,04:20:17.352,04:20:17.796,0.444,3.5109,2.6153,,,
+uGauss2_neuralnet::neuralnet_slr_05,04:20:17.798,04:20:18.427,0.629,3.5143,2.6187,,,
+uGauss2_neuralnet::neuralnet_rprop+_01,04:25:14.577,04:25:14.702,0.125,8.0787,5.183,,,Erratic on difficult datasets
+uGauss2_neuralnet::neuralnet_rprop+_02,04:25:14.702,04:25:19.048,4.346,6.1089,4.6142,,,Erratic on difficult datasets
+uGauss2_neuralnet::neuralnet_rprop+_03,04:25:19.048,04:25:22.405,3.357,3.1196,2.4983,,,Erratic on difficult datasets
+uGauss2_neuralnet::neuralnet_rprop+_04,04:25:22.405,04:25:23.640,1.235,3.5133,2.6175,,,Erratic on difficult datasets
+uGauss2_neuralnet::neuralnet_rprop+_05,04:25:23.640,04:25:26.453,2.813,2.4416,1.9255,,,Erratic on difficult datasets
+uGauss2_nnet::nnet_01,04:25:33.456,04:25:33.492,0.036,4.1442,3.214,,maxiter = 150,uses optim BFGS
+uGauss2_nnet::nnet_02,04:25:33.493,04:25:33.507,0.014,4.6129,3.6388,,maxiter = 150,uses optim BFGS
+uGauss2_nnet::nnet_03,04:25:33.507,04:25:33.522,0.015,6.1143,4.6159,,maxiter = 150,uses optim BFGS
+uGauss2_nnet::nnet_04,04:25:33.522,04:25:33.558,0.036,2.441,1.9284,,maxiter = 150,uses optim BFGS
+uGauss2_nnet::nnet_05,04:25:33.559,04:25:33.572,0.013,6.3347,4.7054,,maxiter = 150,uses optim BFGS
+uGauss2_nnet::nnet_06,04:25:33.572,04:25:33.604,0.032,7.5308,5.4347,,maxiter = 150,uses optim BFGS
+uGauss2_nnet::nnet_07,04:25:33.604,04:25:33.626,0.022,2.4016,1.8964,,maxiter = 150,uses optim BFGS
+uGauss2_nnet::nnet_08,04:25:33.628,04:25:33.639,0.011,2.3888,1.881,,maxiter = 150,uses optim BFGS
+uGauss2_nnet::nnet_09,04:25:33.655,04:25:33.670,0.015,3.0315,2.4298,,maxiter = 150,uses optim BFGS
+uGauss2_nnet::nnet_10,04:25:33.670,04:25:33.689,0.019,2.4907,1.9717,,maxiter = 150,uses optim BFGS
+uGauss2_qrnn::qrnn.fit_01,04:26:08.103,04:26:08.358,0.255,8.5642,6.4179,,maxiter = 700,
+uGauss2_qrnn::qrnn.fit_02,04:26:08.358,04:26:08.624,0.266,9.1919,5.7106,,maxiter = 700,
+uGauss2_qrnn::qrnn.fit_03,04:26:08.626,04:26:08.999,0.373,3.1136,2.2979,,maxiter = 700,
+uGauss2_qrnn::qrnn.fit_04,04:26:09.001,04:26:09.265,0.264,6.1838,4.4858,,maxiter = 700,
+uGauss2_qrnn::qrnn.fit_05,04:26:09.267,04:26:09.521,0.254,2.5379,1.9628,,maxiter = 700,
+uGauss2_qrnn::qrnn.fit_06,04:26:09.521,04:26:09.837,0.316,3.7024,2.5847,,maxiter = 700,
+uGauss2_qrnn::qrnn.fit_07,04:26:09.837,04:26:10.090,0.253,9.8236,5.9196,,maxiter = 700,
+uGauss2_qrnn::qrnn.fit_08,04:26:10.090,04:26:10.360,0.27,6.0741,4.377,,maxiter = 700,
+uGauss2_qrnn::qrnn.fit_09,04:26:10.360,04:26:10.636,0.276,2.5426,1.9666,,maxiter = 700,
+uGauss2_qrnn::qrnn.fit_10,04:26:10.638,04:26:10.937,0.299,2.348,1.8193,,maxiter = 700,
+uGauss2_radiantmodel::radiantmodel_01,04:27:38.231,04:27:38.289,0.058,5.3049,4.0417,,maxiter=10000 preset,uses nnet
+uGauss2_radiantmodel::radiantmodel_02,04:27:38.291,04:27:38.343,0.052,9.0831,6.4046,,maxiter=10000 preset,uses nnet
+uGauss2_radiantmodel::radiantmodel_03,04:27:38.343,04:27:38.437,0.094,2.345,1.8408,,maxiter=10000 preset,uses nnet
+uGauss2_radiantmodel::radiantmodel_04,04:27:38.437,04:27:38.530,0.093,7.9971,5.6247,,maxiter=10000 preset,uses nnet
+uGauss2_radiantmodel::radiantmodel_05,04:27:38.530,04:27:38.595,0.065,2.5576,2.0489,,maxiter=10000 preset,uses nnet
+uGauss2_radiantmodel::radiantmodel_06,04:27:38.596,04:27:38.668,0.072,2.9929,2.397,,maxiter=10000 preset,uses nnet
+uGauss2_radiantmodel::radiantmodel_07,04:27:38.668,04:27:38.743,0.075,2.9901,2.3949,,maxiter=10000 preset,uses nnet
+uGauss2_radiantmodel::radiantmodel_08,04:27:38.743,04:27:38.865,0.122,2.341,1.837,,maxiter=10000 preset,uses nnet
+uGauss2_radiantmodel::radiantmodel_09,04:27:38.865,04:27:38.896,0.031,3.5012,2.602,,maxiter=10000 preset,uses nnet
+uGauss2_radiantmodel::radiantmodel_10,04:27:38.911,04:27:39.052,0.141,2.5273,1.9933,,maxiter=10000 preset,uses nnet
+uGauss2_rcane::rlm_01,04:27:45.284,04:27:45.284,0,71.3049,60.5319,,maxiter = 1000,linear only
+uGauss2_rcane::rlm_02,04:27:45.284,04:27:45.284,0,71.3049,60.5319,,maxiter = 1000,linear only
+uGauss2_rcane::rlm_03,04:27:45.284,04:27:45.284,0,71.3049,60.5319,,maxiter = 1000,linear only
+uGauss2_rcane::rlm_04,04:27:45.300,04:27:45.300,0,71.3049,60.5319,,maxiter = 1000,linear only
+uGauss2_rcane::rlm_05,04:27:45.300,04:27:45.300,0,71.3049,60.5319,,maxiter = 1000,linear only
+uGauss2_rcane::rlm_06,04:27:45.300,04:27:45.300,0,71.3049,60.5319,,maxiter = 1000,linear only
+uGauss2_rcane::rlm_07,04:27:45.300,04:27:45.300,0,71.3049,60.5319,,maxiter = 1000,linear only
+uGauss2_rcane::rlm_08,04:27:45.300,04:27:45.300,0,71.3049,60.5319,,maxiter = 1000,linear only
+uGauss2_rcane::rlm_09,04:27:45.300,04:27:45.300,0,71.3049,60.5319,,maxiter = 1000,linear only
+uGauss2_rcane::rlm_10,04:27:45.300,04:27:45.316,0.016,71.3049,60.5319,,maxiter = 1000,linear only
+uGauss2_rminer::fit_01,04:27:59.304,04:27:59.358,0.054,2.3908,1.8835,,maxiter = 150,
+uGauss2_rminer::fit_02,04:27:59.358,04:27:59.415,0.057,3.1857,2.537,,maxiter = 150,
+uGauss2_rminer::fit_03,04:27:59.415,04:27:59.480,0.065,2.3806,1.8779,,maxiter = 150,
+uGauss2_rminer::fit_04,04:27:59.480,04:27:59.543,0.063,2.5775,2.0648,,maxiter = 150,
+uGauss2_rminer::fit_05,04:27:59.543,04:27:59.639,0.096,2.3863,1.8834,,maxiter = 150,
+uGauss2_rminer::fit_06,04:27:59.639,04:27:59.690,0.051,2.4476,1.9307,,maxiter = 150,
+uGauss2_rminer::fit_07,04:27:59.690,04:27:59.752,0.062,2.3877,1.8821,,maxiter = 150,
+uGauss2_rminer::fit_08,04:27:59.752,04:27:59.815,0.063,2.3974,1.8945,,maxiter = 150,
+uGauss2_rminer::fit_09,04:27:59.815,04:27:59.862,0.047,3.0832,2.4659,,maxiter = 150,
+uGauss2_rminer::fit_10,04:27:59.862,04:27:59.921,0.059,3.0305,2.4267,,maxiter = 150,
+uGauss2_RSNNS::mlp_BackpropBatch_01,04:33:19.064,04:33:22.126,3.062,9.1368,6.7266,,maxiter = 10000,
+uGauss2_RSNNS::mlp_BackpropBatch_02,04:33:22.126,04:33:25.209,3.083,9.3402,6.9162,,maxiter = 10000,
+uGauss2_RSNNS::mlp_BackpropBatch_03,04:33:25.209,04:33:28.288,3.079,12.8126,10.5826,,maxiter = 10000,
+uGauss2_RSNNS::mlp_BackpropBatch_04,04:33:28.288,04:33:31.342,3.054,10.1465,8.1645,,maxiter = 10000,
+uGauss2_RSNNS::mlp_BackpropBatch_05,04:33:31.342,04:33:34.407,3.065,11.4669,9.4108,,maxiter = 10000,
+uGauss2_RSNNS::mlp_BackpropBatch_06,04:33:34.407,04:33:37.449,3.042,8.0597,5.8609,,maxiter = 10000,
+uGauss2_RSNNS::mlp_BackpropBatch_07,04:33:37.449,04:33:40.501,3.052,10.6193,8.6469,,maxiter = 10000,
+uGauss2_RSNNS::mlp_BackpropBatch_08,04:33:40.501,04:33:43.556,3.055,8.2703,6.075,,maxiter = 10000,
+uGauss2_RSNNS::mlp_BackpropBatch_09,04:33:43.556,04:33:46.631,3.075,13.1391,10.8071,,maxiter = 10000,
+uGauss2_RSNNS::mlp_BackpropBatch_10,04:33:46.632,04:33:49.680,3.048,8.8507,6.4764,,maxiter = 10000,
+uGauss2_RSNNS::mlp_BackpropChunk_01,04:34:58.013,04:34:58.309,0.296,4.978,3.9827,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropChunk_02,04:34:58.310,04:34:58.612,0.302,8.7376,6.1024,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropChunk_03,04:34:58.613,04:34:59.064,0.451,10.7131,7.7705,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropChunk_04,04:34:59.065,04:34:59.358,0.293,9.2811,6.6815,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropChunk_05,04:34:59.358,04:34:59.652,0.294,4.8253,3.6696,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropChunk_06,04:34:59.652,04:34:59.958,0.306,9.5509,7.0463,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropChunk_07,04:34:59.958,04:35:00.267,0.309,6.0503,4.9269,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropChunk_08,04:35:00.267,04:35:00.575,0.308,9.6908,6.9821,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropChunk_09,04:35:00.577,04:35:00.872,0.295,6.419,4.8321,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropChunk_10,04:35:00.873,04:35:01.174,0.301,9.1586,6.2386,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropMomentum_01,04:35:35.307,04:35:35.601,0.294,10.1879,7.4781,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropMomentum_02,04:35:35.601,04:35:35.910,0.309,5.0387,3.8237,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropMomentum_03,04:35:35.910,04:35:36.195,0.285,9.319,6.7401,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropMomentum_04,04:35:36.195,04:35:36.501,0.306,10.1517,7.3738,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropMomentum_05,04:35:36.501,04:35:36.810,0.309,8.6444,6.0668,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropMomentum_06,04:35:36.812,04:35:37.105,0.293,5.1148,4.0675,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropMomentum_07,04:35:37.106,04:35:37.557,0.451,3.8192,3.0305,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropMomentum_08,04:35:37.557,04:35:37.860,0.303,9.3341,6.7159,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropMomentum_09,04:35:37.861,04:35:38.153,0.292,5.9114,4.5779,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropMomentum_10,04:35:38.155,04:35:38.441,0.286,4.8684,3.726,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropWeightDecay_01,04:36:13.381,04:36:13.679,0.298,4.3507,3.5475,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropWeightDecay_02,04:36:13.679,04:36:13.972,0.293,10.1105,7.3884,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropWeightDecay_03,04:36:13.988,04:36:14.282,0.294,3.7116,2.7629,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropWeightDecay_04,04:36:14.282,04:36:14.576,0.294,4.7504,3.6801,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropWeightDecay_05,04:36:14.576,04:36:14.891,0.315,4.8756,3.7955,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropWeightDecay_06,04:36:14.893,04:36:15.194,0.301,9.33,7.0087,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropWeightDecay_07,04:36:15.196,04:36:15.481,0.285,3.7669,2.8157,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropWeightDecay_08,04:36:15.481,04:36:15.799,0.318,8.7494,6.1706,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropWeightDecay_09,04:36:15.801,04:36:16.103,0.302,8.706,6.1933,,maxiter = 1000,
+uGauss2_RSNNS::mlp_BackpropWeightDecay_10,04:36:16.104,04:36:16.549,0.445,8.7229,6.0315,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Quickprop_01,04:41:43.235,04:41:46.615,3.38,37.2492,31.0824,,maxiter = 10000,
+uGauss2_RSNNS::mlp_Quickprop_02,04:41:46.617,04:41:49.941,3.324,24.8812,19.8177,,maxiter = 10000,
+uGauss2_RSNNS::mlp_Quickprop_03,04:41:49.942,04:41:53.231,3.289,24.7726,19.7419,,maxiter = 10000,
+uGauss2_RSNNS::mlp_Quickprop_04,04:41:53.247,04:41:56.579,3.332,24.8788,19.8162,,maxiter = 10000,
+uGauss2_RSNNS::mlp_Quickprop_05,04:41:56.581,04:41:59.860,3.279,24.7401,19.7143,,maxiter = 10000,
+uGauss2_RSNNS::mlp_Quickprop_06,04:41:59.860,04:42:03.229,3.369,37.4153,31.5891,,maxiter = 10000,
+uGauss2_RSNNS::mlp_Quickprop_07,04:42:03.231,04:42:06.538,3.307,25.1745,20.0279,,maxiter = 10000,
+uGauss2_RSNNS::mlp_Quickprop_08,04:42:06.538,04:42:09.737,3.199,23.7792,18.6878,,maxiter = 10000,
+uGauss2_RSNNS::mlp_Quickprop_09,04:42:09.738,04:42:13.055,3.317,25.0678,19.9666,,maxiter = 10000,
+uGauss2_RSNNS::mlp_Quickprop_10,04:42:13.055,04:42:16.597,3.542,37.2179,31.2762,,maxiter = 10000,
+uGauss2_RSNNS::mlp_Rprop_01,04:43:27.447,04:43:27.751,0.304,14.8242,11.1216,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Rprop_02,04:43:27.753,04:43:28.205,0.452,6.4214,4.6748,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Rprop_03,04:43:28.207,04:43:28.484,0.277,4.1312,3.182,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Rprop_04,04:43:28.499,04:43:28.786,0.287,5.3448,4.0627,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Rprop_05,04:43:28.786,04:43:29.087,0.301,4.1525,3.176,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Rprop_06,04:43:29.087,04:43:29.381,0.294,8.0631,5.5597,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Rprop_07,04:43:29.381,04:43:29.672,0.291,9.2937,5.3536,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Rprop_08,04:43:29.672,04:43:29.975,0.303,8.426,5.8493,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Rprop_09,04:43:29.976,04:43:30.259,0.283,8.6502,6.2019,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Rprop_10,04:43:30.259,04:43:30.553,0.294,12.2806,9.0082,,maxiter = 1000,
+uGauss2_RSNNS::mlp_SCG_01,04:44:23.921,04:44:24.437,0.516,9.0874,6.5592,,maxiter = 1000,
+uGauss2_RSNNS::mlp_SCG_02,04:44:24.437,04:44:24.934,0.497,6.3535,4.7808,,maxiter = 1000,
+uGauss2_RSNNS::mlp_SCG_03,04:44:24.934,04:44:25.265,0.331,11.5545,9.3469,,maxiter = 1000,
+uGauss2_RSNNS::mlp_SCG_04,04:44:25.265,04:44:25.762,0.497,9.4159,6.9242,,maxiter = 1000,
+uGauss2_RSNNS::mlp_SCG_05,04:44:25.762,04:44:26.381,0.619,6.1029,4.5368,,maxiter = 1000,
+uGauss2_RSNNS::mlp_SCG_06,04:44:26.381,04:44:26.862,0.481,5.9042,4.3738,,maxiter = 1000,
+uGauss2_RSNNS::mlp_SCG_07,04:44:26.862,04:44:27.356,0.494,4.4225,3.6059,,maxiter = 1000,
+uGauss2_RSNNS::mlp_SCG_08,04:44:27.356,04:44:27.846,0.49,6.3987,4.8272,,maxiter = 1000,
+uGauss2_RSNNS::mlp_SCG_09,04:44:27.847,04:44:28.328,0.481,6.5907,5.1224,,maxiter = 1000,
+uGauss2_RSNNS::mlp_SCG_10,04:44:28.328,04:44:28.786,0.458,8.1052,6.2361,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Std_Backpropagation_01,04:45:04.957,04:45:05.255,0.298,3.3022,2.59,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Std_Backpropagation_02,04:45:05.255,04:45:05.551,0.296,5.6982,4.3338,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Std_Backpropagation_03,04:45:05.551,04:45:05.844,0.293,5.0066,3.7706,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Std_Backpropagation_04,04:45:05.844,04:45:06.145,0.301,4.2563,3.4033,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Std_Backpropagation_05,04:45:06.145,04:45:06.451,0.306,4.1453,3.2952,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Std_Backpropagation_06,04:45:06.451,04:45:06.753,0.302,4.4103,3.5412,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Std_Backpropagation_07,04:45:06.754,04:45:07.205,0.451,6.3182,4.9588,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Std_Backpropagation_08,04:45:07.206,04:45:07.499,0.293,8.6587,6.043,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Std_Backpropagation_09,04:45:07.499,04:45:07.797,0.298,5.4349,4.3756,,maxiter = 1000,
+uGauss2_RSNNS::mlp_Std_Backpropagation_10,04:45:07.797,04:45:08.089,0.292,6.0417,4.9535,,maxiter = 1000,
+uGauss2_simpleNeural::sN.MLPtrain_01,04:49:41.855,04:49:42.283,0.428,0.53,0.4474,,maxiter = 1000,for bi- or multiclass classification
+uGauss2_simpleNeural::sN.MLPtrain_02,04:49:42.283,04:49:42.717,0.434,0.53,0.4474,,maxiter = 1000,for bi- or multiclass classification
+uGauss2_simpleNeural::sN.MLPtrain_03,04:49:42.732,04:49:43.164,0.432,0.53,0.4474,,maxiter = 1000,for bi- or multiclass classification
+uGauss2_simpleNeural::sN.MLPtrain_04,04:49:43.164,04:49:43.669,0.505,0.53,0.4474,,maxiter = 1000,for bi- or multiclass classification
+uGauss2_simpleNeural::sN.MLPtrain_05,04:49:43.671,04:49:44.102,0.431,0.53,0.4474,,maxiter = 1000,for bi- or multiclass classification
+uGauss2_simpleNeural::sN.MLPtrain_06,04:49:44.104,04:49:44.524,0.42,0.53,0.4474,,maxiter = 1000,for bi- or multiclass classification
+uGauss2_simpleNeural::sN.MLPtrain_07,04:49:44.540,04:49:44.980,0.44,0.53,0.4474,,maxiter = 1000,for bi- or multiclass classification
+uGauss2_simpleNeural::sN.MLPtrain_08,04:49:44.982,04:49:45.407,0.425,0.53,0.4474,,maxiter = 1000,for bi- or multiclass classification
+uGauss2_simpleNeural::sN.MLPtrain_09,04:49:45.422,04:49:45.850,0.428,0.53,0.4474,,maxiter = 1000,for bi- or multiclass classification
+uGauss2_simpleNeural::sN.MLPtrain_10,04:49:45.850,04:49:46.316,0.466,0.53,0.4474,,maxiter = 1000,for bi- or multiclass classification
+uGauss2_snnR::snnR_01,04:50:00.552,04:50:00.616,0.064,9.5169,7.0061,,maxiter = 200,better on multi
+uGauss2_snnR::snnR_02,04:50:00.618,04:50:00.638,0.02,9.5169,7.0061,,maxiter = 200,better on multi
+uGauss2_snnR::snnR_03,04:50:00.639,04:50:00.666,0.027,9.4678,6.9147,,maxiter = 200,better on multi
+uGauss2_snnR::snnR_04,04:50:00.667,04:50:00.724,0.057,9.5169,7.0061,,maxiter = 200,better on multi
+uGauss2_snnR::snnR_05,04:50:00.726,04:50:00.768,0.042,8.8419,6.4413,,maxiter = 200,better on multi
+uGauss2_snnR::snnR_06,04:50:00.769,04:50:00.804,0.035,9.5169,7.0061,,maxiter = 200,better on multi
+uGauss2_snnR::snnR_07,04:50:00.805,04:50:00.850,0.045,9.4678,6.9147,,maxiter = 200,better on multi
+uGauss2_snnR::snnR_08,04:50:00.851,04:50:00.878,0.027,8.8419,6.4414,,maxiter = 200,better on multi
+uGauss2_snnR::snnR_09,04:50:00.880,04:50:00.922,0.042,9.4678,6.9147,,maxiter = 200,better on multi
+uGauss2_snnR::snnR_10,04:50:00.924,04:50:00.973,0.049,9.4678,6.9147,,maxiter = 200,better on multi
+uGauss2_softmaxreg::softmaxreg_01,04:50:01.887,04:50:01.889,0.002,37.6867,31.6105,,maxiter = 1000,
+uGauss2_softmaxreg::softmaxreg_02,04:50:01.889,04:50:01.889,0,37.6867,31.6105,,maxiter = 1000,
+uGauss2_softmaxreg::softmaxreg_03,04:50:01.889,04:50:01.889,0,37.6867,31.6105,,maxiter = 1000,
+uGauss2_softmaxreg::softmaxreg_04,04:50:01.889,04:50:01.889,0,37.6867,31.6105,,maxiter = 1000,
+uGauss2_softmaxreg::softmaxreg_05,04:50:01.889,04:50:01.889,0,37.6867,31.6105,,maxiter = 1000,
+uGauss2_softmaxreg::softmaxreg_06,04:50:01.889,04:50:01.889,0,37.6867,31.6105,,maxiter = 1000,
+uGauss2_softmaxreg::softmaxreg_07,04:50:01.904,04:50:01.904,0,37.6867,31.6105,,maxiter = 1000,
+uGauss2_softmaxreg::softmaxreg_08,04:50:01.904,04:50:01.904,0,37.6867,31.6105,,maxiter = 1000,
+uGauss2_softmaxreg::softmaxreg_09,04:50:01.904,04:50:01.904,0,37.6867,31.6105,,maxiter = 1000,
+uGauss2_softmaxreg::softmaxreg_10,04:50:01.904,04:50:01.904,0,37.6867,31.6105,,maxiter = 1000,
+uGauss2_tsensembler::tsensembler_01,04:51:07.262,04:51:07.820,0.558,2.3823,1.8741,,maxiter = 150,uses nnet
+uGauss2_tsensembler::tsensembler_02,04:51:07.822,04:51:08.634,0.812,2.3825,1.8743,,maxiter = 150,uses nnet
+uGauss2_tsensembler::tsensembler_03,04:51:08.640,04:51:09.207,0.567,2.3828,1.8746,,maxiter = 150,uses nnet
+uGauss2_tsensembler::tsensembler_04,04:51:09.209,04:51:09.696,0.487,2.3822,1.874,,maxiter = 150,uses nnet
+uGauss2_tsensembler::tsensembler_05,04:51:09.698,04:51:10.161,0.463,2.3823,1.8742,,maxiter = 150,uses nnet
+uGauss2_tsensembler::tsensembler_06,04:51:10.162,04:51:10.637,0.475,2.3825,1.8743,,maxiter = 150,uses nnet
+uGauss2_tsensembler::tsensembler_07,04:51:10.639,04:51:11.166,0.527,2.373,1.8654,,maxiter = 150,uses nnet
+uGauss2_tsensembler::tsensembler_08,04:51:11.168,04:51:11.572,0.404,2.3826,1.8744,,maxiter = 150,uses nnet
+uGauss2_tsensembler::tsensembler_09,04:51:11.574,04:51:11.982,0.408,2.3822,1.874,,maxiter = 150,uses nnet
+uGauss2_tsensembler::tsensembler_10,04:51:11.982,04:51:12.477,0.495,2.3827,1.8744,,maxiter = 150,uses nnet
+uGauss2_validann::ann_BFGS_01,04:53:51.705,04:53:52.304,0.599,2.3531,1.8495,,maxiter = 200,optim
+uGauss2_validann::ann_BFGS_02,04:53:52.306,04:53:52.899,0.593,6.1195,4.7267,,maxiter = 200,optim
+uGauss2_validann::ann_BFGS_03,04:53:52.901,04:53:53.486,0.585,6.0654,4.6394,,maxiter = 200,optim
+uGauss2_validann::ann_BFGS_04,04:53:53.486,04:53:54.098,0.612,2.4133,1.9054,,maxiter = 200,optim
+uGauss2_validann::ann_BFGS_05,04:53:54.099,04:53:54.680,0.581,2.3529,1.8492,,maxiter = 200,optim
+uGauss2_validann::ann_BFGS_06,04:53:54.680,04:53:55.280,0.6,2.6829,2.13,,maxiter = 200,optim
+uGauss2_validann::ann_BFGS_07,04:53:55.280,04:53:55.888,0.608,2.928,2.373,,maxiter = 200,optim
+uGauss2_validann::ann_BFGS_08,04:53:55.889,04:53:56.481,0.592,2.4065,1.8907,,maxiter = 200,optim
+uGauss2_validann::ann_BFGS_09,04:53:56.481,04:53:57.048,0.567,3.5011,2.6019,,maxiter = 200,optim
+uGauss2_validann::ann_BFGS_10,04:53:57.048,04:53:57.653,0.605,6.2088,4.7848,,maxiter = 200,optim
+uGauss2_validann::ann_CG_01,05:06:20.748,05:06:24.546,3.798,3.6216,2.9131,,maxiter = 1000,optim
+uGauss2_validann::ann_CG_02,05:06:24.546,05:06:28.388,3.842,6.2926,4.7287,,maxiter = 1000,optim
+uGauss2_validann::ann_CG_03,05:06:28.388,05:06:32.202,3.814,3.6089,2.9082,,maxiter = 1000,optim
+uGauss2_validann::ann_CG_04,05:06:32.203,05:06:36.139,3.936,3.5728,2.878,,maxiter = 1000,optim
+uGauss2_validann::ann_CG_05,05:06:36.139,05:06:39.985,3.846,2.9744,2.3843,,maxiter = 1000,optim
+uGauss2_validann::ann_CG_06,05:06:39.987,05:06:43.783,3.796,3.6707,2.9417,,maxiter = 1000,optim
+uGauss2_validann::ann_CG_07,05:06:43.799,05:06:47.648,3.849,6.2082,4.574,,maxiter = 1000,optim
+uGauss2_validann::ann_CG_08,05:06:47.648,05:06:51.471,3.823,6.2605,4.7072,,maxiter = 1000,optim
+uGauss2_validann::ann_CG_09,05:06:51.471,05:06:55.228,3.757,3.084,2.4843,,maxiter = 1000,optim
+uGauss2_validann::ann_CG_10,05:06:55.230,05:06:59.061,3.831,5.1607,3.8482,,maxiter = 1000,optim
+uGauss2_validann::ann_L-BFGS-B_01,05:10:08.946,05:10:09.614,0.668,3.7123,2.8462,,maxiter = 200,optim
+uGauss2_validann::ann_L-BFGS-B_02,05:10:09.614,05:10:10.284,0.67,6.3694,4.8586,,maxiter = 200,optim
+uGauss2_validann::ann_L-BFGS-B_03,05:10:10.284,05:10:10.954,0.67,3.3454,2.588,,maxiter = 200,optim
+uGauss2_validann::ann_L-BFGS-B_04,05:10:10.954,05:10:11.640,0.686,4.0848,3.3277,,maxiter = 200,optim
+uGauss2_validann::ann_L-BFGS-B_05,05:10:11.641,05:10:12.305,0.664,7.4559,5.2147,,maxiter = 200,optim
+uGauss2_validann::ann_L-BFGS-B_06,05:10:12.306,05:10:12.972,0.666,8.2322,5.8281,,maxiter = 200,optim
+uGauss2_validann::ann_L-BFGS-B_07,05:10:12.972,05:10:13.647,0.675,3.0003,2.3833,,maxiter = 200,optim
+uGauss2_validann::ann_L-BFGS-B_08,05:10:13.648,05:10:14.320,0.672,3.4016,2.8129,,maxiter = 200,optim
+uGauss2_validann::ann_L-BFGS-B_09,05:10:14.321,05:10:15.048,0.727,3.4951,2.8227,,maxiter = 200,optim
+uGauss2_validann::ann_L-BFGS-B_10,05:10:15.049,05:10:15.709,0.66,6.6491,4.8244,,maxiter = 200,optim
+uGauss2_validann::ann_Nelder-Mead_01,05:12:33.450,05:12:34.661,1.211,7.5049,5.7625,,maxiter = 10000,optim
+uGauss2_validann::ann_Nelder-Mead_02,05:12:34.663,05:12:35.649,0.986,7.6257,5.9387,,maxiter = 10000,optim
+uGauss2_validann::ann_Nelder-Mead_03,05:12:35.651,05:12:36.458,0.807,11.5073,8.3554,,maxiter = 10000,optim
+uGauss2_validann::ann_Nelder-Mead_04,05:12:36.460,05:12:37.326,0.866,5.6547,4.3434,,maxiter = 10000,optim
+uGauss2_validann::ann_Nelder-Mead_05,05:12:37.328,05:12:38.007,0.679,8.555,6.7607,,maxiter = 10000,optim
+uGauss2_validann::ann_Nelder-Mead_06,05:12:38.008,05:12:39.208,1.2,8.9509,6.9279,,maxiter = 10000,optim
+uGauss2_validann::ann_Nelder-Mead_07,05:12:39.209,05:12:40.544,1.335,7.6631,5.8893,,maxiter = 10000,optim
+uGauss2_validann::ann_Nelder-Mead_08,05:12:40.546,05:12:41.078,0.532,9.4457,6.955,,maxiter = 10000,optim
+uGauss2_validann::ann_Nelder-Mead_09,05:12:41.079,05:12:42.033,0.954,7.5952,6.2557,,maxiter = 10000,optim
+uGauss2_validann::ann_Nelder-Mead_10,05:12:42.034,05:12:42.812,0.778,9.5521,6.9739,,maxiter = 10000,optim
+uGauss2_validann::ann_SANN_01,17:21:24.039,17:21:25.160,1.121,8.6336,6.702,,maxiter = 10000,optim
+uGauss2_validann::ann_SANN_02,17:21:25.161,17:21:26.247,1.086,7.579,5.5401,,maxiter = 10000,optim
+uGauss2_validann::ann_SANN_03,17:21:26.249,17:21:27.394,1.145,9.5377,6.5477,,maxiter = 10000,optim
+uGauss2_validann::ann_SANN_04,17:21:27.394,17:21:28.499,1.105,8.6221,6.434,,maxiter = 10000,optim
+uGauss2_validann::ann_SANN_05,17:21:28.501,17:21:29.638,1.137,8.8558,6.4561,,maxiter = 10000,optim
+uGauss2_validann::ann_SANN_06,17:21:29.640,17:21:30.761,1.121,9.7214,7.4133,,maxiter = 10000,optim
+uGauss2_validann::ann_SANN_07,17:21:30.763,17:21:31.904,1.141,9.8444,7.9776,,maxiter = 10000,optim
+uGauss2_validann::ann_SANN_08,17:21:31.906,17:21:33.110,1.204,6.2514,4.7376,,maxiter = 10000,optim
+uGauss2_validann::ann_SANN_09,17:21:33.112,17:21:34.274,1.162,4.4517,3.5813,,maxiter = 10000,optim
+uGauss2_validann::ann_SANN_10,17:21:34.276,17:21:35.458,1.182,5.9633,4.5882,,maxiter = 10000,optim
+uGauss2_tensorflow::AdadeltaOptimizer_01,17:38:16.406,17:38:31.251,14.845,37.3087,31.2947,,maxiter = 10000,
+uGauss2_tensorflow::AdadeltaOptimizer_02,17:38:31.254,17:38:46.270,15.016,37.3087,31.2947,,maxiter = 10000,
+uGauss2_tensorflow::AdadeltaOptimizer_03,17:38:46.272,17:39:01.809,15.537,37.3087,31.2947,,maxiter = 10000,
+uGauss2_tensorflow::AdadeltaOptimizer_04,17:39:01.811,17:39:16.901,15.09,37.3087,31.2947,,maxiter = 10000,
+uGauss2_tensorflow::AdadeltaOptimizer_05,17:39:16.903,17:39:32.305,15.402,37.3087,31.2947,,maxiter = 10000,
+uGauss2_tensorflow::AdagradOptimizer_01,18:35:44.682,18:35:59.000,14.318,33.6767,28.3654,,maxiter = 10000,
+uGauss2_tensorflow::AdagradOptimizer_02,18:35:59.003,18:36:16.224,17.221,33.6767,28.3654,,maxiter = 10000,
+uGauss2_tensorflow::AdagradOptimizer_03,18:36:16.226,18:36:30.981,14.755,33.6767,28.3654,,maxiter = 10000,
+uGauss2_tensorflow::AdagradOptimizer_04,18:36:30.982,18:36:45.938,14.956,33.6767,28.3654,,maxiter = 10000,
+uGauss2_tensorflow::AdagradOptimizer_05,18:36:45.940,18:37:00.539,14.599,33.6767,28.3654,,maxiter = 10000,
+uGauss2_tensorflow::AdamOptimizer_01,18:55:18.859,18:55:34.177,15.318,22.665,18.8517,,maxiter = 10000,
+uGauss2_tensorflow::AdamOptimizer_02,18:55:34.179,18:55:49.832,15.653,22.665,18.8517,,maxiter = 10000,
+uGauss2_tensorflow::AdamOptimizer_03,18:55:49.834,18:56:05.406,15.572,22.665,18.8517,,maxiter = 10000,
+uGauss2_tensorflow::AdamOptimizer_04,18:56:05.406,18:56:20.771,15.365,22.665,18.8517,,maxiter = 10000,
+uGauss2_tensorflow::AdamOptimizer_05,18:56:20.771,18:56:36.426,15.655,22.665,18.8517,,maxiter = 10000,
+uGauss2_tensorflow::FtrlOptimizer_01,19:19:27.473,19:19:44.223,16.75,33.6767,28.3654,,maxiter = 10000,
+uGauss2_tensorflow::FtrlOptimizer_02,19:19:44.225,19:20:00.988,16.763,33.6767,28.3654,,maxiter = 10000,
+uGauss2_tensorflow::FtrlOptimizer_03,19:20:00.990,19:20:17.402,16.412,33.6767,28.3654,,maxiter = 10000,
+uGauss2_tensorflow::FtrlOptimizer_04,19:20:17.404,19:20:33.697,16.293,33.6767,28.3654,,maxiter = 10000,
+uGauss2_tensorflow::FtrlOptimizer_05,19:20:33.697,19:20:50.147,16.45,33.6767,28.3654,,maxiter = 10000,
+uGauss2_tensorflow::GradientDescentOptimizer_01,19:36:45.801,19:37:00.262,14.461,25.3573,22.2962,,maxiter = 10000,
+uGauss2_tensorflow::GradientDescentOptimizer_02,19:37:00.264,19:37:15.307,15.043,25.3573,22.2962,,maxiter = 10000,
+uGauss2_tensorflow::GradientDescentOptimizer_03,19:37:15.309,19:37:31.035,15.726,25.3573,22.2962,,maxiter = 10000,
+uGauss2_tensorflow::GradientDescentOptimizer_04,19:37:31.038,19:37:45.957,14.919,25.3573,22.2962,,maxiter = 10000,
+uGauss2_tensorflow::GradientDescentOptimizer_05,19:37:45.959,19:38:00.577,14.618,25.3573,22.2962,,maxiter = 10000,
+uGauss2_tensorflow::MomentumOptimizer_01,20:10:41.518,20:10:56.473,14.955,23.2117,19.7627,,maxiter = 10000,
+uGauss2_tensorflow::MomentumOptimizer_02,20:10:56.473,20:11:11.419,14.946,23.2117,19.7627,,maxiter = 10000,
+uGauss2_tensorflow::MomentumOptimizer_03,20:11:11.434,20:11:26.086,14.652,23.2117,19.7627,,maxiter = 10000,
+uGauss2_tensorflow::MomentumOptimizer_04,20:11:26.088,20:11:41.440,15.352,23.2117,19.7627,,maxiter = 10000,
+uGauss2_tensorflow::MomentumOptimizer_05,20:11:41.440,20:11:56.577,15.137,23.2117,19.7627,,maxiter = 10000,

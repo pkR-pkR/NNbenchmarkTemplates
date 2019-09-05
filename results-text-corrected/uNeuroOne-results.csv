@@ -1,0 +1,431 @@
+event,start,end,duration,RMSE,MAE,stars,params,comment
+uNeuroOne_nlsr::nlxb_01,15:36:55.100,15:36:55.115,0.015,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_02,15:36:55.115,15:36:55.115,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_03,15:36:55.115,15:36:55.131,0.016,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_04,15:36:55.131,15:36:55.147,0.016,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_05,15:36:55.147,15:36:55.162,0.015,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_06,15:36:55.162,15:36:55.162,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_07,15:36:55.162,15:36:55.178,0.016,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_08,15:36:55.178,15:36:55.194,0.016,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_09,15:36:55.194,15:36:55.209,0.015,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_nlsr::nlxb_10,15:36:55.209,15:36:55.209,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpacklm::nlsLM_01,15:46:32.341,15:46:32.341,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpacklm::nlsLM_02,15:46:32.341,15:46:32.341,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpacklm::nlsLM_03,15:46:32.341,15:46:32.341,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpacklm::nlsLM_04,15:46:32.356,15:46:32.356,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpacklm::nlsLM_05,15:46:32.356,15:46:32.356,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpacklm::nlsLM_06,15:46:32.356,15:46:32.372,0.016,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpacklm::nlsLM_07,15:46:32.372,15:46:32.372,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpacklm::nlsLM_08,15:46:32.372,15:46:32.372,0,1.272,1.1104,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpacklm::nlsLM_09,15:46:32.372,15:46:32.387,0.015,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_minpacklm::nlsLM_10,15:46:32.387,15:46:32.387,0,0.283,0.2313,**,maxiter = 150,Require hand-made formulas and scaling
+uNeuroOne_h2o::h2o.deeplearning_01,15:54:47.155,15:54:47.781,0.626,0.4022,0.3192,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_02,15:54:47.781,15:54:48.374,0.593,0.3813,0.2994,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_03,15:54:48.374,15:54:48.874,0.5,0.2959,0.2455,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_04,15:54:48.874,15:54:49.484,0.61,0.3912,0.3085,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_05,15:54:49.484,15:54:50.030,0.546,0.4822,0.3705,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_06,15:54:50.030,15:54:50.608,0.578,0.3642,0.301,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_07,15:54:50.608,15:54:51.233,0.625,0.6903,0.5618,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_08,15:54:51.233,15:54:51.827,0.594,0.2956,0.2449,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_09,15:54:51.827,15:54:52.421,0.594,0.3159,0.2583,,maxiter=200,Bad on univariate datasets
+uNeuroOne_h2o::h2o.deeplearning_10,15:54:52.421,15:54:52.983,0.562,0.2935,0.2447,,maxiter=200,Bad on univariate datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_01,18:11:51.573,18:11:51.604,0.031,0.2831,0.2316,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_02,18:11:51.604,18:11:51.620,0.016,0.6162,0.5031,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_03,18:11:51.620,18:11:51.651,0.031,0.283,0.2315,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_04,18:11:51.651,18:11:51.698,0.047,0.283,0.2316,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_05,18:11:51.698,18:11:51.729,0.031,0.2831,0.2317,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_01,21:21:32.625,21:21:34.734,2.109,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_02,21:21:34.734,21:21:36.499,1.765,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_03,21:21:36.499,21:21:38.530,2.031,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_04,21:21:38.545,21:21:40.685,2.14,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_05,21:21:40.685,21:21:42.732,2.047,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_brnn::brnn_gaussNewton_01,10:21:56.148,10:21:56.163,0.015,0.3586,0.2926,***,,Different NN
+uNeuroOne_brnn::brnn_gaussNewton_02,10:21:56.163,10:21:56.163,0,0.3587,0.2926,***,,Different NN
+uNeuroOne_brnn::brnn_gaussNewton_03,10:21:56.163,10:21:56.179,0.016,0.3587,0.2926,***,,Different NN
+uNeuroOne_brnn::brnn_gaussNewton_04,10:21:56.179,10:21:56.179,0,0.3586,0.2926,***,,Different NN
+uNeuroOne_brnn::brnn_gaussNewton_05,10:21:56.195,10:21:56.195,0,0.3585,0.2925,***,,Different NN
+uNeuroOne_brnn::brnn_gaussNewton_06,10:21:56.195,10:21:56.210,0.015,0.3586,0.2926,***,,Different NN
+uNeuroOne_brnn::brnn_gaussNewton_07,10:21:56.210,10:21:56.210,0,0.3587,0.2926,***,,Different NN
+uNeuroOne_brnn::brnn_gaussNewton_08,10:21:56.210,10:21:56.226,0.016,0.3586,0.2926,***,,Different NN
+uNeuroOne_brnn::brnn_gaussNewton_09,10:21:56.226,10:21:56.241,0.015,0.3586,0.2926,***,,Different NN
+uNeuroOne_brnn::brnn_gaussNewton_10,10:21:56.241,10:21:56.257,0.016,0.3586,0.2926,***,,Different NN
+uNeuroOne_AMORE::train_ADAPTgd_01,13:56:49.097,13:56:49.206,0.109,0.2882,0.2363,*,iter=3500 lr=0.01, Require scaling
+uNeuroOne_AMORE::train_ADAPTgd_02,13:56:49.206,13:56:49.316,0.11,0.2884,0.2365,*,iter=3500 lr=0.01, Require scaling
+uNeuroOne_AMORE::train_ADAPTgd_03,13:56:49.316,13:56:49.425,0.109,0.2883,0.2364,*,iter=3500 lr=0.01, Require scaling
+uNeuroOne_AMORE::train_ADAPTgd_04,13:56:49.425,13:56:49.519,0.094,0.2882,0.2363,*,iter=3500 lr=0.01, Require scaling
+uNeuroOne_AMORE::train_ADAPTgd_05,13:56:49.535,13:56:49.628,0.093,0.2882,0.2363,*,iter=3500 lr=0.01, Require scaling
+uNeuroOne_AMORE::train_ADAPTgd_06,13:56:49.628,13:56:49.738,0.11,0.2883,0.2364,*,iter=3500 lr=0.01, Require scaling
+uNeuroOne_AMORE::train_ADAPTgd_07,13:56:49.738,13:56:49.847,0.109,0.2883,0.2363,*,iter=3500 lr=0.01, Require scaling
+uNeuroOne_AMORE::train_ADAPTgd_08,13:56:49.847,13:56:49.956,0.109,0.2882,0.2363,*,iter=3500 lr=0.01, Require scaling
+uNeuroOne_AMORE::train_ADAPTgd_09,13:56:49.956,13:56:50.050,0.094,0.2884,0.2365,*,iter=3500 lr=0.01, Require scaling
+uNeuroOne_AMORE::train_ADAPTgd_10,13:56:50.066,13:56:50.159,0.093,0.2882,0.2363,*,iter=3500 lr=0.01, Require scaling
+uNeuroOne_AMORE::train_ADAPTgdwm_01,14:17:18.538,14:17:18.867,0.329,0.2831,0.2305,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uNeuroOne_AMORE::train_ADAPTgdwm_02,14:17:18.882,14:17:19.241,0.359,0.2831,0.2305,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uNeuroOne_AMORE::train_ADAPTgdwm_03,14:17:19.241,14:17:19.585,0.344,0.2833,0.2304,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uNeuroOne_AMORE::train_ADAPTgdwm_04,14:17:19.585,14:17:19.913,0.328,0.2832,0.2303,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uNeuroOne_AMORE::train_ADAPTgdwm_05,14:17:19.913,14:17:20.241,0.328,0.2838,0.2304,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uNeuroOne_AMORE::train_ADAPTgdwm_06,14:17:20.241,14:17:20.569,0.328,0.2831,0.2305,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uNeuroOne_AMORE::train_ADAPTgdwm_07,14:17:20.569,14:17:20.897,0.328,0.2838,0.2304,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uNeuroOne_AMORE::train_ADAPTgdwm_08,14:17:20.897,14:17:21.225,0.328,0.2831,0.2305,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uNeuroOne_AMORE::train_ADAPTgdwm_09,14:17:21.225,14:17:21.554,0.329,0.2832,0.2303,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uNeuroOne_AMORE::train_ADAPTgdwm_10,14:17:21.554,14:17:21.882,0.328,0.2831,0.2305,*,iter=10000 lr=0.009 momentum=0.8 sigmoid,
+uNeuroOne_AMORE::train_BATCHgd_01,14:37:15.407,14:37:16.380,0.973,0.5816,0.4538,,iter=7500 lr=0.05 sigmoid,very bad
+uNeuroOne_AMORE::train_BATCHgd_02,14:37:16.380,14:37:17.378,0.998,0.6845,0.5487,,iter=7500 lr=0.05 sigmoid,very bad
+uNeuroOne_AMORE::train_BATCHgd_03,14:37:17.378,14:37:18.365,0.987,0.7702,0.633,,iter=7500 lr=0.05 sigmoid,very bad
+uNeuroOne_AMORE::train_BATCHgd_04,14:37:18.365,14:37:19.351,0.986,0.6181,0.4871,,iter=7500 lr=0.05 sigmoid,very bad
+uNeuroOne_AMORE::train_BATCHgd_05,14:37:19.351,14:37:20.323,0.972,0.687,0.5507,,iter=7500 lr=0.05 sigmoid,very bad
+uNeuroOne_AMORE::train_BATCHgdwm_01,15:05:07.680,15:05:09.846,2.166,0.8267,0.6858,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+uNeuroOne_AMORE::train_BATCHgdwm_02,15:05:09.846,15:05:12.021,2.175,0.8438,0.7021,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+uNeuroOne_AMORE::train_BATCHgdwm_03,15:05:12.021,15:05:14.227,2.206,0.8632,0.7144,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+uNeuroOne_AMORE::train_BATCHgdwm_04,15:05:14.227,15:05:16.432,2.205,0.7983,0.6575,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+uNeuroOne_AMORE::train_BATCHgdwm_05,15:05:16.432,15:05:18.659,2.227,0.8526,0.708,,iter=9000 lr=0.008 momentum=0.7 tansig,Bad and no example
+uNeuroOne_ANN2::neuralnetwork_sgd_01,16:27:58.281,16:27:58.330,0.049,0.2958,0.2481,*,iter=4000 lr=0.01,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_sgd_02,16:27:58.332,16:27:58.382,0.05,0.2965,0.2431,*,iter=4000 lr=0.01,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_sgd_03,16:27:58.384,16:27:58.433,0.049,0.2957,0.2444,*,iter=4000 lr=0.01,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_sgd_04,16:27:58.434,16:27:58.482,0.048,0.2947,0.2429,*,iter=4000 lr=0.01,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_sgd_05,16:27:58.484,16:27:58.532,0.048,0.2944,0.2421,*,iter=4000 lr=0.01,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_sgd_06,16:27:58.534,16:27:58.583,0.049,0.2945,0.2444,*,iter=4000 lr=0.01,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_sgd_07,16:27:58.585,16:27:58.634,0.049,0.2985,0.2448,*,iter=4000 lr=0.01,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_sgd_08,16:27:58.636,16:27:58.684,0.048,0.2964,0.2484,*,iter=4000 lr=0.01,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_sgd_09,16:27:58.686,16:27:58.735,0.049,0.2981,0.2492,*,iter=4000 lr=0.01,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_sgd_10,16:27:58.737,16:27:58.786,0.049,0.2954,0.242,*,iter=4000 lr=0.01,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_adam_01,16:35:38.155,16:35:38.233,0.078,0.2839,0.2324,*,iter=4000 lr=0.02,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_adam_02,16:35:38.233,16:35:38.291,0.058,0.2895,0.2292,*,iter=4000 lr=0.02,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_adam_03,16:35:38.291,16:35:38.338,0.047,0.286,0.2361,*,iter=4000 lr=0.02,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_adam_04,16:35:38.338,16:35:38.391,0.053,0.2847,0.2296,*,iter=4000 lr=0.02,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_adam_05,16:35:38.391,16:35:38.454,0.063,0.2839,0.2338,*,iter=4000 lr=0.02,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_adam_06,16:35:38.454,16:35:38.507,0.053,0.2896,0.2361,*,iter=4000 lr=0.02,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_adam_07,16:35:38.507,16:35:38.561,0.054,0.2875,0.2299,*,iter=4000 lr=0.02,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_adam_08,16:35:38.563,16:35:38.613,0.05,0.2838,0.2326,*,iter=4000 lr=0.02,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_adam_09,16:35:38.613,16:35:38.664,0.051,0.2887,0.2436,*,iter=4000 lr=0.02,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_adam_10,16:35:38.664,16:35:38.714,0.05,0.2895,0.2409,*,iter=4000 lr=0.02,Require fine tuning
+uNeuroOne_ANN2::neuralnetwork_rmsprop_01,16:42:00.619,16:42:00.666,0.047,0.2872,0.2289,,iter=4000 lr=0.03,Erratic
+uNeuroOne_ANN2::neuralnetwork_rmsprop_02,16:42:00.666,16:42:00.713,0.047,0.286,0.2388,,iter=4000 lr=0.03,Erratic
+uNeuroOne_ANN2::neuralnetwork_rmsprop_03,16:42:00.728,16:42:00.775,0.047,0.2835,0.2334,,iter=4000 lr=0.03,Erratic
+uNeuroOne_ANN2::neuralnetwork_rmsprop_04,16:42:00.775,16:42:00.822,0.047,0.2837,0.2319,,iter=4000 lr=0.03,Erratic
+uNeuroOne_ANN2::neuralnetwork_rmsprop_05,16:42:00.822,16:42:00.869,0.047,0.2856,0.2373,,iter=4000 lr=0.03,Erratic
+uNeuroOne_ANN2::neuralnetwork_rmsprop_06,16:42:00.869,16:42:00.916,0.047,0.2882,0.2374,,iter=4000 lr=0.03,Erratic
+uNeuroOne_ANN2::neuralnetwork_rmsprop_07,16:42:00.916,16:42:00.963,0.047,0.285,0.2373,,iter=4000 lr=0.03,Erratic
+uNeuroOne_ANN2::neuralnetwork_rmsprop_08,16:42:00.963,16:42:01.025,0.062,0.2834,0.2327,,iter=4000 lr=0.03,Erratic
+uNeuroOne_ANN2::neuralnetwork_rmsprop_09,16:42:01.025,16:42:01.072,0.047,0.2857,0.2367,,iter=4000 lr=0.03,Erratic
+uNeuroOne_ANN2::neuralnetwork_rmsprop_10,16:42:01.072,16:42:01.119,0.047,0.2967,0.2506,,iter=4000 lr=0.03,Erratic
+uNeuroOne_deepnet::gradientdescent_01,17:30:06.885,17:30:06.994,0.109,0.2861,0.2348,,numepochs=1000,Bad on univariate datasets
+uNeuroOne_deepnet::gradientdescent_02,17:30:06.994,17:30:07.104,0.11,0.2861,0.2349,,numepochs=1000,Bad on univariate datasets
+uNeuroOne_deepnet::gradientdescent_03,17:30:07.104,17:30:07.213,0.109,0.2845,0.233,,numepochs=1000,Bad on univariate datasets
+uNeuroOne_deepnet::gradientdescent_04,17:30:07.213,17:30:07.322,0.109,0.2846,0.2331,,numepochs=1000,Bad on univariate datasets
+uNeuroOne_deepnet::gradientdescent_05,17:30:07.322,17:30:07.432,0.11,0.286,0.2347,,numepochs=1000,Bad on univariate datasets
+uNeuroOne_deepnet::gradientdescent_06,17:30:07.432,17:30:07.541,0.109,0.2861,0.2348,,numepochs=1000,Bad on univariate datasets
+uNeuroOne_deepnet::gradientdescent_07,17:30:07.541,17:30:07.651,0.11,0.2861,0.2349,,numepochs=1000,Bad on univariate datasets
+uNeuroOne_deepnet::gradientdescent_08,17:30:07.651,17:30:07.760,0.109,0.286,0.2347,,numepochs=1000,Bad on univariate datasets
+uNeuroOne_deepnet::gradientdescent_09,17:30:07.760,17:30:07.869,0.109,0.2861,0.2349,,numepochs=1000,Bad on univariate datasets
+uNeuroOne_deepnet::gradientdescent_10,17:30:07.869,17:30:07.979,0.11,0.2845,0.2329,,numepochs=1000,Bad on univariate datasets
+uNeuroOne_MachineShop::fit.NNetModel_01,03:19:16.254,03:19:16.258,0.004,0.283,0.2313,,maxiter = 150,uses nnet
+uNeuroOne_MachineShop::fit.NNetModel_02,03:19:16.259,03:19:16.264,0.005,0.283,0.2313,,maxiter = 150,uses nnet
+uNeuroOne_MachineShop::fit.NNetModel_03,03:19:16.265,03:19:16.269,0.004,0.283,0.2313,,maxiter = 150,uses nnet
+uNeuroOne_MachineShop::fit.NNetModel_04,03:19:16.271,03:19:16.274,0.003,0.283,0.2313,,maxiter = 150,uses nnet
+uNeuroOne_MachineShop::fit.NNetModel_05,03:19:16.276,03:19:16.280,0.004,0.283,0.2313,,maxiter = 150,uses nnet
+uNeuroOne_MachineShop::fit.NNetModel_06,03:19:16.281,03:19:16.285,0.004,0.283,0.2313,,maxiter = 150,uses nnet
+uNeuroOne_MachineShop::fit.NNetModel_07,03:19:16.286,03:19:16.291,0.005,0.283,0.2313,,maxiter = 150,uses nnet
+uNeuroOne_MachineShop::fit.NNetModel_08,03:19:16.292,03:19:16.296,0.004,0.283,0.2313,,maxiter = 150,uses nnet
+uNeuroOne_MachineShop::fit.NNetModel_09,03:19:16.298,03:19:16.302,0.004,0.283,0.2313,,maxiter = 150,uses nnet
+uNeuroOne_MachineShop::fit.NNetModel_10,03:19:16.303,03:19:16.307,0.004,0.283,0.2313,,maxiter = 150,uses nnet
+uNeuroOne_momlp::monmlp.fit_BFGS_01,03:20:10.424,03:20:10.585,0.161,0.283,0.2312,,maxiter = 300,uses optimx
+uNeuroOne_momlp::monmlp.fit_BFGS_02,03:20:10.586,03:20:10.733,0.147,0.2832,0.2313,,maxiter = 300,uses optimx
+uNeuroOne_momlp::monmlp.fit_BFGS_03,03:20:10.734,03:20:10.873,0.139,0.283,0.2314,,maxiter = 300,uses optimx
+uNeuroOne_momlp::monmlp.fit_BFGS_04,03:20:10.874,03:20:11.022,0.148,0.2831,0.231,,maxiter = 300,uses optimx
+uNeuroOne_momlp::monmlp.fit_BFGS_05,03:20:11.024,03:20:11.176,0.152,0.283,0.2312,,maxiter = 300,uses optimx
+uNeuroOne_momlp::monmlp.fit_BFGS_06,03:20:11.178,03:20:11.328,0.15,0.283,0.2313,,maxiter = 300,uses optimx
+uNeuroOne_momlp::monmlp.fit_BFGS_07,03:20:11.328,03:20:11.473,0.145,0.283,0.2312,,maxiter = 300,uses optimx
+uNeuroOne_momlp::monmlp.fit_BFGS_08,03:20:11.473,03:20:11.624,0.151,0.283,0.2313,,maxiter = 300,uses optimx
+uNeuroOne_momlp::monmlp.fit_BFGS_09,03:20:11.624,03:20:11.774,0.15,0.283,0.2313,,maxiter = 300,uses optimx
+uNeuroOne_momlp::monmlp.fit_BFGS_10,03:20:11.774,03:20:11.914,0.14,0.2831,0.231,,maxiter = 300,uses optimx
+uNeuroOne_momlp::monmlp.fit_Nelder-Mead_01,03:21:21.858,03:21:22.053,0.195,0.6062,0.4811,,maxiter = 10000,uses optimx
+uNeuroOne_momlp::monmlp.fit_Nelder-Mead_02,03:21:22.055,03:21:22.204,0.149,0.5973,0.4715,,maxiter = 10000,uses optimx
+uNeuroOne_momlp::monmlp.fit_Nelder-Mead_03,03:21:22.204,03:21:22.364,0.16,0.3343,0.27,,maxiter = 10000,uses optimx
+uNeuroOne_momlp::monmlp.fit_Nelder-Mead_04,03:21:22.364,03:21:22.525,0.161,0.6159,0.5028,,maxiter = 10000,uses optimx
+uNeuroOne_momlp::monmlp.fit_Nelder-Mead_05,03:21:22.526,03:21:22.691,0.165,0.3485,0.2844,,maxiter = 10000,uses optimx
+uNeuroOne_momlp::monmlp.fit_Nelder-Mead_06,03:21:22.691,03:21:22.870,0.179,0.3305,0.2663,,maxiter = 10000,uses optimx
+uNeuroOne_momlp::monmlp.fit_Nelder-Mead_07,03:21:22.870,03:21:23.057,0.187,0.2831,0.2311,,maxiter = 10000,uses optimx
+uNeuroOne_momlp::monmlp.fit_Nelder-Mead_08,03:21:23.058,03:21:23.218,0.16,0.435,0.3563,,maxiter = 10000,uses optimx
+uNeuroOne_momlp::monmlp.fit_Nelder-Mead_09,03:21:23.218,03:21:23.373,0.155,0.6213,0.5085,,maxiter = 10000,uses optimx
+uNeuroOne_momlp::monmlp.fit_Nelder-Mead_10,03:21:23.375,03:21:23.530,0.155,0.6159,0.5029,,maxiter = 10000,uses optimx
+uNeuroOne_neural::mlptrain_01,03:47:42.530,03:47:44.744,2.214,0.9714,0.6984,,maxiter = 1000,classification
+uNeuroOne_neural::mlptrain_02,03:47:44.745,03:47:46.939,2.194,0.9714,0.6985,,maxiter = 1000,classification
+uNeuroOne_neural::mlptrain_03,03:47:46.939,03:47:49.146,2.207,0.9593,0.6626,,maxiter = 1000,classification
+uNeuroOne_neural::mlptrain_04,03:47:49.162,03:47:51.395,2.233,0.9714,0.6984,,maxiter = 1000,classification
+uNeuroOne_neural::mlptrain_05,03:47:51.411,03:47:53.630,2.219,0.9713,0.6986,,maxiter = 1000,classification
+uNeuroOne_neuralnet::neuralnet_backprop_01,03:54:46.941,03:54:48.054,1.113,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_02,03:54:48.055,03:54:49.488,1.433,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_03,03:54:49.488,03:54:51.089,1.601,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_04,03:54:51.090,03:54:52.399,1.309,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_neuralnet::neuralnet_backprop_05,03:54:52.399,03:54:53.761,1.362,0.2832,0.2311,,,Fails on difficult datasets
+uNeuroOne_neuralnet::neuralnet_rprop-_01,03:59:39.280,03:59:39.295,0.015,0.2831,0.2316,,,Erratic on multivariate datasets
+uNeuroOne_neuralnet::neuralnet_rprop-_02,03:59:39.295,03:59:39.311,0.016,0.2831,0.2316,,,Erratic on multivariate datasets
+uNeuroOne_neuralnet::neuralnet_rprop-_03,03:59:39.311,03:59:39.327,0.016,0.616,0.5031,,,Erratic on multivariate datasets
+uNeuroOne_neuralnet::neuralnet_rprop-_04,03:59:39.327,03:59:39.342,0.015,0.2831,0.2316,,,Erratic on multivariate datasets
+uNeuroOne_neuralnet::neuralnet_rprop-_05,03:59:39.342,03:59:39.373,0.031,0.283,0.2316,,,Erratic on multivariate datasets
+uNeuroOne_neuralnet::neuralnet_sag_01,04:14:52.804,04:14:55.094,2.29,0.2831,0.2316,,,
+uNeuroOne_neuralnet::neuralnet_sag_02,04:14:55.094,04:14:59.692,4.598,0.283,0.2313,,,
+uNeuroOne_neuralnet::neuralnet_sag_03,04:14:59.694,04:14:59.725,0.031,0.6159,0.5028,,,
+uNeuroOne_neuralnet::neuralnet_sag_04,04:14:59.726,04:15:04.290,4.564,1.272,1.1104,,,
+uNeuroOne_neuralnet::neuralnet_sag_05,04:15:04.292,04:15:04.317,0.025,0.6161,0.5028,,,
+uNeuroOne_neuralnet::neuralnet_slr_01,04:20:20.435,04:20:20.467,0.032,0.2831,0.2317,,,
+uNeuroOne_neuralnet::neuralnet_slr_02,04:20:20.467,04:20:20.467,0,0.6159,0.503,,,
+uNeuroOne_neuralnet::neuralnet_slr_03,04:20:20.467,04:20:20.490,0.023,0.616,0.5031,,,
+uNeuroOne_neuralnet::neuralnet_slr_04,04:20:20.491,04:20:20.526,0.035,0.2831,0.2316,,,
+uNeuroOne_neuralnet::neuralnet_slr_05,04:20:20.526,04:20:20.542,0.016,0.283,0.2316,,,
+uNeuroOne_neuralnet::neuralnet_rprop+_01,04:25:29.674,04:25:29.689,0.015,0.2831,0.2316,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_02,04:25:29.689,04:25:29.705,0.016,0.6174,0.5051,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_03,04:25:29.705,04:25:29.720,0.015,0.283,0.2316,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_04,04:25:29.720,04:25:29.752,0.032,0.2831,0.2316,,,Erratic on difficult datasets
+uNeuroOne_neuralnet::neuralnet_rprop+_05,04:25:29.752,04:25:29.783,0.031,0.283,0.2316,,,Erratic on difficult datasets
+uNeuroOne_nnet::nnet_01,04:25:33.941,04:25:33.941,0,0.283,0.2313,,maxiter = 150,uses optim BFGS
+uNeuroOne_nnet::nnet_02,04:25:33.941,04:25:33.956,0.015,0.283,0.2313,,maxiter = 150,uses optim BFGS
+uNeuroOne_nnet::nnet_03,04:25:33.956,04:25:33.956,0,0.283,0.2313,,maxiter = 150,uses optim BFGS
+uNeuroOne_nnet::nnet_04,04:25:33.956,04:25:33.956,0,0.283,0.2313,,maxiter = 150,uses optim BFGS
+uNeuroOne_nnet::nnet_05,04:25:33.956,04:25:33.956,0,0.283,0.2313,,maxiter = 150,uses optim BFGS
+uNeuroOne_nnet::nnet_06,04:25:33.972,04:25:33.972,0,0.283,0.2313,,maxiter = 150,uses optim BFGS
+uNeuroOne_nnet::nnet_07,04:25:33.972,04:25:33.972,0,0.283,0.2313,,maxiter = 150,uses optim BFGS
+uNeuroOne_nnet::nnet_08,04:25:33.972,04:25:33.972,0,0.283,0.2313,,maxiter = 150,uses optim BFGS
+uNeuroOne_nnet::nnet_09,04:25:33.972,04:25:33.988,0.016,0.283,0.2313,,maxiter = 150,uses optim BFGS
+uNeuroOne_nnet::nnet_10,04:25:33.988,04:25:33.988,0,0.283,0.2313,,maxiter = 150,uses optim BFGS
+uNeuroOne_qrnn::qrnn.fit_01,04:26:13.800,04:26:13.847,0.047,0.2939,0.2258,,maxiter = 700,
+uNeuroOne_qrnn::qrnn.fit_02,04:26:13.847,04:26:13.905,0.058,0.6335,0.4925,,maxiter = 700,
+uNeuroOne_qrnn::qrnn.fit_03,04:26:13.906,04:26:13.943,0.037,0.2939,0.2258,,maxiter = 700,
+uNeuroOne_qrnn::qrnn.fit_04,04:26:13.943,04:26:14.041,0.098,0.2939,0.2258,,maxiter = 700,
+uNeuroOne_qrnn::qrnn.fit_05,04:26:14.041,04:26:14.116,0.075,0.6239,0.4671,,maxiter = 700,
+uNeuroOne_qrnn::qrnn.fit_06,04:26:14.116,04:26:14.179,0.063,0.2939,0.2258,,maxiter = 700,
+uNeuroOne_qrnn::qrnn.fit_07,04:26:14.181,04:26:14.228,0.047,0.2939,0.2258,,maxiter = 700,
+uNeuroOne_qrnn::qrnn.fit_08,04:26:14.228,04:26:14.259,0.031,0.6359,0.4972,,maxiter = 700,
+uNeuroOne_qrnn::qrnn.fit_09,04:26:14.259,04:26:14.362,0.103,0.2939,0.2258,,maxiter = 700,
+uNeuroOne_qrnn::qrnn.fit_10,04:26:14.364,04:26:14.408,0.044,0.2939,0.2258,,maxiter = 700,
+uNeuroOne_radiantmodel::radiantmodel_01,04:27:40.040,04:27:40.056,0.016,0.283,0.2313,,maxiter=10000 preset,uses nnet
+uNeuroOne_radiantmodel::radiantmodel_02,04:27:40.056,04:27:40.071,0.015,0.283,0.2313,,maxiter=10000 preset,uses nnet
+uNeuroOne_radiantmodel::radiantmodel_03,04:27:40.071,04:27:40.071,0,0.283,0.2313,,maxiter=10000 preset,uses nnet
+uNeuroOne_radiantmodel::radiantmodel_04,04:27:40.087,04:27:40.096,0.009,0.283,0.2313,,maxiter=10000 preset,uses nnet
+uNeuroOne_radiantmodel::radiantmodel_05,04:27:40.096,04:27:40.115,0.019,0.283,0.2313,,maxiter=10000 preset,uses nnet
+uNeuroOne_radiantmodel::radiantmodel_06,04:27:40.116,04:27:40.130,0.014,0.283,0.2313,,maxiter=10000 preset,uses nnet
+uNeuroOne_radiantmodel::radiantmodel_07,04:27:40.131,04:27:40.131,0,0.283,0.2313,,maxiter=10000 preset,uses nnet
+uNeuroOne_radiantmodel::radiantmodel_08,04:27:40.131,04:27:40.147,0.016,0.283,0.2313,,maxiter=10000 preset,uses nnet
+uNeuroOne_radiantmodel::radiantmodel_09,04:27:40.147,04:27:40.162,0.015,0.283,0.2313,,maxiter=10000 preset,uses nnet
+uNeuroOne_radiantmodel::radiantmodel_10,04:27:40.162,04:27:40.178,0.016,0.283,0.2313,,maxiter=10000 preset,uses nnet
+uNeuroOne_rcane::rlm_01,04:27:45.347,04:27:45.347,0,1.3012,1.1081,,maxiter = 1000,linear only
+uNeuroOne_rcane::rlm_02,04:27:45.347,04:27:45.347,0,1.3012,1.1081,,maxiter = 1000,linear only
+uNeuroOne_rcane::rlm_03,04:27:45.347,04:27:45.347,0,1.3012,1.1081,,maxiter = 1000,linear only
+uNeuroOne_rcane::rlm_04,04:27:45.347,04:27:45.362,0.015,1.3012,1.1081,,maxiter = 1000,linear only
+uNeuroOne_rcane::rlm_05,04:27:45.363,04:27:45.364,0.001,1.3012,1.1081,,maxiter = 1000,linear only
+uNeuroOne_rcane::rlm_06,04:27:45.365,04:27:45.366,0.001,1.3012,1.1081,,maxiter = 1000,linear only
+uNeuroOne_rcane::rlm_07,04:27:45.366,04:27:45.366,0,1.3012,1.1081,,maxiter = 1000,linear only
+uNeuroOne_rcane::rlm_08,04:27:45.366,04:27:45.366,0,1.3012,1.1081,,maxiter = 1000,linear only
+uNeuroOne_rcane::rlm_09,04:27:45.366,04:27:45.366,0,1.3012,1.1081,,maxiter = 1000,linear only
+uNeuroOne_rcane::rlm_10,04:27:45.366,04:27:45.366,0,1.3012,1.1081,,maxiter = 1000,linear only
+uNeuroOne_rminer::fit_01,04:28:00.530,04:28:00.546,0.016,0.283,0.2313,,maxiter = 150,
+uNeuroOne_rminer::fit_02,04:28:00.546,04:28:00.546,0,0.283,0.2313,,maxiter = 150,
+uNeuroOne_rminer::fit_03,04:28:00.546,04:28:00.563,0.017,0.283,0.2313,,maxiter = 150,
+uNeuroOne_rminer::fit_04,04:28:00.563,04:28:00.563,0,0.283,0.2313,,maxiter = 150,
+uNeuroOne_rminer::fit_05,04:28:00.563,04:28:00.578,0.015,0.283,0.2313,,maxiter = 150,
+uNeuroOne_rminer::fit_06,04:28:00.578,04:28:00.578,0,0.283,0.2313,,maxiter = 150,
+uNeuroOne_rminer::fit_07,04:28:00.578,04:28:00.578,0,0.283,0.2313,,maxiter = 150,
+uNeuroOne_rminer::fit_08,04:28:00.594,04:28:00.594,0,0.283,0.2313,,maxiter = 150,
+uNeuroOne_rminer::fit_09,04:28:00.594,04:28:00.594,0,0.283,0.2313,,maxiter = 150,
+uNeuroOne_rminer::fit_10,04:28:00.610,04:28:00.610,0,0.283,0.2313,,maxiter = 150,
+uNeuroOne_RSNNS::mlp_BackpropBatch_01,04:34:20.231,04:34:20.916,0.685,0.2855,0.2329,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_BackpropBatch_02,04:34:20.918,04:34:21.601,0.683,0.6612,0.5441,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_BackpropBatch_03,04:34:21.603,04:34:22.265,0.662,0.6594,0.5428,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_BackpropBatch_04,04:34:22.265,04:34:23.105,0.84,0.6595,0.5429,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_BackpropBatch_05,04:34:23.105,04:34:23.788,0.683,0.6594,0.5428,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_BackpropBatch_06,04:34:23.790,04:34:24.468,0.678,0.6592,0.5426,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_BackpropBatch_07,04:34:24.468,04:34:25.152,0.684,0.6593,0.5427,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_BackpropBatch_08,04:34:25.152,04:34:25.821,0.669,0.6592,0.5427,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_BackpropBatch_09,04:34:25.821,04:34:26.658,0.837,0.2848,0.2321,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_BackpropBatch_10,04:34:26.659,04:34:27.326,0.667,0.6596,0.543,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_BackpropChunk_01,04:35:04.350,04:35:04.414,0.064,0.667,0.5473,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropChunk_02,04:35:04.414,04:35:04.495,0.081,0.6352,0.5192,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropChunk_03,04:35:04.496,04:35:04.552,0.056,0.6735,0.5226,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropChunk_04,04:35:04.552,04:35:04.634,0.082,0.2956,0.2465,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropChunk_05,04:35:04.634,04:35:04.697,0.063,0.6354,0.5232,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropChunk_06,04:35:04.697,04:35:04.775,0.078,0.6364,0.5255,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropChunk_07,04:35:04.775,04:35:04.851,0.076,0.6311,0.5175,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropChunk_08,04:35:04.851,04:35:04.929,0.078,0.707,0.5358,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropChunk_09,04:35:04.929,04:35:05.008,0.079,0.6405,0.5164,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropChunk_10,04:35:05.008,04:35:05.070,0.062,0.6419,0.5282,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropMomentum_01,04:35:41.599,04:35:41.677,0.078,0.6534,0.5446,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropMomentum_02,04:35:41.677,04:35:41.755,0.078,0.3207,0.2618,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropMomentum_03,04:35:41.755,04:35:41.817,0.062,0.411,0.319,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropMomentum_04,04:35:41.833,04:35:41.895,0.062,0.2901,0.2442,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropMomentum_05,04:35:41.895,04:35:41.974,0.079,0.6364,0.5265,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropMomentum_06,04:35:41.974,04:35:42.052,0.078,0.3179,0.2512,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropMomentum_07,04:35:42.052,04:35:42.114,0.062,0.6719,0.5504,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropMomentum_08,04:35:42.114,04:35:42.192,0.078,0.2923,0.2397,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropMomentum_09,04:35:42.192,04:35:42.267,0.075,0.6311,0.5212,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropMomentum_10,04:35:42.267,04:35:42.344,0.077,0.6298,0.5145,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropWeightDecay_01,04:36:19.741,04:36:19.803,0.062,0.632,0.5145,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropWeightDecay_02,04:36:19.819,04:36:19.881,0.062,0.3056,0.2567,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropWeightDecay_03,04:36:19.881,04:36:19.959,0.078,0.6412,0.519,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropWeightDecay_04,04:36:19.959,04:36:20.025,0.066,0.6477,0.5354,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropWeightDecay_05,04:36:20.040,04:36:20.103,0.063,0.6594,0.5432,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropWeightDecay_06,04:36:20.103,04:36:20.178,0.075,0.6483,0.5165,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropWeightDecay_07,04:36:20.178,04:36:20.256,0.078,0.2834,0.2339,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropWeightDecay_08,04:36:20.256,04:36:20.319,0.063,0.6425,0.5312,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropWeightDecay_09,04:36:20.334,04:36:20.397,0.063,0.6724,0.5498,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_BackpropWeightDecay_10,04:36:20.397,04:36:20.475,0.078,0.6652,0.5562,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Quickprop_01,04:42:50.123,04:42:50.804,0.681,0.8234,0.6837,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_Quickprop_02,04:42:50.806,04:42:51.468,0.662,0.5304,0.4235,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_Quickprop_03,04:42:51.468,04:42:52.159,0.691,0.4994,0.4197,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_Quickprop_04,04:42:52.159,04:42:52.997,0.838,0.5304,0.4235,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_Quickprop_05,04:42:52.997,04:42:53.672,0.675,0.8234,0.6837,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_Quickprop_06,04:42:53.672,04:42:54.375,0.703,0.8234,0.6837,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_Quickprop_07,04:42:54.375,04:42:55.065,0.69,0.47,0.3939,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_Quickprop_08,04:42:55.066,04:42:55.741,0.675,0.5304,0.4235,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_Quickprop_09,04:42:55.742,04:42:56.559,0.817,0.5304,0.4235,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_Quickprop_10,04:42:56.559,04:42:57.246,0.687,0.8234,0.6837,,maxiter = 10000,
+uNeuroOne_RSNNS::mlp_Rprop_01,04:43:33.720,04:43:33.795,0.075,1.0256,0.9058,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Rprop_02,04:43:33.795,04:43:33.873,0.078,0.9706,0.6973,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Rprop_03,04:43:33.873,04:43:33.951,0.078,0.6145,0.4995,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Rprop_04,04:43:33.951,04:43:34.014,0.063,0.283,0.2313,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Rprop_05,04:43:34.014,04:43:34.089,0.075,0.3141,0.2531,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Rprop_06,04:43:34.089,04:43:34.167,0.078,0.9706,0.6973,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Rprop_07,04:43:34.167,04:43:34.250,0.083,0.3141,0.2531,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Rprop_08,04:43:34.251,04:43:34.479,0.228,0.3141,0.2531,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Rprop_09,04:43:34.479,04:43:34.542,0.063,0.9706,0.6973,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Rprop_10,04:43:34.542,04:43:34.631,0.089,1.0256,0.9058,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_SCG_01,04:44:34.011,04:44:34.081,0.07,0.8382,0.7016,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_SCG_02,04:44:34.083,04:44:34.178,0.095,0.2883,0.2352,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_SCG_03,04:44:34.179,04:44:34.265,0.086,0.3338,0.2703,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_SCG_04,04:44:34.267,04:44:34.343,0.076,0.3341,0.2714,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_SCG_05,04:44:34.358,04:44:34.440,0.082,0.2866,0.2337,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_SCG_06,04:44:34.440,04:44:34.533,0.093,0.3326,0.2702,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_SCG_07,04:44:34.533,04:44:34.640,0.107,0.6238,0.5121,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_SCG_08,04:44:34.640,04:44:34.765,0.125,0.6233,0.5117,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_SCG_09,04:44:34.765,04:44:34.855,0.09,0.2936,0.243,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_SCG_10,04:44:34.855,04:44:34.949,0.094,0.3326,0.27,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Std_Backpropagation_01,04:45:11.235,04:45:11.297,0.062,0.356,0.2907,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Std_Backpropagation_02,04:45:11.297,04:45:11.373,0.076,0.2874,0.236,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Std_Backpropagation_03,04:45:11.373,04:45:11.451,0.078,0.2948,0.2311,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Std_Backpropagation_04,04:45:11.451,04:45:11.529,0.078,0.3404,0.2674,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Std_Backpropagation_05,04:45:11.529,04:45:11.589,0.06,0.6371,0.5242,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Std_Backpropagation_06,04:45:11.604,04:45:11.672,0.068,0.2891,0.241,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Std_Backpropagation_07,04:45:11.672,04:45:11.735,0.063,0.6529,0.539,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Std_Backpropagation_08,04:45:11.751,04:45:11.813,0.062,0.2846,0.2341,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Std_Backpropagation_09,04:45:11.813,04:45:11.891,0.078,0.7306,0.5783,,maxiter = 1000,
+uNeuroOne_RSNNS::mlp_Std_Backpropagation_10,04:45:11.891,04:45:11.954,0.063,0.3082,0.2426,,maxiter = 1000,
+uNeuroOne_simpleNeural::sN.MLPtrain_01,04:49:50.859,04:49:51.007,0.148,0.6469,0.5772,,maxiter = 1000,for bi- or multiclass classification
+uNeuroOne_simpleNeural::sN.MLPtrain_02,04:49:51.008,04:49:51.150,0.142,0.6469,0.5772,,maxiter = 1000,for bi- or multiclass classification
+uNeuroOne_simpleNeural::sN.MLPtrain_03,04:49:51.151,04:49:51.292,0.141,0.6469,0.5772,,maxiter = 1000,for bi- or multiclass classification
+uNeuroOne_simpleNeural::sN.MLPtrain_04,04:49:51.292,04:49:51.438,0.146,0.6469,0.5772,,maxiter = 1000,for bi- or multiclass classification
+uNeuroOne_simpleNeural::sN.MLPtrain_05,04:49:51.440,04:49:51.577,0.137,0.6469,0.5772,,maxiter = 1000,for bi- or multiclass classification
+uNeuroOne_simpleNeural::sN.MLPtrain_06,04:49:51.579,04:49:51.722,0.143,0.6469,0.5772,,maxiter = 1000,for bi- or multiclass classification
+uNeuroOne_simpleNeural::sN.MLPtrain_07,04:49:51.723,04:49:51.868,0.145,0.6469,0.5772,,maxiter = 1000,for bi- or multiclass classification
+uNeuroOne_simpleNeural::sN.MLPtrain_08,04:49:51.869,04:49:52.009,0.14,0.6469,0.5772,,maxiter = 1000,for bi- or multiclass classification
+uNeuroOne_simpleNeural::sN.MLPtrain_09,04:49:52.010,04:49:52.155,0.145,0.6469,0.5772,,maxiter = 1000,for bi- or multiclass classification
+uNeuroOne_simpleNeural::sN.MLPtrain_10,04:49:52.156,04:49:52.301,0.145,0.6469,0.5772,,maxiter = 1000,for bi- or multiclass classification
+uNeuroOne_snnR::snnR_01,04:50:01.317,04:50:01.324,0.007,0.6793,0.5564,,maxiter = 200,better on multi
+uNeuroOne_snnR::snnR_02,04:50:01.326,04:50:01.330,0.004,0.6793,0.5564,,maxiter = 200,better on multi
+uNeuroOne_snnR::snnR_03,04:50:01.330,04:50:01.330,0,0.6793,0.5564,,maxiter = 200,better on multi
+uNeuroOne_snnR::snnR_04,04:50:01.330,04:50:01.345,0.015,0.6793,0.5564,,maxiter = 200,better on multi
+uNeuroOne_snnR::snnR_05,04:50:01.345,04:50:01.345,0,0.6793,0.5564,,maxiter = 200,better on multi
+uNeuroOne_snnR::snnR_06,04:50:01.345,04:50:01.361,0.016,0.6793,0.5564,,maxiter = 200,better on multi
+uNeuroOne_snnR::snnR_07,04:50:01.361,04:50:01.361,0,0.6793,0.5564,,maxiter = 200,better on multi
+uNeuroOne_snnR::snnR_08,04:50:01.361,04:50:01.377,0.016,0.6793,0.5564,,maxiter = 200,better on multi
+uNeuroOne_snnR::snnR_09,04:50:01.377,04:50:01.377,0,1.272,1.1104,,maxiter = 200,better on multi
+uNeuroOne_snnR::snnR_10,04:50:01.377,04:50:01.392,0.015,0.6793,0.5564,,maxiter = 200,better on multi
+uNeuroOne_softmaxreg::softmaxreg_01,04:50:01.951,04:50:01.951,0,1.272,1.1104,,maxiter = 1000,
+uNeuroOne_softmaxreg::softmaxreg_02,04:50:01.951,04:50:01.951,0,1.272,1.1104,,maxiter = 1000,
+uNeuroOne_softmaxreg::softmaxreg_03,04:50:01.951,04:50:01.951,0,1.272,1.1104,,maxiter = 1000,
+uNeuroOne_softmaxreg::softmaxreg_04,04:50:01.951,04:50:01.951,0,1.272,1.1104,,maxiter = 1000,
+uNeuroOne_softmaxreg::softmaxreg_05,04:50:01.951,04:50:01.967,0.016,1.272,1.1104,,maxiter = 1000,
+uNeuroOne_softmaxreg::softmaxreg_06,04:50:01.967,04:50:01.967,0,1.272,1.1104,,maxiter = 1000,
+uNeuroOne_softmaxreg::softmaxreg_07,04:50:01.967,04:50:01.967,0,1.272,1.1104,,maxiter = 1000,
+uNeuroOne_softmaxreg::softmaxreg_08,04:50:01.967,04:50:01.967,0,1.272,1.1104,,maxiter = 1000,
+uNeuroOne_softmaxreg::softmaxreg_09,04:50:01.967,04:50:01.967,0,1.272,1.1104,,maxiter = 1000,
+uNeuroOne_softmaxreg::softmaxreg_10,04:50:01.967,04:50:01.967,0,1.272,1.1104,,maxiter = 1000,
+uNeuroOne_tsensembler::tsensembler_01,04:51:17.390,04:51:17.454,0.064,0.2866,0.2356,,maxiter = 150,uses nnet
+uNeuroOne_tsensembler::tsensembler_02,04:51:17.456,04:51:17.499,0.043,0.2866,0.2354,,maxiter = 150,uses nnet
+uNeuroOne_tsensembler::tsensembler_03,04:51:17.507,04:51:17.548,0.041,0.2869,0.2359,,maxiter = 150,uses nnet
+uNeuroOne_tsensembler::tsensembler_04,04:51:17.548,04:51:17.603,0.055,0.2866,0.2356,,maxiter = 150,uses nnet
+uNeuroOne_tsensembler::tsensembler_05,04:51:17.603,04:51:17.653,0.05,0.2868,0.2356,,maxiter = 150,uses nnet
+uNeuroOne_tsensembler::tsensembler_06,04:51:17.653,04:51:17.718,0.065,0.2867,0.2357,,maxiter = 150,uses nnet
+uNeuroOne_tsensembler::tsensembler_07,04:51:17.718,04:51:17.767,0.049,0.2866,0.2354,,maxiter = 150,uses nnet
+uNeuroOne_tsensembler::tsensembler_08,04:51:17.767,04:51:17.835,0.068,0.2868,0.2356,,maxiter = 150,uses nnet
+uNeuroOne_tsensembler::tsensembler_09,04:51:17.836,04:51:17.886,0.05,0.2869,0.236,,maxiter = 150,uses nnet
+uNeuroOne_tsensembler::tsensembler_10,04:51:17.888,04:51:17.939,0.051,0.2866,0.2356,,maxiter = 150,uses nnet
+uNeuroOne_validann::ann_BFGS_01,04:54:03.481,04:54:03.565,0.084,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_BFGS_02,04:54:03.565,04:54:03.631,0.066,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_BFGS_03,04:54:03.631,04:54:03.688,0.057,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_BFGS_04,04:54:03.690,04:54:03.741,0.051,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_BFGS_05,04:54:03.742,04:54:03.820,0.078,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_BFGS_06,04:54:03.820,04:54:03.926,0.106,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_BFGS_07,04:54:03.942,04:54:04.044,0.102,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_BFGS_08,04:54:04.046,04:54:04.109,0.063,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_BFGS_09,04:54:04.110,04:54:04.229,0.119,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_BFGS_10,04:54:04.229,04:54:04.344,0.115,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_CG_01,05:07:37.561,05:07:39.432,1.871,0.283,0.2313,,maxiter = 1000,optim
+uNeuroOne_validann::ann_CG_02,05:07:39.432,05:07:41.163,1.731,0.283,0.2313,,maxiter = 1000,optim
+uNeuroOne_validann::ann_CG_03,05:07:41.164,05:07:42.846,1.682,0.283,0.2313,,maxiter = 1000,optim
+uNeuroOne_validann::ann_CG_04,05:07:42.846,05:07:44.690,1.844,0.283,0.2313,,maxiter = 1000,optim
+uNeuroOne_validann::ann_CG_05,05:07:44.690,05:07:46.580,1.89,0.283,0.2313,,maxiter = 1000,optim
+uNeuroOne_validann::ann_CG_06,05:07:46.580,05:07:48.454,1.874,0.283,0.2313,,maxiter = 1000,optim
+uNeuroOne_validann::ann_CG_07,05:07:48.454,05:07:50.442,1.988,0.283,0.2313,,maxiter = 1000,optim
+uNeuroOne_validann::ann_CG_08,05:07:50.442,05:07:52.292,1.85,0.283,0.2313,,maxiter = 1000,optim
+uNeuroOne_validann::ann_CG_09,05:07:52.293,05:07:54.147,1.854,0.283,0.2313,,maxiter = 1000,optim
+uNeuroOne_validann::ann_CG_10,05:07:54.147,05:07:56.049,1.902,0.283,0.2313,,maxiter = 1000,optim
+uNeuroOne_validann::ann_L-BFGS-B_01,05:10:22.417,05:10:22.517,0.1,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_L-BFGS-B_02,05:10:22.518,05:10:22.841,0.323,0.3578,0.2995,,maxiter = 200,optim
+uNeuroOne_validann::ann_L-BFGS-B_03,05:10:22.841,05:10:23.033,0.192,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_L-BFGS-B_04,05:10:23.033,05:10:23.127,0.094,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_L-BFGS-B_05,05:10:23.127,05:10:23.236,0.109,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_L-BFGS-B_06,05:10:23.236,05:10:23.345,0.109,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_L-BFGS-B_07,05:10:23.345,05:10:23.470,0.125,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_L-BFGS-B_08,05:10:23.470,05:10:23.580,0.11,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_L-BFGS-B_09,05:10:23.580,05:10:23.767,0.187,0.283,0.2313,,maxiter = 200,optim
+uNeuroOne_validann::ann_L-BFGS-B_10,05:10:23.767,05:10:24.090,0.323,0.3807,0.3171,,maxiter = 200,optim
+uNeuroOne_validann::ann_Nelder-Mead_01,05:12:50.743,05:12:50.813,0.07,0.6159,0.5028,,maxiter = 10000,optim
+uNeuroOne_validann::ann_Nelder-Mead_02,05:12:50.814,05:12:50.866,0.052,0.6159,0.5028,,maxiter = 10000,optim
+uNeuroOne_validann::ann_Nelder-Mead_03,05:12:50.868,05:12:51.466,0.598,0.3549,0.2935,,maxiter = 10000,optim
+uNeuroOne_validann::ann_Nelder-Mead_04,05:12:51.467,05:12:51.524,0.057,0.6159,0.5028,,maxiter = 10000,optim
+uNeuroOne_validann::ann_Nelder-Mead_05,05:12:51.526,05:12:51.674,0.148,0.3229,0.2601,,maxiter = 10000,optim
+uNeuroOne_validann::ann_Nelder-Mead_06,05:12:51.676,05:12:51.948,0.272,0.3417,0.2718,,maxiter = 10000,optim
+uNeuroOne_validann::ann_Nelder-Mead_07,05:12:51.949,05:12:52.212,0.263,0.3277,0.2662,,maxiter = 10000,optim
+uNeuroOne_validann::ann_Nelder-Mead_08,05:12:52.214,05:12:52.345,0.131,0.6148,0.5013,,maxiter = 10000,optim
+uNeuroOne_validann::ann_Nelder-Mead_09,05:12:52.346,05:12:52.864,0.518,0.3315,0.2694,,maxiter = 10000,optim
+uNeuroOne_validann::ann_Nelder-Mead_10,05:12:52.865,05:12:53.179,0.314,0.3136,0.2627,,maxiter = 10000,optim
+uNeuroOne_validann::ann_SANN_01,17:21:46.872,17:21:47.776,0.904,0.3638,0.2964,,maxiter = 10000,optim
+uNeuroOne_validann::ann_SANN_02,17:21:47.777,17:21:48.659,0.882,0.3164,0.2639,,maxiter = 10000,optim
+uNeuroOne_validann::ann_SANN_03,17:21:48.659,17:21:49.564,0.905,0.2948,0.2437,,maxiter = 10000,optim
+uNeuroOne_validann::ann_SANN_04,17:21:49.565,17:21:50.466,0.901,0.3429,0.2711,,maxiter = 10000,optim
+uNeuroOne_validann::ann_SANN_05,17:21:50.468,17:21:51.358,0.89,0.2984,0.2504,,maxiter = 10000,optim
+uNeuroOne_validann::ann_SANN_06,17:21:51.359,17:21:52.286,0.927,0.6008,0.4822,,maxiter = 10000,optim
+uNeuroOne_validann::ann_SANN_07,17:21:52.287,17:21:53.184,0.897,0.5256,0.4285,,maxiter = 10000,optim
+uNeuroOne_validann::ann_SANN_08,17:21:53.200,17:21:54.126,0.926,0.3231,0.2698,,maxiter = 10000,optim
+uNeuroOne_validann::ann_SANN_09,17:21:54.128,17:21:55.007,0.879,0.3041,0.2524,,maxiter = 10000,optim
+uNeuroOne_validann::ann_SANN_10,17:21:55.009,17:21:55.906,0.897,0.5965,0.4705,,maxiter = 10000,optim
+uNeuroOne_tensorflow::AdadeltaOptimizer_01,17:40:51.879,17:41:07.197,15.318,1.2604,1.0945,,maxiter = 10000,
+uNeuroOne_tensorflow::AdadeltaOptimizer_02,17:41:07.198,17:41:22.650,15.452,1.2604,1.0945,,maxiter = 10000,
+uNeuroOne_tensorflow::AdadeltaOptimizer_03,17:41:22.650,17:41:38.398,15.748,1.2604,1.0945,,maxiter = 10000,
+uNeuroOne_tensorflow::AdadeltaOptimizer_04,17:41:38.400,17:41:54.406,16.006,1.2604,1.0945,,maxiter = 10000,
+uNeuroOne_tensorflow::AdadeltaOptimizer_05,17:41:54.408,17:42:12.591,18.183,1.2604,1.0945,,maxiter = 10000,
+uNeuroOne_tensorflow::AdagradOptimizer_01,18:38:13.406,18:38:27.711,14.305,1.1496,0.9464,,maxiter = 10000,
+uNeuroOne_tensorflow::AdagradOptimizer_02,18:38:27.712,18:38:42.700,14.988,1.1496,0.9464,,maxiter = 10000,
+uNeuroOne_tensorflow::AdagradOptimizer_03,18:38:42.702,18:38:56.754,14.052,1.1496,0.9464,,maxiter = 10000,
+uNeuroOne_tensorflow::AdagradOptimizer_04,18:38:56.756,18:39:11.589,14.833,1.1496,0.9464,,maxiter = 10000,
+uNeuroOne_tensorflow::AdagradOptimizer_05,18:39:11.591,18:39:25.819,14.228,1.1496,0.9464,,maxiter = 10000,
+uNeuroOne_tensorflow::AdamOptimizer_01,18:57:54.461,18:58:10.243,15.782,0.673,0.5561,,maxiter = 10000,
+uNeuroOne_tensorflow::AdamOptimizer_02,18:58:10.243,18:58:26.519,16.276,0.673,0.5561,,maxiter = 10000,
+uNeuroOne_tensorflow::AdamOptimizer_03,18:58:26.519,18:58:42.926,16.407,0.673,0.5561,,maxiter = 10000,
+uNeuroOne_tensorflow::AdamOptimizer_04,18:58:42.928,18:58:58.728,15.8,0.673,0.5561,,maxiter = 10000,
+uNeuroOne_tensorflow::AdamOptimizer_05,18:58:58.730,18:59:14.756,16.026,0.673,0.5561,,maxiter = 10000,
+uNeuroOne_tensorflow::FtrlOptimizer_01,19:22:14.081,19:22:30.514,16.433,1.1496,0.9464,,maxiter = 10000,
+uNeuroOne_tensorflow::FtrlOptimizer_02,19:22:30.516,19:22:47.206,16.69,1.1496,0.9464,,maxiter = 10000,
+uNeuroOne_tensorflow::FtrlOptimizer_03,19:22:47.208,19:23:04.143,16.935,1.1496,0.9464,,maxiter = 10000,
+uNeuroOne_tensorflow::FtrlOptimizer_04,19:23:04.145,19:23:21.005,16.86,1.1496,0.9464,,maxiter = 10000,
+uNeuroOne_tensorflow::FtrlOptimizer_05,19:23:21.007,19:23:37.772,16.765,1.1496,0.9464,,maxiter = 10000,
+uNeuroOne_tensorflow::GradientDescentOptimizer_01,19:39:17.818,19:39:32.470,14.652,0.8394,0.7048,,maxiter = 10000,
+uNeuroOne_tensorflow::GradientDescentOptimizer_02,19:39:32.472,19:39:47.501,15.029,0.8394,0.7048,,maxiter = 10000,
+uNeuroOne_tensorflow::GradientDescentOptimizer_03,19:39:47.501,19:40:02.142,14.641,0.8394,0.7048,,maxiter = 10000,
+uNeuroOne_tensorflow::GradientDescentOptimizer_04,19:40:02.142,19:40:16.669,14.527,0.8394,0.7048,,maxiter = 10000,
+uNeuroOne_tensorflow::GradientDescentOptimizer_05,19:40:16.669,19:40:31.436,14.767,0.8394,0.7048,,maxiter = 10000,
+uNeuroOne_tensorflow::MomentumOptimizer_01,20:13:11.956,20:13:26.727,14.771,0.7165,0.5892,,maxiter = 10000,
+uNeuroOne_tensorflow::MomentumOptimizer_02,20:13:26.727,20:13:41.588,14.861,0.7165,0.5892,,maxiter = 10000,
+uNeuroOne_tensorflow::MomentumOptimizer_03,20:13:41.588,20:13:57.253,15.665,0.7165,0.5892,,maxiter = 10000,
+uNeuroOne_tensorflow::MomentumOptimizer_04,20:13:57.255,20:14:12.990,15.735,0.7165,0.5892,,maxiter = 10000,
+uNeuroOne_tensorflow::MomentumOptimizer_05,20:14:12.990,20:14:27.686,14.696,0.7165,0.5892,,maxiter = 10000,
