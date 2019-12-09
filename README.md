@@ -1,12 +1,12 @@
 # NNbenchmarkTemplates
-A repository with a collection of templates (in R and Rmd+html formats) that test Neural Network packages dedicated to regression (no classification). All templates use the package NNbenchmark.
+A repository with a collection of templates (in R and Rmd+html formats) that test Neural Network packages dedicated to regression (no classification). All templates use the package `NNbenchmark`.
 
 This is a collective work conducted during GSoC 2019 by:
 - Student Akshaj Verma  (templates for the packages from letter A to letter L)
 - Student Salsabila Madhi (templates for the packages from letter M to letter Z)
-- Mentor Christophe Dutang
 - Mentor Patrice Kiener (templates for the packages minpack.lm and nlsr)
 - Mentor John Nash (new version of the package nlsr)
+- Mentor Christophe Dutang
 
 Visit: 
 - The R directory for the .R files
