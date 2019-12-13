@@ -1,20 +1,20 @@
 ---
-title: "NNbenchmark | AMORE"
-author: "Akshaj Verma, Christophe Dutang"
+title: "NNbenchmark all packages"
+author: "All members of  GSoc 2019"
 output:
     html_document:
         toc: true
         toc_float: true
         df_print: paged
         number_sections: true
-        theme: darkly
-        highlight: tango
 ---
 
 
 ```{r message=FALSE, warning=FALSE}
 library(NNbenchmark)
 library(AMORE)
+library(ANN2)
+library(nnet)
 
 library(stringr)
 library(dplyr)
@@ -33,9 +33,201 @@ timer  <- createTimer(verbose = FALSE)
 ```{r}
 NNdataSummary(NNdatasets)
 str(NNdatasets)
+odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
+
 ```
 
-## NN Train Function
+
+
+
+
+## generic call
+
+```{r}
+funWAE <- function(y_pred, y0, dgts = 4)
+{
+    y_pred <- as.numeric(y_pred)
+    y0     <- as.numeric(y0) 
+    res    <- abs(y_pred - y0)
+    z      <- max(res, na.rm = TRUE)
+    round(z, dgts)
+}
+
+NNsummary <- function(pred, obsy, time)
+    c(RMSE = NNbenchmark::funRMSE(pred, obsy), MAE= NNbenchmark::funMAE(pred, obsy), 
+      WAE= funWAE(pred, obsy), time=time)
+
+train_and_predict_1mth_1data <- function(dset, method, trainFUN, hyperparamFUN, predictFUN, prepareZZ.arg=list(),
+                                         summaryFUN, nrep=5, doplot=FALSE, plot.arg=list(col1=1:nrep, lwd1=1, col2=4, lwd2=3),
+                                         pkgname, pkgfun, rdafile=FALSE, odir="~/", echo=FALSE, echoreport=1, ...)
+{
+    method <- method[1]
+    if(!is.list(plot.arg) || any(!names(plot.arg) %in% c("col1", "lwd1", "col2", "lwd2")))
+        plot.arg <- list(col1=1:nrep, lwd1=1, col2=4, lwd2=3)
+    
+    plot.arg$col1 <- rep(plot.arg$col1, length.out=nrep)
+       
+    timer  <- createTimer(verbose = FALSE)
+    
+    ds     <- NNbenchmark::NNdatasets[[dset]]$ds
+    Z      <- NNbenchmark::NNdatasets[[dset]]$Z
+    neur   <- NNbenchmark::NNdatasets[[dset]]$neur
+    nparNN <- NNbenchmark::NNdatasets[[dset]]$nparNN
+    fmlaNN <- NNbenchmark::NNdatasets[[dset]]$fmlaNN
+    
+    descr <- paste0(ds, "_", pkgname, "::", pkgfun, "_", method)
+    if(echo)
+        cat("***\t", descr, "***\n")
+    if(length(prepareZZ.arg) != 4 || any(!names(prepareZZ.arg) %in% c("xdmv", "ydmv", "zdm", "scale")))
+        prepareZZ.arg <- list(xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)
+    ZZ <- do.call("prepareZZ", c(list(Z), prepareZZ.arg))    
+    
+    if(echo && echoreport > 1)
+    {
+        cat("prepareZZ\n")
+        print(str(ZZ))
+    }
+    
+    Ypred <- list()
+    allsummary <- list()
+    for(i in 1:nrep)
+    {
+        timer$start(descr)
+        tempfit <- tryCatch(
+            do.call(trainFUN, list(ZZ$x, ZZ$y, neur, method,  hyperparamFUN)),
+            error = function(y) {lm(y ~ 0, data = ZZ$Zxy)}
+                          ) 
+        Ypred[[i]] <- tryCatch(
+            ZZ$ym0 + ZZ$ysd0 * do.call(predictFUN, list(tempfit, ZZ$x)),
+            error = ZZ$ym0
+                        )
+        timer$stop(descr, RMSE = NA, MAE = NA, params = NA, printmsg = FALSE)
+        allsummary[[i]] <- summaryFUN(Ypred[[i]], ZZ$y0, round(getTimer(timer)[ ,4], 5))
+        
+        if(echo && i %% 5 == 0)
+            cat(pkgname, pkgfun, method, "i", i, "summary statistics", allsummary[[i]][1:3], "time", allsummary[[i]]["time"], "\n")
+        
+    }
+    names(Ypred) <- names(allsummary) <- paste0("replicate", 1:nrep)
+    Ypred <- simplify2array(Ypred)
+    if(dim(Ypred)[2] == 1)
+        Ypred <- Ypred[,1,]
+    allsummary <- simplify2array(allsummary)
+    
+    best <- which.min(allsummary["RMSE",])
+    
+    #outputs to file
+    if(rdafile)
+    {
+        descr <- paste0(ds, "_", pkgname, "_", pkgfun, "_", method)
+        myfile <- paste0(odir, descr, ".RData")
+        save(Ypred, allsummary, file=myfile)
+    }
+    #plot
+    if(doplot)
+    {
+        #shorter description
+        descr  <- paste0(ds, "_", pkgname, "::", pkgfun, "_", method)
+        op <- par(mfcol = c(1,2))
+        plotNN(ZZ$xory, ZZ$y0, ZZ$uni, doplot, main = descr)
+        for (i in 1:nrep) 
+            lipoNN(ZZ$xory, Ypred[,i], ZZ$uni, doplot, col = plot.arg$col1[i], lwd = plot.arg$lwd1)
+        
+        plotNN(ZZ$xory, ZZ$y0, ZZ$uni, doplot, main = descr)
+        lipoNN(ZZ$xory, Ypred[,best], ZZ$uni, doplot, col = plot.arg$col2, lwd = plot.arg$lwd2)
+        par(op)
+    }
+    if(echo)
+        cat("\n")
+    allsummary[,best]
+}
+
+train_and_predict_1data <- function(dset, methodvect, trainFUN, hyperparamFUN, predictFUN, summaryFUN, prepareZZ.arg=list(),
+                                    nrep=5, doplot=FALSE, plot.arg=list(),
+                                    pkgname="pkg", pkgfun="train", rdafile=FALSE, odir="~/", echo=FALSE)
+{
+    nbpkg <- length(pkgname)
+    #sanity check
+    if(nbpkg > 1)
+    {
+        if(length(pkgfun) != nbpkg )
+            stop("wrong pkgfun")
+        if(length(trainFUN) != nbpkg  || length(hyperparamFUN) != nbpkg || length(predictFUN) != nbpkg)
+            stop("wrong function names among trainFUN, hyperparamFUN, predictFUN")
+        if(length(methodvect) != nbpkg || !is.list(methodvect))
+            stop("wrong methodvect")
+        if(length(prepareZZ.arg) != nbpkg || !is.list(prepareZZ.arg))
+            stop("wrong prepareZZ.arg")
+    }
+    if(any(!sapply(methodvect, is.character)))
+        stop("methvect should be a list of vector of characters")
+    if(any(!is.character(trainFUN)))
+        stop("trainFUN should be a vector of characters")
+    if(any(!is.character(hyperparamFUN)))
+        stop("hyperparamFUN should be a vector of characters")
+    if(any(!is.character(predictFUN)))
+        stop("predictFUN should be a vector of characters")
+    if(any(!is.character(pkgname)))
+        stop("pkgname should be a vector of characters")
+    if(any(!is.character(pkgfun)))
+        stop("pkgfun should be a vector of characters")
+        
+    if(nbpkg == 1)
+    {
+      if(!exists(trainFUN))
+        stop(paste(trainFUN, "does not exist"))
+      if(!exists(hyperparamFUN))
+        stop(paste(hyperparamFUN, "does not exist"))
+      if(!exists(predictFUN))
+        stop(paste(predictFUN, "does not exist"))
+      resallmethod <- sapply(1:length(methodvect), function(i)
+        train_and_predict_1mth_1data(dset=dset, method=methodvect[i], trainFUN=trainFUN, hyperparamFUN=hyperparamFUN, 
+                                     predictFUN=predictFUN, summaryFUN=summaryFUN, prepareZZ.arg=prepareZZ.arg, nrep=nrep, doplot=doplot,
+                                     pkgname=pkgname, pkgfun=pkgfun, rdafile=rdafile, odir=odir, echo=echo))
+      
+      colnames(resallmethod) <- methodvect
+      return(resallmethod)
+    }else
+    {
+      for(j in 1:nbpkg)
+      {
+        if(!exists(trainFUN[j]))
+          stop(paste(trainFUN[j], "does not exist"))
+        if(!exists(hyperparamFUN[j]))
+          stop(paste(hyperparamFUN[j], "does not exist"))
+        if(!exists(predictFUN[j]))
+          stop(paste(predictFUN[j], "does not exist"))
+      }
+      res1pkg <- function(j)
+      {
+        mymethod <- methodvect[[j]]
+        resallmethod <- sapply(1:length(mymethod), function(i)
+          train_and_predict_1mth_1data(dset=dset, method=mymethod[i], trainFUN=trainFUN[j], hyperparamFUN=hyperparamFUN[j], 
+                                       predictFUN=predictFUN[j], summaryFUN=summaryFUN, prepareZZ.arg=prepareZZ.arg[[j]], 
+                                       nrep=nrep, doplot=doplot, pkgname=pkgname[j], pkgfun=pkgfun[j], rdafile=rdafile, 
+                                       odir=odir, echo=echo))
+        
+        colnames(resallmethod) <- paste0(pkgname[j], "::", mymethod)
+        resallmethod
+      }
+      res <- sapply(1:nbpkg, res1pkg)
+      resfinal <- res[[1]]
+      for(i in 2:nbpkg)
+        resfinal <- cbind(resfinal, res[[i]])    
+      return(res)
+    }
+    
+}
+
+
+
+
+```
+
+
+
+
+## AMORE Train/predict Functions
 ```{r}
 hyperParams.AMORE <- function(optim_method) {
     
@@ -53,10 +245,9 @@ hyperParams.AMORE <- function(optim_method) {
 }
 
 
-
-NNtrain.AMORE <- function(x, y, hidden_neur, optim_method, hyperParams) {
+NNtrain.AMORE <- function(x, y, hidden_neur, optim_method, hyperParams, ...) {
     
-    hyper_params <- hyperParams(optim_method)
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
     
     iter <- hyper_params$iter
     lr <- hyper_params$lr
@@ -79,121 +270,123 @@ NNtrain.AMORE <- function(x, y, hidden_neur, optim_method, hyperParams) {
     
     return (NNreg)
 }
-```
-
-## Small try
-```{r}
-dset <- 1
-ds     <- NNdatasets[[dset]]$ds
-    Z      <- NNdatasets[[dset]]$Z
-    neur   <- NNdatasets[[dset]]$neur
-    nparNN <- NNdatasets[[dset]]$nparNN
-    fmlaNN <- NNdatasets[[dset]]$fmlaNN
-
-    AMORE.method <- c("ADAPTgd", "ADAPTgdwm", "BATCHgd", "BATCHgdwm")
-    
-ZZ     <- prepareZZ(Z, xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)    
-str(ZZ)
-resfit <- do.call("NNtrain.AMORE", list(ZZ$x, ZZ$y, neur, AMORE.method[1],  hyperParams.AMORE))
-str(resfit)
 
 NNpredict.AMORE <- function(object, x)
     AMORE::sim.MLPnet(object$net, x)    
 
-respred <- ZZ$ym0 + ZZ$ysd0 * do.call("NNpredict.AMORE", list(resfit, ZZ$x))
-str(respred)
 
-c(RMSE = NNbenchmark::funRMSE(respred, ZZ$y0), MAE= NNbenchmark::funMAE(respred, ZZ$y0))
-            
+AMORE.method <- c("ADAPTgd", "ADAPTgdwm", "BATCHgd", "BATCHgdwm")
+AMORE.prepareZZ <- list(xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)
+
+if(FALSE)
+res <- train_and_predict_1data(1, AMORE.method, "NNtrain.AMORE", "hyperParams.AMORE", "NNpredict.AMORE", 
+                               NNsummary, AMORE.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="AMORE", pkgfun="train", rdafile=TRUE, odir=odir)
+
+```
+
+## ann2 Train/predict Functions
+```{r}
+ANN2.method <- c("sgd", "rmsprop")
+hyperParams.ANN2 <- function(optim_method) {
+    
+    if (!is.element(optim_method, c("sgd", "adam", "rmsprop"))) stop("Invalid Parameters.")
+    if (optim_method == "sgd") { iter <- 4000; lr <- 0.001} 
+    if (optim_method == "adam") { iter <- 3000; lr <- 0.007} 
+    if (optim_method == "rmsprop") { iter <- 3000; lr <- 0.005} 
+    
+    params <- paste0("method=", optim_method, "_", "lr=", lr, "_", "iter=", iter)
+    
+    out <- list(iter = iter, lr = lr, params = params)
+    
+    return (out)
+}
+NNtrain.ANN2 <- function(x, y, hidden_neur, optim_method, hyperParams, ...){
+    
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    
+    iter <- hyper_params$iter
+    lr <- hyper_params$lr
+    
+    NNreg <- ANN2::neuralnetwork(X = x, y = y, 
+                           val.prop = 0, 
+                           standardize = FALSE, 
+                           hidden.layers = c(hidden_neur), 
+                           regression = TRUE,
+                           loss.type = "squared",
+                           n.epochs = iter,
+                           optim.type = optim_method,
+                           learn.rates = lr,
+                           verbose = FALSE,
+                           random.seed = as.integer(runif(1)*10000000))
+    
+    return (NNreg)
+}
+NNpredict.ANN2 <- function(object, x)
+    predict(object, x)$predictions    
+ANN2.prepareZZ <- list(xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)
+
+if(FALSE)
+res <- train_and_predict_1data(1, ANN2.method, "NNtrain.ANN2", "hyperParams.ANN2", "NNpredict.ANN2", 
+                               NNsummary, ANN2.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
+                               pkgname="ANN2", pkgfun="neuralnetwork", rdafile=TRUE, odir=odir)
+
 ```
 
 
-## generic call
 
+## nnet Train/predict Functions
 ```{r}
-
-NNsummary <- function(pred, obsy, time)
-    c(RMSE = NNbenchmark::funRMSE(pred, obsy), MAE= NNbenchmark::funMAE(pred, obsy), time=time)
-
-train_and_predict_1mth_1data <- function(dset, method, trainFUN, hyperparamFUN, predictFUN, 
-                                         summaryFUN, nrep=5, 
-                                         pkgname, pkgfun, rdafile=FALSE, odir="~/", echo=FALSE)
-{
-    method <- method[1]
-    
-    timer  <- createTimer(verbose = FALSE)
-    
-    ds     <- NNdatasets[[dset]]$ds
-    Z      <- NNdatasets[[dset]]$Z
-    neur   <- NNdatasets[[dset]]$neur
-    nparNN <- NNdatasets[[dset]]$nparNN
-    fmlaNN <- NNdatasets[[dset]]$fmlaNN
-    
-    descr <- paste0(ds, "_", pkgname, "::", pkgfun, "_", method)
-        
-    ZZ     <- prepareZZ(Z, xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)    
-    
-    #init
-    timer$start(descr)
-    resfit <- do.call(trainFUN, list(ZZ$x, ZZ$y, neur, method[1],  hyperparamFUN))
-    respred <- ZZ$ym0 + ZZ$ysd0 * do.call(predictFUN, list(resfit, ZZ$x))
-    timer$stop(descr, RMSE = NA, MAE = NA, params = NA, printmsg = FALSE)
-    resummary <- summaryFUN(respred, ZZ$y0, round(getTimer(timer)[ ,4], 5))
-    
-    if(echo)
-        cat("i", 1, "summary statistics", resummary[1:2], "time", resummary[3], "\n")
-    if(nrep > 1)
-    {
-        for(i in 2:nrep)
-        {
-            timer$start(descr)
-            tempfit <- do.call(trainFUN, list(ZZ$x, ZZ$y, neur, method,  hyperparamFUN))
-            temppred <- ZZ$ym0 + ZZ$ysd0 * do.call(predictFUN, list(resfit, ZZ$x))   
-            timer$stop(descr, RMSE = NA, MAE = NA, params = NA, printmsg = FALSE)
-            tempsummary <- summaryFUN(temppred, ZZ$y0, round(getTimer(timer)[ ,4], 5))
-        
-            if(echo)
-                cat("i", i, "summary statistics", tempsummary[1:2], "time", tempsummary[3], "\n")
-            if(tempsummary["RMSE"] < resummary["RMSE"])
-            {
-                resfit <- tempfit
-                respred <- temppred
-                resummary <- tempsummary
-            }
-        }
-    }
-    
-    if(rdafile)
-    {
-        descr <- paste0(ds, "_", pkgname, "_", pkgfun, "_", method)
-        myfile <- paste0(odir, descr, ".RData")
-        save(respred, resfit, resummary, file=myfile)
-    }
-    resummary
+nnet.method <- "none"
+hyperParams.nnet <- function(...) {
+    return (list(iter=150, trace=FALSE))
 }
-
-train_and_predict_1data <- function(dset, methodvect, trainFUN, hyperparamFUN, predictFUN, 
-                                    summaryFUN, nrep=5, pkgname, pkgfun, rdafile, odir="~/", echo=FALSE)
-{
-    resallmethod <- sapply(1:length(methodvect), function(i)
-            train_and_predict_1mth_1data(dset, methodvect[i], trainFUN, hyperparamFUN, predictFUN, 
-                                         summaryFUN, nrep=nrep, 
-                                         pkgname, pkgfun, rdafile, odir, echo))
+NNtrain.nnet <- function(x, y, hidden_neur, method, hyperParams, ...) {
     
-    colnames(resallmethod) <- methodvect
-    resallmethod
+    hyper_params <- do.call(hyperParams, list(...))
+    
+    nnet::nnet(x, y, size = hidden_neur, linout = TRUE, maxit = hyper_params$iter, trace=hyper_params$trace)
 }
+NNpredict.nnet <- function(object, x)
+    predict(object, newdata=x)
+nnet.prepareZZ <- list(xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)
 
-odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
-AMORE.method <- c("ADAPTgd", "ADAPTgdwm", "BATCHgd", "BATCHgdwm")
+if(FALSE)
+res <- train_and_predict_1data(1, nnet.method, "NNtrain.nnet", "hyperParams.nnet", "NNpredict.nnet", 
+                               NNsummary, nnet.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="nnet", pkgfun="nnet", rdafile=TRUE, odir=odir)
 
-res <- train_and_predict_1data(1, AMORE.method, "NNtrain.AMORE", hyperParams.AMORE, "NNpredict.AMORE", 
-                               NNsummary, nrep=2, echo=TRUE,
-                               pkgname="AMORE", pkgfun="newff", rdafile=TRUE, odir=odir)
+    
+```
 
+
+## all packages
+```{r}
+methodlist <- list(AMORE.method, ANN2.method, nnet.method)
+pkgvect <- c("AMORE", "ANN2", "nnet")
+funvect <- c("train", "neuralnetwork", "nnet")
+trainvect <- paste("NNtrain", pkgvect, sep=".")
+hypervect <- paste("hyperParams", pkgvect, sep=".")
+predvect <- paste("NNpredict", pkgvect, sep=".")
+
+preparelist <- list(AMORE.prepareZZ, ANN2.prepareZZ, nnet.prepareZZ)
+
+resall <- train_and_predict_1data(1, methodlist, trainvect, hypervect, predvect,  
+                               NNsummary, preparelist, 
+                               nrep=2, echo=TRUE, doplot=FALSE,
+                               pkgname=pkgvect, pkgfun=funvect, rdafile=TRUE, odir=odir)
+
+```
+
+
+
+
+
+
+Old code
+```{r, eval=FALSE}
 f <- function(i)
     train_and_predict_1data(i, method, "NNtrain.AMORE", hyperParams.AMORE, "NNpredict.AMORE")
-
 
 library(parallel)
 
@@ -205,125 +398,5 @@ parallel::clusterExport(cl, "NNdatasets")
 parallel::clusterExport(cl, ls(1))
 res <- try( t(parallel::parLapply(cl, 1:2, f)) )
 parallel::stopCluster(cl)
-
 ```
 
-
-
-## Main Loop
-```{r fig.height=5, fig.width=14, message=FALSE, warning=FALSE}
-for (dset in names(NNdatasets)) {
-
-    ## =============================================
-    ## EXTRACT INFORMATION FROM THE SELECTED DATASET
-    ## =============================================
-    ds     <- NNdatasets[[dset]]$ds
-    Z      <- NNdatasets[[dset]]$Z
-    neur   <- NNdatasets[[dset]]$neur
-    nparNN <- NNdatasets[[dset]]$nparNN
-    fmlaNN <- NNdatasets[[dset]]$fmlaNN
-    donotremove  <- c("dset", "dsets", "ds", "Z", "neur", "TF", "nrep", "timer",
-                      "donotremove", "donotremove2")
-    donotremove2 <- c("dset", "dsets") 
-
-
-
-    ## ===================================================
-    ## SELECT THE FORMAT REQUIRED BY THE PACKAGE/ALGORITHM
-    ## d = data.frame, m = matrix, v = vector/numeric
-    ## ATTACH THE OBJECTS CREATED (x, y, Zxy, ... )
-    ## ===================================================
-    ZZ     <- prepareZZ(Z, xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)
-    attach(ZZ)
-
-    ## =============================================
-    ## SELECT THE PACKAGE USED FOR TRAINING
-    ## nrep => SELECT THE NUMBER OF INDEPENDANT RUNS
-    ## iter => SELECT THE MAX NUMBER OF ITERATIONS
-    ## TF   => PLOT THE RESULTS
-    ## =============================================
-
-    
-    nrep   <- 10
-    TF     <- TRUE 
-
-    method <- c("ADAPTgd", "ADAPTgdwm", "BATCHgd", "BATCHgdwm")
-        
-    for (m in method) {
-        
-        descr  <- paste(dset, "AMORE::train", m, sep = "_")
-
-        ## AUTO
-        Ypred  <- list()
-        Rmse   <- numeric(length = nrep)
-        Mae    <- numeric(length = nrep)
-    
-        for(i in 1:nrep){
-            event      <- paste0(descr, sprintf("_%.2d", i))
-            timer$start(event)
-            #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
-            
-            hyper_params <- hyperParams(optim_method = m)
-
-            NNreg      <- tryCatch(
-                            NNtrain(x = x, y = y, hidden_neur = neur, optim_method = m),
-                            error = function(y) {lm(y ~ 0, data = Zxy)}
-                          )     
-            y_pred     <- tryCatch(
-                            ym0 + ysd0 * AMORE::sim.MLPnet(NNreg$net, x),
-                            error = ym0
-                          )     
-            ####
-            Ypred[[i]] <- y_pred
-            Rmse[i]    <- funRMSE(y_pred, y0)
-            Mae[i]     <- funMAE(y_pred, y0)
-            timer$stop(event, RMSE = Rmse[i], MAE = Mae[i], params = hyper_params$params, printmsg = FALSE)
-        }
-        best <- which(Rmse == min(Rmse, na.rm = TRUE))[1]
-        best ; Rmse[[best]]
-        
-        ## ================================================
-        ## PLOT ALL MODELS AND THE MODEL WITH THE BEST RMSE
-        ## par OPTIONS CAN BE IMPROVED FOR A BETTER DISPLAY
-        ## ================================================
-        op <- par(mfcol = c(1,2))
-        plotNN(xory, y0, uni, TF, main = descr)
-        for (i in 1:nrep) lipoNN(xory, Ypred[[i]], uni, TF, col = i, lwd = 1)
-        
-        plotNN(xory, y0, uni, TF, main = descr)
-        lipoNN(xory, Ypred[[best]], uni, TF, col = 4, lwd = 4)
-        par(op)
-    }
-
-
-## ===========================
-## DETACH ZZ - END OF THE LOOP
-## ===========================
-    detach(ZZ)
-}
-```
-
-
-## Results
-
-```{r}
-dfr0 <- getTimer(timer) 
-
-dfr  <- data.frame(
-    ds_pkg.fun_algo = stringr::str_sub(dfr0[ ,1], 1, -4),
-    run     = stringr::str_sub(dfr0[ ,1], -2, -1),
-    dfr0[, c("RMSE","MAE")],
-    dataset = stringr::str_replace_all(stringr::str_extract(dfr0[, 1], pattern = "^\\w*_"), fixed("_"), ""),
-    method = stringr::str_replace_all(stringr::str_extract(dfr0[, 1], pattern = "_\\w*_"), fixed("_"), ""),
-    Elapsed = round(dfr0[ ,4], 5),
-    params = dfr0$params
-)
-
-
-dfr %>%
-    select(-c(dataset, method))
-```
-
-```{r}
-clearNN(donotremove)
-```
