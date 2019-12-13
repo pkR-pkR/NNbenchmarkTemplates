@@ -90,11 +90,11 @@ ds     <- NNdatasets[[dset]]$ds
     nparNN <- NNdatasets[[dset]]$nparNN
     fmlaNN <- NNdatasets[[dset]]$fmlaNN
 
-    method <- c("ADAPTgd", "ADAPTgdwm", "BATCHgd", "BATCHgdwm")
+    AMORE.method <- c("ADAPTgd", "ADAPTgdwm", "BATCHgd", "BATCHgdwm")
     
 ZZ     <- prepareZZ(Z, xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)    
 str(ZZ)
-resfit <- do.call("NNtrain.AMORE", list(ZZ$x, ZZ$y, neur, method[1],  hyperParams.AMORE))
+resfit <- do.call("NNtrain.AMORE", list(ZZ$x, ZZ$y, neur, AMORE.method[1],  hyperParams.AMORE))
 str(resfit)
 
 NNpredict.AMORE <- function(object, x)
@@ -112,41 +112,90 @@ c(RMSE = NNbenchmark::funRMSE(respred, ZZ$y0), MAE= NNbenchmark::funMAE(respred,
 
 ```{r}
 
-train_and_predict_1mth_1data <- function(dset, method, trainFUN, hyperparamFUN, predictFUN, echofile=NULL)
+NNsummary <- function(pred, obsy, time)
+    c(RMSE = NNbenchmark::funRMSE(pred, obsy), MAE= NNbenchmark::funMAE(pred, obsy), time=time)
+
+train_and_predict_1mth_1data <- function(dset, method, trainFUN, hyperparamFUN, predictFUN, 
+                                         summaryFUN, nrep=5, 
+                                         pkgname, pkgfun, rdafile=FALSE, odir="~/", echo=FALSE)
 {
+    method <- method[1]
+    
+    timer  <- createTimer(verbose = FALSE)
+    
     ds     <- NNdatasets[[dset]]$ds
     Z      <- NNdatasets[[dset]]$Z
     neur   <- NNdatasets[[dset]]$neur
     nparNN <- NNdatasets[[dset]]$nparNN
     fmlaNN <- NNdatasets[[dset]]$fmlaNN
-
+    
+    descr <- paste0(ds, "_", pkgname, "::", pkgfun, "_", method)
+        
     ZZ     <- prepareZZ(Z, xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)    
     
+    #init
+    timer$start(descr)
     resfit <- do.call(trainFUN, list(ZZ$x, ZZ$y, neur, method[1],  hyperparamFUN))
-    
     respred <- ZZ$ym0 + ZZ$ysd0 * do.call(predictFUN, list(resfit, ZZ$x))
-    if(!is.null(echofile))
-        save(respred, resfit, file=echofile)
-    c(RMSE = NNbenchmark::funRMSE(respred, ZZ$y0), MAE= NNbenchmark::funMAE(respred, ZZ$y0))
+    timer$stop(descr, RMSE = NA, MAE = NA, params = NA, printmsg = FALSE)
+    resummary <- summaryFUN(respred, ZZ$y0, round(getTimer(timer)[ ,4], 5))
+    
+    if(echo)
+        cat("i", 1, "summary statistics", resummary[1:2], "time", resummary[3], "\n")
+    if(nrep > 1)
+    {
+        for(i in 2:nrep)
+        {
+            timer$start(descr)
+            tempfit <- do.call(trainFUN, list(ZZ$x, ZZ$y, neur, method,  hyperparamFUN))
+            temppred <- ZZ$ym0 + ZZ$ysd0 * do.call(predictFUN, list(resfit, ZZ$x))   
+            timer$stop(descr, RMSE = NA, MAE = NA, params = NA, printmsg = FALSE)
+            tempsummary <- summaryFUN(temppred, ZZ$y0, round(getTimer(timer)[ ,4], 5))
+        
+            if(echo)
+                cat("i", i, "summary statistics", tempsummary[1:2], "time", tempsummary[3], "\n")
+            if(tempsummary["RMSE"] < resummary["RMSE"])
+            {
+                resfit <- tempfit
+                respred <- temppred
+                resummary <- tempsummary
+            }
+        }
+    }
+    
+    if(rdafile)
+    {
+        descr <- paste0(ds, "_", pkgname, "_", pkgfun, "_", method)
+        myfile <- paste0(odir, descr, ".RData")
+        save(respred, resfit, resummary, file=myfile)
+    }
+    resummary
 }
 
-resallmethod <- sapply(1:length(method), function(i)
-       train_and_predict_1mth_1data(1, method[i], "NNtrain.AMORE", hyperParams.AMORE, "NNpredict.AMORE")
-)
-colnames(resallmethod) <- method
-
-library(parallel)
-
-train_and_predict_1data <- function(dset, method, trainFUN, hyperparamFUN, predictFUN, echofile=NULL)
+train_and_predict_1data <- function(dset, methodvect, trainFUN, hyperparamFUN, predictFUN, 
+                                    summaryFUN, nrep=5, pkgname, pkgfun, rdafile, odir="~/", echo=FALSE)
 {
-    resallmethod <- sapply(1:length(method), function(i)
-       train_and_predict_1mth_1data(dset, method[i], trainFUN, hyperparamFUN, predictFUN, echofile))
-    colnames(resallmethod) <- method
+    resallmethod <- sapply(1:length(methodvect), function(i)
+            train_and_predict_1mth_1data(dset, methodvect[i], trainFUN, hyperparamFUN, predictFUN, 
+                                         summaryFUN, nrep=nrep, 
+                                         pkgname, pkgfun, rdafile, odir, echo))
+    
+    colnames(resallmethod) <- methodvect
     resallmethod
 }
 
+odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
+AMORE.method <- c("ADAPTgd", "ADAPTgdwm", "BATCHgd", "BATCHgdwm")
+
+res <- train_and_predict_1data(1, AMORE.method, "NNtrain.AMORE", hyperParams.AMORE, "NNpredict.AMORE", 
+                               NNsummary, nrep=2, echo=TRUE,
+                               pkgname="AMORE", pkgfun="newff", rdafile=TRUE, odir=odir)
+
 f <- function(i)
     train_and_predict_1data(i, method, "NNtrain.AMORE", hyperParams.AMORE, "NNpredict.AMORE")
+
+
+library(parallel)
 
 cl <- parallel::makeCluster(2)
 print(showConnections())
