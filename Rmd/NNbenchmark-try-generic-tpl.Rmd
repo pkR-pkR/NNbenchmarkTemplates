@@ -12,9 +12,6 @@ output:
 
 ```{r message=FALSE, warning=FALSE}
 library(NNbenchmark)
-library(AMORE)
-library(ANN2)
-library(nnet)
 
 library(stringr)
 library(dplyr)
@@ -34,7 +31,6 @@ timer  <- createTimer(verbose = FALSE)
 NNdataSummary(NNdatasets)
 str(NNdatasets)
 odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
-
 ```
 
 
@@ -66,6 +62,13 @@ train_and_predict_1mth_1data <- function(dset, method, trainFUN, hyperparamFUN, 
         plot.arg <- list(col1=1:nrep, lwd1=1, col2=4, lwd2=3)
     
     plot.arg$col1 <- rep(plot.arg$col1, length.out=nrep)
+    
+    if(!exists(hyperparamFUN))
+      stop(paste("function", hyperparamFUN, "does not exist"))
+    if(!exists(trainFUN))
+      stop(paste("function", trainFUN, "does not exist"))
+    if(!exists(predictFUN))
+      stop(paste("function", predictFUN, "does not exist"))
        
     timer  <- createTimer(verbose = FALSE)
     
@@ -97,10 +100,22 @@ train_and_predict_1mth_1data <- function(dset, method, trainFUN, hyperparamFUN, 
             do.call(trainFUN, list(ZZ$x, ZZ$y, neur, method,  hyperparamFUN)),
             error = function(y) {lm(y ~ 0, data = ZZ$Zxy)}
                           ) 
-        Ypred[[i]] <- tryCatch(
+        if(class(tempfit) == "lm" || class(tempfit) == "try-error")
+        {
+          Ypred[[i]] <- rep(ZZ$ym0, length.out=NROW(ZZ$x))
+        }else
+        {
+          if(echo && echoreport > 1)
+          {
+            cat("debug\n")
+            print(tempfit)
+            print(do.call(predictFUN, list(tempfit, head(ZZ$x))))
+          }
+          Ypred[[i]] <- tryCatch(
             ZZ$ym0 + ZZ$ysd0 * do.call(predictFUN, list(tempfit, ZZ$x)),
-            error = ZZ$ym0
-                        )
+            error = rep(ZZ$ym0, length.out=NROW(ZZ$x))
+          )
+        }
         timer$stop(descr, RMSE = NA, MAE = NA, params = NA, printmsg = FALSE)
         allsummary[[i]] <- summaryFUN(Ypred[[i]], ZZ$y0, round(getTimer(timer)[ ,4], 5))
         
@@ -110,8 +125,15 @@ train_and_predict_1mth_1data <- function(dset, method, trainFUN, hyperparamFUN, 
     }
     names(Ypred) <- names(allsummary) <- paste0("replicate", 1:nrep)
     Ypred <- simplify2array(Ypred)
-    if(dim(Ypred)[2] == 1)
-        Ypred <- Ypred[,1,]
+    
+    if(length(dim(Ypred)) >= 2)
+      if(dim(Ypred)[2] == 1)
+      {
+        if(length(dim(Ypred)) == 3)
+          Ypred <- Ypred[,1,]
+        else if(length(dim(Ypred)) == 2)
+          Ypred <- Ypred[,1]
+      }
     allsummary <- simplify2array(allsummary)
     
     best <- which.min(allsummary["RMSE",])
@@ -155,9 +177,9 @@ train_and_predict_1data <- function(dset, methodvect, trainFUN, hyperparamFUN, p
         if(length(trainFUN) != nbpkg  || length(hyperparamFUN) != nbpkg || length(predictFUN) != nbpkg)
             stop("wrong function names among trainFUN, hyperparamFUN, predictFUN")
         if(length(methodvect) != nbpkg || !is.list(methodvect))
-            stop("wrong methodvect")
+            stop("wrong methodvect: too short")
         if(length(prepareZZ.arg) != nbpkg || !is.list(prepareZZ.arg))
-            stop("wrong prepareZZ.arg")
+            stop("wrong prepareZZ.arg: too short")
     }
     if(any(!sapply(methodvect, is.character)))
         stop("methvect should be a list of vector of characters")
@@ -214,7 +236,7 @@ train_and_predict_1data <- function(dset, methodvect, trainFUN, hyperparamFUN, p
       resfinal <- res[[1]]
       for(i in 2:nbpkg)
         resfinal <- cbind(resfinal, res[[i]])    
-      return(res)
+      return(resfinal)
     }
     
 }
@@ -229,6 +251,7 @@ train_and_predict_1data <- function(dset, methodvect, trainFUN, hyperparamFUN, p
 
 ## AMORE Train/predict Functions
 ```{r}
+library(AMORE)
 hyperParams.AMORE <- function(optim_method) {
     
     if (!is.element(optim_method, c("ADAPTgd", "ADAPTgdwm", "BATCHgd", "BATCHgdwm"))) stop("Invalid Parameters.")
@@ -286,7 +309,8 @@ res <- train_and_predict_1data(1, AMORE.method, "NNtrain.AMORE", "hyperParams.AM
 ```
 
 ## ann2 Train/predict Functions
-```{r}
+```{r, eval=FALSE}
+library(ANN2)
 ANN2.method <- c("sgd", "rmsprop")
 hyperParams.ANN2 <- function(optim_method) {
     
@@ -333,10 +357,186 @@ res <- train_and_predict_1data(1, ANN2.method, "NNtrain.ANN2", "hyperParams.ANN2
 
 ```
 
+## automl Train/predict Function
+```{r}
+library(automl)
+automl.method <- c("trainwgrad", "trainwpso")
+hyperParams.automl <- function(optim_method) {
+    
+    if (!is.element(optim_method, c("trainwgrad", "trainwpso"))) stop("Invalid Parameters.")
+    
+    hidden_activation = "tanh"
+    params <- paste0("method=", optim_method, "_", "hidden_activation=", hidden_activation)
+    
+    out <- list(hidden_activation = hidden_activation, params = params)
+    
+    return (out)
+}
+NNtrain.automl <- function(x, y, hidden_neur, optim_method, hyperParams, ...) {
+    
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    
+    hidden_activation <- hyper_params$hidden_activation
+    # NNreg <- automl::automl_train(Xref = x, Yref = y)
+    
+    NNreg <- automl::automl_train_manual(Xref = x, Yref = y,
+                                         hpar = list(modexec = optim_method,
+                                                     layersshape = c(hidden_neur, 0),
+                                                     layersacttype = c(hidden_activation, ""),
+                                                     verbose = FALSE,
+                                                     seed = as.integer(runif(1)*10000000)))
+
+    return (NNreg)
+}
+NNpredict.automl <- function(object, x)
+    automl::automl_predict(model=object, X=x)
+automl.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+
+if(FALSE)
+res <- train_and_predict_1data(1, automl.method, "NNtrain.automl", "hyperParams.automl", "NNpredict.automl", 
+                               NNsummary, automl.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="automl", pkgfun="automl_train_manual", rdafile=TRUE, odir=odir)
+
+```
+
+## brnn Train/predict Function
+```{r}
+library(brnn)
+brnn.method <- "gaussNewton"
+hyperParams.brnn <- function(optim_method) {
+    
+    if (!is.element(optim_method, c("gaussNewton"))) stop("Invalid Parameters.")
+    iter   <- 80
+    
+    params <- paste0("method=", optim_method, "_iter=", iter)
+    
+    out <- list(iter = iter, params = params)
+    
+    return (out)
+}
+NNtrain.brnn <- function(x, y, hidden_neur, optim_method, hyperParams,...) {
+    
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    
+    iter <- hyper_params$iter
+    
+    NNreg <- brnn::brnn(x, y, hidden_neur, normalize = FALSE, epochs = iter, verbose = FALSE)
+    
+    return (NNreg)
+}
+NNpredict.brnn <- function(object, x)
+    predict(object, x)
+brnn.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
+
+
+if(FALSE)
+res <- train_and_predict_1data(1, brnn.method, "NNtrain.brnn", "hyperParams.brnn", "NNpredict.brnn", 
+                               NNsummary, brnn.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="brnn", pkgfun="brnn", rdafile=TRUE, odir=odir)
+
+```
+
+
+
+## CaDENCE Train Function
+```{r}
+library(CaDENCE)
+CaDENCE.method <- c("optim", "psoptim", "Rprop")
+hyperParams.CaDENCE <- function(optim_method) {
+    
+    if (!is.element(optim_method, c("nelderMead"))) stop("Invalid Parameters.")
+
+    iter = 1000
+    params <- paste0("method=", optim_method, "_iter=", iter)
+    
+    out <- list(iter = iter, params = params, maxit.Nelder=1)
+    
+    return (out)
+}
+
+NNtrain.CaDENCE <- function(x, y, hidden_neur, optim_method, hyperParams,...) {
+    
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    
+    iter <- hyper_params$iter
+
+    NNreg <- CaDENCE::cadence.fit(x = x, y = y, 
+                                  iter.max = iter, 
+                                  n.hidden = hidden_neur, 
+                                  hidden.fcn = tanh, 
+                                  method = optim_method, 
+                                  n.trials = 1, 
+                                  trace = 0, 
+                                  maxit.Nelder = hyper_params$maxit.Nelder, 
+                                  f.cost = CaDENCE::cadence.cost)
+    return (NNreg)
+}
+NNpredict.CaDENCE <- function(object, x)
+    CaDENCE::cadence.predict(x = x, fit = object)[,1]
+CaDENCE.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+
+if(FALSE)
+res <- train_and_predict_1data(1, CaDENCE.method, "NNtrain.CaDENCE", "hyperParams.CaDENCE", "NNpredict.CaDENCE", 
+                               NNsummary, CaDENCE.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
+                               pkgname="CaDENCE", pkgfun="cadence.fit", rdafile=TRUE, odir=odir)
+
+```
+
+```{r}
+library(deepnet)
+deepnet.method <- "gradientDescent"
+hyperParams.deepnet <- function(optim_method) {
+    
+    if (!is.element(optim_method, c("gradientDescent"))) stop("Invalid Parameters.")
+
+    iter <- 11000
+    lr <- 0.01
+    dropout <- 0
+    momentum <- 0.95
+    hidden_activation <- "sigm"
+    
+    params <- paste0("method=", optim_method, "_", "iter=", iter, "_", "lr=", lr, "_", "dropout=", dropout, "_", "momentum=", momentum)
+    
+    out <- list(iter = iter, lr = lr, momentum = momentum, hidden_activation = hidden_activation, dropout = dropout, params = params)
+    
+    return (out)
+}
+
+NNtrain.deepnet <- function(x, y, hidden_neur, optim_method, hyperParams, ...) {
+    
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    
+    iter <- hyper_params$iter
+    lr <- hyper_params$lr
+    dropout <- hyper_params$dropout
+    momentum <- hyper_params$momentum
+    hidden_activation <- hyper_params$hidden_activation
+    dropout <- hyper_params$dropout
+
+    NNreg <- deepnet::nn.train(x = x, y = y, 
+                               hidden = c(hidden_neur), 
+                               activationfun = hidden_activation, 
+                               learningrate = lr, 
+                               output = 'linear', 
+                               numepochs = iter, 
+                               hidden_dropout = dropout, 
+                               momentum = momentum)
+    return (NNreg)
+}
+NNpredict.deepnet <- function(object, x)
+    deepnet::nn.predict(nn = object, x = x)
+deepnet.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
+if(FALSE)
+res <- train_and_predict_1data(1, CaDENCE.method, "NNtrain.deepnet", "hyperParams.deepnet", "NNpredict.deepnet", 
+                               NNsummary, deepnet.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
+                               pkgname="deepnet", pkgfun="nn.train", rdafile=TRUE, odir=odir)
+
+```
 
 
 ## nnet Train/predict Functions
 ```{r}
+library(nnet)
 nnet.method <- "none"
 hyperParams.nnet <- function(...) {
     return (list(iter=150, trace=FALSE))
@@ -362,20 +562,22 @@ res <- train_and_predict_1data(1, nnet.method, "NNtrain.nnet", "hyperParams.nnet
 
 ## all packages
 ```{r}
-methodlist <- list(AMORE.method, ANN2.method, nnet.method)
-pkgvect <- c("AMORE", "ANN2", "nnet")
-funvect <- c("train", "neuralnetwork", "nnet")
+methodlist <- list(AMORE.method, automl.method, brnn.method, CaDENCE.method, 
+                   deepnet.method, nnet.method)
+pkgvect <- c("AMORE", "automl", "brnn", "CaDENCE", "deepnet", "nnet")
+funvect <- c("train", "automl_train_manual", "brnn", "cadence.fit", "nn.train", "nnet")
 trainvect <- paste("NNtrain", pkgvect, sep=".")
 hypervect <- paste("hyperParams", pkgvect, sep=".")
 predvect <- paste("NNpredict", pkgvect, sep=".")
 
-preparelist <- list(AMORE.prepareZZ, ANN2.prepareZZ, nnet.prepareZZ)
+preparelist <- list(AMORE.prepareZZ, automl.prepareZZ, brnn.prepareZZ, CaDENCE.prepareZZ,
+                    deepnet.prepareZZ, nnet.prepareZZ)
 
 resall <- train_and_predict_1data(1, methodlist, trainvect, hypervect, predvect,  
                                NNsummary, preparelist, 
                                nrep=2, echo=TRUE, doplot=FALSE,
                                pkgname=pkgvect, pkgfun=funvect, rdafile=TRUE, odir=odir)
-
+kable(resall)
 ```
 
 
