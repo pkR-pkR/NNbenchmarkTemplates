@@ -70,8 +70,8 @@ NNtrain <- function(x, y, train_data, hidden_neur, optim_method) {
                                      overwrite_with_best_model = TRUE, 
                                      standardize = FALSE,
                                      activation = hidden_activation,
-                                     # adaptive_rate = TRUE,
-                                     rate = 0.01,
+                                     adaptive_rate = TRUE,
+                                     #rate = 0.01,
                                      hidden = hidden_neur,
                                      epochs = iter,
                                      train_samples_per_iteration = -1,
@@ -93,7 +93,8 @@ NNtrain <- function(x, y, train_data, hidden_neur, optim_method) {
 
 ## Main Loop
 ```{r fig.height=5, fig.width=14, message=FALSE, warning=FALSE, results=FALSE}
-for (dset in names(NNdatasets)) {
+#for (dset in names(NNdatasets)) {
+for (dset in 1) {    
 
     ## =============================================
     ## EXTRACT INFORMATION FROM THE SELECTED DATASET
@@ -125,9 +126,9 @@ for (dset in names(NNdatasets)) {
     ## =============================================
 
     
-    nrep   <- 10
+    nrep   <- 2
     TF     <- TRUE
-    h_Z     <- h2o::as.h2o(Z)
+    h_Z     <- h2o::as.h2o(Zxy)
 
     method <- c("gradientDescent")
         
@@ -220,6 +221,7 @@ dfr %>%
 ```
 
 ```{r}
+h2o.shutdown(FALSE)
 clearNN(donotremove)
 ```
 
