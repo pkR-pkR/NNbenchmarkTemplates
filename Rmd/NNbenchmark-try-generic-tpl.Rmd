@@ -39,6 +39,8 @@ odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempres
 
 ## generic call
 
+Should be  part of the NNbenchmark package?!
+
 ```{r}
 funWAE <- function(y_pred, y0, dgts = 4)
 {
@@ -101,7 +103,7 @@ train_and_predict_1mth_1data <- function(dset, method, trainFUN, hyperparamFUN, 
             do.call(trainFUN, list(ZZ$x, ZZ$y, ZZ$Zxy, ZZ$fmla, neur, method,  hyperparamFUN)),
             error = function(y) {lm(y ~ 0, data = ZZ$Zxy)}
                           ) 
-        if(class(tempfit) == "lm" || class(tempfit) == "try-error")
+        if(inherits(tempfit, "lm") || inherits(tempfit, "try-error"))
         {
           Ypred[[i]] <- rep(ZZ$ym0, length.out=NROW(ZZ$x))
         }else
@@ -110,7 +112,8 @@ train_and_predict_1mth_1data <- function(dset, method, trainFUN, hyperparamFUN, 
           {
             cat("debug\n")
             print(tempfit)
-            print(do.call(predictFUN, list(tempfit, head(ZZ$x))))
+            print(summary(tempfit))
+            print(do.call(predictFUN, list(tempfit, head(ZZ$x), head(ZZ$xy))))
           }
           Ypred[[i]] <- tryCatch(
             ZZ$ym0 + ZZ$ysd0 * do.call(predictFUN, list(tempfit, ZZ$x, ZZ$Zxy)),
@@ -169,7 +172,7 @@ train_and_predict_1mth_1data <- function(dset, method, trainFUN, hyperparamFUN, 
 train_and_predict_1data <- function(dset, methodvect, trainFUN, hyperparamFUN, predictFUN, summaryFUN, 
                                     closeFUN, startNN=NA, prepareZZ.arg=list(),
                                     nrep=5, doplot=FALSE, plot.arg=list(),
-                                    pkgname="pkg", pkgfun="train", rdafile=FALSE, odir="~/", echo=FALSE)
+                                    pkgname="pkg", pkgfun="train", rdafile=FALSE, odir="~/", echo=FALSE, ...)
 {
     nbpkg <- length(pkgname)
     #sanity check
@@ -219,7 +222,8 @@ train_and_predict_1data <- function(dset, methodvect, trainFUN, hyperparamFUN, p
         train_and_predict_1mth_1data(dset=dset, method=methodvect[i], trainFUN=trainFUN, hyperparamFUN=hyperparamFUN, 
                                      predictFUN=predictFUN, summaryFUN=summaryFUN, 
                                      prepareZZ.arg=prepareZZ.arg, nrep=nrep, doplot=doplot,
-                                     pkgname=pkgname, pkgfun=pkgfun, rdafile=rdafile, odir=odir, echo=echo))
+                                     pkgname=pkgname, pkgfun=pkgfun, rdafile=rdafile, odir=odir, 
+                                     echo=echo, ...))
       
       if(!exists(closeFUN))
           stop(paste("function", closeFUN, "does not exist"))
@@ -258,7 +262,7 @@ train_and_predict_1data <- function(dset, methodvect, trainFUN, hyperparamFUN, p
                                        predictFUN=predictFUN[j], 
                                        summaryFUN=summaryFUN, prepareZZ.arg=prepareZZ.arg[[j]], 
                                        nrep=nrep, doplot=doplot, pkgname=pkgname[j], pkgfun=pkgfun[j], rdafile=rdafile, 
-                                       odir=odir, echo=echo))
+                                       odir=odir, echo=echo, ...))
         
         if(!exists(closeFUN[j]))
           stop(paste("function", closeFUN[j], "does not exist"))
@@ -477,9 +481,7 @@ res <- train_and_predict_1data(1, brnn.method, "NNtrain.brnn", "hyperParams.brnn
 
 ```
 
-
-
-## CaDENCE Train Function
+## CaDENCE Train/predict Function
 ```{r}
 library(CaDENCE)
 CaDENCE.method <- c("optim", "psoptim", "Rprop")
@@ -523,9 +525,9 @@ if(FALSE)
 res <- train_and_predict_1data(1, CaDENCE.method, "NNtrain.CaDENCE", "hyperParams.CaDENCE", "NNpredict.CaDENCE", 
                                NNsummary, "NNclose.CaDENCE", NA, CaDENCE.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
                                pkgname="CaDENCE", pkgfun="cadence.fit", rdafile=TRUE, odir=odir)
-
 ```
 
+## deepnet Train/predict Function
 ```{r}
 library(deepnet)
 deepnet.method <- "gradientDescent"
@@ -580,8 +582,6 @@ res <- train_and_predict_1data(1, CaDENCE.method, "NNtrain.deepnet", "hyperParam
 
 ```
 
-
-
 ## elmNNRcpp Train Function
 ```{r}
 library(elmNNRcpp)
@@ -635,7 +635,6 @@ res <- train_and_predict_1data(1, elmNNRcpp.method, "NNtrain.elmNNRcpp", "hyperP
 
 ```
 
-
 ## ELMR Train Function
 ```{r}
 ELMR.method <- "extremeML"
@@ -681,7 +680,6 @@ res <- train_and_predict_1data(1, ELMR.method, "NNtrain.ELMR", "hyperParams.ELMR
                                pkgname="ELMR", pkgfun="OSelm_train", rdafile=TRUE, odir=odir)
 
 ```
-
 
 ## h2o Train Function
 ```{r}
@@ -766,6 +764,113 @@ res <- train_and_predict_1data(1, h2o.method, "NNtrain.h2o", "hyperParams.h2o", 
 
 ```
 
+## keras Train Function
+```{r}
+library(keras)
+keras.method <- c("adam", "rmsprop", "sgd", "adadelta", "adagrad")
+hyperParams.keras <- function(optim_method) {
+    
+    if (!is.element(optim_method, c("adam", "rmsprop", "sgd", "adagrad", "adadelta"))) 
+      stop("Invalid Parameters.")
+    
+    hidden_activation = "tanh"
+    iter <- 10000
+    lr <- 0.001
+    
+    params <- paste0("method=", optim_method, "_iter=", iter, "_lr=", lr, "_hidden_activation=", hidden_activation)
+    
+    out <- list(hidden_activation = hidden_activation, iter = iter, lr = lr, params = params)
+    
+    return (out)
+}
+
+NNtrain.keras <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams, ...) {
+        
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    iter <- hyper_params$iter
+    
+    early_stop <- callback_early_stopping(monitor = "loss", patience = 20, restore_best_weights = TRUE, mode = "auto", min_delta = 1e-3)
+    #should we have a higher min_delta
+    
+    hidden_activation <- hyper_params$hidden_activation
+    lr <- hyper_params$lr
+    
+    if (optim_method == "adam") { op <- optimizer_adam(lr = lr)} 
+    if (optim_method == "rmsprop") { op <- optimizer_rmsprop(lr = lr)}
+    if (optim_method == "adagrad") { op <- optimizer_adagrad(lr = lr)}
+    if (optim_method == "adadelta") { op <- optimizer_adadelta(lr = lr)}
+    if (optim_method == "sgd") { op <- optimizer_sgd(lr = lr)}
+
+    model <- keras_model_sequential() %>%
+        layer_dense(units = hidden_neur, activation = hidden_activation, input_shape = ncol(x)) %>%
+        layer_dense(units = 1)
+
+    model %>% compile(
+        loss = "mse",
+        optimizer = op,
+        metrics = list("mean_absolute_error")
+    )
+
+    historylog <- model %>% fit(x, y, epochs = iter, verbose = 0, callbacks = list(early_stop))
+
+    return (model)
+}  
+
+NNpredict.keras <- function(object, x, ...)
+{
+  object %>% predict(x)
+}
+NNclose.keras <- function()
+{
+  if("package:keras" %in% search())
+    detach("package:keras", unload=TRUE)
+}
+
+keras.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+
+if(FALSE)
+res <- train_and_predict_1data(1, keras.method, "NNtrain.keras", "hyperParams.keras", "NNpredict.keras", 
+                               NNsummary, "NNclose.keras", NA, keras.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
+                               pkgname="keras", pkgfun="fit", rdafile=TRUE, odir=odir, echoreport=2)
+
+
+```
+
+
+## MachineShop Train/predict Functions
+```{r}
+library(MachineShop)
+MachineShop.method <- "none"
+hyperParams.MachineShop <- function(...) {
+    return (list(iter=150, trace=FALSE, linout=TRUE))
+}
+NNtrain.MachineShop <- function(x, y, dataxy, formula, hidden_neur, method, hyperParams, ...) {
+    
+    hyper_params <- do.call(hyperParams, list(...))
+    trace <- hyper_params$trace
+    maxit <- hyper_params$iter
+    linout <- hyper_params$linout #linearoutpputunit
+    myNN <- MachineShop::NNetModel(size = hidden_neur, linout = linout, maxit = maxit,
+                                   trace=trace)
+    MachineShop::fit(formula, data = dataxy, model = myNN)
+    
+}
+NNpredict.MachineShop <- function(object, x, ...)
+    as.numeric(predict(object, newdata=x, type="response"))
+NNclose.MachineShop <- function()
+  if("package:MachineShop" %in% search())
+    detach("package:MachineShop", unload=TRUE)
+MachineShop.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+
+if(FALSE)
+res <- train_and_predict_1data(1, MachineShop.method, "NNtrain.MachineShop", "hyperParams.MachineShop", "NNpredict.MachineShop", 
+                               NNsummary, "NNclose.MachineShop", NA, MachineShop.prepareZZ, nrep=5,
+                               echo=TRUE, doplot=FALSE, echoreport=0,
+                               pkgname="MachineShop", pkgfun="fit", rdafile=TRUE, odir=odir)
+
+    
+```
+
 
 ## nnet Train/predict Functions
 ```{r}
@@ -796,27 +901,35 @@ res <- train_and_predict_1data(1, nnet.method, "NNtrain.nnet", "hyperParams.nnet
 ```
 
 
+
 ## all packages
 ```{r}
 methodlist <- list(AMORE.method, automl.method, brnn.method, CaDENCE.method, 
-                   deepnet.method, elmNNRcpp.method, ELMR.method, h2o.method, nnet.method)
-pkgvect <- c("AMORE", "automl", "brnn", "CaDENCE", "deepnet", "elmNNRcpp", "ELMR", "h2o", "nnet")
-funvect <- c("train", "automl_train_manual", "brnn", "cadence.fit", "nn.train", "elm_train", "OSelm_train", "deeplearning", "nnet")
+                   deepnet.method, elmNNRcpp.method, ELMR.method, h2o.method, 
+                   keras.method, MachineShop.method, nnet.method)
+pkgvect <- c("AMORE", "automl", "brnn", "CaDENCE", "deepnet", "elmNNRcpp", "ELMR", "h2o",  "keras", "MachineShop", "nnet")
+funvect <- c("train", "automl_train_manual", "brnn", "cadence.fit", "nn.train", "elm_train", "OSelm_train", "deeplearning", "fit", "fit", "nnet")
 trainvect <- paste("NNtrain", pkgvect, sep=".")
 hypervect <- paste("hyperParams", pkgvect, sep=".")
 predvect <- paste("NNpredict", pkgvect, sep=".")
+
+#close function is only needed for h2o
 closevect <- paste("NNclose", pkgvect, sep=".")
 startvect <- rep(NA, length(pkgvect))
 startvect[pkgvect == "h2o"] <- "NNstart.h2o"
 
 preparelist <- list(AMORE.prepareZZ, automl.prepareZZ, brnn.prepareZZ, CaDENCE.prepareZZ,
-                    deepnet.prepareZZ, elmNNRcpp.prepareZZ, ELMR.prepareZZ, h2o.prepareZZ, nnet.prepareZZ)
+                    deepnet.prepareZZ, elmNNRcpp.prepareZZ, ELMR.prepareZZ, h2o.prepareZZ, 
+                    keras.prepareZZ, MachineShop.prepareZZ, nnet.prepareZZ)
 cbind(pkgvect, funvect, startvect)
 
 resall <- train_and_predict_1data(dset=1, method=methodlist, train=trainvect, hyper=hypervect, pred=predvect,  
                                summary=NNsummary, close=closevect, start=startvect, prepare=preparelist, 
                                nrep=2, echo=TRUE, doplot=FALSE,
                                pkgname=pkgvect, pkgfun=funvect, rdafile=TRUE, odir=odir)
+
+write.csv(resall, file=paste0(odir, "results.csv"))
+
 kable(resall)
 ```
 
