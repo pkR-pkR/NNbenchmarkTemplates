@@ -9,6 +9,7 @@ output:
         number_sections: true
 ---
 
+# Environment and datasets 
 
 ```{r message=FALSE, warning=FALSE}
 library(NNbenchmark)
@@ -17,6 +18,7 @@ library(stringr)
 library(dplyr)
 library(kableExtra)
 ```
+
 
 ## Set Environment
 ```{r}
@@ -37,9 +39,9 @@ odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempres
 
 
 
-## generic call
+# The generic call
 
-Should be  part of the NNbenchmark package?!
+Should be  part of the `NNbenchmark` package?!
 
 ```{r}
 funWAE <- function(y_pred, y0, dgts = 4)
@@ -100,20 +102,27 @@ train_and_predict_1mth_1data <- function(dset, method, trainFUN, hyperparamFUN, 
     {
         timer$start(descr)
         tempfit <- tryCatch(
-            do.call(trainFUN, list(ZZ$x, ZZ$y, ZZ$Zxy, ZZ$fmla, neur, method,  hyperparamFUN)),
+            do.call(trainFUN, list(ZZ$x, ZZ$y, ZZ$Zxy, ZZ$fmla, neur, method,  hyperparamFUN, fmlaNN, nparNN)),
             error = function(y) {lm(y ~ 0, data = ZZ$Zxy)}
                           ) 
+        if(echo && echoreport > 1)
+        {
+          cat("\n*** \tdebug : structure of fitted model \t***\n")
+          print(str(tempfit))
+          cat("\n*** \tdebug : summary of fitted model \t***\n")
+          print(summary(tempfit))
+          
+        }
         if(inherits(tempfit, "lm") || inherits(tempfit, "try-error"))
         {
           Ypred[[i]] <- rep(ZZ$ym0, length.out=NROW(ZZ$x))
         }else
         {
+          
           if(echo && echoreport > 1)
           {
-            cat("debug\n")
-            print(tempfit)
-            print(summary(tempfit))
-            print(do.call(predictFUN, list(tempfit, head(ZZ$x), head(ZZ$xy))))
+            cat("\n*** \tdebug : first predictions \t***\n")
+            print(str(do.call(predictFUN, list(tempfit, ZZ$x, ZZ$xy))))
           }
           Ypred[[i]] <- tryCatch(
             ZZ$ym0 + ZZ$ysd0 * do.call(predictFUN, list(tempfit, ZZ$x, ZZ$Zxy)),
@@ -282,7 +291,7 @@ train_and_predict_1data <- function(dset, methodvect, trainFUN, hyperparamFUN, p
 ```
 
 
-
+# Dedicated functions by packages
 
 ## AMORE Train/predict Functions
 ```{r}
@@ -872,6 +881,161 @@ res <- train_and_predict_1data(1, MachineShop.method, "NNtrain.MachineShop", "hy
 ```
 
 
+## minpack.lm train/predict functions
+```{r}
+library(minpack.lm)
+minpack.lm.method <- "none"
+hyperParams.minpack.lm <- function(...) {
+    return (list(iter=150, sdnormstart=0.1))
+}
+NNtrain.minpack.lm <- function(x, y, dataxy, formula, hidden_neur, method, hyperParams, NNfullformula, NNparam, ...) {
+    
+    hyper_params <- do.call(hyperParams, list(...))
+    
+    start <- round(rnorm(NNparam, sd = hyper_params$sdnormstart), 4)
+    names(start)  <- paste0("b", 1:NNparam)
+    minpack.lm::nlsLM(NNfullformula, data = dataxy, start=start,
+                      control = list(maxiter = hyper_params$iter))
+}
+NNpredict.minpack.lm <- function(object, x, ...)
+  predict(object, newdata=as.data.frame(x))
+
+NNclose.minpack.lm <- function()
+  if("package:minpack.lm" %in% search())
+    detach("package:minpack.lm", unload=TRUE)
+minpack.lm.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
+
+if(FALSE)
+res <- train_and_predict_1data(1, minpack.lm.method, "NNtrain.minpack.lm", "hyperParams.minpack.lm", "NNpredict.minpack.lm", 
+                               NNsummary, "NNclose.minpack.lm", NA, minpack.lm.prepareZZ, nrep=5,
+                               echo=TRUE, doplot=FALSE, echoreport=0,
+                               pkgname="minpack.lm", pkgfun="nlsLM", rdafile=TRUE, odir=odir)
+```
+
+
+## monmlp train/predict functions
+```{r}
+library(monmlp)
+monmlp.method <- c("BFGS", "Nelder-Mead")
+hyperParams.monmlp <- function(...) {
+    return (list(iter=300, silent=TRUE, scale=TRUE))
+}
+NNtrain.monmlp <- function(x, y, dataxy, formula, hidden_neur, method, hyperParams, ...) {
+    
+    hyper_params <- do.call(hyperParams, list(...))
+    
+    monmlp::monmlp.fit(x, y, hidden1 = hidden_neur, scale.y = hyper_params$scale, silent=hyper_params$silent,
+                         method = method, iter.max = hyper_params$iter)
+}
+NNpredict.monmlp <- function(object, x, ...)
+  as.numeric(monmlp::monmlp.predict(x, weights=object))
+
+NNclose.monmlp <- function()
+  if("package:monmlp" %in% search())
+    detach("package:monmlp", unload=TRUE)
+monmlp.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+
+if(FALSE)
+res <- train_and_predict_1data(1, monmlp.method, "NNtrain.monmlp", "hyperParams.monmlp", "NNpredict.monmlp", 
+                               NNsummary, "NNclose.monmlp", NA, monmlp.prepareZZ, nrep=2,
+                               echo=TRUE, doplot=FALSE, echoreport=0,
+                               pkgname="monmlp", pkgfun="monmlp.fit", rdafile=TRUE, odir=odir)
+```
+
+## neural train/predict functions
+```{r}
+library(neural)
+neural.method <- "none"
+hyperParams.neural <- function(...) {
+    return (list(iter=1000, visual=FALSE, alfa=0.9))
+}
+NNtrain.neural <- function(x, y, dataxy, formula, hidden_neur, method, hyperParams, ...) {
+    
+    hyper_params <- do.call(hyperParams, list(...))
+    
+    neural::mlptrain(x, neurons = hidden_neur, y, alfa = hyper_params$alfa, 
+                       it = hyper_params$iter, visual = hyper_params$visual)
+}
+NNpredict.neural <- function(object, x, ...)
+  as.numeric(neural::mlp(x, object$weight, object$dist, object$neurons, object$actfns))
+
+NNclose.neural <- function()
+  if("package:neural" %in% search())
+    detach("package:neural", unload=TRUE)
+neural.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+
+if(FALSE)
+res <- train_and_predict_1data(1, neural.method, "NNtrain.neural", "hyperParams.neural", "NNpredict.neural", 
+                               NNsummary, "NNclose.neural", NA, neural.prepareZZ, nrep=2,
+                               echo=TRUE, doplot=FALSE, echoreport=0,
+                               pkgname="neural", pkgfun="mlptrain", rdafile=TRUE, odir=odir)
+```
+
+
+## neuralnet train/predict functions
+```{r}
+library(neuralnet)
+neuralnet.method <- c("slr", "sag", "rprop-", "rprop+", "backprop")
+hyperParams.neuralnet <- function(...) {
+    return (list(iter=300, silent=TRUE, scale=TRUE))
+}
+NNtrain.neuralnet <- function(x, y, dataxy, formula, hidden_neur, method, hyperParams, ...) {
+    
+    hyper_params <- do.call(hyperParams, list(...))
+    
+    neuralnet::neuralnet(formula = formula, data = dataxy, hidden = hidden_neur, algorithm=method,
+						stepmax = hyper_params$iter, startweights = NULL, act.fct = "tanh")
+}
+NNpredict.neuralnet <- function(object, x, ...)
+  
+  as.numeric(predict(object, newdata = x))
+
+NNclose.neuralnet <- function()
+  if("package:neuralnet" %in% search())
+    detach("package:neuralnet", unload=TRUE)
+neuralnet.prepareZZ <- list(xdmv = "d", ydmv = "d", zdm = "d", scale = TRUE)
+
+if(FALSE)
+res <- train_and_predict_1data(1, neuralnet.method, "NNtrain.neuralnet", "hyperParams.neuralnet", "NNpredict.neuralnet", 
+                               NNsummary, "NNclose.neuralnet", NA, neuralnet.prepareZZ, nrep=2,
+                               echo=TRUE, doplot=FALSE, echoreport=2,
+                               pkgname="neuralnet", pkgfun="neuralnet", rdafile=TRUE, odir=odir)
+```
+
+## nlsr train/predict functions
+```{r}
+library(nlsr)
+nlsr.method <- "none"
+hyperParams.nlsr <- function(...) {
+    return (list(iter=150, sdnormstart=0.1))
+}
+NNtrain.nlsr <- function(x, y, dataxy, formula, hidden_neur, method, hyperParams, NNfullformula, NNparam, ...) {
+    
+    hyper_params <- do.call(hyperParams, list(...))
+    
+    start <- round(rnorm(NNparam, sd = hyper_params$sdnormstart), 4)
+    names(start)  <- paste0("b", 1:NNparam)
+    
+    nlsr::nlxb(NNfullformula, start = start, data = dataxy,
+                                control = list(femax = hyper_params$iter))
+}
+NNpredict.nlsr <- function(object, x, ...)
+  as.numeric(predict(object, x))
+
+NNclose.nlsr <- function()
+  if("package:nlsr" %in% search())
+    detach("package:nlsr", unload=TRUE)
+nlsr.prepareZZ <- list(xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)
+
+if(FALSE)
+res <- train_and_predict_1data(1, nlsr.method, "NNtrain.nlsr", "hyperParams.nlsr", "NNpredict.nlsr", 
+                               NNsummary, "NNclose.nlsr", NA, nlsr.prepareZZ, nrep=5,
+                               echo=TRUE, doplot=FALSE, echoreport=0,
+                               pkgname="nlsr", pkgfun="nlxb", rdafile=TRUE, odir=odir)
+```
+
+
+
 ## nnet Train/predict Functions
 ```{r}
 library(nnet)
@@ -901,36 +1065,124 @@ res <- train_and_predict_1data(1, nnet.method, "NNtrain.nnet", "hyperParams.nnet
 ```
 
 
+## radiant.model Train/predict Functions
+```{r}
+library(radiant.model)
+radiant.model.method <- "none"
+hyperParams.radiant.model <- function(...) {
+    return (list(type="regression", decay=0))
+}
+NNtrain.radiant.model <- function(x, y, dataxy, formula, hidden_neur, method, hyperParams, ...) {
+    
+    hyper_params <- do.call(hyperParams, list(...))
+    
+    radiant.model::nn(dataxy, rvar = "y", evar = attr(terms(formula), "term.labels"),
+                      type = hyper_params$type, size = hidden_neur, 
+                      decay = hyper_params$decay)
+    
+}
+NNpredict.radiant.model <- function(object, x, ...)
+   predict(object, pred_data=as.data.frame(x))$Prediction
+NNclose.radiant.model <- function()
+  if("package:radiant.model" %in% search())
+    detach("package:radiant.model", unload=TRUE)
+radiant.model.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 
-## all packages
+if(FALSE)
+res <- train_and_predict_1data(1, radiant.model.method, "NNtrain.radiant.model", "hyperParams.radiant.model", "NNpredict.radiant.model", 
+                               NNsummary, "NNclose.radiant.model", NA, radiant.model.prepareZZ, nrep=5,
+                               echo=TRUE, doplot=FALSE, echoreport=0,
+                               pkgname="radiant.model", pkgfun="nn", rdafile=TRUE, odir=odir)
+
+    
+```
+
+
+## rminer Train/predict Functions
+```{r}
+library(rminer)
+rminer.method <- "none"
+hyperParams.rminer <- function(...) {
+    return (list(task="reg", iter=150))
+}
+NNtrain.rminer <- function(x, y, dataxy, formula, hidden_neur, method, hyperParams, ...) {
+    
+    hyper_params <- do.call(hyperParams, list(...))
+    
+    rminer::fit(formula, data = dataxy, model = "mlp", task = hyper_params$task, 
+                                        size = hidden_neur, maxit = hyper_params$iter)
+}
+NNpredict.rminer <- function(object, x, ...)
+   as.numeric(rminer::predict(object, newdata=as.data.frame(x)))
+NNclose.rminer <- function()
+  if("package:rminer" %in% search())
+    detach("package:rminer", unload=TRUE)
+rminer.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+
+if(FALSE)
+res <- train_and_predict_1data(1, rminer.method, "NNtrain.rminer", "hyperParams.rminer", "NNpredict.rminer", 
+                               NNsummary, "NNclose.rminer", NA, rminer.prepareZZ, nrep=2,
+                               echo=TRUE, doplot=FALSE, echoreport=0,
+                               pkgname="rminer", pkgfun="fit", rdafile=TRUE, odir=odir)
+```
+
+## tsensembler
+Package removed from CRAN
+
+
+# Launch all packages
 ```{r}
 methodlist <- list(AMORE.method, automl.method, brnn.method, CaDENCE.method, 
                    deepnet.method, elmNNRcpp.method, ELMR.method, h2o.method, 
-                   keras.method, MachineShop.method, nnet.method)
-pkgvect <- c("AMORE", "automl", "brnn", "CaDENCE", "deepnet", "elmNNRcpp", "ELMR", "h2o",  "keras", "MachineShop", "nnet")
-funvect <- c("train", "automl_train_manual", "brnn", "cadence.fit", "nn.train", "elm_train", "OSelm_train", "deeplearning", "fit", "fit", "nnet")
-trainvect <- paste("NNtrain", pkgvect, sep=".")
-hypervect <- paste("hyperParams", pkgvect, sep=".")
-predvect <- paste("NNpredict", pkgvect, sep=".")
+                   keras.method, MachineShop.method, minpack.lm.method, monmlp.method,
+                   neural.method, nlsr.method, nnet.method, radiant.model.method,
+                   rminer.method)
+
+pkgfunmat <- rbind(c("AMORE", "train"),
+                   c("automl", "automl_train_manual"),
+                   c("brnn", "brnn"),
+                   c("CaDENCE", "cadence.fit"),
+                   c("deepnet", "nn.train"),
+                   c("elmNNRcpp", "elm_train"),
+                   c("ELMR", "OSelm_train"),
+                   c("h2o", "deeplearning"),
+                   c("keras", "fit"),
+                   c("MachineShop", "fit"),
+                   c("minpack.lm", "nlsLM"),
+                   c("monmlp", "monmlp.fit"),
+                   c("neural", "mlptrain"),
+                   c("nlsr", "nlxb"),
+                   c("nnet", "nnet"),
+                   c("radiant.model", "nn"),
+                   c("rminer", "fit"))
+colnames(pkgfunmat) <- c("pkg", "fun")  
+
+trainvect <- paste("NNtrain", pkgfunmat[,"pkg"], sep=".")
+hypervect <- paste("hyperParams", pkgfunmat[,"pkg"], sep=".")
+predvect <- paste("NNpredict", pkgfunmat[,"pkg"], sep=".")
 
 #close function is only needed for h2o
-closevect <- paste("NNclose", pkgvect, sep=".")
-startvect <- rep(NA, length(pkgvect))
-startvect[pkgvect == "h2o"] <- "NNstart.h2o"
+closevect <- paste("NNclose", pkgfunmat[,"pkg"], sep=".")
+startvect <- rep(NA, length(pkgfunmat[,"pkg"]))
+startvect[pkgfunmat[,"pkg"] == "h2o"] <- "NNstart.h2o"
 
 preparelist <- list(AMORE.prepareZZ, automl.prepareZZ, brnn.prepareZZ, CaDENCE.prepareZZ,
                     deepnet.prepareZZ, elmNNRcpp.prepareZZ, ELMR.prepareZZ, h2o.prepareZZ, 
-                    keras.prepareZZ, MachineShop.prepareZZ, nnet.prepareZZ)
-cbind(pkgvect, funvect, startvect)
+                    keras.prepareZZ, MachineShop.prepareZZ, minpack.lm.prepareZZ, monmlp.prepareZZ, 
+                    neural.prepareZZ, nlsr.prepareZZ, nnet.prepareZZ, radiant.model.prepareZZ,
+                    rminer.prepareZZ)
+names(preparelist) <- pkgfunmat[,"pkg"]
+print(cbind(pkgfunmat, startvect))
 
-resall <- train_and_predict_1data(dset=1, method=methodlist, train=trainvect, hyper=hypervect, pred=predvect,  
-                               summary=NNsummary, close=closevect, start=startvect, prepare=preparelist, 
-                               nrep=2, echo=TRUE, doplot=FALSE,
-                               pkgname=pkgvect, pkgfun=funvect, rdafile=TRUE, odir=odir)
+resall <- train_and_predict_1data(dset=1, method=methodlist, train=trainvect, hyper=hypervect,
+                                  pred=predvect, summary=NNsummary, close=closevect, 
+                                  start=startvect, prepare=preparelist, 
+                                  nrep=2, echo=TRUE, doplot=FALSE,
+                                  pkgname=pkgfunmat[,"pkg"], pkgfun=pkgfunmat[,"fun"], rdafile=TRUE, odir=odir)
 
 write.csv(resall, file=paste0(odir, "results.csv"))
 
-kable(resall)
+kable(t(resall))
 ```
 
 
