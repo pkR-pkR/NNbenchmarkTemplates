@@ -12,16 +12,12 @@ output:
 
 ```{r message=FALSE, warning=FALSE}
 library(NNbenchmark)
-
-library(stringr)
-library(dplyr)
 library(kableExtra)
 ```
 
 
 ## Set Environment
 ```{r}
-options(scipen = 9999)
 options("digits.secs" = 2)
 timer  <- createTimer(verbose = FALSE)
 ```
@@ -322,7 +318,7 @@ train_and_predict_1data <- function(dset, methodvect, trainFUN, hyperparamFUN, p
 
 ## AMORE Train/predict Functions
 ```{r}
-library(AMORE)
+#library(AMORE)
 hyperParams.AMORE <- function(optim_method, ...) {
     
     if (!is.element(optim_method, c("ADAPTgd", "ADAPTgdwm", "BATCHgd", "BATCHgdwm"))) stop("Invalid Parameters.")
@@ -373,7 +369,7 @@ res <- train_and_predict_1data(1, AMORE.method, "NNtrain.AMORE", "hyperParams.AM
 
 ## ANN2 Train/predict Functions - arguments x,y
 ```{r, eval=FALSE}
-library(ANN2)
+#library(ANN2)
 ANN2.method <- c("sgd", "rmsprop")
 hyperParams.ANN2 <- function(optim_method) {
     
@@ -425,7 +421,7 @@ res <- train_and_predict_1data(1, ANN2.method, "NNtrain.ANN2", "hyperParams.ANN2
 
 ## automl Train/predict Function - arguments x,y
 ```{r}
-library(automl)
+#library(automl)
 automl.method <- c("trainwgrad", "trainwpso")
 hyperParams.automl <- function(optim_method, ...) {
     
@@ -470,7 +466,7 @@ res <- train_and_predict_1data(1, automl.method, "NNtrain.automl", "hyperParams.
 
 ## brnn Train/predict Function - arguments x,y
 ```{r}
-library(brnn)
+#library(brnn)
 brnn.method <- "gaussNewton"
 hyperParams.brnn <- function(optim_method, ...) {
     
@@ -510,7 +506,7 @@ res <- train_and_predict_1data(1, brnn.method, "NNtrain.brnn", "hyperParams.brnn
 
 ## CaDENCE Train/predict Function - arguments x,y
 ```{r}
-library(CaDENCE)
+#library(CaDENCE)
 CaDENCE.method <- c("optim", "psoptim", "Rprop")
 hyperParams.CaDENCE <- function(optim_method, ...) {
     
@@ -556,7 +552,7 @@ res <- train_and_predict_1data(1, CaDENCE.method, "NNtrain.CaDENCE", "hyperParam
 
 ## deepnet Train/predict Function - arguments x,y
 ```{r}
-library(deepnet)
+#library(deepnet)
 deepnet.method <- "gradientDescent"
 hyperParams.deepnet <- function(optim_method, ...) {
     
@@ -611,7 +607,7 @@ res <- train_and_predict_1data(1, CaDENCE.method, "NNtrain.deepnet", "hyperParam
 
 ## elmNNRcpp Train Function - arguments x,y
 ```{r}
-library(elmNNRcpp)
+#library(elmNNRcpp)
 elmNNRcpp.method <- "extremeML"
 hyperParams.elmNNRcpp <- function(optim_method, ...) {
     
@@ -710,7 +706,7 @@ res <- train_and_predict_1data(1, ELMR.method, "NNtrain.ELMR", "hyperParams.ELMR
 
 ## h2o Train Function - arguments xy,y
 ```{r}
-library(h2o)
+#library(h2o)
 h2o.method <- "gradientDescent"
 hyperParams.h2o <- function(optim_method, ...) {
     
@@ -794,7 +790,7 @@ res <- train_and_predict_1data(1, h2o.method, "NNtrain.h2o", "hyperParams.h2o", 
 
 ## keras Train Function - arguments x,y
 ```{r}
-library(keras)
+#library(keras)
 keras.method <- c("adam", "rmsprop", "sgd", "adadelta", "adagrad")
 hyperParams.keras <- function(optim_method, ...) {
     
@@ -867,7 +863,7 @@ res <- train_and_predict_1data(1, keras.method, "NNtrain.keras", "hyperParams.ke
 
 ## MachineShop Train/predict Functions - arguments formula,data
 ```{r}
-library(MachineShop)
+#library(MachineShop)
 MachineShop.method <- "none"
 hyperParams.MachineShop <- function(...) {
     return (list(iter=150, trace=FALSE, linout=TRUE))
@@ -902,7 +898,7 @@ res <- train_and_predict_1data(1, MachineShop.method, "NNtrain.MachineShop", "hy
 
 ## minpack.lm train/predict functions - arguments formula,data
 ```{r}
-library(minpack.lm)
+#library(minpack.lm)
 minpack.lm.method <- "none"
 hyperParams.minpack.lm <- function(...) {
     return (list(iter=150, sdnormstart=0.1))
@@ -934,7 +930,7 @@ res <- train_and_predict_1data(1, minpack.lm.method, "NNtrain.minpack.lm", "hype
 
 ## monmlp train/predict functions - arguments x,y
 ```{r}
-library(monmlp)
+#library(monmlp)
 monmlp.method <- c("BFGS", "Nelder-Mead")
 hyperParams.monmlp <- function(...) {
     return (list(iter=300, silent=TRUE, scale=TRUE))
@@ -963,7 +959,7 @@ res <- train_and_predict_1data(1, monmlp.method, "NNtrain.monmlp", "hyperParams.
 
 ## neural train/predict functions - arguments x,y
 ```{r}
-library(neural)
+#library(neural)
 neural.method <- "none"
 hyperParams.neural <- function(...) {
     return (list(iter=1000, visual=FALSE, alfa=0.9))
@@ -993,7 +989,7 @@ res <- train_and_predict_1data(1, neural.method, "NNtrain.neural", "hyperParams.
 
 ## neuralnet train/predict functions - arguments formula,data
 ```{r}
-library(neuralnet)
+#library(neuralnet)
 neuralnet.method <- c("slr", "sag", "rprop-", "rprop+", "backprop")
 hyperParams.neuralnet <- function(optim_method, ...) {
   
@@ -1024,7 +1020,7 @@ res <- train_and_predict_1data(1, neuralnet.method, "NNtrain.neuralnet", "hyperP
 
 ## nlsr train/predict functions - arguments formula,data
 ```{r}
-library(nlsr)
+#library(nlsr)
 nlsr.method <- "none"
 hyperParams.nlsr <- function(...) {
     return (list(iter=150, sdnormstart=0.1))
@@ -1058,7 +1054,7 @@ res <- train_and_predict_1data(1, nlsr.method, "NNtrain.nlsr", "hyperParams.nlsr
 
 ## nnet Train/predict Functions - arguments x,y
 ```{r}
-library(nnet)
+#library(nnet)
 nnet.method <- "none"
 hyperParams.nnet <- function(...) {
     return (list(iter=150, trace=FALSE))
@@ -1087,7 +1083,7 @@ res <- train_and_predict_1data(1, nnet.method, "NNtrain.nnet", "hyperParams.nnet
 
 ## qrnn Train/predict Function - arguments x,y
 ```{r}
-library(qrnn)
+#library(qrnn)
 qrnn.method <- "none"
 hyperParams.qrnn <- function(optim_method, ...) {
     
@@ -1126,7 +1122,7 @@ res <- train_and_predict_1data(1, qrnn.method, "NNtrain.qrnn", "hyperParams.qrnn
 
 ## radiant.model Train/predict Functions - arguments xy,y
 ```{r}
-library(radiant.model)
+#library(radiant.model)
 radiant.model.method <- "none"
 hyperParams.radiant.model <- function(...) {
     return (list(type="regression", decay=0))
@@ -1158,7 +1154,7 @@ res <- train_and_predict_1data(1, radiant.model.method, "NNtrain.radiant.model",
 
 ## rcane train/predict functions - arguments formula,data
 ```{r}
-library(rcane)
+#library(rcane)
 rcane.method <- c("bgd", "sgd", "cd", "mini-bgd")
 hyperParams.rcane <- function(...) {
     return (list(iter=1000, alpha=0.1))
@@ -1187,7 +1183,7 @@ res <- train_and_predict_1data(1, rcane.method, "NNtrain.rcane", "hyperParams.rc
 
 ## rminer Train/predict Functions - arguments formula,data
 ```{r}
-library(rminer)
+#library(rminer)
 rminer.method <- "none"
 hyperParams.rminer <- function(...) {
     return (list(task="reg", iter=150))
@@ -1216,7 +1212,7 @@ res <- train_and_predict_1data(1, rminer.method, "NNtrain.rminer", "hyperParams.
 
 ## RSNNS Train/predict Function - arguments x,y
 ```{r}
-library(RSNNS)
+#library(RSNNS)
 RSNNS.method <- c("Rprop","BackpropBatch","BackpropChunk","BackpropMomentum",
                   "BackpropWeightDecay","Quickprop","SCG","Std_Backpropagation")
 hyperParams.RSNNS <- function(optim_method, ...) {
@@ -1260,12 +1256,121 @@ res <- train_and_predict_1data(1, RSNNS.method, "NNtrain.RSNNS", "hyperParams.RS
 ```
 
 
+## simpleNeural Train/predict Function - arguments x,y
+```{r}
+simpleNeural.method <- "none"
+hyperParams.simpleNeural <- function(optim_method, ...) {
+    
+    maxiter <- 1000
+    params <- paste0("method=", optim_method, "_iter=", maxiter)
+  
+    out <- list(iter = maxiter, alpha=0.001, params = params, lambda=0.5)
+    return (out)
+}
+NNtrain.simpleNeural <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams,...) {
+    
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    
+    NNreg <- simpleNeural::sN.MLPtrain(x, y, hidden_layer_size = hidden_neur, it = hyper_params$iter, 
+                  lambda = hyper_params$lambda, alpha = hyper_params$alpha)
+    
+    return (NNreg)
+}
+NNpredict.simpleNeural <- function(object, x, ...)
+  simpleNeural::sN.MLPpredict(nnModel = object, X = x, raw = FALSE)
+NNclose.simpleNeural <- function()
+  if("package:simpleNeural" %in% search())
+    detach("package:simpleNeural", unload=TRUE)
+simpleNeural.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
+
+
+if(FALSE)
+res <- train_and_predict_1data(1, simpleNeural.method, "NNtrain.simpleNeural", "hyperParams.simpleNeural", "NNpredict.simpleNeural", 
+                               NNsummary, "NNclose.simpleNeural", NA, simpleNeural.prepareZZ, nrep=1, echo=TRUE, doplot=FALSE,
+                               pkgname="simpleNeural", pkgfun="sN.MLPtrain", rdafile=TRUE, odir=odir, echoreport=1)
+
+```
+
+
+
+## snnR Train/predict Function - arguments x,y
+```{r}
+snnR.method <- "none"
+hyperParams.snnR <- function(optim_method, ...) {
+    
+    maxiter <- 200
+    params <- paste0("method=", optim_method, "_iter=", maxiter)
+  
+    out <- list(iter = maxiter, params = params)
+    return (out)
+}
+NNtrain.snnR <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams,...) {
+    
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    
+    NNreg <- snnR::snnR(x, y, nHidden = as.matrix(hidden_neur), 
+                 iteramax = hyper_params$iter, verbose=FALSE)
+    return (NNreg)
+}
+NNpredict.snnR <- function(object, x, ...)
+  predict(object, x)
+NNclose.snnR <- function()
+  if("package:snnR" %in% search())
+    detach("package:snnR", unload=TRUE)
+snnR.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
+
+
+if(FALSE)
+res <- train_and_predict_1data(1, simpleNeural.method, "NNtrain.snnR", "hyperParams.snnR", "NNpredict.snnR", 
+                               NNsummary, "NNclose.snnR", NA, simpleNeural.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="snnR", pkgfun="snnR", rdafile=TRUE, odir=odir, echoreport=1)
+
+```
+
+
+## softmaxreg Train/predict Function - arguments x,y
+```{r}
+softmaxreg.method <- c("sgd", "adagrad", "rmsprop", "adadelta","momentum",
+                       "nag")
+hyperParams.softmaxreg <- function(optim_method, ...) {
+    
+    maxiter <- 100
+    params <- paste0("method=", optim_method, "_iter=", maxiter)
+  
+    out <- list(iter = maxiter, params = params)
+    return (out)
+}
+NNtrain.softmaxreg <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams,...) {
+    
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    
+    NNreg <- softmaxreg::softmaxReg(x, y, hidden = as.matrix(hidden_neur), 
+                 maxit = hyper_params$iter, type="raw", algorithm=optim_method,
+                 funName="tanh")
+    return (NNreg)
+}
+NNpredict.softmaxreg <- function(object, x, ...)
+  predict(object, x)
+NNclose.softmaxreg <- function()
+  if("package:softmaxreg" %in% search())
+    detach("package:softmaxreg", unload=TRUE)
+softmaxreg.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+
+
+if(FALSE)
+res <- train_and_predict_1data(1, softmaxreg.method, "NNtrain.softmaxreg", "hyperParams.softmaxreg", "NNpredict.softmaxreg", 
+                               NNsummary, "NNclose.softmaxreg", NA, softmaxreg.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="softmaxreg", pkgfun="softmaxReg", rdafile=TRUE, odir=odir, echoreport=1)
+
+```
+
+
 ## tsensembler
 Package removed from CRAN
 
 
 # Launch all packages
-```{r, message=FALSE}
+```{r, message=FALSE, warning=FALSE}
 methodlist <- list(AMORE.method, automl.method, 
                    brnn.method, CaDENCE.method, 
                    deepnet.method, elmNNRcpp.method, 
@@ -1276,7 +1381,8 @@ methodlist <- list(AMORE.method, automl.method,
                    nlsr.method, nnet.method, 
                    qrnn.method,
                    radiant.model.method, rcane.method,
-                   rminer.method, RSNNS.method)
+                   rminer.method, RSNNS.method,
+                   simpleNeural.method, snnR.method)
 
 pkgfunmat <- rbind(c("AMORE", "train"),
                    c("automl", "automl_train_manual"),
@@ -1298,7 +1404,9 @@ pkgfunmat <- rbind(c("AMORE", "train"),
                    c("radiant.model", "nn"),
                    c("rcane", "rlm"),
                    c("rminer", "fit"),
-                   c("RSNNS", "mlp"))
+                   c("RSNNS", "mlp"),
+                   c("simpleNeural", "sN.MLPtrain"),
+                   c("snnR", "snnR"))
 colnames(pkgfunmat) <- c("pkg", "fun")  
 
 trainvect <- paste("NNtrain", pkgfunmat[,"pkg"], sep=".")
@@ -1320,18 +1428,34 @@ preparelist <- list(AMORE.prepareZZ, automl.prepareZZ,
                     nlsr.prepareZZ, nnet.prepareZZ, 
                     qrnn.prepareZZ,
                     radiant.model.prepareZZ, rcane.prepareZZ,
-                    rminer.prepareZZ, RSNNS.prepareZZ)
+                    rminer.prepareZZ, RSNNS.prepareZZ,
+                    simpleNeural.prepareZZ, snnR.prepareZZ)
 names(preparelist) <- pkgfunmat[,"pkg"]
 #print(cbind(pkgfunmat, startvect))
 
-resall <- train_and_predict_1data(dset=1, method=methodlist, train=trainvect, hyper=hypervect,
-                                  pred=predvect, summary=NNsummary, close=closevect, 
-                                  start=startvect, prepare=preparelist, nrep=5, echo=TRUE, doplot=FALSE,
-                                  pkgname=pkgfunmat[,"pkg"], pkgfun=pkgfunmat[,"fun"], rdafile=TRUE, odir=odir)
 
-write.csv(resall, file=paste0(odir, "results.csv"))
+resall <- lapply(1:3, function(i)
+  train_and_predict_1data(dset=i, method=methodlist[[1]], train=trainvect[1], hyper=hypervect[1],
+                          pred=predvect[1], summary=NNsummary, close=closevect[1], 
+                          start=startvect[1], prepare=preparelist[[1]], nrep=2, echo=FALSE,
+                          doplot=FALSE, pkgname=pkgfunmat[1,"pkg"], pkgfun=pkgfunmat[1,"fun"],
+                          rdafile=TRUE, odir=odir))
+if(is.list(resall))
+{
+  names(resall) <- names(NNdatasets)[1:length(resall)]
+  resall <- simplify2array(resall)
+  fname <- paste0("results-summary-", dimnames(resall)[[3]], ".csv")
+  for(i in 1:dim(resall)[3])
+    write.csv(resall[,,i], file=fname[i])
+  
+}else
+{
+  write.csv(resall, file=paste0(odir, "results-summary.csv"))
+}
 
-kable(t(resall))
+save(resall, file=paste0(odir, "results-summary.RData"))
+
+kable(resall)
 ```
 
 
