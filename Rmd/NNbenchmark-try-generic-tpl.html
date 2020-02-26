@@ -1817,7 +1817,7 @@ train_and_predict_1mth_1data &lt;- function(dset, method, trainFUN, hyperparamFU
 <h1><span class="header-section-number">3</span> Dedicated functions by packages</h1>
 <div id="amore-trainpredict-functions" class="section level2">
 <h2><span class="header-section-number">3.1</span> AMORE Train/predict Functions</h2>
-<pre class="r"><code>library(AMORE)
+<pre class="r"><code>#library(AMORE)
 hyperParams.AMORE &lt;- function(optim_method, ...) {
     
     if (!is.element(optim_method, c(&quot;ADAPTgd&quot;, &quot;ADAPTgdwm&quot;, &quot;BATCHgd&quot;, &quot;BATCHgdwm&quot;))) stop(&quot;Invalid Parameters.&quot;)
@@ -1866,7 +1866,7 @@ res &lt;- train_and_predict_1data(1, AMORE.method, &quot;NNtrain.AMORE&quot;, &q
 </div>
 <div id="ann2-trainpredict-functions---arguments-xy" class="section level2">
 <h2><span class="header-section-number">3.2</span> ANN2 Train/predict Functions - arguments x,y</h2>
-<pre class="r"><code>library(ANN2)
+<pre class="r"><code>#library(ANN2)
 ANN2.method &lt;- c(&quot;sgd&quot;, &quot;rmsprop&quot;)
 hyperParams.ANN2 &lt;- function(optim_method) {
     
@@ -1916,7 +1916,7 @@ res &lt;- train_and_predict_1data(1, ANN2.method, &quot;NNtrain.ANN2&quot;, &quo
 </div>
 <div id="automl-trainpredict-function---arguments-xy" class="section level2">
 <h2><span class="header-section-number">3.3</span> automl Train/predict Function - arguments x,y</h2>
-<pre class="r"><code>library(automl)
+<pre class="r"><code>#library(automl)
 automl.method &lt;- c(&quot;trainwgrad&quot;, &quot;trainwpso&quot;)
 hyperParams.automl &lt;- function(optim_method, ...) {
     
@@ -1959,9 +1959,8 @@ res &lt;- train_and_predict_1data(1, automl.method, &quot;NNtrain.automl&quot;, 
 </div>
 <div id="brnn-trainpredict-function---arguments-xy" class="section level2">
 <h2><span class="header-section-number">3.4</span> brnn Train/predict Function - arguments x,y</h2>
-<pre class="r"><code>library(brnn)</code></pre>
-<pre><code>## Loading required package: Formula</code></pre>
-<pre class="r"><code>brnn.method &lt;- &quot;gaussNewton&quot;
+<pre class="r"><code>#library(brnn)
+brnn.method &lt;- &quot;gaussNewton&quot;
 hyperParams.brnn &lt;- function(optim_method, ...) {
     
     if (!is.element(optim_method, c(&quot;gaussNewton&quot;))) stop(&quot;Invalid Parameters.&quot;)
@@ -1998,9 +1997,8 @@ res &lt;- train_and_predict_1data(1, brnn.method, &quot;NNtrain.brnn&quot;, &quo
 </div>
 <div id="cadence-trainpredict-function---arguments-xy" class="section level2">
 <h2><span class="header-section-number">3.5</span> CaDENCE Train/predict Function - arguments x,y</h2>
-<pre class="r"><code>library(CaDENCE)</code></pre>
-<pre><code>## Loading required package: pso</code></pre>
-<pre class="r"><code>CaDENCE.method &lt;- c(&quot;optim&quot;, &quot;psoptim&quot;, &quot;Rprop&quot;)
+<pre class="r"><code>#library(CaDENCE)
+CaDENCE.method &lt;- c(&quot;optim&quot;, &quot;psoptim&quot;, &quot;Rprop&quot;)
 hyperParams.CaDENCE &lt;- function(optim_method, ...) {
     
     if (!is.element(optim_method, c(&quot;nelderMead&quot;))) stop(&quot;Invalid Parameters.&quot;)
@@ -2044,7 +2042,7 @@ res &lt;- train_and_predict_1data(1, CaDENCE.method, &quot;NNtrain.CaDENCE&quot;
 </div>
 <div id="deepnet-trainpredict-function---arguments-xy" class="section level2">
 <h2><span class="header-section-number">3.6</span> deepnet Train/predict Function - arguments x,y</h2>
-<pre class="r"><code>library(deepnet)
+<pre class="r"><code>#library(deepnet)
 deepnet.method &lt;- &quot;gradientDescent&quot;
 hyperParams.deepnet &lt;- function(optim_method, ...) {
     
@@ -2097,9 +2095,8 @@ res &lt;- train_and_predict_1data(1, CaDENCE.method, &quot;NNtrain.deepnet&quot;
 </div>
 <div id="elmnnrcpp-train-function---arguments-xy" class="section level2">
 <h2><span class="header-section-number">3.7</span> elmNNRcpp Train Function - arguments x,y</h2>
-<pre class="r"><code>library(elmNNRcpp)</code></pre>
-<pre><code>## Loading required package: KernelKnn</code></pre>
-<pre class="r"><code>elmNNRcpp.method &lt;- &quot;extremeML&quot;
+<pre class="r"><code>#library(elmNNRcpp)
+elmNNRcpp.method &lt;- &quot;extremeML&quot;
 hyperParams.elmNNRcpp &lt;- function(optim_method, ...) {
     
     if (!is.element(optim_method, c(&quot;extremeML&quot;))) stop(&quot;Invalid Parameters.&quot;)
@@ -2192,31 +2189,8 @@ res &lt;- train_and_predict_1data(1, ELMR.method, &quot;NNtrain.ELMR&quot;, &quo
 </div>
 <div id="h2o-train-function---arguments-xyy" class="section level2">
 <h2><span class="header-section-number">3.9</span> h2o Train Function - arguments xy,y</h2>
-<pre class="r"><code>library(h2o)</code></pre>
-<pre><code>## 
-## ----------------------------------------------------------------------
-## 
-## Your next step is to start H2O:
-##     &gt; h2o.init()
-## 
-## For H2O package documentation, ask for help:
-##     &gt; ??h2o
-## 
-## After starting H2O, you can use the Web UI at http://localhost:54321
-## For more information visit http://docs.h2o.ai
-## 
-## ----------------------------------------------------------------------</code></pre>
-<pre><code>## 
-## Attaching package: 'h2o'</code></pre>
-<pre><code>## The following objects are masked from 'package:stats':
-## 
-##     cor, sd, var</code></pre>
-<pre><code>## The following objects are masked from 'package:base':
-## 
-##     &amp;&amp;, %*%, %in%, ||, apply, as.factor, as.numeric, colnames,
-##     colnames&lt;-, ifelse, is.character, is.factor, is.numeric, log,
-##     log10, log1p, log2, round, signif, trunc</code></pre>
-<pre class="r"><code>h2o.method &lt;- &quot;gradientDescent&quot;
+<pre class="r"><code>#library(h2o)
+h2o.method &lt;- &quot;gradientDescent&quot;
 hyperParams.h2o &lt;- function(optim_method, ...) {
     
     if (!is.element(optim_method, c(&quot;gradientDescent&quot;))) stop(&quot;Invalid Parameters.&quot;)
@@ -2296,13 +2270,8 @@ res &lt;- train_and_predict_1data(1, h2o.method, &quot;NNtrain.h2o&quot;, &quot;
 </div>
 <div id="keras-train-function---arguments-xy" class="section level2">
 <h2><span class="header-section-number">3.10</span> keras Train Function - arguments x,y</h2>
-<pre class="r"><code>library(keras)</code></pre>
-<pre><code>## 
-## Attaching package: 'keras'</code></pre>
-<pre><code>## The following object is masked from 'package:brnn':
-## 
-##     normalize</code></pre>
-<pre class="r"><code>keras.method &lt;- c(&quot;adam&quot;, &quot;rmsprop&quot;, &quot;sgd&quot;, &quot;adadelta&quot;, &quot;adagrad&quot;)
+<pre class="r"><code>#library(keras)
+keras.method &lt;- c(&quot;adam&quot;, &quot;rmsprop&quot;, &quot;sgd&quot;, &quot;adadelta&quot;, &quot;adagrad&quot;)
 hyperParams.keras &lt;- function(optim_method, ...) {
     
     if (!is.element(optim_method, c(&quot;adam&quot;, &quot;rmsprop&quot;, &quot;sgd&quot;, &quot;adagrad&quot;, &quot;adadelta&quot;))) 
@@ -2370,13 +2339,8 @@ res &lt;- train_and_predict_1data(1, keras.method, &quot;NNtrain.keras&quot;, &q
 </div>
 <div id="machineshop-trainpredict-functions---arguments-formuladata" class="section level2">
 <h2><span class="header-section-number">3.11</span> MachineShop Train/predict Functions - arguments formula,data</h2>
-<pre class="r"><code>library(MachineShop)</code></pre>
-<pre><code>## 
-## Attaching package: 'MachineShop'</code></pre>
-<pre><code>## The following object is masked from 'package:keras':
-## 
-##     fit</code></pre>
-<pre class="r"><code>MachineShop.method &lt;- &quot;none&quot;
+<pre class="r"><code>#library(MachineShop)
+MachineShop.method &lt;- &quot;none&quot;
 hyperParams.MachineShop &lt;- function(...) {
     return (list(iter=150, trace=FALSE, linout=TRUE))
 }
@@ -2406,7 +2370,7 @@ res &lt;- train_and_predict_1data(1, MachineShop.method, &quot;NNtrain.MachineSh
 </div>
 <div id="minpack.lm-trainpredict-functions---arguments-formuladata" class="section level2">
 <h2><span class="header-section-number">3.12</span> minpack.lm train/predict functions - arguments formula,data</h2>
-<pre class="r"><code>library(minpack.lm)
+<pre class="r"><code>#library(minpack.lm)
 minpack.lm.method &lt;- &quot;none&quot;
 hyperParams.minpack.lm &lt;- function(...) {
     return (list(iter=150, sdnormstart=0.1))
@@ -2436,14 +2400,8 @@ res &lt;- train_and_predict_1data(1, minpack.lm.method, &quot;NNtrain.minpack.lm
 </div>
 <div id="monmlp-trainpredict-functions---arguments-xy" class="section level2">
 <h2><span class="header-section-number">3.13</span> monmlp train/predict functions - arguments x,y</h2>
-<pre class="r"><code>library(monmlp)</code></pre>
-<pre><code>## Loading required package: optimx</code></pre>
-<pre><code>## 
-## Attaching package: 'monmlp'</code></pre>
-<pre><code>## The following objects are masked from 'package:CaDENCE':
-## 
-##     gam.style, logistic</code></pre>
-<pre class="r"><code>monmlp.method &lt;- c(&quot;BFGS&quot;, &quot;Nelder-Mead&quot;)
+<pre class="r"><code>#library(monmlp)
+monmlp.method &lt;- c(&quot;BFGS&quot;, &quot;Nelder-Mead&quot;)
 hyperParams.monmlp &lt;- function(...) {
     return (list(iter=300, silent=TRUE, scale=TRUE))
 }
@@ -2470,13 +2428,8 @@ res &lt;- train_and_predict_1data(1, monmlp.method, &quot;NNtrain.monmlp&quot;, 
 </div>
 <div id="neural-trainpredict-functions---arguments-xy" class="section level2">
 <h2><span class="header-section-number">3.14</span> neural train/predict functions - arguments x,y</h2>
-<pre class="r"><code>library(neural)</code></pre>
-<pre><code>## 
-## Attaching package: 'neural'</code></pre>
-<pre><code>## The following object is masked from 'package:CaDENCE':
-## 
-##     rbf</code></pre>
-<pre class="r"><code>neural.method &lt;- &quot;none&quot;
+<pre class="r"><code>#library(neural)
+neural.method &lt;- &quot;none&quot;
 hyperParams.neural &lt;- function(...) {
     return (list(iter=1000, visual=FALSE, alfa=0.9))
 }
@@ -2503,13 +2456,8 @@ res &lt;- train_and_predict_1data(1, neural.method, &quot;NNtrain.neural&quot;, 
 </div>
 <div id="neuralnet-trainpredict-functions---arguments-formuladata" class="section level2">
 <h2><span class="header-section-number">3.15</span> neuralnet train/predict functions - arguments formula,data</h2>
-<pre class="r"><code>library(neuralnet)</code></pre>
-<pre><code>## 
-## Attaching package: 'neuralnet'</code></pre>
-<pre><code>## The following object is masked from 'package:dplyr':
-## 
-##     compute</code></pre>
-<pre class="r"><code>neuralnet.method &lt;- c(&quot;slr&quot;, &quot;sag&quot;, &quot;rprop-&quot;, &quot;rprop+&quot;, &quot;backprop&quot;)
+<pre class="r"><code>#library(neuralnet)
+neuralnet.method &lt;- c(&quot;slr&quot;, &quot;sag&quot;, &quot;rprop-&quot;, &quot;rprop+&quot;, &quot;backprop&quot;)
 hyperParams.neuralnet &lt;- function(optim_method, ...) {
   
     return (list(iter=1e5, threshold=0.5, linear.output=TRUE))
@@ -2538,7 +2486,7 @@ res &lt;- train_and_predict_1data(1, neuralnet.method, &quot;NNtrain.neuralnet&q
 </div>
 <div id="nlsr-trainpredict-functions---arguments-formuladata" class="section level2">
 <h2><span class="header-section-number">3.16</span> nlsr train/predict functions - arguments formula,data</h2>
-<pre class="r"><code>library(nlsr)
+<pre class="r"><code>#library(nlsr)
 nlsr.method &lt;- &quot;none&quot;
 hyperParams.nlsr &lt;- function(...) {
     return (list(iter=150, sdnormstart=0.1))
@@ -2569,7 +2517,7 @@ res &lt;- train_and_predict_1data(1, nlsr.method, &quot;NNtrain.nlsr&quot;, &quo
 </div>
 <div id="nnet-trainpredict-functions---arguments-xy" class="section level2">
 <h2><span class="header-section-number">3.17</span> nnet Train/predict Functions - arguments x,y</h2>
-<pre class="r"><code>library(nnet)
+<pre class="r"><code>#library(nnet)
 nnet.method &lt;- &quot;none&quot;
 hyperParams.nnet &lt;- function(...) {
     return (list(iter=150, trace=FALSE))
@@ -2594,16 +2542,8 @@ res &lt;- train_and_predict_1data(1, nnet.method, &quot;NNtrain.nnet&quot;, &quo
 </div>
 <div id="qrnn-trainpredict-function---arguments-xy" class="section level2">
 <h2><span class="header-section-number">3.18</span> qrnn Train/predict Function - arguments x,y</h2>
-<pre class="r"><code>library(qrnn)</code></pre>
-<pre><code>## 
-## Attaching package: 'qrnn'</code></pre>
-<pre><code>## The following objects are masked from 'package:monmlp':
-## 
-##     gam.style, linear, linear.prime</code></pre>
-<pre><code>## The following objects are masked from 'package:CaDENCE':
-## 
-##     dummy.code, gam.style</code></pre>
-<pre class="r"><code>qrnn.method &lt;- &quot;none&quot;
+<pre class="r"><code>#library(qrnn)
+qrnn.method &lt;- &quot;none&quot;
 hyperParams.qrnn &lt;- function(optim_method, ...) {
     
     maxiter &lt;- 700
@@ -2638,61 +2578,8 @@ res &lt;- train_and_predict_1data(1, qrnn.method, &quot;NNtrain.qrnn&quot;, &quo
 </div>
 <div id="radiant.model-trainpredict-functions---arguments-xyy" class="section level2">
 <h2><span class="header-section-number">3.19</span> radiant.model Train/predict Functions - arguments xy,y</h2>
-<pre class="r"><code>library(radiant.model)</code></pre>
-<pre><code>## Loading required package: radiant.data</code></pre>
-<pre><code>## Loading required package: magrittr</code></pre>
-<pre><code>## Loading required package: ggplot2</code></pre>
-<pre><code>## Loading required package: lubridate</code></pre>
-<pre><code>## 
-## Attaching package: 'lubridate'</code></pre>
-<pre><code>## The following objects are masked from 'package:h2o':
-## 
-##     day, hour, month, week, year</code></pre>
-<pre><code>## The following object is masked from 'package:base':
-## 
-##     date</code></pre>
-<pre><code>## Loading required package: tidyr</code></pre>
-<pre><code>## 
-## Attaching package: 'tidyr'</code></pre>
-<pre><code>## The following object is masked from 'package:magrittr':
-## 
-##     extract</code></pre>
-<pre><code>## Registered S3 method overwritten by 'radiant.data':
-##   method       from  
-##   print.gtable gtable</code></pre>
-<pre><code>## 
-## Attaching package: 'radiant.data'</code></pre>
-<pre><code>## The following objects are masked from 'package:lubridate':
-## 
-##     month, wday</code></pre>
-<pre><code>## The following object is masked from 'package:ggplot2':
-## 
-##     diamonds</code></pre>
-<pre><code>## The following object is masked from 'package:keras':
-## 
-##     normalize</code></pre>
-<pre><code>## The following object is masked from 'package:h2o':
-## 
-##     month</code></pre>
-<pre><code>## The following object is masked from 'package:brnn':
-## 
-##     normalize</code></pre>
-<pre><code>## Registered S3 methods overwritten by 'radiant.model':
-##   method     from     
-##   plot.nn    neuralnet
-##   predict.nn neuralnet</code></pre>
-<pre><code>## 
-## Attaching package: 'radiant.model'</code></pre>
-<pre><code>## The following object is masked from 'package:monmlp':
-## 
-##     logistic</code></pre>
-<pre><code>## The following objects are masked from 'package:MachineShop':
-## 
-##     auc, confusion, sensitivity</code></pre>
-<pre><code>## The following object is masked from 'package:CaDENCE':
-## 
-##     logistic</code></pre>
-<pre class="r"><code>radiant.model.method &lt;- &quot;none&quot;
+<pre class="r"><code>#library(radiant.model)
+radiant.model.method &lt;- &quot;none&quot;
 hyperParams.radiant.model &lt;- function(...) {
     return (list(type=&quot;regression&quot;, decay=0))
 }
@@ -2720,7 +2607,7 @@ res &lt;- train_and_predict_1data(1, radiant.model.method, &quot;NNtrain.radiant
 </div>
 <div id="rcane-trainpredict-functions---arguments-formuladata" class="section level2">
 <h2><span class="header-section-number">3.20</span> rcane train/predict functions - arguments formula,data</h2>
-<pre class="r"><code>library(rcane)
+<pre class="r"><code>#library(rcane)
 rcane.method &lt;- c(&quot;bgd&quot;, &quot;sgd&quot;, &quot;cd&quot;, &quot;mini-bgd&quot;)
 hyperParams.rcane &lt;- function(...) {
     return (list(iter=1000, alpha=0.1))
@@ -2747,16 +2634,8 @@ res &lt;- train_and_predict_1data(1, rcane.method, &quot;NNtrain.rcane&quot;, &q
 </div>
 <div id="rminer-trainpredict-functions---arguments-formuladata" class="section level2">
 <h2><span class="header-section-number">3.21</span> rminer Train/predict Functions - arguments formula,data</h2>
-<pre class="r"><code>library(rminer)</code></pre>
-<pre><code>## 
-## Attaching package: 'rminer'</code></pre>
-<pre><code>## The following object is masked from 'package:MachineShop':
-## 
-##     fit</code></pre>
-<pre><code>## The following object is masked from 'package:keras':
-## 
-##     fit</code></pre>
-<pre class="r"><code>rminer.method &lt;- &quot;none&quot;
+<pre class="r"><code>#library(rminer)
+rminer.method &lt;- &quot;none&quot;
 hyperParams.rminer &lt;- function(...) {
     return (list(task=&quot;reg&quot;, iter=150))
 }
@@ -2782,20 +2661,8 @@ res &lt;- train_and_predict_1data(1, rminer.method, &quot;NNtrain.rminer&quot;, 
 </div>
 <div id="rsnns-trainpredict-function---arguments-xy" class="section level2">
 <h2><span class="header-section-number">3.22</span> RSNNS Train/predict Function - arguments x,y</h2>
-<pre class="r"><code>library(RSNNS)</code></pre>
-<pre><code>## Loading required package: Rcpp</code></pre>
-<pre><code>## 
-## Attaching package: 'RSNNS'</code></pre>
-<pre><code>## The following objects are masked from 'package:neural':
-## 
-##     mlp, rbf</code></pre>
-<pre><code>## The following object is masked from 'package:CaDENCE':
-## 
-##     rbf</code></pre>
-<pre><code>## The following object is masked from 'package:AMORE':
-## 
-##     train</code></pre>
-<pre class="r"><code>RSNNS.method &lt;- c(&quot;Rprop&quot;,&quot;BackpropBatch&quot;,&quot;BackpropChunk&quot;,&quot;BackpropMomentum&quot;,
+<pre class="r"><code>#library(RSNNS)
+RSNNS.method &lt;- c(&quot;Rprop&quot;,&quot;BackpropBatch&quot;,&quot;BackpropChunk&quot;,&quot;BackpropMomentum&quot;,
                   &quot;BackpropWeightDecay&quot;,&quot;Quickprop&quot;,&quot;SCG&quot;,&quot;Std_Backpropagation&quot;)
 hyperParams.RSNNS &lt;- function(optim_method, ...) {
     
@@ -2835,8 +2702,73 @@ res &lt;- train_and_predict_1data(1, RSNNS.method, &quot;NNtrain.RSNNS&quot;, &q
                                NNsummary, &quot;NNclose.RSNNS&quot;, NA, RSNNS.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
                                pkgname=&quot;RSNNS&quot;, pkgfun=&quot;mlp&quot;, rdafile=TRUE, odir=odir)</code></pre>
 </div>
+<div id="simpleneural-trainpredict-function---arguments-xy" class="section level2">
+<h2><span class="header-section-number">3.23</span> simpleNeural Train/predict Function - arguments x,y</h2>
+<pre class="r"><code>simpleNeural.method &lt;- &quot;none&quot;
+hyperParams.simpleNeural &lt;- function(optim_method, ...) {
+    
+    maxiter &lt;- 1000
+    params &lt;- paste0(&quot;method=&quot;, optim_method, &quot;_iter=&quot;, maxiter)
+  
+    out &lt;- list(iter = maxiter, alpha=0.001, params = params, lambda=0.5)
+    return (out)
+}
+NNtrain.simpleNeural &lt;- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams,...) {
+    
+    hyper_params &lt;- do.call(hyperParams, list(optim_method, ...))
+    
+    NNreg &lt;- simpleNeural::sN.MLPtrain(x, y, hidden_layer_size = hidden_neur, it = hyper_params$iter, 
+                  lambda = hyper_params$lambda, alpha = hyper_params$alpha)
+    
+    return (NNreg)
+}
+NNpredict.simpleNeural &lt;- function(object, x, ...)
+  simpleNeural::sN.MLPpredict(nnModel = object, X = x, raw = FALSE)
+NNclose.simpleNeural &lt;- function()
+  if(&quot;package:simpleNeural&quot; %in% search())
+    detach(&quot;package:simpleNeural&quot;, unload=TRUE)
+simpleNeural.prepareZZ &lt;- list(xdmv = &quot;m&quot;, ydmv = &quot;v&quot;, zdm = &quot;d&quot;, scale = TRUE)
+
+
+if(FALSE)
+res &lt;- train_and_predict_1data(1, simpleNeural.method, &quot;NNtrain.simpleNeural&quot;, &quot;hyperParams.simpleNeural&quot;, &quot;NNpredict.simpleNeural&quot;, 
+                               NNsummary, &quot;NNclose.simpleNeural&quot;, NA, simpleNeural.prepareZZ, nrep=1, echo=TRUE, doplot=FALSE,
+                               pkgname=&quot;simpleNeural&quot;, pkgfun=&quot;sN.MLPtrain&quot;, rdafile=TRUE, odir=odir, echoreport=1)</code></pre>
+</div>
+<div id="snnr-trainpredict-function---arguments-xy" class="section level2">
+<h2><span class="header-section-number">3.24</span> snnR Train/predict Function - arguments x,y</h2>
+<pre class="r"><code>snnR.method &lt;- &quot;none&quot;
+hyperParams.snnR &lt;- function(optim_method, ...) {
+    
+    maxiter &lt;- 200
+    params &lt;- paste0(&quot;method=&quot;, optim_method, &quot;_iter=&quot;, maxiter)
+  
+    out &lt;- list(iter = maxiter, params = params)
+    return (out)
+}
+NNtrain.snnR &lt;- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams,...) {
+    
+    hyper_params &lt;- do.call(hyperParams, list(optim_method, ...))
+    
+    NNreg &lt;- snnR::snnR(x, y, nHidden = as.matrix(hidden_neur), 
+                 iteramax = hyper_params$iter, verbose=FALSE)
+    return (NNreg)
+}
+NNpredict.snnR &lt;- function(object, x, ...)
+  predict(object, x)
+NNclose.snnR &lt;- function()
+  if(&quot;package:snnR&quot; %in% search())
+    detach(&quot;package:snnR&quot;, unload=TRUE)
+snnR.prepareZZ &lt;- list(xdmv = &quot;m&quot;, ydmv = &quot;v&quot;, zdm = &quot;d&quot;, scale = TRUE)
+
+
+if(FALSE)
+res &lt;- train_and_predict_1data(1, simpleNeural.method, &quot;NNtrain.snnR&quot;, &quot;hyperParams.snnR&quot;, &quot;NNpredict.snnR&quot;, 
+                               NNsummary, &quot;NNclose.snnR&quot;, NA, simpleNeural.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname=&quot;snnR&quot;, pkgfun=&quot;snnR&quot;, rdafile=TRUE, odir=odir, echoreport=1)</code></pre>
+</div>
 <div id="tsensembler" class="section level2">
-<h2><span class="header-section-number">3.23</span> tsensembler</h2>
+<h2><span class="header-section-number">3.25</span> tsensembler</h2>
 <p>Package removed from CRAN</p>
 </div>
 </div>
@@ -2852,7 +2784,8 @@ res &lt;- train_and_predict_1data(1, RSNNS.method, &quot;NNtrain.RSNNS&quot;, &q
                    nlsr.method, nnet.method, 
                    qrnn.method,
                    radiant.model.method, rcane.method,
-                   rminer.method, RSNNS.method)
+                   rminer.method, RSNNS.method,
+                   simpleNeural.method, snnR.method)
 
 pkgfunmat &lt;- rbind(c(&quot;AMORE&quot;, &quot;train&quot;),
                    c(&quot;automl&quot;, &quot;automl_train_manual&quot;),
@@ -2874,7 +2807,9 @@ pkgfunmat &lt;- rbind(c(&quot;AMORE&quot;, &quot;train&quot;),
                    c(&quot;radiant.model&quot;, &quot;nn&quot;),
                    c(&quot;rcane&quot;, &quot;rlm&quot;),
                    c(&quot;rminer&quot;, &quot;fit&quot;),
-                   c(&quot;RSNNS&quot;, &quot;mlp&quot;))
+                   c(&quot;RSNNS&quot;, &quot;mlp&quot;),
+                   c(&quot;simpleNeural&quot;, &quot;sN.MLPtrain&quot;),
+                   c(&quot;snnR&quot;, &quot;snnR&quot;))
 colnames(pkgfunmat) &lt;- c(&quot;pkg&quot;, &quot;fun&quot;)  
 
 trainvect &lt;- paste(&quot;NNtrain&quot;, pkgfunmat[,&quot;pkg&quot;], sep=&quot;.&quot;)
@@ -2896,7 +2831,8 @@ preparelist &lt;- list(AMORE.prepareZZ, automl.prepareZZ,
                     nlsr.prepareZZ, nnet.prepareZZ, 
                     qrnn.prepareZZ,
                     radiant.model.prepareZZ, rcane.prepareZZ,
-                    rminer.prepareZZ, RSNNS.prepareZZ)
+                    rminer.prepareZZ, RSNNS.prepareZZ,
+                    simpleNeural.prepareZZ, snnR.prepareZZ)
 names(preparelist) &lt;- pkgfunmat[,&quot;pkg&quot;]
 #print(cbind(pkgfunmat, startvect))
 
@@ -2906,93 +2842,93 @@ resall &lt;- train_and_predict_1data(dset=1, method=methodlist, train=trainvect,
                                   pkgname=pkgfunmat[,&quot;pkg&quot;], pkgfun=pkgfunmat[,&quot;fun&quot;], rdafile=TRUE, odir=odir)</code></pre>
 <pre><code>## ________________________________________________________________________________ 
 ## ***   mDette_AMORE::train_ADAPTgd ***
-## AMORE train ADAPTgd i 5 summary statistics 1.3796 1.0068 5.4216 time 0.73 
+## AMORE train ADAPTgd i 5 summary statistics 1.3742 1 5.4088 time 0.67 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_AMORE::train_ADAPTgdwm ***
-## AMORE train ADAPTgdwm i 5 summary statistics 2.0568 1.6621 8.5622 time 0.76 
+## AMORE train ADAPTgdwm i 5 summary statistics 0.3746 0.2876 1.5224 time 0.69 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_AMORE::train_BATCHgd ***
-## AMORE train BATCHgd i 5 summary statistics 4.013 2.9067 19.8991 time 3.29 
+## AMORE train BATCHgd i 5 summary statistics 3.4657 2.4655 17.0061 time 2.43 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_AMORE::train_BATCHgdwm ***
-## AMORE train BATCHgdwm i 5 summary statistics 3.2606 2.3636 17.3892 time 4.02 
+## AMORE train BATCHgdwm i 5 summary statistics 3.3449 2.4281 17.2335 time 3.04 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_automl::automl_train_manual_trainwgrad ***
-## automl automl_train_manual trainwgrad i 5 summary statistics 3.2552 2.3402 18.2011 time 1.96 
+## automl automl_train_manual trainwgrad i 5 summary statistics 4.2297 2.9791 22.042 time 1.93 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_automl::automl_train_manual_trainwpso ***
-## automl automl_train_manual trainwpso i 5 summary statistics 7.5247 6.0794 28.9212 time 4.64 
+## automl automl_train_manual trainwpso i 5 summary statistics 5.643 4.358 27.8082 time 3.7 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_brnn::brnn_gaussNewton ***
 ## Number of parameters (weights and biases) to estimate: 25 
 ## Nguyen-Widrow method
 ## Scaling factor= 0.7022568 
-## gamma= 21.8371    alpha= 0.129    beta= 7.2709 
+## gamma= 20.856     alpha= 0.1242   beta= 6.8337 
 ## Number of parameters (weights and biases) to estimate: 25 
 ## Nguyen-Widrow method
 ## Scaling factor= 0.7022568 
-## gamma= 20.4425    alpha= 0.1205   beta= 7.0612 
+## gamma= 23.6851    alpha= 0.0831   beta= 8.8259 
 ## Number of parameters (weights and biases) to estimate: 25 
 ## Nguyen-Widrow method
 ## Scaling factor= 0.7022568 
-## gamma= 23.6938    alpha= 0.1098   beta= 8.1904 
+## gamma= 21.8364    alpha= 0.1311   beta= 7.2528 
 ## Number of parameters (weights and biases) to estimate: 25 
 ## Nguyen-Widrow method
 ## Scaling factor= 0.7022568 
-## gamma= 17.0058    alpha= 0.205    beta= 2.1633 
+## gamma= 21.8607    alpha= 0.1208   beta= 7.3448 
 ## Number of parameters (weights and biases) to estimate: 25 
 ## Nguyen-Widrow method
 ## Scaling factor= 0.7022568 
-## gamma= 21.8903    alpha= 0.1363   beta= 7.2174 
-## brnn brnn gaussNewton i 5 summary statistics 2.1038 1.4817 12.8107 time 0.11 
+## gamma= 20.6376    alpha= 0.1732   beta= 6.6939 
+## brnn brnn gaussNewton i 5 summary statistics 2.1873 1.5058 13.7838 time 0.1 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_CaDENCE::cadence.fit_optim ***
-## CaDENCE cadence.fit optim i 5 summary statistics 8.1656 6.5262 36.2385 time 0 
+## CaDENCE cadence.fit optim i 5 summary statistics 8.1656 6.5262 36.2385 time 0.01 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_CaDENCE::cadence.fit_psoptim ***
-## CaDENCE cadence.fit psoptim i 5 summary statistics 8.1656 6.5262 36.2385 time 0.01 
+## CaDENCE cadence.fit psoptim i 5 summary statistics 8.1656 6.5262 36.2385 time 0 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_CaDENCE::cadence.fit_Rprop ***
-## CaDENCE cadence.fit Rprop i 5 summary statistics 8.1656 6.5262 36.2385 time 0 
+## CaDENCE cadence.fit Rprop i 5 summary statistics 8.1656 6.5262 36.2385 time 0.01 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_deepnet::nn.train_gradientDescent ***
-## deepnet nn.train gradientDescent i 5 summary statistics 0.4155 0.312 1.7417 time 33.54 
+## deepnet nn.train gradientDescent i 5 summary statistics 1.8569 1.4527 9.9249 time 30.02 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_elmNNRcpp::elm_train_extremeML ***
-## elmNNRcpp elm_train extremeML i 5 summary statistics 6.9137 5.0711 32.4916 time 0.01 
+## elmNNRcpp elm_train extremeML i 5 summary statistics 7.3381 5.6126 32.6664 time 0.01 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_ELMR::OSelm_train_extremeML ***
-## ELMR OSelm_train extremeML i 5 summary statistics 7.7879 6.2382 33.8001 time 0.02 
+## ELMR OSelm_train extremeML i 5 summary statistics 7.4884 6.0846 28.8361 time 0.02 
 ## 
 ## 
 ## H2O is not running yet, starting it now...
 ## 
 ## Note:  In case of errors look at the following log files:
-##     /var/folders/0_/pj8gdbp16vq_bxhn09k5n4_m0000gp/T//RtmpxdO0A3/h2o_dutang_started_from_r.out
-##     /var/folders/0_/pj8gdbp16vq_bxhn09k5n4_m0000gp/T//RtmpxdO0A3/h2o_dutang_started_from_r.err
+##     /var/folders/0_/pj8gdbp16vq_bxhn09k5n4_m0000gp/T//RtmpnZ4OeI/h2o_dutang_started_from_r.out
+##     /var/folders/0_/pj8gdbp16vq_bxhn09k5n4_m0000gp/T//RtmpnZ4OeI/h2o_dutang_started_from_r.err
 ## 
 ## 
 ## Starting H2O JVM and connecting: .. Connection successful!
 ## 
 ## R is connected to the H2O cluster: 
-##     H2O cluster uptime:         2 seconds 721 milliseconds 
+##     H2O cluster uptime:         2 seconds 603 milliseconds 
 ##     H2O cluster timezone:       Europe/Paris 
 ##     H2O data parsing timezone:  UTC 
 ##     H2O cluster version:        3.26.0.11 
-##     H2O cluster version age:    2 months and 17 days  
-##     H2O cluster name:           H2O_started_from_R_dutang_lxg279 
+##     H2O cluster version age:    2 months and 18 days  
+##     H2O cluster name:           H2O_started_from_R_dutang_jsz505 
 ##     H2O cluster total nodes:    1 
 ##     H2O cluster total memory:   1.78 GB 
 ##     H2O cluster total cores:    4 
@@ -3007,1288 +2943,70 @@ resall &lt;- train_and_predict_1data(dset=1, method=methodlist, train=trainvect,
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_h2o::deeplearning_gradientDescent ***
-## h2o deeplearning gradientDescent i 5 summary statistics 0.3469 0.2695 1.4072 time 7.63 
+## h2o deeplearning gradientDescent i 5 summary statistics 0.3384 0.2532 1.4002 time 7.01 
 ## 
-## [1] &quot;A shutdown has been triggered. &quot;</code></pre>
-<pre><code>## Warning in value[[3L]](cond): 
-## ----------------------------------------------------------------------
-## 
-## Could not shut down the H2O Java Process!
-## Please shutdown H2O manually by navigating to `http://localhost:54321/Shutdown`
-## 
-## Windows requires the shutdown of h2o before re-installing -or- updating the h2o package.
-## For more information visit http://docs.h2o.ai
-## 
-## ----------------------------------------------------------------------</code></pre>
-<pre><code>## ________________________________________________________________________________ 
-## ***   mDette_keras::fit_adam ***</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## keras fit adam i 5 summary statistics 8.1656 6.5262 36.2385 time 0.1 
+## [1] &quot;A shutdown has been triggered. &quot;
+## ________________________________________________________________________________ 
+## ***   mDette_keras::fit_adam ***
+## keras fit adam i 5 summary statistics 1.9746 1.274 13.0069 time 28.1 
 ## 
 ## ________________________________________________________________________________ 
-## ***   mDette_keras::fit_rmsprop ***</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## keras fit rmsprop i 5 summary statistics 8.1656 6.5262 36.2385 time 0.11 
+## ***   mDette_keras::fit_rmsprop ***
+## keras fit rmsprop i 5 summary statistics 2.4147 1.6941 15.3984 time 26.09 
 ## 
 ## ________________________________________________________________________________ 
-## ***   mDette_keras::fit_sgd ***</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## keras fit sgd i 5 summary statistics 8.1656 6.5262 36.2385 time 0.1 
+## ***   mDette_keras::fit_sgd ***
+## keras fit sgd i 5 summary statistics 2.7212 1.9676 14.6253 time 61.87 
 ## 
 ## ________________________________________________________________________________ 
-## ***   mDette_keras::fit_adadelta ***</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## keras fit adadelta i 5 summary statistics 8.1656 6.5262 36.2385 time 0.11 
+## ***   mDette_keras::fit_adadelta ***
+## keras fit adadelta i 5 summary statistics 8.2306 6.6805 35.6732 time 100.48 
 ## 
 ## ________________________________________________________________________________ 
-## ***   mDette_keras::fit_adagrad ***</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## Warning in if (model == &quot;dt&quot;) model = &quot;rpart&quot; else if (model == &quot;knn&quot;)
-## model = &quot;kknn&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;knn&quot;) model = &quot;kknn&quot; else if (model == &quot;svm&quot;)
-## model = &quot;ksvm&quot; else if (model == : la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;svm&quot;) model = &quot;ksvm&quot; else if (model ==
-## &quot;randomforest&quot;) model = &quot;randomForest&quot; else if (model == : la condition a
-## une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomforest&quot;) model = &quot;randomForest&quot; else if
-## (model == : la condition a une longueur &gt; 1 et seul le premier élément est
-## utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naivebayes&quot;) model = &quot;naiveBayes&quot; else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;default&quot;) {: la condition a une longueur &gt; 1 et
-## seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) search2[[&quot;size&quot;]] = search
-## else if (model == : la condition a une longueur &gt; 1 et seul le premier
-## élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;naive&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;kknn&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;rpart&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;multinom&quot;) fargs[[&quot;trace&quot;]] = FALSE else if (model
-## == : la condition a une longueur &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;mr&quot;) {: la condition a une longueur &gt; 1 et seul le
-## premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;randomForest&quot;) {: la condition a une longueur &gt; 1
-## et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (substr(model, 1, 3) == &quot;mlp&quot;) {: la condition a une longueur
-## &gt; 1 et seul le premier élément est utilisé</code></pre>
-<pre><code>## Warning in if (model == &quot;ksvm&quot;) {: la condition a une longueur &gt; 1 et seul
-## le premier élément est utilisé</code></pre>
-<pre><code>## Warning in fit(., x, y, epochs = iter, verbose = 0, callbacks = list(early_stop)): fit failed: Error in do.call(fitfun, c(list(x, data = data), fargs)) : 
-##   'what' must be a function or character string
-##  fit(x = ., data = x, model = y, epochs = iter, verbose = 0, callbacks = list(early_stop))</code></pre>
-<pre><code>## keras fit adagrad i 5 summary statistics 8.1656 6.5262 36.2385 time 0.12 
+## ***   mDette_keras::fit_adagrad ***
+## keras fit adagrad i 5 summary statistics 7.7521 6.2533 30.992 time 67.79 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_MachineShop::fit_none ***
-## MachineShop fit none i 5 summary statistics 1.9531 1.4265 10.6268 time 0.06 
+## MachineShop fit none i 5 summary statistics 0.9512 0.7367 6.7037 time 0.04 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_minpack.lm::nlsLM_none ***
-## minpack.lm nlsLM none i 5 summary statistics 1.3186 1.1423 3.5568 time 0.66 
+## minpack.lm nlsLM none i 5 summary statistics 2.004 1.4739 11.6113 time 0.56 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_monmlp::monmlp.fit_BFGS ***
-## monmlp monmlp.fit BFGS i 5 summary statistics 0.3574 0.2752 1.5524 time 0.52 
+## monmlp monmlp.fit BFGS i 5 summary statistics 1.5408 1.3078 5.157 time 0.41 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_monmlp::monmlp.fit_Nelder-Mead ***
-## monmlp monmlp.fit Nelder-Mead i 5 summary statistics 7.9305 6.4094 32.5579 time 0.39 
+## monmlp monmlp.fit Nelder-Mead i 5 summary statistics 7.9383 6.3129 34.106 time 0.33 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_neural::mlptrain_none ***
-## neural mlptrain none i 5 summary statistics 6.2574 4.889 28.0647 time 125.53 
+## neural mlptrain none i 5 summary statistics 5.9627 4.4281 28.0647 time 114.62 
 ## 
 ## ________________________________________________________________________________ 
-## ***   mDette_neuralnet::neuralnet_slr ***</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## neuralnet neuralnet slr i 5 summary statistics 0 0 -Inf time 3.97 
+## ***   mDette_neuralnet::neuralnet_slr ***
+## neuralnet neuralnet slr i 5 summary statistics 0.7665 0.574 3.942 time 0.82 
 ## 
 ## ________________________________________________________________________________ 
-## ***   mDette_neuralnet::neuralnet_sag ***</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique
-
-## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : aucun argument pour max ; -Inf
-## est renvoyé</code></pre>
-<pre><code>## Warning: Algorithm did not converge in 1 of 1 repetition(s) within the
-## stepmax.</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning: Algorithm did not converge in 1 of 1 repetition(s) within the
-## stepmax.</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning: Algorithm did not converge in 1 of 1 repetition(s) within the
-## stepmax.</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## neuralnet neuralnet sag i 5 summary statistics 0 0 -Inf time 22.54 
+## ***   mDette_neuralnet::neuralnet_sag ***
+## Error in cbind(1, pred) %*% weights[[num_hidden_layers + 1]] : 
+##   nécessite des arguments numériques/complexes matrice/vecteur
+## Error in cbind(1, pred) %*% weights[[num_hidden_layers + 1]] : 
+##   nécessite des arguments numériques/complexes matrice/vecteur
+## neuralnet neuralnet sag i 5 summary statistics 2.1613 1.5106 12.7597 time 10.73 
 ## 
 ## ________________________________________________________________________________ 
-## ***   mDette_neuralnet::neuralnet_rprop- ***</code></pre>
-<pre><code>## Warning: Algorithm did not converge in 1 of 1 repetition(s) within the
-## stepmax.</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## neuralnet neuralnet rprop- i 5 summary statistics 0 0 -Inf time 0.56 
+## ***   mDette_neuralnet::neuralnet_rprop- ***
+## neuralnet neuralnet rprop- i 5 summary statistics 0.8121 0.617 3.9642 time 0.22 
 ## 
 ## ________________________________________________________________________________ 
-## ***   mDette_neuralnet::neuralnet_rprop+ ***</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique
-
-## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : aucun argument pour max ; -Inf
-## est renvoyé</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## Warning: Algorithm did not converge in 1 of 1 repetition(s) within the
-## stepmax.</code></pre>
-<pre><code>## Warning in NNpredict.neuralnet(structure(list(call =
-## neuralnet::neuralnet(formula = formula, : NAs introduits lors de la
-## conversion automatique</code></pre>
-<pre><code>## Warning in max(res, na.rm = TRUE): aucun argument pour max ; -Inf est
-## renvoyé</code></pre>
-<pre><code>## neuralnet neuralnet rprop+ i 5 summary statistics 0 0 -Inf time 21.7 
+## ***   mDette_neuralnet::neuralnet_rprop+ ***
+## Error in cbind(1, pred) %*% weights[[num_hidden_layers + 1]] : 
+##   nécessite des arguments numériques/complexes matrice/vecteur
+## neuralnet neuralnet rprop+ i 5 summary statistics 0.6215 0.4546 3.5013 time 0.25 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_neuralnet::neuralnet_backprop ***
@@ -4316,32 +3034,31 @@ resall &lt;- train_and_predict_1data(dset=1, method=methodlist, train=trainvect,
 ## [12] &quot;b8&quot;  &quot;b9&quot;  &quot;b10&quot; &quot;b11&quot; &quot;b12&quot; &quot;b13&quot; &quot;b14&quot; &quot;b15&quot; &quot;b16&quot; &quot;b17&quot; &quot;b18&quot;
 ## [23] &quot;b19&quot; &quot;b20&quot; &quot;b21&quot; &quot;b22&quot; &quot;b23&quot; &quot;b24&quot; &quot;b25&quot; &quot;b26&quot;
 ## no weights
-## nlsr nlxb none i 5 summary statistics 0.2905 0.245 1.0346 time 0.78 
+## nlsr nlxb none i 5 summary statistics 0.7495 0.5957 4.2779 time 0.5 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_nnet::nnet_none ***
-## nnet nnet none i 5 summary statistics 0.4767 0.3595 2.0219 time 0.04</code></pre>
-<pre><code>## Warning: 'nnet' namespace cannot be unloaded:
-##   namespace 'nnet' is imported by 'rminer', 'NeuralNetTools', 'ipred', 'radiant.model' so cannot be unloaded</code></pre>
-<pre><code>## ________________________________________________________________________________ 
+## nnet nnet none i 5 summary statistics 0.3561 0.2734 1.343 time 0.04 
+## 
+## ________________________________________________________________________________ 
 ## ***   mDette_qrnn::qrnn.fit_none ***
-## qrnn qrnn.fit none i 5 summary statistics 2.4505 1.1903 16.236 time 0.66 
+## qrnn qrnn.fit none i 5 summary statistics 2.4559 1.192 16.3531 time 1.08 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_radiant.model::nn_none ***
-## radiant.model nn none i 5 summary statistics 0.0714 0.0563 0.2945 time 0.87 
+## radiant.model nn none i 5 summary statistics 0.0963 0.0757 0.363 time 0.59 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_rcane::rlm_bgd ***
-## rcane rlm bgd i 5 summary statistics 7.6601 6.1945 29.0568 time 0.19 
+## rcane rlm bgd i 5 summary statistics 7.6601 6.1945 29.0568 time 0.17 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_rcane::rlm_sgd ***
-## rcane rlm sgd i 5 summary statistics 7.6602 6.1916 29.1057 time 6.49 
+## rcane rlm sgd i 5 summary statistics 7.6602 6.1916 29.1057 time 5.74 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_rcane::rlm_cd ***
-## rcane rlm cd i 5 summary statistics 7.6601 6.1945 29.0568 time 0.48 
+## rcane rlm cd i 5 summary statistics 7.6601 6.1945 29.0568 time 0.45 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_rcane::rlm_mini-bgd ***
@@ -4349,39 +3066,47 @@ resall &lt;- train_and_predict_1data(dset=1, method=methodlist, train=trainvect,
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_rminer::fit_none ***
-## rminer fit none i 5 summary statistics 0.8294 0.6398 5.6057 time 0.12 
+## rminer fit none i 5 summary statistics 0.7053 0.5377 3.6782 time 0.12 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_RSNNS::mlp_Rprop ***
-## RSNNS mlp Rprop i 5 summary statistics 3.1202 2.1157 18.7946 time 1.03 
+## RSNNS mlp Rprop i 5 summary statistics 1.297 0.9599 7.9278 time 0.89 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_RSNNS::mlp_BackpropBatch ***
-## RSNNS mlp BackpropBatch i 5 summary statistics 2.0603 1.5211 11.3381 time 10.33 
+## RSNNS mlp BackpropBatch i 5 summary statistics 2.1895 1.5403 13.3977 time 9.3 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_RSNNS::mlp_BackpropChunk ***
-## RSNNS mlp BackpropChunk i 5 summary statistics 0.8143 0.5853 4.1012 time 1.08 
+## RSNNS mlp BackpropChunk i 5 summary statistics 0.6841 0.4933 3.096 time 0.94 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_RSNNS::mlp_BackpropMomentum ***
-## RSNNS mlp BackpropMomentum i 5 summary statistics 0.664 0.4892 3.3723 time 1.05 
+## RSNNS mlp BackpropMomentum i 5 summary statistics 0.7226 0.5731 3.306 time 0.89 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_RSNNS::mlp_BackpropWeightDecay ***
-## RSNNS mlp BackpropWeightDecay i 5 summary statistics 0.6604 0.4942 2.791 time 1.07 
+## RSNNS mlp BackpropWeightDecay i 5 summary statistics 0.8016 0.5914 3.6305 time 0.91 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_RSNNS::mlp_Quickprop ***
-## RSNNS mlp Quickprop i 5 summary statistics 7.1893 5.9277 29.6111 time 14.99 
+## RSNNS mlp Quickprop i 5 summary statistics 7.6114 6.2686 29.6111 time 13.86 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_RSNNS::mlp_SCG ***
-## RSNNS mlp SCG i 5 summary statistics 0.4213 0.3098 1.7162 time 1.79 
+## RSNNS mlp SCG i 5 summary statistics 0.4536 0.341 2.0867 time 1.58 
 ## 
 ## ________________________________________________________________________________ 
 ## ***   mDette_RSNNS::mlp_Std_Backpropagation ***
-## RSNNS mlp Std_Backpropagation i 5 summary statistics 0.9812 0.7775 4.0278 time 1.03</code></pre>
+## RSNNS mlp Std_Backpropagation i 5 summary statistics 0.6909 0.5549 2.6609 time 0.89 
+## 
+## ________________________________________________________________________________ 
+## ***   mDette_simpleNeural::sN.MLPtrain_none ***
+## simpleNeural sN.MLPtrain none i 5 summary statistics 8.1656 6.5262 36.2385 time 0 
+## 
+## ________________________________________________________________________________ 
+## ***   mDette_snnR::snnR_none ***
+## snnR snnR none i 5 summary statistics 1.9864 1.5889 8.8501 time 0.21</code></pre>
 <pre class="r"><code>write.csv(resall, file=paste0(odir, &quot;results.csv&quot;))
 
 kable(t(resall))</code></pre>
@@ -4410,16 +3135,16 @@ time
 AMORE::ADAPTgd
 </td>
 <td style="text-align:right;">
-0.4124
+1.3624
 </td>
 <td style="text-align:right;">
-0.2929
+0.9881
 </td>
 <td style="text-align:right;">
-1.8857
+5.3848
 </td>
 <td style="text-align:right;">
-0.80
+0.68
 </td>
 </tr>
 <tr>
@@ -4427,16 +3152,16 @@ AMORE::ADAPTgd
 AMORE::ADAPTgdwm
 </td>
 <td style="text-align:right;">
-0.3774
+0.3746
 </td>
 <td style="text-align:right;">
-0.2901
+0.2876
 </td>
 <td style="text-align:right;">
-1.6256
+1.5224
 </td>
 <td style="text-align:right;">
-0.78
+0.69
 </td>
 </tr>
 <tr>
@@ -4444,16 +3169,16 @@ AMORE::ADAPTgdwm
 AMORE::BATCHgd
 </td>
 <td style="text-align:right;">
-3.0553
+3.0511
 </td>
 <td style="text-align:right;">
-2.1937
+2.1616
 </td>
 <td style="text-align:right;">
-16.1463
+18.3031
 </td>
 <td style="text-align:right;">
-3.31
+2.47
 </td>
 </tr>
 <tr>
@@ -4461,16 +3186,16 @@ AMORE::BATCHgd
 AMORE::BATCHgdwm
 </td>
 <td style="text-align:right;">
-3.2606
+3.3449
 </td>
 <td style="text-align:right;">
-2.3636
+2.4281
 </td>
 <td style="text-align:right;">
-17.3892
+17.2335
 </td>
 <td style="text-align:right;">
-4.02
+3.04
 </td>
 </tr>
 <tr>
@@ -4478,16 +3203,16 @@ AMORE::BATCHgdwm
 automl::trainwgrad
 </td>
 <td style="text-align:right;">
-2.9768
+3.8395
 </td>
 <td style="text-align:right;">
-2.1149
+2.5817
 </td>
 <td style="text-align:right;">
-18.3782
+21.2338
 </td>
 <td style="text-align:right;">
-2.07
+1.93
 </td>
 </tr>
 <tr>
@@ -4495,16 +3220,16 @@ automl::trainwgrad
 automl::trainwpso
 </td>
 <td style="text-align:right;">
-4.4435
+5.6430
 </td>
 <td style="text-align:right;">
-3.3215
+4.3580
 </td>
 <td style="text-align:right;">
-24.8115
+27.8082
 </td>
 <td style="text-align:right;">
-5.16
+3.70
 </td>
 </tr>
 <tr>
@@ -4512,13 +3237,13 @@ automl::trainwpso
 brnn::gaussNewton
 </td>
 <td style="text-align:right;">
-1.9711
+1.8989
 </td>
 <td style="text-align:right;">
-1.5291
+1.5214
 </td>
 <td style="text-align:right;">
-10.3166
+8.5132
 </td>
 <td style="text-align:right;">
 0.11
@@ -4580,16 +3305,16 @@ CaDENCE::Rprop
 deepnet::gradientDescent
 </td>
 <td style="text-align:right;">
-0.4111
+0.4007
 </td>
 <td style="text-align:right;">
-0.3096
+0.3005
 </td>
 <td style="text-align:right;">
-1.7295
+1.7171
 </td>
 <td style="text-align:right;">
-33.81
+30.46
 </td>
 </tr>
 <tr>
@@ -4597,16 +3322,16 @@ deepnet::gradientDescent
 elmNNRcpp::extremeML
 </td>
 <td style="text-align:right;">
-6.9137
+7.2581
 </td>
 <td style="text-align:right;">
-5.0711
+5.5304
 </td>
 <td style="text-align:right;">
-32.4916
+34.2325
 </td>
 <td style="text-align:right;">
-0.01
+0.00
 </td>
 </tr>
 <tr>
@@ -4614,16 +3339,16 @@ elmNNRcpp::extremeML
 ELMR::extremeML
 </td>
 <td style="text-align:right;">
-6.2378
+7.2757
 </td>
 <td style="text-align:right;">
-4.6457
+5.8051
 </td>
 <td style="text-align:right;">
-33.4389
+28.5859
 </td>
 <td style="text-align:right;">
-0.04
+0.03
 </td>
 </tr>
 <tr>
@@ -4631,16 +3356,16 @@ ELMR::extremeML
 h2o::gradientDescent
 </td>
 <td style="text-align:right;">
-0.3229
+0.3211
 </td>
 <td style="text-align:right;">
-0.2519
+0.2548
 </td>
 <td style="text-align:right;">
-1.2596
+1.2478
 </td>
 <td style="text-align:right;">
-7.57
+7.11
 </td>
 </tr>
 <tr>
@@ -4648,16 +3373,16 @@ h2o::gradientDescent
 keras::adam
 </td>
 <td style="text-align:right;">
-8.1656
+0.8762
 </td>
 <td style="text-align:right;">
-6.5262
+0.6439
 </td>
 <td style="text-align:right;">
-36.2385
+4.9265
 </td>
 <td style="text-align:right;">
-6.35
+43.61
 </td>
 </tr>
 <tr>
@@ -4665,16 +3390,16 @@ keras::adam
 keras::rmsprop
 </td>
 <td style="text-align:right;">
-8.1656
+0.8984
 </td>
 <td style="text-align:right;">
-6.5262
+0.6845
 </td>
 <td style="text-align:right;">
-36.2385
+4.6259
 </td>
 <td style="text-align:right;">
-0.12
+46.78
 </td>
 </tr>
 <tr>
@@ -4682,16 +3407,16 @@ keras::rmsprop
 keras::sgd
 </td>
 <td style="text-align:right;">
-8.1656
+2.7212
 </td>
 <td style="text-align:right;">
-6.5262
+1.9676
 </td>
 <td style="text-align:right;">
-36.2385
+14.6253
 </td>
 <td style="text-align:right;">
-0.10
+61.87
 </td>
 </tr>
 <tr>
@@ -4699,16 +3424,16 @@ keras::sgd
 keras::adadelta
 </td>
 <td style="text-align:right;">
-8.1656
+8.0719
 </td>
 <td style="text-align:right;">
-6.5262
+6.2707
 </td>
 <td style="text-align:right;">
-36.2385
+37.4405
 </td>
 <td style="text-align:right;">
-0.11
+334.29
 </td>
 </tr>
 <tr>
@@ -4716,16 +3441,16 @@ keras::adadelta
 keras::adagrad
 </td>
 <td style="text-align:right;">
-8.1656
+7.4093
 </td>
 <td style="text-align:right;">
-6.5262
+5.7902
 </td>
 <td style="text-align:right;">
-36.2385
+30.6360
 </td>
 <td style="text-align:right;">
-0.11
+65.71
 </td>
 </tr>
 <tr>
@@ -4733,16 +3458,16 @@ keras::adagrad
 MachineShop::none
 </td>
 <td style="text-align:right;">
-0.3111
+0.3558
 </td>
 <td style="text-align:right;">
-0.2423
+0.2731
 </td>
 <td style="text-align:right;">
-1.3814
+1.3240
 </td>
 <td style="text-align:right;">
-0.06
+0.05
 </td>
 </tr>
 <tr>
@@ -4750,16 +3475,16 @@ MachineShop::none
 minpack.lm::none
 </td>
 <td style="text-align:right;">
-0.1139
+0.1130
 </td>
 <td style="text-align:right;">
-0.0905
+0.0891
 </td>
 <td style="text-align:right;">
-0.4808
+0.4710
 </td>
 <td style="text-align:right;">
-0.39
+0.32
 </td>
 </tr>
 <tr>
@@ -4767,30 +3492,13 @@ minpack.lm::none
 monmlp::BFGS
 </td>
 <td style="text-align:right;">
-0.3304
+0.3518
 </td>
 <td style="text-align:right;">
-0.2553
+0.2711
 </td>
 <td style="text-align:right;">
-1.4843
-</td>
-<td style="text-align:right;">
-0.51
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-monmlp::Nelder-Mead
-</td>
-<td style="text-align:right;">
-7.8160
-</td>
-<td style="text-align:right;">
-6.2798
-</td>
-<td style="text-align:right;">
-33.3006
+1.5437
 </td>
 <td style="text-align:right;">
 0.43
@@ -4798,19 +3506,36 @@ monmlp::Nelder-Mead
 </tr>
 <tr>
 <td style="text-align:left;">
+monmlp::Nelder-Mead
+</td>
+<td style="text-align:right;">
+7.9383
+</td>
+<td style="text-align:right;">
+6.3129
+</td>
+<td style="text-align:right;">
+34.1060
+</td>
+<td style="text-align:right;">
+0.33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 neural::none
 </td>
 <td style="text-align:right;">
-5.9655
+5.9627
 </td>
 <td style="text-align:right;">
-4.4352
+4.4281
 </td>
 <td style="text-align:right;">
 28.0647
 </td>
 <td style="text-align:right;">
-128.76
+114.62
 </td>
 </tr>
 <tr>
@@ -4818,16 +3543,16 @@ neural::none
 neuralnet::slr
 </td>
 <td style="text-align:right;">
-0.0000
+0.7665
 </td>
 <td style="text-align:right;">
-0.0000
+0.5740
 </td>
 <td style="text-align:right;">
--Inf
+3.9420
 </td>
 <td style="text-align:right;">
-1.18
+0.82
 </td>
 </tr>
 <tr>
@@ -4835,16 +3560,16 @@ neuralnet::slr
 neuralnet::sag
 </td>
 <td style="text-align:right;">
-0.0000
+0.5782
 </td>
 <td style="text-align:right;">
-0.0000
+0.4510
 </td>
 <td style="text-align:right;">
--Inf
+2.6256
 </td>
 <td style="text-align:right;">
-12.45
+17.08
 </td>
 </tr>
 <tr>
@@ -4852,16 +3577,16 @@ neuralnet::sag
 neuralnet::rprop-
 </td>
 <td style="text-align:right;">
-0.0000
+0.5576
 </td>
 <td style="text-align:right;">
-0.0000
+0.3943
 </td>
 <td style="text-align:right;">
--Inf
+2.9319
 </td>
 <td style="text-align:right;">
-20.61
+0.20
 </td>
 </tr>
 <tr>
@@ -4869,16 +3594,16 @@ neuralnet::rprop-
 neuralnet::rprop+
 </td>
 <td style="text-align:right;">
-0.0000
+0.6215
 </td>
 <td style="text-align:right;">
-0.0000
+0.4546
 </td>
 <td style="text-align:right;">
--Inf
+3.5013
 </td>
 <td style="text-align:right;">
-9.23
+0.25
 </td>
 </tr>
 <tr>
@@ -4895,7 +3620,7 @@ neuralnet::backprop
 36.2385
 </td>
 <td style="text-align:right;">
-0.00
+0.01
 </td>
 </tr>
 <tr>
@@ -4903,16 +3628,16 @@ neuralnet::backprop
 nlsr::none
 </td>
 <td style="text-align:right;">
-0.2905
+0.3538
 </td>
 <td style="text-align:right;">
-0.2450
+0.2728
 </td>
 <td style="text-align:right;">
-1.0346
+1.3215
 </td>
 <td style="text-align:right;">
-0.78
+0.75
 </td>
 </tr>
 <tr>
@@ -4920,13 +3645,13 @@ nlsr::none
 nnet::none
 </td>
 <td style="text-align:right;">
-0.3602
+0.3069
 </td>
 <td style="text-align:right;">
-0.2769
+0.2357
 </td>
 <td style="text-align:right;">
-1.3423
+1.3554
 </td>
 <td style="text-align:right;">
 0.04
@@ -4937,16 +3662,16 @@ nnet::none
 qrnn::none
 </td>
 <td style="text-align:right;">
-0.2437
+0.0756
 </td>
 <td style="text-align:right;">
-0.1652
+0.0566
 </td>
 <td style="text-align:right;">
-1.4152
+0.3971
 </td>
 <td style="text-align:right;">
-0.64
+0.61
 </td>
 </tr>
 <tr>
@@ -4954,16 +3679,16 @@ qrnn::none
 radiant.model::none
 </td>
 <td style="text-align:right;">
-0.0668
+0.0803
 </td>
 <td style="text-align:right;">
-0.0529
+0.0640
 </td>
 <td style="text-align:right;">
-0.2733
+0.3281
 </td>
 <td style="text-align:right;">
-1.04
+0.77
 </td>
 </tr>
 <tr>
@@ -4980,7 +3705,7 @@ rcane::bgd
 29.0568
 </td>
 <td style="text-align:right;">
-0.18
+0.32
 </td>
 </tr>
 <tr>
@@ -4997,7 +3722,7 @@ rcane::sgd
 29.1057
 </td>
 <td style="text-align:right;">
-6.20
+5.79
 </td>
 </tr>
 <tr>
@@ -5014,7 +3739,7 @@ rcane::cd
 29.0568
 </td>
 <td style="text-align:right;">
-0.48
+0.70
 </td>
 </tr>
 <tr>
@@ -5039,16 +3764,16 @@ rcane::mini-bgd
 rminer::none
 </td>
 <td style="text-align:right;">
-0.3018
+0.3366
 </td>
 <td style="text-align:right;">
-0.2389
+0.2605
 </td>
 <td style="text-align:right;">
-1.2570
+1.4914
 </td>
 <td style="text-align:right;">
-0.28
+0.13
 </td>
 </tr>
 <tr>
@@ -5056,16 +3781,16 @@ rminer::none
 RSNNS::Rprop
 </td>
 <td style="text-align:right;">
-2.0540
+0.6181
 </td>
 <td style="text-align:right;">
-1.5558
+0.4529
 </td>
 <td style="text-align:right;">
-11.0871
+3.3812
 </td>
 <td style="text-align:right;">
-1.06
+0.92
 </td>
 </tr>
 <tr>
@@ -5073,16 +3798,16 @@ RSNNS::Rprop
 RSNNS::BackpropBatch
 </td>
 <td style="text-align:right;">
-0.7139
+1.3548
 </td>
 <td style="text-align:right;">
-0.5372
+0.9194
 </td>
 <td style="text-align:right;">
-3.8213
+9.5130
 </td>
 <td style="text-align:right;">
-10.40
+9.29
 </td>
 </tr>
 <tr>
@@ -5090,16 +3815,16 @@ RSNNS::BackpropBatch
 RSNNS::BackpropChunk
 </td>
 <td style="text-align:right;">
-0.7256
+0.6841
 </td>
 <td style="text-align:right;">
-0.5716
+0.4933
 </td>
 <td style="text-align:right;">
-2.4169
+3.0960
 </td>
 <td style="text-align:right;">
-1.07
+0.94
 </td>
 </tr>
 <tr>
@@ -5107,16 +3832,16 @@ RSNNS::BackpropChunk
 RSNNS::BackpropMomentum
 </td>
 <td style="text-align:right;">
-0.6474
+0.5976
 </td>
 <td style="text-align:right;">
-0.4834
+0.4492
 </td>
 <td style="text-align:right;">
-3.3909
+2.6342
 </td>
 <td style="text-align:right;">
-1.04
+0.89
 </td>
 </tr>
 <tr>
@@ -5124,16 +3849,16 @@ RSNNS::BackpropMomentum
 RSNNS::BackpropWeightDecay
 </td>
 <td style="text-align:right;">
-0.6133
+0.6384
 </td>
 <td style="text-align:right;">
-0.4616
+0.5051
 </td>
 <td style="text-align:right;">
-2.7963
+2.4278
 </td>
 <td style="text-align:right;">
-1.32
+1.16
 </td>
 </tr>
 <tr>
@@ -5141,16 +3866,16 @@ RSNNS::BackpropWeightDecay
 RSNNS::Quickprop
 </td>
 <td style="text-align:right;">
-7.1730
+7.2828
 </td>
 <td style="text-align:right;">
-5.9106
+5.8912
 </td>
 <td style="text-align:right;">
 29.6111
 </td>
 <td style="text-align:right;">
-15.28
+13.38
 </td>
 </tr>
 <tr>
@@ -5158,16 +3883,16 @@ RSNNS::Quickprop
 RSNNS::SCG
 </td>
 <td style="text-align:right;">
-0.4213
+0.4536
 </td>
 <td style="text-align:right;">
-0.3098
+0.3410
 </td>
 <td style="text-align:right;">
-1.7162
+2.0867
 </td>
 <td style="text-align:right;">
-1.79
+1.58
 </td>
 </tr>
 <tr>
@@ -5175,16 +3900,50 @@ RSNNS::SCG
 RSNNS::Std_Backpropagation
 </td>
 <td style="text-align:right;">
-0.5979
+0.6802
 </td>
 <td style="text-align:right;">
-0.4570
+0.5218
 </td>
 <td style="text-align:right;">
-2.3157
+2.8977
 </td>
 <td style="text-align:right;">
-1.04
+1.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+simpleNeural::none
+</td>
+<td style="text-align:right;">
+8.1656
+</td>
+<td style="text-align:right;">
+6.5262
+</td>
+<td style="text-align:right;">
+36.2385
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+snnR::none
+</td>
+<td style="text-align:right;">
+0.8399
+</td>
+<td style="text-align:right;">
+0.6390
+</td>
+<td style="text-align:right;">
+3.7672
+</td>
+<td style="text-align:right;">
+0.14
 </td>
 </tr>
 </tbody>

@@ -1,11 +1,11 @@
 Working packages:
 
- AMORE         automl        brnn          CaDENCE      
- deepnet       elmNNRcpp     ELMR          h2o          
- keras         MachineShop   minpack.lm    monmlp       
- neural        neuralnet     nlsr          nnet         
+ AMORE         automl         brnn          CaDENCE      
+ deepnet       elmNNRcpp      ELMR          h2o          
+ keras         MachineShop    minpack.lm    monmlp       
+ neural        neuralnet      nlsr          nnet         
  qrnn         radiant.model   rcane       rminer 
- RSNNS
+ RSNNS        simpleNeural 	  snnR
 
 Not tested packages:
 
@@ -19,7 +19,7 @@ GMDH2 	GMDHreg 	grnn 	hybridEnsemble 	isingLenzMC
 NlinTS 	nnetpredint 	nnfor 	onnx 	OptimClassifier
 OSTSC 	pnn 	polyreg 	predictoR 	QuantumOps
 quarrint 	rasclass 	rcane 	regressoR 	
-rnn 	 	ruta 	simpleNeural 	snnR 	softmaxreg
+rnn 	 	ruta 	 	softmaxreg
 Sojourn.Data 	spnn 	TeachNet 	tensorflow 	tfestimators 	trackdem
 TrafficBDE 	validann 	zFactor 	
 
