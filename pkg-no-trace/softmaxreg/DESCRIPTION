@@ -1,0 +1,11 @@
+Package: softmaxreg
+Type: Package
+Title: Training Multi-Layer Neural Network for Softmax Regression and
+        Classification
+Version: 1.3
+Author: Xichen Ding <rockingdingo@gmail.com>
+Maintainer: Xichen Ding <rockingdingo@gmail.com>
+Depends: R (>= 2.10)
+Imports: methods
+Description: Implementation of 'softmax' regression and classification models with multiple layer neural network. It can be used for many tasks like word embedding based document classification, 'MNIST' dataset handwritten digit recognition and so on. Multiple optimization algorithm including 'SGD', 'Adagrad', 'RMSprop', 'Moment', 'NAG', etc are also provided.
+License: GPL (>= 2)

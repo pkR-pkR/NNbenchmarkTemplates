@@ -1359,7 +1359,7 @@ softmaxreg.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 
 if(FALSE)
 res <- train_and_predict_1data(1, softmaxreg.method, "NNtrain.softmaxreg", "hyperParams.softmaxreg", "NNpredict.softmaxreg", 
-                               NNsummary, "NNclose.softmaxreg", NA, softmaxreg.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               NNsummary, "NNclose.softmaxreg", NA, softmaxreg.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
                                pkgname="softmaxreg", pkgfun="softmaxReg", rdafile=TRUE, odir=odir, echoreport=1)
 
 ```

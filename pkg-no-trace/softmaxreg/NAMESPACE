@@ -1,0 +1,19 @@
+exportPattern("^[[:alpha:]]+")
+
+export(softmaxReg.default, softmaxReg.formula, AIC.softmax, BIC.softmax, predict.softmax, summary.softmax)
+
+## S4 Style All methods for imported generics:
+importFrom("methods", setClass, setMethod)
+importFrom("grDevices", "gray")
+importFrom("graphics", "image")
+importFrom("methods", "hasArg", "new", "slot")
+importFrom("stats", "AIC", "BIC", "model.frame", "runif")
+importFrom("utils", "download.file", "read.csv")
+
+# S3 Methods Definition
+S3method(softmaxReg, default)
+S3method(softmaxReg, formula)
+S3method(AIC, softmax)
+S3method(BIC, softmax)
+S3method(predict, softmax)
+S3method(summary, softmax)
