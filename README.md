@@ -14,7 +14,10 @@ Visit:
 - https://github.com/rstats-gsoc/gsoc2019/wiki/Neural-Network-package-validation
 - https://summerofcode.withgoogle.com/projects/#6319761942642688
 - https://summerofcode.withgoogle.com/projects/#5795523770974208
+
+Github projects associated
 - https://github.com/pkR-pkR/NNbenchmark
+- https://github.com/pkR-pkR/NNbenchmarkTemplates
 
-
-
+Early results : 
+- https://akshajverma.com/NNbenchmarkWeb/
