@@ -1,10 +1,10 @@
 
 
-## ===============================================================
-## 2019-08-22 NNbenchmark TEMPLATE FOR neuralnet_1.44.2 + algo slr
-##            Authors: PATRICE KIENER + SALSABILA MAHDI
+## ====================================================
+## 2019-08-13 NNbenchmark TEMPLATE FOR minpack.lm_1.2.1
+##            Author: PATRICE KIENER
 ##            (REQUIRE at least NNbenchmark_2.2)
-## ===============================================================
+## ====================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
@@ -14,9 +14,9 @@ options("digits.secs" = 3)
 ## SELECT THE PACKAGE USED FOR THE TRAINING
 ## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## ===========================================
-library(neuralnet)
-options(warn = 0)  # warnings are printed (default)
-# options(warn = -1) # warnings are not printed
+library(minpack.lm)
+# options(warn = 0)  # warnings are printed (default)
+options(warn = -1) # warnings are not printed
 
 
 ## =====================================================
@@ -24,7 +24,7 @@ options(warn = 0)  # warnings are printed (default)
 ## COMMENT pdf() FOR A STANDARD PLOT
 ## UNCOMMENT pdf() TO RECORD ALL PLOTS IN A PDF FILE
 ## =====================================================
-setwd("D:/DevGSoC/Packages/NNbenchmarkTemplates/results") ; getwd()
+setwd("D:/GSoC2020/06/2019_rerun02/results") ; getwd()
 # setwd("D:/WindowsDir") ; getwd()
 # setwd("~/LinuxDir") ; getwd()
 
@@ -45,7 +45,7 @@ names(NNdatasets)
 ## SELECT ONE DATASET OR UNCOMMENT THE LOOP TO RUN ALL DATASETS
 ## IF THE LOOP IS ACTIVATED, YOU CAN RUN THIS FULL PAGE IN EXTENSO
 ## ===============================================================
-# dset   <- "uDmod1"
+# dset   <- "uGauss2"
 for (dset in names(NNdatasets)) {
 
 
@@ -66,7 +66,7 @@ donotremove2 <- c("dset", "dsets")
 ## d = data.frame, m = matrix, v = vector/numeric
 ## ATTACH THE OBJECTS CREATED (x, y, Zxy, ... )
 ## ===================================================
-ZZ     <- prepareZZ(Z, xdmv = "d", ydmv = "d", zdm = "d", scale = TRUE)
+ZZ     <- prepareZZ(Z, xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
 attach(ZZ)
 # ls(ZZ)
 # ls()
@@ -78,18 +78,15 @@ attach(ZZ)
 ## maxiter  => SELECT THE MAX NUMBER OF ITERATIONS
 ## TF       => PLOT (TRUE/FALSE) THE RESULTS
 ## stars    => EVALUATION OF THE PACKAGE::ALGORITHMS
-## params   => comment1: maxiter/lr AS CHARACTER
-## comment  => comment2: free (short) text
+## params   => comment: maxiter/lr AS CHARACTER
 ## printmsg => PRINT timeR DURING THE TRAINING
 ## =================================================
-nruns   <- 5
-algo    <- "slr"
-stepmax <- 1e+05
+nruns   <- 10
+maxiter <- 200
 TF      <- TRUE 
 stars   <- ""
-params  <- ""
-comment <- ""
-descr   <- paste(dset,  "neuralnet::neuralnet_slr", sep = "_")
+params  <- "maxiter = 200"
+descr   <- paste(dset, "minpack.lm:LM", sep = "_")
 
 
 timer    <- createTimer()
@@ -109,15 +106,12 @@ for(i in 1:nruns){
     bb         <- round(rnorm(nparNN, sd = 0.1), 4)
     names(bb)  <- paste0("b", 1:nparNN)
     NNreg      <- tryCatch(
-                    neuralnet::neuralnet(formula = fmla, data = Zxy, 
-						hidden = neur, 
-						stepmax = stepmax,
-						startweights = bb, 
-						act.fct = "tanh"),
+                    minpack.lm::nlsLM(fmlaNN, data = Zxy, start = bb, 
+                                      control = list(maxiter = maxiter)),
 					error = function(y) {lm(y ~ 0, data = Zxy)}
                   )
     y_pred     <- tryCatch(
-                    ym0 + ysd0*as.numeric(predict(NNreg, newdata = x)),
+                    ym0 + ysd0*fitted(NNreg),
                     error = function(NNreg) rep(ym0, nrow(Zxy))
                   )
     ####
@@ -125,7 +119,7 @@ for(i in 1:nruns){
     Rmse[i]    <- funRMSE(y_pred, y0)
     Mae[i]     <- funMAE(y_pred, y0)
     timer$stop(event, RMSE = Rmse[i], MAE = Mae[i], stars = stars, 
-	           params = params, comment = comment, printmsg = printmsg)
+	           params = params, printmsg = printmsg)
     lipoNN(xory, y_pred, uni, TF, col = i)
 }
 best <- which(Rmse == min(Rmse, na.rm = TRUE))[1] ; best ; Rmse[[best]]

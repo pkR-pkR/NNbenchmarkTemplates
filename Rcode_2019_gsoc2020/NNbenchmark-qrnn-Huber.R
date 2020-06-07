@@ -24,7 +24,7 @@ options(warn = 0)  # warnings are printed (default)
 ## COMMENT pdf() FOR A STANDARD PLOT
 ## UNCOMMENT pdf() TO RECORD ALL PLOTS IN A PDF FILE
 ## =====================================================
-setwd("D:/DevGSoC/Packages/NNbenchmarkTemplates/results") ; getwd()
+setwd("D:/GSoC2020/06/2019_rerun02/results") ; getwd()
 # setwd("D:/WindowsDir") ; getwd()
 # setwd("~/LinuxDir") ; getwd()
 
@@ -78,17 +78,15 @@ for (dset in names(NNdatasets)) {
   ## maxiter  => SELECT THE MAX NUMBER OF ITERATIONS
   ## TF       => PLOT (TRUE/FALSE) THE RESULTS
   ## stars    => EVALUATION OF THE PACKAGE::ALGORITHMS
-  ## params   => comment1: maxiter/lr AS CHARACTER
-  ## comment  => comment2: free (short) text
+  ## params   => comment: maxiter/lr AS CHARACTER
   ## printmsg => PRINT timeR DURING THE TRAINING
   ## =================================================
   nruns   <- 10
-  maxiter <- 700
+  maxiter <- 200
   TF      <- TRUE 
   stars   <- ""
-  params  <- "maxiter = 700"
-  comment <- ""
-  descr   <- paste(dset,  "qrnn::qrnn.fit", sep = "_")
+  params  <- "maxiter = 200"
+  descr   <- paste(dset,  "qrnn:Huber.norm", sep = "_")
   
   
   timer    <- createTimer()
@@ -105,8 +103,6 @@ for (dset in names(NNdatasets)) {
     timer$start(event)
     #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
     #### DO NOT MODIFY THE <error> LINE IN tryCatch() 
-    bb         <- round(rnorm(nparNN, sd = 0.1), 4)
-    names(bb)  <- paste0("b", 1:nparNN)
     NNreg      <- tryCatch(
       qrnn::qrnn.fit(x, y, n.hidden = neur, 
                      iter.max = maxiter, n.trials = 1,
@@ -122,7 +118,7 @@ for (dset in names(NNdatasets)) {
     Rmse[i]    <- funRMSE(y_pred, y0)
     Mae[i]     <- funMAE(y_pred, y0)
     timer$stop(event, RMSE = Rmse[i], MAE = Mae[i], stars = stars, 
-               params = params, comment = comment, printmsg = printmsg)
+               params = params, printmsg = printmsg)
     lipoNN(xory, y_pred, uni, TF, col = i)
   }
   best <- which(Rmse == min(Rmse, na.rm = TRUE))[1] ; best ; Rmse[[best]]

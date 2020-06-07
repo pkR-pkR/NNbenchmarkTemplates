@@ -1,10 +1,10 @@
 
 
-## ======================================================
-## 2019-08-24 NNbenchmark TEMPLATE FOR simpleNeural_0.1.1
+## =======================================================
+## 2019-08-22 NNbenchmark TEMPLATE FOR radiant.model_1.0.0
 ##            Authors: PATRICE KIENER + SALSABILA MAHDI
 ##            (REQUIRES at least NNbenchmark_2.2)
-## ======================================================
+## =======================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
@@ -14,7 +14,7 @@ options("digits.secs" = 3)
 ## SELECT THE PACKAGE USED FOR THE TRAINING
 ## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## ===========================================
-library(simpleNeural)
+library(radiant.model)
 options(warn = 0)  # warnings are printed (default)
 # options(warn = -1) # warnings are not printed
 
@@ -24,7 +24,7 @@ options(warn = 0)  # warnings are printed (default)
 ## COMMENT pdf() FOR A STANDARD PLOT
 ## UNCOMMENT pdf() TO RECORD ALL PLOTS IN A PDF FILE
 ## =====================================================
-setwd("D:/DevGSoC/Packages/NNbenchmarkTemplates/results") ; getwd()
+setwd("D:/GSoC2020/06/2019_rerun02/results") ; getwd()
 # setwd("D:/WindowsDir") ; getwd()
 # setwd("~/LinuxDir") ; getwd()
 
@@ -66,8 +66,7 @@ for (dset in names(NNdatasets)) {
   ## d = data.frame, m = matrix, v = vector/numeric
   ## ATTACH THE OBJECTS CREATED (x, y, Zxy, ... )
   ## ===================================================
-  Z <- sN.normalizeDF(Z)
-  ZZ <- prepareZZ(Z, xdmv = "m", ydmv = "v", scale = F)
+  ZZ     <- prepareZZ(Z, xdmv = "d", ydmv = "d", zdm = "d", scale = FALSE)
   attach(ZZ)
   # ls(ZZ)
   # ls()
@@ -79,17 +78,14 @@ for (dset in names(NNdatasets)) {
   ## maxiter  => SELECT THE MAX NUMBER OF ITERATIONS
   ## TF       => PLOT (TRUE/FALSE) THE RESULTS
   ## stars    => EVALUATION OF THE PACKAGE::ALGORITHMS
-  ## params   => comment1: maxiter/lr AS CHARACTER
-  ## comment  => comment2: free (short) text
+  ## params   => comment: maxiter/lr AS CHARACTER
   ## printmsg => PRINT timeR DURING THE TRAINING
   ## =================================================
   nruns   <- 10
-  TF      <- TRUE 
-  maxiter <- 1000
+  TF      <- TRUE
   stars   <- ""
-  params  <- "maxiter = 1000"
-  comment <- "for bi- or multiclass classification"
-  descr   <- paste(dset,  "simpleNeural::sN.MLPtrain", sep = "_")
+  params  <- "maxiter preset to 1000"
+  descr   <- paste(dset,  "radiant.model:optim.BFGS", sep = "_")
   
   
   timer    <- createTimer()
@@ -106,15 +102,13 @@ for (dset in names(NNdatasets)) {
     timer$start(event)
     #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
     #### DO NOT MODIFY THE <error> LINE IN tryCatch() 
-    bb         <- round(rnorm(nparNN, sd = 0.1), 4)
-    names(bb)  <- paste0("b", 1:nparNN)
     NNreg      <- tryCatch(
-      sN.MLPtrain(x, y, hidden_layer_size = neur, it = maxiter, 
-                  lambda = 0.5, alpha = 0.001),
+      radiant.model::nn(as.data.frame(Z), rvar = "y", evar = colnames(Z)[-ncol(Z)], 
+                        type = "regression", size = neur, decay = 0),
       error = function(y) {lm(y ~ 0, data = Zxy)}
     )
     y_pred     <- tryCatch(
-      ym0 + ysd0*sN.MLPpredict(nnModel = NNreg, X = x, raw = FALSE),
+      ym0 + ysd0*predict(NNreg, as.data.frame(Z))$Prediction,
       error = function(NNreg) rep(ym0, nrow(Zxy))
     )
     ####
@@ -122,7 +116,7 @@ for (dset in names(NNdatasets)) {
     Rmse[i]    <- funRMSE(y_pred, y0)
     Mae[i]     <- funMAE(y_pred, y0)
     timer$stop(event, RMSE = Rmse[i], MAE = Mae[i], stars = stars, 
-               params = params, comment = comment, printmsg = printmsg)
+               params = params, printmsg = printmsg)
     lipoNN(xory, y_pred, uni, TF, col = i)
   }
   best <- which(Rmse == min(Rmse, na.rm = TRUE))[1] ; best ; Rmse[[best]]
