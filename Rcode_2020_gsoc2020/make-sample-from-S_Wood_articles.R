@@ -6,10 +6,16 @@ f0 <- function(x) 5*sin(2*pi*x)
 f1 <- function(x) exp(3*x)-7
 f2 <- function(x) 
   0.5*x^11*(10*(1 - x))^6 - 10*(10*x)^3*(1 - x)^10
+f3 <- function(x)
+  15*exp(-5*abs(x-1/2))-6
+f4 <- function(x)
+  2-(x <= 1/3)*(6*x)^3 - (x >= 2/3)*(6-6*x)^3 - (x > 1/3 & x < 2/3)*(8+2*sin(30*(x-1/3)*pi))
 
 curve(f0, ylim=c(-10, 10))
 curve(f1, add=TRUE, lty=2)
 curve(f2, add=TRUE, lty=3)
+curve(f3, add=TRUE, lty=4)
+curve(f4, add=TRUE, lty=5)
 abline(v=1:3/4, col="grey")
 abline(v=1:4/5, lty=2, col="grey")
 
@@ -74,24 +80,20 @@ make_categ_data <- function(dist, linkinvfun, samplesize, nbcov, covlevels, othe
   res
 }
 
-g1 <- make_categ_data("gamma", exp, 100, 3, list(LETTERS[1:3], letters[21:23], LETTERS[10:13]),
-         otherparam = 3.5)
-head(g1)
-summary(glm(y~., data=g1, family=Gamma("log")))
 
-make_cont_data <- function(dist, linkinvfun, samplesize, nbcov, otherparam)
+make_cont_data <- function(dist, linkinvfun, samplesize, nbcov, otherparam,
+                           mixingalpha=0.25)
 {
-  f0 <- function(x) 5*sin(2*pi*x)
-  f1 <- function(x) exp(3*x)-7
-  f2 <- function(x) 
-    0.5*x^11*(10*(1 - x))^6 - 10*(10*x)^3*(1 - x)^10
+  #f0 <- function(x) 5*sin(2*pi*x)
+  #f1 <- function(x) exp(3*x)-7
+  #f2 <- function(x) 
+  #  0.5*x^11*(10*(1 - x))^6 - 10*(10*x)^3*(1 - x)^10
   
   #make pairwise correlation
-  alpha <- 0.25
   m <- floor(nbcov/2)
   xval <- sapply(1:m, function(i)
     runif(samplesize))
-  xval <- cbind(xval, xval*alpha +(1-alpha) * sapply(1:m, function(i)
+  xval <- cbind(xval, xval*mixingalpha +(1-mixingalpha) * sapply(1:m, function(i)
     runif(samplesize)))
   if(NCOL(xval) == nbcov-1)
     xval <- cbind(xval, runif(samplesize))
@@ -104,21 +106,21 @@ make_cont_data <- function(dist, linkinvfun, samplesize, nbcov, otherparam)
   for(i in 1:nbcov)
   {
     xi <- xval[,i]
-    j <- i %% 3
+    j <- i %% 5
+    cat(i,j,"\n")
     if(j == 0)
-    {
       xvalnum[,i] <- f0(xi)
-    }
     if(j == 1)
-    {
       xvalnum[,i] <- f1(xi)
-    }
     if(j == 2)
-    {
       xvalnum[,i] <- f2(xi)
-    }
+    if(j == 3)
+      xvalnum[,i] <- f3(xi)
+    if(j == 4)
+      xvalnum[,i] <- f4(xi)
   }
   eta <- 1 + xvalnum %*% rep(1, nbcov)
+  #eta <- 1 + xvalnum %*% c(0,0,0,0,0,1) manual check
   mu <- linkinvfun(eta)
   if(dist == "exp")
   {
@@ -134,44 +136,78 @@ make_cont_data <- function(dist, linkinvfun, samplesize, nbcov, otherparam)
     require("SuppDists")
     y <- SuppDists::rinvGauss(samplesize, nu = mu, lambda = 1/otherparam)
   }
-  res <- cbind.data.frame(y, xval, mu)
-  colnames(res) <- c("y", paste0("V", 1:nbcov), "mu")
+  res <- cbind.data.frame(y, xval)
+  colnames(res) <- c("y", paste0("V", 1:nbcov))
   res
 }
 
+controlplot <- function(data, plot.nr, plot.nc, plot.mar=c(4,4,2,1), plot.nobs=1000, var2round,...)
+{
+  if(var2round)
+  {
+    par(mfrow=c(plot.nr,plot.nc), mar=plot.mar)
+    for(j in 1:(plot.nr*plot.nc))
+    {
+      Vjb <- round(data[,paste0("V",j)], 2)
+      plot(sort(unique(Vjb)), tapply(data$y, Vjb, mean), 
+         xlab=paste0("rounded variable ", j), ylab="y", ...)
+    }
+  }else
+  {
+    n <- min(plot.nobs, NROW(data)) 
+    par(mfrow=c(plot.nr,plot.nc), mar=plot.mar)
+    for(j in 1:(plot.nr*plot.nc))
+      plot(data[1:n,paste0("V",j)], data$y[1:n], 
+           xlab=paste0("original variable ", j), ylab="y",...)
+  }
+  
+}
+
+set.seed(123)
+nrow <- 1e5
+ncov <- 10
+
 
 #gamma example
-g1 <- make_cont_data("gamma", abs, 1000, 4,
+mWoodG1 <- make_cont_data("gamma", abs, nrow, ncov,
                       otherparam = 0.25)
-head(g1)
-summary(glm(y~V1+V2+V3+V4, data=g1, family=Gamma("log")))
+head(mWoodG1)
+summary(glm(y~., data=mWoodG1, family=Gamma("log")))
 
-par(mfrow=c(2,2), mar=c(4,4,2,1))
-for(j in 1:4)
-  plot(g1[,paste0("V",j)], g1$y)
+#mean check
+controlplot(mWoodG1, 2, ncov/2, var2round=TRUE)
+#correlation check
+round(cor(mWoodG1[,-1]), 2)
+ 
      
 
-
 #normal example
-n1 <- make_cont_data("norm", function(x) x, 1000, 4,
-                     otherparam = 0.25)
-head(n1)
-summary(glm(y~V1+V2+V3+V4, data=n1, family=gaussian("identity")))
+mWoodN1 <- make_cont_data("norm", identity, nrow, ncov,
+                     otherparam = 0.25, mixingalpha=0.25)
+head(mWoodN1)
+summary(glm(y~., data=mWoodN1, family=gaussian("identity")))
 
-par(mfrow=c(2,2), mar=c(4,4,2,1))
-for(j in 1:4)
-  plot(n1[,paste0("V",j)], n1$y, xlab=paste0("V",j))
+#mean check
+controlplot(mWoodN1, 2, ncov/2, var2round=TRUE)
+#correlation check
+round(cor(mWoodN1[,-1]), 2)
 
 
 #invgauss example
-ig1 <- make_cont_data("invgauss", function(x) abs(x), 1000, 4,
-                     otherparam = .02)
-head(ig1)
-summary(glm(y~V1+V2+V3+V4, data=ig1, family=inverse.gaussian("inverse")))
+mWoodIG1 <- make_cont_data("invgauss", abs, nrow, ncov,
+                     otherparam = .1)
+head(mWoodIG1)
+summary(glm(y~., data=mWoodIG1, family=inverse.gaussian("inverse")))
 
-par(mfrow=c(2,2), mar=c(4,4,2,1))
-for(j in 1:4)
-  plot(ig1[,paste0("V",j)], ig1$y, xlab=paste0("V",j))
+#mean check
+controlplot(mWoodIG1, 2, ncov/2, var2round=TRUE)
+#correlation check
+round(cor(mWoodIG1[,-1]), 2)
 
-
-
+#export
+if(FALSE)
+{
+  save(mWoodG1, file="mWoodG1.rda")
+  save(mWoodN1, file="mWoodN1.rda")
+  save(mWoodIG1, file="mWoodIG1.rda")
+}
