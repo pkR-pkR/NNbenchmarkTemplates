@@ -1,7 +1,7 @@
 
 
 ## ====================================================
-## 2019-08-22 NNbenchmark TEMPLATE FOR qrnn_2.0.4
+## 2019-08-24 NNbenchmark TEMPLATE FOR snnR_1.0
 ##            Authors: PATRICE KIENER + SALSABILA MAHDI
 ##            (REQUIRES at least NNbenchmark_2.2)
 ## ====================================================
@@ -14,7 +14,7 @@ options("digits.secs" = 3)
 ## SELECT THE PACKAGE USED FOR THE TRAINING
 ## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## ===========================================
-library(qrnn)
+library(snnR)
 options(warn = 0)  # warnings are printed (default)
 # options(warn = -1) # warnings are not printed
 
@@ -24,7 +24,7 @@ options(warn = 0)  # warnings are printed (default)
 ## COMMENT pdf() FOR A STANDARD PLOT
 ## UNCOMMENT pdf() TO RECORD ALL PLOTS IN A PDF FILE
 ## =====================================================
-setwd("D:/GSoC2020/Results/2019run03") ; getwd()
+#setwd("D:/GSoC2020/Results/2019run03") ; getwd()
 # setwd("D:/WindowsDir") ; getwd()
 # setwd("~/LinuxDir") ; getwd()
 
@@ -66,7 +66,7 @@ for (dset in names(NNdatasets)) {
   ## d = data.frame, m = matrix, v = vector/numeric
   ## ATTACH THE OBJECTS CREATED (x, y, Zxy, ... )
   ## ===================================================
-  ZZ <- prepareZZ(Z, xdmv = "m", ydmv = "m", scale = TRUE)
+  ZZ <- prepareZZ(Z, xdmv = "m", ydmv = "v", scale = TRUE)
   attach(ZZ)
   # ls(ZZ)
   # ls()
@@ -86,7 +86,7 @@ for (dset in names(NNdatasets)) {
   TF      <- TRUE 
   stars   <- ""
   params  <- "maxiter = 200"
-  descr   <- paste(dset,  "qrnn:Huber.norm", sep = "_")
+  descr   <- paste(dset,  "snnR::snnR", sep = "_")
   
   
   timer    <- createTimer()
@@ -104,13 +104,12 @@ for (dset in names(NNdatasets)) {
     #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
     #### DO NOT MODIFY THE <error> LINE IN tryCatch() 
     NNreg      <- tryCatch(
-      qrnn::qrnn.fit(x, y, n.hidden = neur, 
-                     iter.max = maxiter, n.trials = 1,
-                     init.range = c(-0.1, 0.1, -0.1, 0.1)),
+      snnR::snnR(x, y, nHidden = as.matrix(neur), 
+                 iteramax = maxiter),
       error = function(y) {lm(y ~ 0, data = Zxy)}
     )
     y_pred     <- tryCatch(
-      ym0 + ysd0*qrnn::qrnn.predict(x, NNreg),
+      ym0 + ysd0*predict(NNreg),
       error = function(NNreg) rep(ym0, nrow(Zxy))
     )
     ####

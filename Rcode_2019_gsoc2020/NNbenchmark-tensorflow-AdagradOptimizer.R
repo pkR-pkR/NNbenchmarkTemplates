@@ -1,10 +1,10 @@
 
 
-## ====================================================
-## 2019-08-22 NNbenchmark TEMPLATE FOR qrnn_2.0.4
+## ====================================================================
+## 2019-08-23 NNbenchmark TEMPLATE FOR tensorflow_1.14.0.9000 + Adagrad
 ##            Authors: PATRICE KIENER + SALSABILA MAHDI
 ##            (REQUIRES at least NNbenchmark_2.2)
-## ====================================================
+## ====================================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
@@ -14,7 +14,7 @@ options("digits.secs" = 3)
 ## SELECT THE PACKAGE USED FOR THE TRAINING
 ## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## ===========================================
-library(qrnn)
+library(tensorflow)
 options(warn = 0)  # warnings are printed (default)
 # options(warn = -1) # warnings are not printed
 
@@ -79,19 +79,20 @@ for (dset in names(NNdatasets)) {
   ## TF       => PLOT (TRUE/FALSE) THE RESULTS
   ## stars    => EVALUATION OF THE PACKAGE::ALGORITHMS
   ## params   => comment: maxiter/lr AS CHARACTER
+  ## comment  => comment2: free (short) text
   ## printmsg => PRINT timeR DURING THE TRAINING
   ## =================================================
   nruns   <- 10
-  maxiter <- 200
+  maxiter <- 5000
   TF      <- TRUE 
   stars   <- ""
-  params  <- "maxiter = 200"
-  descr   <- paste(dset,  "qrnn:Huber.norm", sep = "_")
+  params  <- "maxiter = 5000"
+  comment <- ""
+  descr   <- paste(dset,  "tensorflow::AdagradOptimizer", sep = "_")
   
   
   timer    <- createTimer()
   printmsg <- FALSE
-  
   
   ## AUTO
   plotNN(xory, y0, uni, TF, main = descr)
@@ -103,22 +104,39 @@ for (dset in names(NNdatasets)) {
     timer$start(event)
     #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
     #### DO NOT MODIFY THE <error> LINE IN tryCatch() 
-    NNreg      <- tryCatch(
-      qrnn::qrnn.fit(x, y, n.hidden = neur, 
-                     iter.max = maxiter, n.trials = 1,
-                     init.range = c(-0.1, 0.1, -0.1, 0.1)),
-      error = function(y) {lm(y ~ 0, data = Zxy)}
-    )
-    y_pred     <- tryCatch(
-      ym0 + ysd0*qrnn::qrnn.predict(x, NNreg),
-      error = function(NNreg) rep(ym0, nrow(Zxy))
-    )
+    bb         <- round(rnorm(nparNN, sd = 0.1), 4)
+    names(bb)  <- paste0("b", 1:nparNN)
+    X <- tf$compat$v1$placeholder("float", shape = shape(NULL, ncol(x)), name = "x-data")
+    Y <- tf$compat$v1$placeholder("float", shape = shape(NULL, 1), name = "y-data")
+    
+    Weight <- tf$Variable(tf$zeros(list(ncol(x), 1)))
+    biases <- tf$Variable(tf$zeros(list(1, ncol(x))))
+    Wx_plus_b <- tf$matmul(X, Weight) + biases
+    prediction <- tf$nn$tanh(Wx_plus_b)
+    
+    loss <- tf$reduce_mean(tf$square(Y - prediction))
+    generator <- tf$compat$v1$train$AdagradOptimizer(learning_rate = 0.001)
+    optimizer <- generator$minimize(loss)
+    init <- tf$compat$v1$global_variables_initializer()
+    sess <- tf$compat$v1$Session()
+    sess$run(init)
+    feed_dict <- dict(X = x, Y = y)
+    feed_dictnew <- dict(X = x)
+    for(j in 1:maxiter){
+      sess$run(optimizer, feed_dict = feed_dict)
+    }
+    prediction_value <- sess$run(prediction, feed_dict = feed_dictnew)
+    if(ncol(Z) > 2){
+      y_pred <- ym0 + ysd0*prediction_value[,1]
+    } else {
+      y_pred <- ym0 + ysd0*prediction_value
+    }
     ####
     Ypred[[i]] <- y_pred
     Rmse[i]    <- funRMSE(y_pred, y0)
     Mae[i]     <- funMAE(y_pred, y0)
     timer$stop(event, RMSE = Rmse[i], MAE = Mae[i], stars = stars, 
-               params = params, printmsg = printmsg)
+               params = params, comment = comment, printmsg = printmsg)
     lipoNN(xory, y_pred, uni, TF, col = i)
   }
   best <- which(Rmse == min(Rmse, na.rm = TRUE))[1] ; best ; Rmse[[best]]

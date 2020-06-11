@@ -1,7 +1,7 @@
 
 
 ## ====================================================
-## 2019-08-22 NNbenchmark TEMPLATE FOR qrnn_2.0.4
+## 2019-08-24 NNbenchmark TEMPLATE FOR RSNNS_0.4-11
 ##            Authors: PATRICE KIENER + SALSABILA MAHDI
 ##            (REQUIRES at least NNbenchmark_2.2)
 ## ====================================================
@@ -14,7 +14,7 @@ options("digits.secs" = 3)
 ## SELECT THE PACKAGE USED FOR THE TRAINING
 ## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## ===========================================
-library(qrnn)
+library(RSNNS)
 options(warn = 0)  # warnings are printed (default)
 # options(warn = -1) # warnings are not printed
 
@@ -82,11 +82,12 @@ for (dset in names(NNdatasets)) {
   ## printmsg => PRINT timeR DURING THE TRAINING
   ## =================================================
   nruns   <- 10
-  maxiter <- 200
-  TF      <- TRUE 
+  TF      <- TRUE
+  learnF <- "BackpropBatch"
+  maxiter <- 5000
   stars   <- ""
-  params  <- "maxiter = 200"
-  descr   <- paste(dset,  "qrnn:Huber.norm", sep = "_")
+  params  <- "maxiter = 5000"
+  descr   <- paste(dset,  "RSNNS::mlp_BackpropBatch", sep = "_")
   
   
   timer    <- createTimer()
@@ -103,14 +104,16 @@ for (dset in names(NNdatasets)) {
     timer$start(event)
     #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
     #### DO NOT MODIFY THE <error> LINE IN tryCatch() 
+    bb         <- round(rnorm(nparNN, sd = 0.1), 4)
+    names(bb)  <- paste0("b", 1:nparNN)
     NNreg      <- tryCatch(
-      qrnn::qrnn.fit(x, y, n.hidden = neur, 
-                     iter.max = maxiter, n.trials = 1,
-                     init.range = c(-0.1, 0.1, -0.1, 0.1)),
+      RSNNS::mlp(x, y, initFuncParams = bb,
+                 size = neur, learnFunc = learnF, 
+                 maxit = maxiter, linOut = TRUE),
       error = function(y) {lm(y ~ 0, data = Zxy)}
     )
     y_pred     <- tryCatch(
-      ym0 + ysd0*qrnn::qrnn.predict(x, NNreg),
+      ym0 + ysd0*fitted(NNreg),
       error = function(NNreg) rep(ym0, nrow(Zxy))
     )
     ####

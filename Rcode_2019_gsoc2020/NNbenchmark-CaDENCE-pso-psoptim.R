@@ -1,10 +1,10 @@
 
 
-## ====================================================
-## 2019-08-22 NNbenchmark TEMPLATE FOR qrnn_2.0.4
-##            Authors: PATRICE KIENER + SALSABILA MAHDI
+## ===================================================================
+## 2020-06-05 NNbenchmark TEMPLATE FOR CaDENCE + BFGS
+##            Authors: PATRICE KIENER + SALSABILA MAHDI + AKSHAJ VERMA
 ##            (REQUIRES at least NNbenchmark_2.2)
-## ====================================================
+## ===================================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
@@ -14,7 +14,7 @@ options("digits.secs" = 3)
 ## SELECT THE PACKAGE USED FOR THE TRAINING
 ## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## ===========================================
-library(qrnn)
+library(CaDENCE)
 options(warn = 0)  # warnings are printed (default)
 # options(warn = -1) # warnings are not printed
 
@@ -82,11 +82,12 @@ for (dset in names(NNdatasets)) {
   ## printmsg => PRINT timeR DURING THE TRAINING
   ## =================================================
   nruns   <- 10
+  method  <- "psoptim"
   maxiter <- 200
   TF      <- TRUE 
   stars   <- ""
   params  <- "maxiter = 200"
-  descr   <- paste(dset,  "qrnn:Huber.norm", sep = "_")
+  descr   <- paste(dset,  "CaDENCE:psoptim", sep = "_")
   
   
   timer    <- createTimer()
@@ -104,13 +105,23 @@ for (dset in names(NNdatasets)) {
     #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
     #### DO NOT MODIFY THE <error> LINE IN tryCatch() 
     NNreg      <- tryCatch(
-      qrnn::qrnn.fit(x, y, n.hidden = neur, 
-                     iter.max = maxiter, n.trials = 1,
-                     init.range = c(-0.1, 0.1, -0.1, 0.1)),
+      CaDENCE::cadence.fit(x = x, y = y, 
+                    iter.max = maxiter, 
+                    n.hidden = neur, 
+                    hidden.fcn = tanh, 
+                    method = method, 
+                    n.trials = 1, 
+                    trace = 0, 
+                    maxit.Nelder = 1, 
+                    f.cost = cadence.cost,
+                    distribution = list(density.fcn = dnorm,
+                                        parameters = c("mean", "sd"),
+                                        parameters.fixed = NULL,
+                                        output.fcns = c(identity, exp))),
       error = function(y) {lm(y ~ 0, data = Zxy)}
     )
     y_pred     <- tryCatch(
-      ym0 + ysd0*qrnn::qrnn.predict(x, NNreg),
+      ym0 + ysd0 * CaDENCE::cadence.predict(x = x, fit = NNreg)[,1],
       error = function(NNreg) rep(ym0, nrow(Zxy))
     )
     ####

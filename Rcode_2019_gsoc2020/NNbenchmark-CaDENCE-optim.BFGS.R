@@ -24,7 +24,7 @@ options(warn = 0)  # warnings are printed (default)
 ## COMMENT pdf() FOR A STANDARD PLOT
 ## UNCOMMENT pdf() TO RECORD ALL PLOTS IN A PDF FILE
 ## =====================================================
-setwd("D:/GSoC2020/06/2019_rerun02/results") ; getwd()
+setwd("D:/GSoC2020/Results/2019run03") ; getwd()
 # setwd("D:/WindowsDir") ; getwd()
 # setwd("~/LinuxDir") ; getwd()
 
@@ -82,7 +82,7 @@ for (dset in names(NNdatasets)) {
   ## printmsg => PRINT timeR DURING THE TRAINING
   ## =================================================
   nruns   <- 10
-  method  <- "BFGS"
+  method  <- "optim"
   maxiter <- 200
   TF      <- TRUE 
   stars   <- ""
@@ -109,11 +109,15 @@ for (dset in names(NNdatasets)) {
                     iter.max = maxiter, 
                     n.hidden = neur, 
                     hidden.fcn = tanh, 
-                    method = "optim", 
+                    method = method, 
                     n.trials = 1, 
                     trace = 0, 
                     maxit.Nelder = 1, 
-                    f.cost = cadence.cost),
+                    f.cost = cadence.cost,
+                    distribution = list(density.fcn = dnorm,
+                                        parameters = c("mean", "sd"),
+                                        parameters.fixed = NULL,
+                                        output.fcns = c(identity, exp))),
       error = function(y) {lm(y ~ 0, data = Zxy)}
     )
     y_pred     <- tryCatch(

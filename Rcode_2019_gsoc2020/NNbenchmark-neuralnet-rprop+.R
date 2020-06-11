@@ -1,10 +1,10 @@
 
 
-## ===============================================================
-## 2019-08-22 NNbenchmark TEMPLATE FOR neuralnet_1.44.2 + algo slr
+## ==================================================================
+## 2019-08-22 NNbenchmark TEMPLATE FOR neuralnet_1.44.2 + algo rprop+
 ##            Authors: PATRICE KIENER + SALSABILA MAHDI
 ##            (REQUIRE at least NNbenchmark_2.2)
-## ===============================================================
+## ==================================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
@@ -82,12 +82,12 @@ attach(ZZ)
 ## printmsg => PRINT timeR DURING THE TRAINING
 ## =================================================
 nruns   <- 10
-algo    <- "slr"
+algo    <- "rprop+"
 stepmax <- 5000
 TF      <- TRUE 
 stars   <- ""
 params  <- "maxiter = 5000"
-descr   <- paste(dset,  "neuralnet:slr", sep = "_")
+descr   <- paste(dset,  "neuralnet::neuralnet_rprop+", sep = "_")
 
 
 timer    <- createTimer()
@@ -111,6 +111,7 @@ for(i in 1:nruns){
 						hidden = neur, 
 						stepmax = stepmax,
 						startweights = bb, 
+						algorithm = algo, 
 						act.fct = "tanh"),
 					error = function(y) {lm(y ~ 0, data = Zxy)}
                   )

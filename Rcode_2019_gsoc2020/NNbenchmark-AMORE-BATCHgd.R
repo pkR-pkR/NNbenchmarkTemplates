@@ -1,10 +1,10 @@
 
 
-## ===============================================================
-## 2019-08-22 NNbenchmark TEMPLATE FOR neuralnet_1.44.2 + algo slr
-##            Authors: PATRICE KIENER + SALSABILA MAHDI
-##            (REQUIRE at least NNbenchmark_2.2)
-## ===============================================================
+## =====================================================================
+## 2019-08-22 NNbenchmark TEMPLATE FOR AMORE AMORE_0.2.15 + algo BATCHgd
+##            Authors: PATRICE KIENER + AKSHAJ VERMA
+##            (REQUIRE at least NNbenchmark_2.3)
+## =====================================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
@@ -14,7 +14,7 @@ options("digits.secs" = 3)
 ## SELECT THE PACKAGE USED FOR THE TRAINING
 ## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## ===========================================
-library(neuralnet)
+library(AMORE)
 options(warn = 0)  # warnings are printed (default)
 # options(warn = -1) # warnings are not printed
 
@@ -45,7 +45,7 @@ names(NNdatasets)
 ## SELECT ONE DATASET OR UNCOMMENT THE LOOP TO RUN ALL DATASETS
 ## IF THE LOOP IS ACTIVATED, YOU CAN RUN THIS FULL PAGE IN EXTENSO
 ## ===============================================================
-# dset   <- "uDmod1"
+# dset   <- "uGauss1"
 for (dset in names(NNdatasets)) {
 
 
@@ -66,7 +66,7 @@ donotremove2 <- c("dset", "dsets")
 ## d = data.frame, m = matrix, v = vector/numeric
 ## ATTACH THE OBJECTS CREATED (x, y, Zxy, ... )
 ## ===================================================
-ZZ     <- prepareZZ(Z, xdmv = "d", ydmv = "d", zdm = "d", scale = TRUE)
+ZZ     <- prepareZZ(Z, xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 attach(ZZ)
 # ls(ZZ)
 # ls()
@@ -81,13 +81,15 @@ attach(ZZ)
 ## params   => comment: maxiter/lr AS CHARACTER
 ## printmsg => PRINT timeR DURING THE TRAINING
 ## =================================================
-nruns   <- 10
-algo    <- "slr"
-stepmax <- 5000
 TF      <- TRUE 
+descr   <- paste(dset,  "AMORE:BATCHgd", sep = "_")
+nruns   <- 10
+method  <- "BATCHgd"
+iter    <- 5000
+hidden_activation <- "sigmoid"
+lr      <- 0.05
 stars   <- ""
-params  <- "maxiter = 5000"
-descr   <- paste(dset,  "neuralnet:slr", sep = "_")
+params  <- "iter=5000"
 
 
 timer    <- createTimer()
@@ -104,18 +106,21 @@ for(i in 1:nruns){
     timer$start(event)
     #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
 	#### DO NOT MODIFY THE <error> LINE IN tryCatch() 
-    bb         <- round(rnorm(nparNN, sd = 0.1), 4)
-    names(bb)  <- paste0("b", 1:nparNN)
+    net_structure <- AMORE::newff(n.neurons = c(ncol(x), neur, 1), 
+	                              learning.rate.global = lr, 
+								  error.criterium = "LMS", 
+								  hidden.layer = hidden_activation, 
+								  method = method)
     NNreg      <- tryCatch(
-                    neuralnet::neuralnet(formula = fmla, data = Zxy, 
-						hidden = neur, 
-						stepmax = stepmax,
-						startweights = bb, 
-						act.fct = "tanh"),
+                    AMORE::train(net = net_structure, P = x, T = y, 
+					             error.criterium = "LMS", 
+								 report = FALSE, 
+								 n.shows = iter, 
+								 show.step = 1),
 					error = function(y) {lm(y ~ 0, data = Zxy)}
                   )
     y_pred     <- tryCatch(
-                    ym0 + ysd0*as.numeric(predict(NNreg, newdata = x)),
+                    ym0 + ysd0*as.numeric(AMORE::sim.MLPnet(NNreg$net, x)),
                     error = function(NNreg) rep(ym0, nrow(Zxy))
                   )
     ####

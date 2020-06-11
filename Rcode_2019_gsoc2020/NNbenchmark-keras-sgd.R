@@ -1,10 +1,10 @@
 
 
-## ====================================================
-## 2019-08-22 NNbenchmark TEMPLATE FOR qrnn_2.0.4
-##            Authors: PATRICE KIENER + SALSABILA MAHDI
+## ===================================================================
+## 2020-06-05 NNbenchmark TEMPLATE FOR keras + sgd
+##            Authors: PATRICE KIENER + SALSABILA MAHDI + AKSHAJ VERMA
 ##            (REQUIRES at least NNbenchmark_2.2)
-## ====================================================
+## ===================================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
@@ -14,7 +14,7 @@ options("digits.secs" = 3)
 ## SELECT THE PACKAGE USED FOR THE TRAINING
 ## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## ===========================================
-library(qrnn)
+library(keras)
 options(warn = 0)  # warnings are printed (default)
 # options(warn = -1) # warnings are not printed
 
@@ -66,7 +66,7 @@ for (dset in names(NNdatasets)) {
   ## d = data.frame, m = matrix, v = vector/numeric
   ## ATTACH THE OBJECTS CREATED (x, y, Zxy, ... )
   ## ===================================================
-  ZZ <- prepareZZ(Z, xdmv = "m", ydmv = "m", scale = TRUE)
+  ZZ <- prepareZZ(Z, xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
   attach(ZZ)
   # ls(ZZ)
   # ls()
@@ -82,12 +82,13 @@ for (dset in names(NNdatasets)) {
   ## printmsg => PRINT timeR DURING THE TRAINING
   ## =================================================
   nruns   <- 10
-  maxiter <- 200
+  method  <- "sgd" 
+  iter    <- 5000
+  lr      <- 0.001
   TF      <- TRUE 
   stars   <- ""
-  params  <- "maxiter = 200"
-  descr   <- paste(dset,  "qrnn:Huber.norm", sep = "_")
-  
+  params  <- "maxiter = 5000"
+  descr   <- paste(dset,  "keras::modelsequential", method, sep = "_")
   
   timer    <- createTimer()
   printmsg <- FALSE
@@ -103,14 +104,34 @@ for (dset in names(NNdatasets)) {
     timer$start(event)
     #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
     #### DO NOT MODIFY THE <error> LINE IN tryCatch() 
+    op <- optimizer_sgd(lr = lr)
+    
+    model <- keras_model_sequential() %>%
+      layer_dense(units = neur, activation = "tanh", input_shape = ncol(x)) %>%
+      layer_dense(units = 1)
+    
+    model %>% compile(
+      loss = "mse",
+      optimizer = op,
+      metrics = list("mean_absolute_error"))
+    
+    NNtrain <- function(x, y, model, iter, optim_method) {
+      
+      early_stop <- callback_early_stopping(monitor = "loss", patience = 20, restore_best_weights = TRUE, mode = "auto", min_delta = 0.00001)
+      
+      NNreg <- model %>% fit(x, y, epochs = iter, verbose = 0, callbacks = list(early_stop))
+      
+      
+      return (NNreg)
+    }
+    
     NNreg      <- tryCatch(
-      qrnn::qrnn.fit(x, y, n.hidden = neur, 
-                     iter.max = maxiter, n.trials = 1,
-                     init.range = c(-0.1, 0.1, -0.1, 0.1)),
+      NNtrain(x = x, y = y, model = model, hidden_neur = neur, optim_method = method),
       error = function(y) {lm(y ~ 0, data = Zxy)}
-    )
+    )  
+    
     y_pred     <- tryCatch(
-      ym0 + ysd0*qrnn::qrnn.predict(x, NNreg),
+      ym0 + ysd0 * model %>% predict(x),
       error = function(NNreg) rep(ym0, nrow(Zxy))
     )
     ####

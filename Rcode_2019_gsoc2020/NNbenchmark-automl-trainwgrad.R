@@ -1,10 +1,10 @@
 
 
-## ====================================================
-## 2019-08-22 NNbenchmark TEMPLATE FOR qrnn_2.0.4
-##            Authors: PATRICE KIENER + SALSABILA MAHDI
+## ===================================================================
+## 2020-06-05 NNbenchmark TEMPLATE FOR automl + trainwgrad
+##            Authors: PATRICE KIENER + SALSABILA MAHDI + AKSHAJ VERMA
 ##            (REQUIRES at least NNbenchmark_2.2)
-## ====================================================
+## ===================================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
@@ -14,7 +14,7 @@ options("digits.secs" = 3)
 ## SELECT THE PACKAGE USED FOR THE TRAINING
 ## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## ===========================================
-library(qrnn)
+library(automl)
 options(warn = 0)  # warnings are printed (default)
 # options(warn = -1) # warnings are not printed
 
@@ -45,7 +45,7 @@ names(NNdatasets)
 ## SELECT ONE DATASET OR UNCOMMENT THE LOOP TO RUN ALL DATASETS
 ## IF THE LOOP IS ACTIVATED, YOU CAN RUN THIS FULL PAGE IN EXTENSO
 ## ===============================================================
-# dset   <- "uDmod1"
+dset   <- "uDmod1"
 for (dset in names(NNdatasets)) {
   
   
@@ -66,7 +66,7 @@ for (dset in names(NNdatasets)) {
   ## d = data.frame, m = matrix, v = vector/numeric
   ## ATTACH THE OBJECTS CREATED (x, y, Zxy, ... )
   ## ===================================================
-  ZZ <- prepareZZ(Z, xdmv = "m", ydmv = "m", scale = TRUE)
+  ZZ <- prepareZZ(Z, xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
   attach(ZZ)
   # ls(ZZ)
   # ls()
@@ -82,12 +82,12 @@ for (dset in names(NNdatasets)) {
   ## printmsg => PRINT timeR DURING THE TRAINING
   ## =================================================
   nruns   <- 10
-  maxiter <- 200
+  method  <- "trainwgrad"
   TF      <- TRUE 
   stars   <- ""
-  params  <- "maxiter = 200"
-  descr   <- paste(dset,  "qrnn:Huber.norm", sep = "_")
-  
+  params  <- ""
+  descr   <- paste(dset,  "automl::automltrainmanual", method, sep = "_")
+  maxiter <- 5000
   
   timer    <- createTimer()
   printmsg <- FALSE
@@ -104,13 +104,17 @@ for (dset in names(NNdatasets)) {
     #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
     #### DO NOT MODIFY THE <error> LINE IN tryCatch() 
     NNreg      <- tryCatch(
-      qrnn::qrnn.fit(x, y, n.hidden = neur, 
-                     iter.max = maxiter, n.trials = 1,
-                     init.range = c(-0.1, 0.1, -0.1, 0.1)),
+      automl::automl_train_manual(Xref = x, Yref = y,
+                                  hpar = list(modexec = "trainwgrad",
+                                              layersshape = c(neur, 0),
+                                              layersacttype = c("tanh", ""),
+                                              verbose = FALSE,
+                                              seed = as.integer(runif(1)*10000000),
+                                              numiterations = maxiter)),
       error = function(y) {lm(y ~ 0, data = Zxy)}
     )
     y_pred     <- tryCatch(
-      ym0 + ysd0*qrnn::qrnn.predict(x, NNreg),
+      ym0 + ysd0 * automl::automl_predict(model = NNreg, X = x),
       error = function(NNreg) rep(ym0, nrow(Zxy))
     )
     ####

@@ -1,10 +1,10 @@
 
 
-## ===============================================================
-## 2019-08-22 NNbenchmark TEMPLATE FOR neuralnet_1.44.2 + algo slr
-##            Authors: PATRICE KIENER + SALSABILA MAHDI
-##            (REQUIRE at least NNbenchmark_2.2)
-## ===============================================================
+## =================================================
+## 2019-08-12 NNbenchmark TEMPLATE FOR h2o_3.2.6.0.2
+##            Author: PATRICE KIENER
+##            (REQUIRE at least NNbenchmark_2.1)
+## =================================================
 library(NNbenchmark)
 options(scipen = 9999)
 options("digits.secs" = 3)
@@ -14,15 +14,15 @@ options("digits.secs" = 3)
 ## SELECT THE PACKAGE USED FOR THE TRAINING
 ## SOME PACKAGES ISSUE WARNINGS: ACCEPT OR NOT
 ## ===========================================
-library(neuralnet)
+library(h2o)
+h2o.init()
 options(warn = 0)  # warnings are printed (default)
 # options(warn = -1) # warnings are not printed
-
 
 ## =====================================================
 ## SET YOUR WORKING DIRECTORY (CSV FILES ARE SAVED HERE)
 ## COMMENT pdf() FOR A STANDARD PLOT
-## UNCOMMENT pdf() TO RECORD ALL PLOTS IN A PDF FILE
+## UNCOMMENT pdf() TO RECORDS ALL PLOTS IN A PDF FILE
 ## =====================================================
 setwd("D:/GSoC2020/Results/2019run03") ; getwd()
 # setwd("D:/WindowsDir") ; getwd()
@@ -45,7 +45,7 @@ names(NNdatasets)
 ## SELECT ONE DATASET OR UNCOMMENT THE LOOP TO RUN ALL DATASETS
 ## IF THE LOOP IS ACTIVATED, YOU CAN RUN THIS FULL PAGE IN EXTENSO
 ## ===============================================================
-# dset   <- "uDmod1"
+# dset   <- "uGauss2"
 for (dset in names(NNdatasets)) {
 
 
@@ -66,7 +66,7 @@ donotremove2 <- c("dset", "dsets")
 ## d = data.frame, m = matrix, v = vector/numeric
 ## ATTACH THE OBJECTS CREATED (x, y, Zxy, ... )
 ## ===================================================
-ZZ     <- prepareZZ(Z, xdmv = "d", ydmv = "d", zdm = "d", scale = TRUE)
+ZZ     <- prepareZZ(Z, xdmv = "m", ydmv = "v", zdm = "d", scale = FALSE)
 attach(ZZ)
 # ls(ZZ)
 # ls()
@@ -81,17 +81,19 @@ attach(ZZ)
 ## params   => comment: maxiter/lr AS CHARACTER
 ## printmsg => PRINT timeR DURING THE TRAINING
 ## =================================================
-nruns   <- 10
-algo    <- "slr"
-stepmax <- 5000
+nruns   <- 5
+maxiter <- 5000
 TF      <- TRUE 
 stars   <- ""
 params  <- "maxiter = 5000"
-descr   <- paste(dset,  "neuralnet:slr", sep = "_")
+descr   <- paste(dset, "h2o::h2o.deeplearning", sep = "_")
 
 
 timer    <- createTimer()
 printmsg <- FALSE
+
+## h2o HAS HIS OWN FORMAT
+h_Z     <- h2o::as.h2o(Z)
 
 
 ## AUTO
@@ -104,20 +106,36 @@ for(i in 1:nruns){
     timer$start(event)
     #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
 	#### DO NOT MODIFY THE <error> LINE IN tryCatch() 
-    bb         <- round(rnorm(nparNN, sd = 0.1), 4)
-    names(bb)  <- paste0("b", 1:nparNN)
     NNreg      <- tryCatch(
-                    neuralnet::neuralnet(formula = fmla, data = Zxy, 
+                    h2o::h2o.deeplearning( 
+						y = "y", 
+						training_frame = h_Z,
+						overwrite_with_best_model = TRUE,
+						standardize = TRUE,
+						activation = "Tanh",
 						hidden = neur, 
-						stepmax = stepmax,
-						startweights = bb, 
-						act.fct = "tanh"),
+						epochs = maxiter, 
+						train_samples_per_iteration = -1,
+						# rate = 0.005,
+						# momentum_start = 0.5, 
+						# momentum_stable = 0.99,
+						# nesterov_accelerated_gradient = TRUE,
+						initial_weight_distribution = "Normal",
+						initial_weight_scale = 0.1, 
+						loss = "Quadratic",
+						distribution = "gaussian",
+						stopping_metric = "RMSE"
+						),
 					error = function(y) {lm(y ~ 0, data = Zxy)}
-                  )
+                  ) 
+	predictions <- tryCatch(
+                    h2o::h2o.predict(NNreg, h_Z),
+                    error = ym0
+                  )                 
     y_pred     <- tryCatch(
-                    ym0 + ysd0*as.numeric(predict(NNreg, newdata = x)),
+                    ym0 + ysd0*as.data.frame(predictions)$predict,
                     error = function(NNreg) rep(ym0, nrow(Zxy))
-                  )
+                  )     
     ####
     Ypred[[i]] <- y_pred
     Rmse[i]    <- funRMSE(y_pred, y0)
@@ -168,6 +186,8 @@ detachNN(donotremove, donotdetach = "")
 ## REMOVE OBJECTS NOT PROTECTED BY donotremove IN ls() 
 ## REMOVE PACKAGES NOT INCLUDED IN donotdetach
 ## ===================================================
+h2o::h2o.shutdown(prompt = FALSE)
+# utils::browseURL("http://localhost:54321/Shutdown")
 clearNN(donotremove, donotdetach = NULL)
 rm(list=ls(all=TRUE))
 ls()
