@@ -1,13 +1,13 @@
 
 
 ## =============================================================
-## 2020-06-06 EXTRACT *results.csv FILES AND RANK THE ALGORITHMS
+## 2020-13-06 EXTRACT *results.csv FILES AND RANK THE ALGORITHMS
 ## =============================================================
 library(NNbenchmark)
 library(dplyr)
 library(stringr)
 rm(list=ls(all=TRUE))
-setwd("D:/GSoC2020/Results/2019run02") ; getwd()
+setwd("D:/GSoC2020/Results/2019run03") ; getwd()
 
 
 ## ===========================================
@@ -24,11 +24,11 @@ setwd("D:/GSoC2020/Results/2019run02") ; getwd()
 ## ===================================================
 # base_dir  <- "~/DevGSoC/results"
 # base_dir  <- "D:/DevGSoC/results"
-base_dir  <- "D:/GSoC2020/Results/2019run02"
+base_dir  <- "D:/GSoC2020/Results/2019run03"
 lf        <- lapply(list.files(base_dir, pattern = "-results.csv", full.names = TRUE), csv::as.csv)
 names(lf) <- names(NNdatasets)
+lf <- lf[c(1:5,8,11,12)] #selecting multivariate datasets, uDmod1, uDreyfus2, uGauss3, and uNeuroOne
 ht(lf)
-
 gfr <- lapply(lf, function(dfr) cbind(
 					  ds   = str_remove(str_extract(dfr$event, "\\w+_"), "_"),
 					  pfa  = str_sub(str_remove(dfr$event, str_extract(dfr$event, "\\w+_")),  1, -4),
@@ -81,14 +81,19 @@ sfr.med        <- sfrwide[, c(grep("med.rank", colnames(sfrwide)))]
 med.score      <- rank(apply(sfr.med, 1, sum), ties.method = "min")
 sfr.d51        <- sfrwide[, c(grep("d51.rank", colnames(sfrwide)))]
 d51.score      <- rank(apply(sfr.d51, 1, sum), ties.method = "min")
+
+sfrwide[24,c(grep("RMSE.rank", colnames(sfrwide)))]
+sfrwide[32,c(grep("RMSE.rank", colnames(sfrwide)))]
+sfrwide[35,c(grep("RMSE.rank", colnames(sfrwide)))]
+
 scoredfr0 <- data.frame(sfr$uNeuroOne[,"pfa",drop=FALSE], 
 # scoredfr0 <- data.frame(sfr$uNeuroOne[,c("pfa")], 
 						duration.score, 
 					    RMSE.score, 
 					    med.score,
 					    d51.score)
-scoredfr0
-scoredfr  <- scoredfr0[order(scoredfr0$RMSE.score),]
+
+scoredfr <- scoredfr0[order(scoredfr0$RMSE.score),]
 rownames(scoredfr) <- NULL
 
 
@@ -97,6 +102,7 @@ rownames(scoredfr) <- NULL
 ## THE FULL TABLE, ALL AND THE BEST 15 PACKAGES/ALGORITHMS
 ## =======================================================
 scoredfr
+scoredfr[,c(1,3,4)]
 
 ## ==========
 ## SOME PLOTS
@@ -225,10 +231,7 @@ dev.off()
 ## COMMENTS
 ## ========
 
-scoredfr
-
-# Ignore any of slr's good ranks whether 1 in d51.score or 7 in duration because it mostly failed.
-# slr2 is the same as slr with 5000 iterations
+scoredfr[,c("pfa","RMSE.score")]
    
 
 ## THE END
