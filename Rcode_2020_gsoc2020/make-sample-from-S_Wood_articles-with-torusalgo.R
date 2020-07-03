@@ -1,6 +1,7 @@
 
 # using example, p21, https://pdfs.semanticscholar.org/98d7/5bc6614e1e5ed107e752e818bc1950b0a2d8.pdf
 
+library(randtoolbox)
 
 f0 <- function(x) 5*sin(2*pi*x)
 f1 <- function(x) exp(3*x)-7
@@ -78,19 +79,8 @@ make_categ_data <- function(dist, linkinvfun, samplesize, nbcov, covlevels, othe
 make_cont_data <- function(dist, linkinvfun, samplesize, nbcov, otherparam,
                            mixingalpha=0.25)
 {
-  
-  #make pairwise correlation
-  m <- floor(nbcov/2)
-  xval <- sapply(1:m, function(i)
-    runif(samplesize))
-  xval <- cbind(xval, xval*mixingalpha +(1-mixingalpha) * sapply(1:m, function(i)
-    runif(samplesize)))
-  if(NCOL(xval) == nbcov-1)
-    xval <- cbind(xval, runif(samplesize))
-  
-  #xval <- sapply(1:nbcov, function(i)
-  #  runif(samplesize))
-  
+  #call quasi RNG torus() from randtoolbox pkg
+  xval <- torus(n= samplesize, dim = nbcov, mixed=TRUE)
   xvalnum <- matrix(nrow=samplesize, ncol=nbcov)
   
   for(i in 1:nbcov)
@@ -154,8 +144,8 @@ controlplot <- function(data, plot.nr, plot.nc, plot.mar=c(4,4,2,1), plot.nobs=1
 }
 
 set.seed(123)
-nrow <- 1e5
-ncov <- 10
+nrow <- 20000
+ncov <- 6
 
 
 #gamma example
@@ -194,7 +184,7 @@ controlplot(mWoodIG1, 2, ncov/2, var2round=TRUE)
 #correlation check
 round(cor(mWoodIG1[,-1]), 2)
 
-#export
+#export to rda
 if(FALSE)
 {
   save(mWoodG1, file="mWoodG1.rda")
