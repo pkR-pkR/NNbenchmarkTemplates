@@ -2,6 +2,7 @@
 # using example, p21, https://pdfs.semanticscholar.org/98d7/5bc6614e1e5ed107e752e818bc1950b0a2d8.pdf
 
 library(randtoolbox)
+library(DiceDesign)
 
 f0 <- function(x) 5*sin(2*pi*x)
 f1 <- function(x) exp(3*x)-7
@@ -81,6 +82,12 @@ make_cont_data <- function(dist, linkinvfun, samplesize, nbcov, otherparam,
 {
   #call quasi RNG torus() from randtoolbox pkg
   xval <- torus(n= samplesize, dim = nbcov, mixed=TRUE)
+  if(samplesize > 2^nbcov)
+  {
+    xend <- DiceDesign::factDesign(nbcov, 2)$design
+    xval[(samplesize-NROW(xend)+1):samplesize, ] <- xend
+  }
+    
   xvalnum <- matrix(nrow=samplesize, ncol=nbcov)
   
   for(i in 1:nbcov)
