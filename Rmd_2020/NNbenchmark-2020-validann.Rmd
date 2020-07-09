@@ -1,0 +1,105 @@
+---
+title: "NNbenchmark Generic Function"
+author: "All members of GSoC 2019 & 2020"
+date: "2020/07/09"
+output:
+    html_document:
+        toc: true
+        toc_float: true
+        number_sections: true
+---
+
+# Environment and datasets 
+
+## Setup environment
+```{r message=FALSE, warning=FALSE}
+library(NNbenchmark)
+library(kableExtra)
+options(scipen = 999)
+if(dir.exists("D:/GSoC2020/Results/2020run02/"))
+{  
+  odir <- "D:/GSoC2020/Results/2020run02/"
+}else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
+{  
+  odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
+}else
+  odir <- "~"
+
+nrep <- 10
+maxit2ndorder <- 200
+maxit1storder <- 1000
+```
+
+## Datasets to test
+
+```{r}
+NNdataSummary(NNdatasets)
+```
+
+# Dedicated functions by packages
+
+## validann Train/predict Function - arguments x,y
+```{r}
+#library(validann)
+validann.method <- c("Nelder-Mead", "BFGS", "CG", "L-BFGS-B", "SANN")
+hyperParams.validann <- function(optim_method, ...) {
+    
+    if (optim_method == "Nelder-Mead")  {maxiter <- maxit1storder} 
+    if (optim_method == "BFGS")         {maxiter <- maxit2ndorder}
+    if (optim_method == "CG")           {maxiter <- maxit1storder}
+    if (optim_method == "L-BFGS-B")     {maxiter <- maxit2ndorder}
+    if (optim_method == "SANN")         {maxiter <- maxit1storder}
+    
+    params <- paste0("method=", optim_method, "_iter=", maxiter)
+  
+    out <- list(iter = maxiter, method = optim_method, params)
+    return (out)
+}
+NNtrain.validann <- function(x, y, dataxy, formula, neur, optim_method, hyperParams, NNfullformula, NNparam,...) {
+    
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    
+    iter <- hyper_params$iter
+    method <- hyper_params$method
+    
+    NNreg <- validann::ann(x, y, size = neur, 
+                           method = method, maxit = iter)
+    
+    return (NNreg)
+}
+NNpredict.validann <- function(object, x, ...)
+  predict(object, x)
+NNclose.validann <- function()
+  if("package:validann" %in% search())
+    detach("package:validann", unload=TRUE)
+validann.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+if(FALSE)
+res <- trainPredict_1data(1, validann.method, "NNtrain.validann", "hyperParams.validann", "NNpredict.validann", 
+                               NNsummary, "NNclose.validann", NA, validann.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="validann", pkgfun="ann", csvfile=TRUE, rdafile=TRUE, odir=odir)
+```
+
+
+# Launch the NN package
+
+```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
+res <- trainPredict_1pkg(1:12, pkgname = "validann", pkgfun = "validann.fit", validann.method,
+  prepareZZ.arg = validann.prepareZZ, nrep = nrep, doplot = FALSE,
+  csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
+```
+
+# Results
+```{r}
+#print(res)
+kable(apply(res[,,1,], c(3,1), min), caption = "Nelder-Mead")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,2,], c(3,1), min), caption = "BFGS")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,3,], c(3,1), min), caption = "CG")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,4,], c(3,1), min), caption = "L-BFGS-B")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,5,], c(3,1), min), caption = "SANN")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```
+
