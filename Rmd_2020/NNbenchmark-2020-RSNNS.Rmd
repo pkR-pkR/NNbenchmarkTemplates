@@ -1,0 +1,118 @@
+---
+title: "NNbenchmark Generic Function"
+author: "All members of GSoC 2019 & 2020"
+date: "2020/07/12"
+output:
+    html_document:
+        toc: true
+        toc_float: true
+        number_sections: true
+---
+
+# Environment and datasets 
+
+## Setup environment
+```{r message=FALSE, warning=FALSE}
+library(NNbenchmark)
+library(kableExtra)
+options(scipen = 999)
+if(dir.exists("D:/GSoC2020/Results/2020run02/"))
+{  
+  odir <- "D:/GSoC2020/Results/2020run02/"
+}else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
+{  
+  odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
+}else
+  odir <- "~"
+
+nrep <- 5
+maxit2ndorder  <-    200
+maxit1storderA <-   1000
+maxit1storderB <-   5000
+maxit1storderC <-  10000
+maxit1storderD <- 100000
+```
+
+## Datasets to test
+
+```{r}
+NNdataSummary(NNdatasets)
+```
+
+# Dedicated functions by packages
+
+## RSNNS Train/predict Function - arguments x,y
+```{r}
+#library(RSNNS)
+RSNNS.method <- c("Rprop","BackpropBatch","BackpropChunk","BackpropMomentum",
+                  "BackpropWeightDecay","Quickprop","SCG","Std_Backpropagation")
+hyperParams.RSNNS <- function(optim_method, ...) {
+    
+    if(optim_method %in% c("Rprop","BackpropChunk","BackpropMomentum","BackpropWeightDecay","SCG","Std_Backpropagation"))
+      maxiter <- maxit1storderA
+    else
+      maxiter <- maxit1storderC
+    
+    params <- paste0("method=", optim_method, "_iter=", maxiter)
+  
+    out <- list(iter = maxiter, sdnormstart=0.1)
+    return (out)
+}
+NNtrain.RSNNS <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams, NNfullformula, NNparam,...) {
+    
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    
+    start <- round(rnorm(NNparam, sd = hyper_params$sdnormstart), 4)
+    names(start)  <- paste0("b", 1:NNparam)
+    
+    NNreg <- RSNNS::mlp(x, y, initFuncParams = start,
+                 size = hidden_neur, learnFunc = optim_method, 
+                 maxit = hyper_params$iter, linOut = TRUE)
+    
+    return (NNreg)
+}
+NNpredict.RSNNS <- function(object, x, ...)
+  predict(object, x)
+NNclose.RSNNS <- function()
+  if("package:RSNNS" %in% search())
+    detach("package:RSNNS", unload=TRUE)
+RSNNS.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+
+
+if(FALSE)
+res <- train_and_predict_1data(1, RSNNS.method, "NNtrain.RSNNS", "hyperParams.RSNNS", "NNpredict.RSNNS", 
+                               NNsummary, "NNclose.RSNNS", NA, RSNNS.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="RSNNS", pkgfun="mlp", rdafile=TRUE, odir=odir)
+
+```
+
+
+# Launch the NN package
+
+```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
+res <- trainPredict_1pkg(1:12, pkgname = "RSNNS", pkgfun = "mlp", RSNNS.method,
+  prepareZZ.arg = RSNNS.prepareZZ, nrep = nrep, doplot = FALSE,
+  csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
+```
+
+# Results
+```{r}
+#print(res)
+kable(apply(res[,,1,], c(3,1), min), caption = "Rprop")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,2,], c(3,1), min), caption = "BackpropBatch")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,3,], c(3,1), min), caption = "BackpropChunk")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,4,], c(3,1), min), caption = "BackpropMomentum")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,5,], c(3,1), min), caption = "BackpropWeightDecay")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,6,], c(3,1), min), caption = "Quickprop")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,7,], c(3,1), min), caption = "SCG")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,8,], c(3,1), min), caption = "Std_Backpropagation")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```
+
