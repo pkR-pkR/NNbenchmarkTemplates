@@ -1,0 +1,95 @@
+---
+title: "NNbenchmark Generic Function"
+author: "All members of GSoC 2019 & 2020"
+date: "2020/07/09"
+output:
+    html_document:
+        toc: true
+        toc_float: true
+        number_sections: true
+---
+
+# Environment and datasets 
+
+## Setup environment
+```{r message=FALSE, warning=FALSE}
+library(NNbenchmark)
+library(kableExtra)
+options(scipen = 999)
+if(dir.exists("D:/GSoC2020/Results/2020run02/"))
+{  
+  odir <- "D:/GSoC2020/Results/2020run02/"
+}else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
+{  
+  odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
+}else
+  odir <- "~"
+
+nrep <- 5
+maxit2ndorder  <-    200
+maxit1storderA <-   1000
+maxit1storderB <-   5000
+maxit1storderC <-  10000
+maxit1storderD <- 100000
+```
+
+## Datasets to test
+
+```{r}
+NNdataSummary(NNdatasets)
+```
+
+# Dedicated functions by packages
+
+
+## GMDHreg Train/predict Function - arguments x,y
+```{r}
+#library(GMDHreg)
+GMDHreg.method <- "none"
+hyperParams.GMDHreg <- function(optim_method, ...) {
+    return (list(G = 2, criteria = "PRESS"))
+}
+NNtrain.GMDHreg <- function(x, y, dataxy, formula, neur, optim_method, hyperParams,...) {
+    
+    hyper_params <- do.call(hyperParams.GMDHreg, list(GMDHreg.method))
+    
+    G <- hyper_params$G ; criteria <- hyper_params$criteria
+    
+    NNreg <- GMDHreg::gmdh.combi(X = x, y = y, G = G, criteria = criteria)
+    
+    return (NNreg)
+}
+NNpredict.GMDHreg <- function(object, x, ...)
+    predict(object, x)
+NNclose.GMDHreg <- function()
+  if("package:GMDHreg" %in% search())
+    detach("package:GMDHreg", unload=TRUE)
+GMDHreg.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
+if(FALSE)
+res <- trainPredict_1data(1, GMDHreg.method, "NNtrain.GMDHreg", "hyperParams.GMDHreg", "NNpredict.GMDHreg", 
+                               NNsummary, "NNclose.GMDHreg", NA, GMDHreg.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="GMDHreg", pkgfun="GMDHreg", csvfile=TRUE, rdafile=TRUE, odir=odir)
+if(FALSE)
+res <- trainPredict_1mth1data(1, GMDHreg.method[1], "NNtrain.GMDHreg", "hyperParams.GMDHreg", "NNpredict.GMDHreg", 
+                               NNsummary, GMDHreg.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="GMDHreg", pkgfun="GMDHreg", csvfile=TRUE, rdafile=TRUE, odir=odir)
+```
+
+
+# Launch the NN package
+
+```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
+res <- trainPredict_1pkg(1:4, pkgname = "GMDHreg", pkgfun = "gmdh.combi", GMDHreg.method,
+  prepareZZ.arg = GMDHreg.prepareZZ, nrep = nrep, doplot = TRUE,
+  csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
+
+```
+
+# Results
+```{r}
+#print(res)
+kable(t(apply(res, c(1,4), min)))%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(t(apply(res, c(1,4), median)))%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```

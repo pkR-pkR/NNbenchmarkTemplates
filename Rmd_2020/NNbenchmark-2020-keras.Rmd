@@ -1,0 +1,139 @@
+---
+title: "NNbenchmark Generic Function"
+author: "All members of GSoC 2019 & 2020"
+date: "2020/06/30"
+output:
+    html_document:
+        toc: true
+        toc_float: true
+        number_sections: true
+---
+
+# Environment and datasets 
+
+## Setup environment
+```{r message=FALSE, warning=FALSE}
+library(NNbenchmark)
+library(kableExtra)
+options(scipen = 999)
+if(dir.exists("D:/GSoC2020/Results/2020run02/"))
+{  
+  odir <- "D:/GSoC2020/Results/2020run02/"
+}else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
+{  
+  odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
+}else
+  odir <- "~"
+
+nrep <- 5
+maxit2ndorder  <-   200
+maxit1storderA <-  1000
+maxit1storderB <-  5000
+maxit1storderC <- 10000
+maxit1storderD <- 50000
+```
+
+## Datasets to test
+
+```{r}
+NNdataSummary(NNdatasets)
+```
+
+# Dedicated functions by packages
+
+## keras Train Function - arguments x,y
+```{r}
+#library(keras)
+keras.method <- c("adam", "rmsprop", "sgd", "adadelta", "adagrad")
+hyperParams.keras <- function(optim_method, ...) {
+    
+    if (!is.element(optim_method, c("adam", "rmsprop", "sgd", "adagrad", "adadelta"))) 
+      stop("Invalid Parameters.")
+    
+    hidden_activation = "tanh"
+    iter <- maxit1storderC
+    lr <- 0.1
+    
+    params <- paste0("method=", optim_method, "_iter=", iter, "_lr=", lr, "_hidden_activation=", hidden_activation)
+    
+    out <- list(hidden_activation = hidden_activation, iter = iter, lr = lr, params = params)
+    
+    return (out)
+}
+
+NNtrain.keras <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams, ...) {
+        
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    iter <- hyper_params$iter
+    
+    early_stop <- callback_early_stopping(monitor = "loss", patience = 20, restore_best_weights = TRUE, mode = "auto", min_delta = 0.0001)
+    #should we have a higher min_delta
+    
+    hidden_activation <- hyper_params$hidden_activation
+    lr <- hyper_params$lr
+    
+    if (optim_method == "adam")     { op <- optimizer_adam(lr = lr)} 
+    if (optim_method == "rmsprop")  { op <- optimizer_rmsprop(lr = lr)}
+    if (optim_method == "adagrad")  { op <- optimizer_adagrad(lr = lr)}
+    if (optim_method == "adadelta") { op <- optimizer_adadelta(lr = lr)}
+    if (optim_method == "sgd")      { op <- optimizer_sgd(lr = lr)}
+
+    model <- keras_model_sequential() %>%
+        layer_dense(units = hidden_neur, activation = hidden_activation, input_shape = ncol(x)) %>%
+        layer_dense(units = 1)
+
+    model %>% compile(
+        loss = "mse",
+        optimizer = op,
+        metrics = list("mean_absolute_error")
+    )
+
+    historylog <- model %>% fit(x, y, epochs = iter, verbose = 0, callbacks = list(early_stop))
+
+    return (model)
+}  
+
+NNpredict.keras <- function(object, x, ...)
+{
+  object %>% predict(x)
+}
+NNclose.keras <- function()
+{
+  if("package:keras" %in% search())
+    detach("package:keras", unload=TRUE)
+}
+
+keras.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+
+if(FALSE)
+res <- train_and_predict_1data(1, keras.method, "NNtrain.keras", "hyperParams.keras", "NNpredict.keras", 
+                               NNsummary, "NNclose.keras", NA, keras.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
+                               pkgname="keras", pkgfun="fit", rdafile=TRUE, odir=odir, echoreport=2)
+
+
+```
+
+
+# Launch the NN package
+
+```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
+res <- trainPredict_1pkg(1:12, pkgname = "keras", pkgfun = "fit", keras.method,
+  prepareZZ.arg = keras.prepareZZ, nrep = nrep, doplot = FALSE,
+  csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
+```
+
+# Results
+```{r}
+#print(res)
+kable(apply(res[,,1,], c(3,1), min), caption = "adam")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,2,], c(3,1), min), caption = "rmsprop")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,3,], c(3,1), min), caption = "sgd")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,4,], c(3,1), min), caption = "adadelta")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,5,], c(3,1), min), caption = "adagrad")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```
+

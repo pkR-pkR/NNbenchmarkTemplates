@@ -1,0 +1,93 @@
+---
+title: "NNbenchmark Generic Function"
+author: "All members of GSoC 2019 & 2020"
+date: "2020/07/09"
+output:
+    html_document:
+        toc: true
+        toc_float: true
+        number_sections: true
+---
+
+# Environment and datasets 
+
+## Setup environment
+```{r message=FALSE, warning=FALSE}
+library(NNbenchmark)
+library(kableExtra)
+options(scipen = 999)
+if(dir.exists("D:/GSoC2020/Results/2020run02/"))
+{  
+  odir <- "D:/GSoC2020/Results/2020run02/"
+}else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
+{  
+  odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
+}else
+  odir <- "~"
+
+nrep <- 10
+maxit2ndorder  <-    200
+maxit1storderA <-   1000
+maxit1storderB <-   5000
+maxit1storderC <-  10000
+maxit1storderD <- 100000
+```
+
+## Datasets to test
+
+```{r}
+NNdataSummary(NNdatasets)
+```
+
+# Dedicated functions by packages
+
+
+## yager Train/predict Function - arguments x,y
+```{r}
+#library(yager)
+yager.method <- "none"
+hyperParams.yager <- function(optim_method, ...) {
+    return (list(sigma = 0.15))
+}
+NNtrain.yager <- function(x, y, dataxy, formula, neur, optim_method, hyperParams,...) {
+    
+    hyper_params <- do.call(hyperParams.yager, list(yager.method))
+    sigma <- hyper_params$sigma
+    
+    NNreg <- yager::grnn.fit(x = x, y = y, sigma = sigma)
+    return (NNreg)
+}
+NNpredict.yager <- function(object, x, ...)
+    yager::grnn.predict(object, x)
+NNclose.yager <- function()
+  if("package:yager" %in% search())
+    detach("package:yager", unload=TRUE)
+yager.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
+if(FALSE)
+res <- trainPredict_1data(1, yager.method, "NNtrain.yager", "hyperParams.yager", "NNpredict.yager", 
+                               NNsummary, "NNclose.yager", NA, yager.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="yager", pkgfun="yager", csvfile=TRUE, rdafile=TRUE, odir=odir)
+if(FALSE)
+res <- trainPredict_1mth1data(1, yager.method[1], "NNtrain.yager", "hyperParams.yager", "NNpredict.yager", 
+                               NNsummary, yager.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="yager", pkgfun="yager", csvfile=TRUE, rdafile=TRUE, odir=odir)
+```
+
+
+# Launch the NN package
+
+```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
+res <- trainPredict_1pkg(1:12, pkgname = "yager", pkgfun = "grnn.fit", yager.method,
+  prepareZZ.arg = yager.prepareZZ, nrep = nrep, doplot = TRUE,
+  csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
+
+```
+
+# Results
+```{r}
+#print(res)
+kable(t(apply(res, c(1,4), min)))%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(t(apply(res, c(1,4), median)))%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```
