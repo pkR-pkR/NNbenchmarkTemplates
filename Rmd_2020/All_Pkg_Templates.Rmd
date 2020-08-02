@@ -7,9 +7,8 @@ output: html_document
 
 <!--
 see https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output
+NOTE: this file must be in the directory with the altered Rmd_2020 templates
 -->
-
-This file will work if and only if there is no duplicated labels. -> so we must update or remove any R code label in all Rmd files.
 
 
 ```{r child = 'NNbenchmark-2020-AMORE.Rmd'}

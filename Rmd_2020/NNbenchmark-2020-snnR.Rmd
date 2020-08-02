@@ -79,8 +79,8 @@ res <- train_and_predict_1data(1, simpleNeural.method, "NNtrain.snnR", "hyperPar
 
 # Launch the NN package
 
-```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
-res <- trainPredict_1pkg(1:12, pkgname = "snnR", pkgfun = "snnR", snnR.method,
+```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+res <- trainPredict_1pkg(1:2, pkgname = "snnR", pkgfun = "snnR", snnR.method,
   prepareZZ.arg = snnR.prepareZZ, nrep = nrep, doplot = TRUE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 ```

@@ -77,8 +77,8 @@ res <- train_and_predict_1data(1, neuralnet.method, "NNtrain.neuralnet", "hyperP
 
 # Launch the NN package
 
-```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
-res <- trainPredict_1pkg(1:12, pkgname = "neuralnet", pkgfun = "neuralnet", neuralnet.method,
+```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+res <- trainPredict_1pkg(1:2, pkgname = "neuralnet", pkgfun = "neuralnet", neuralnet.method,
   prepareZZ.arg = neuralnet.prepareZZ, nrep = nrep, doplot = FALSE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 

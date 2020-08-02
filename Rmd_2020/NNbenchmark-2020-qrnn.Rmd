@@ -1,7 +1,7 @@
 ---
 title: "NNbenchmark Generic Function"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/07/09"
+date: "2020/02/08"
 output:
     html_document:
         toc: true
@@ -77,8 +77,8 @@ res <- trainPredict_1data(1, qrnn.method, "NNtrain.qrnn", "hyperParams.qrnn", "N
 
 # Launch the NN package
 
-```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
-res <- trainPredict_1pkg(1:12, pkgname = "qrnn", pkgfun = "qrnn", qrnn.method,
+```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+res <- trainPredict_1pkg(1:2, pkgname = "qrnn", pkgfun = "qrnn.fit", qrnn.method,
   prepareZZ.arg = qrnn.prepareZZ, nrep = nrep, doplot = TRUE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 

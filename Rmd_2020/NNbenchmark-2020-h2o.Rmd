@@ -129,8 +129,8 @@ res <- train_and_predict_1data(1, h2o.method, "NNtrain.h2o", "hyperParams.h2o", 
 
 # Launch the NN package
 
-```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
-res <- trainPredict_1pkg(1:12, pkgname = "h2o", pkgfun = "h2o.deeplearning", h2o.method,
+```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+res <- trainPredict_1pkg(1:2, pkgname = "h2o", pkgfun = "h2o.deeplearning", h2o.method,
   prepareZZ.arg = h2o.prepareZZ, nrep = nrep, doplot = TRUE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 

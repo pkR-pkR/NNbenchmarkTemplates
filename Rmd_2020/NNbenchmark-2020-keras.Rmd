@@ -116,8 +116,8 @@ res <- train_and_predict_1data(1, keras.method, "NNtrain.keras", "hyperParams.ke
 
 # Launch the NN package
 
-```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
-res <- trainPredict_1pkg(1:12, pkgname = "keras", pkgfun = "fit", keras.method,
+```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+res <- trainPredict_1pkg(1:2, pkgname = "keras", pkgfun = "fit", keras.method,
   prepareZZ.arg = keras.prepareZZ, nrep = nrep, doplot = FALSE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 ```

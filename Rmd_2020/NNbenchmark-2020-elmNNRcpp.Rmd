@@ -96,8 +96,8 @@ res <- train_and_predict_1data(1, elmNNRcpp.method, "NNtrain.elmNNRcpp", "hyperP
 
 # Launch the NN package
 
-```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
-res <- trainPredict_1pkg(1:12, pkgname = "elmNNRcpp", pkgfun = "elm_train", elmNNRcpp.method,
+```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+res <- trainPredict_1pkg(1:2, pkgname = "elmNNRcpp", pkgfun = "elm_train", elmNNRcpp.method,
   prepareZZ.arg = elmNNRcpp.prepareZZ, nrep = nrep, doplot = TRUE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 

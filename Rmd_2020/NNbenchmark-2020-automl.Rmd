@@ -89,8 +89,8 @@ res <- train_and_predict_1data(1, automl.method, "NNtrain.automl", "hyperParams.
 
 # Launch the NN package
 
-```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
-res <- trainPredict_1pkg(1:12, pkgname = "automl", pkgfun = "automl_train_manual", automl.method,
+```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+res <- trainPredict_1pkg(1:2, pkgname = "automl", pkgfun = "automl_train_manual", automl.method,
   prepareZZ.arg = automl.prepareZZ, nrep = nrep, doplot = FALSE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 ```

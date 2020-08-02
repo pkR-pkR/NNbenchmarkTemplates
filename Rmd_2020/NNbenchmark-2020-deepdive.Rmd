@@ -1,7 +1,7 @@
 ---
 title: "NNbenchmark Generic Function"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/07/09"
+date: "2020/02/08"
 output:
     html_document:
         toc: true
@@ -61,7 +61,7 @@ NNtrain.deepdive <- function(x, y, dataxy, formula, neur, optim_method, hyperPar
     
     hyper_params <- do.call(hyperParams, list(optim_method, ...))
     
-    NNreg <- deepnet(x = x, y = y, c(neur), modelType = hyper_params$modelType,
+    NNreg <- deepdive::deepnet(x = x, y = y, c(neur), modelType = hyper_params$modelType,
                      iterations = hyper_params$iter, eta=hyper_params$eta, 
                      optimiser=hyper_params$method, printItrSize=hyper_params$print)
     
@@ -82,8 +82,8 @@ res <- trainPredict_1data(1, deepdive.method, "NNtrain.deepdive", "hyperParams.d
 
 # Launch the NN package
 
-```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
-res <- trainPredict_1pkg(1:12, pkgname = "deepdive", pkgfun = "deepnet", deepdive.method,
+```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+res <- trainPredict_1pkg(1:2, pkgname = "deepdive", pkgfun = "deepnet", deepdive.method,
   prepareZZ.arg = deepdive.prepareZZ, nrep = nrep, doplot = FALSE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 ```

@@ -1,7 +1,7 @@
 ---
 title: "NNbenchmark Generic Function"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/07/09"
+date: "2020/02/08"
 output:
     html_document:
         toc: true
@@ -83,8 +83,8 @@ res <- trainPredict_1mth1data(1, brnn.method[1], "NNtrain.brnn", "hyperParams.br
 
 # Launch the NN package
 
-```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
-res <- trainPredict_1pkg(1:12, pkgname = "brnn", pkgfun = "brnn", brnn.method,
+```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+res <- trainPredict_1pkg(1:2, pkgname = "brnn", pkgfun = "brnn", brnn.method,
   prepareZZ.arg = brnn.prepareZZ, nrep = nrep, doplot = TRUE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 

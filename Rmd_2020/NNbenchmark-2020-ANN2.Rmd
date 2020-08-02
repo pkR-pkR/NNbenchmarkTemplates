@@ -98,8 +98,8 @@ res <- train_and_predict_1data(1, ANN2.method, "NNtrain.ANN2", "hyperParams.ANN2
 
 # Launch the NN package
 
-```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
-res <- trainPredict_1pkg(1:12, pkgname = "ANN2", pkgfun = "neuralnetwork", ANN2.method,
+```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+res <- trainPredict_1pkg(1:2, pkgname = "ANN2", pkgfun = "neuralnetwork", ANN2.method,
   prepareZZ.arg = ANN2.prepareZZ, nrep = nrep, doplot = FALSE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 ```

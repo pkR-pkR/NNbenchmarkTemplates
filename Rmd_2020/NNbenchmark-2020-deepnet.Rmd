@@ -100,8 +100,8 @@ res <- train_and_predict_1data(1, CaDENCE.method, "NNtrain.deepnet", "hyperParam
 
 # Launch the NN package
 
-```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
-res <- trainPredict_1pkg(1:12, pkgname = "deepnet", pkgfun = "nn.train", deepnet.method,
+```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+res <- trainPredict_1pkg(1:2, pkgname = "deepnet", pkgfun = "nn.train", deepnet.method,
   prepareZZ.arg = deepnet.prepareZZ, nrep = nrep, doplot = TRUE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 

@@ -1,7 +1,7 @@
 ---
 title: "NNbenchmark Generic Function"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/07/09"
+date: "2020/02/08"
 output:
     html_document:
         toc: true
@@ -92,8 +92,8 @@ res <- trainPredict_1data(1, CaDENCE.method, "NNtrain.CaDENCE", "hyperParams.CaD
 
 # Launch the NN package
 
-```{r trainpredict, message=FALSE, warning=FALSE, results='hide'}
-res <- trainPredict_1pkg(1:12, pkgname = "CaDENCE", pkgfun = "cadence.fit", CaDENCE.method,
+```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+res <- trainPredict_1pkg(1:2, pkgname = "CaDENCE", pkgfun = "cadence.fit", CaDENCE.method,
   prepareZZ.arg = CaDENCE.prepareZZ, nrep = nrep, doplot = FALSE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = TRUE)
 ```
