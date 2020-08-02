@@ -1,0 +1,19 @@
+---
+title: "Overall Run for NN benchmarking"
+author: "GSoC 2019, GSoC 2020 members"
+date: "8/2/2020"
+output: html_document
+---
+
+<!--
+see https://stackoverflow.com/questions/25824795/how-to-combine-two-rmarkdown-rmd-files-into-a-single-output
+-->
+
+This file will work if and only if there is no duplicated labels. -> so we must update or remove any R code label in all Rmd files.
+
+
+```{r child = 'NNbenchmark-2020-AMORE.Rmd'}
+```
+
+```{r child = 'NNbenchmark-2020-automl.Rmd'}
+```
