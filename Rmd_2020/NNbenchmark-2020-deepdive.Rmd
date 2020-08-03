@@ -25,7 +25,7 @@ if(dir.exists("D:/GSoC2020/Results/2020run02/"))
 }else
   odir <- "~"
 
-nrep <- 5
+nrep <- 2
 maxit2ndorder  <-    200
 maxit1storderA <-   1000
 maxit1storderB <-   5000
@@ -47,14 +47,14 @@ NNdataSummary(NNdatasets)
 deepdive.method <- c("gradientDescent","momentum","rmsProp","adam")
 hyperParams.deepdive <- function(optim_method, ...) {
     
-    if (optim_method == "gradientDescent")  {maxiter <- maxit1storderB} 
-    if (optim_method == "momentum")         {maxiter <- maxit1storderB}
-    if (optim_method == "rmsProp")          {maxiter <- maxit1storderA}
-    if (optim_method == "adam")             {maxiter <- maxit1storderA}
+    if (optim_method == "gradientDescent")  {maxiter <- maxit1storderC; eta = 0.01} 
+    if (optim_method == "momentum")         {maxiter <- maxit1storderC; eta = 0.8}
+    if (optim_method == "rmsProp")          {maxiter <- maxit1storderB; eta = 0.8}
+    if (optim_method == "adam")             {maxiter <- maxit1storderB; eta = 0.8}
     
     params <- paste0("method=", optim_method, "_iter=", maxiter)
   
-    out <- list(iter = maxiter, method = optim_method, modelType = "regress", eta = 0.8, print = 1000, params)
+    out <- list(iter = maxiter, method = optim_method, modelType = "regress", eta = eta, print = 1000, params)
     return (out)
 }
 NNtrain.deepdive <- function(x, y, dataxy, formula, neur, optim_method, hyperParams, NNfullformula, NNparam,...) {
