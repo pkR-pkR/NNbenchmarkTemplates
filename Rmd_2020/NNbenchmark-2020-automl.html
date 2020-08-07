@@ -1520,33 +1520,18 @@ div.tocify {
 
 <h1 class="title toc-ignore">NNbenchmark Generic Function</h1>
 <h4 class="author">All members of GSoC 2019 &amp; 2020</h4>
-<h4 class="date">2020/07/12</h4>
+<h4 class="date">2020/08/07</h4>
 
 </div>
 
 
-<div id="environment-and-datasets" class="section level1">
-<h1><span class="header-section-number">1</span> Environment and datasets</h1>
-<div id="setup-environment" class="section level2">
-<h2><span class="header-section-number">1.1</span> Setup environment</h2>
+<div id="setup" class="section level1">
+<h1><span class="header-section-number">1</span> Setup</h1>
+<div id="packages-and-options" class="section level2">
+<h2><span class="header-section-number">1.1</span> Packages and options</h2>
 <pre class="r"><code>library(NNbenchmark)
 library(kableExtra)
-options(scipen = 999)
-if(dir.exists(&quot;D:/GSoC2020/Results/2020run02/&quot;))
-{  
-  odir &lt;- &quot;D:/GSoC2020/Results/2020run02/&quot;
-}else if(dir.exists(&quot;~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/&quot;))
-{  
-  odir &lt;- &quot;~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/&quot;
-}else
-  odir &lt;- &quot;~&quot;
-
-nrep &lt;- 5
-maxit2ndorder  &lt;-    200
-maxit1storderA &lt;-   1000
-maxit1storderB &lt;-   5000
-maxit1storderC &lt;-  10000
-maxit1storderD &lt;- 100000</code></pre>
+options(scipen = 999)</code></pre>
 </div>
 <div id="datasets-to-test" class="section level2">
 <h2><span class="header-section-number">1.2</span> Datasets to test</h2>
@@ -1565,37 +1550,51 @@ maxit1storderD &lt;- 100000</code></pre>
 ## 11   uGauss3    250        1         4           13
 ## 12 uNeuroOne     51        1         2            7</code></pre>
 </div>
-</div>
-<div id="dedicated-functions-by-packages" class="section level1">
-<h1><span class="header-section-number">2</span> Dedicated functions by packages</h1>
-<div id="automl-trainpredict-function---arguments-xy" class="section level2">
-<h2><span class="header-section-number">2.1</span> automl Train/predict Function - arguments x,y</h2>
-<pre class="r"><code>#library(automl)
-automl.method &lt;- c(&quot;trainwgrad&quot;, &quot;trainwpso&quot;)
+<div id="automl-trainpredict-arguments---inputs-x-y" class="section level2">
+<h2><span class="header-section-number">1.3</span> automl trainPredict arguments - inputs x, y</h2>
+<pre class="r"><code>if(dir.exists(&quot;D:/GSoC2020/Results/2020run03/&quot;))
+{  
+  odir &lt;- &quot;D:/GSoC2020/Results/2020run03/&quot;
+}else if(dir.exists(&quot;~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/&quot;))
+{  
+  odir &lt;- &quot;~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/&quot;
+}else
+  odir &lt;- &quot;~&quot;
+
+nrep &lt;- 10
+maxit2ndorder  &lt;-    200
+maxit1storderA &lt;-   1000
+maxit1storderB &lt;-  10000
+maxit1storderC &lt;- 100000
+
+#library(automl)
+automl.method &lt;- c(&quot;trainwgrad_RMSprop&quot;,&quot;trainwgrad_adam&quot;, &quot;trainwpso&quot;) #&quot;trainwgrad_Momentum&quot;
 hyperParams.automl &lt;- function(optim_method, ...) {
-    
-    if (!is.element(optim_method, c(&quot;trainwgrad&quot;, &quot;trainwpso&quot;))) stop(&quot;Invalid Parameters.&quot;)
-    
-    hidden_activation = &quot;tanh&quot;
-    params &lt;- paste0(&quot;method=&quot;, optim_method, &quot;_&quot;, &quot;hidden_activation=&quot;, hidden_activation)
-    
-    out &lt;- list(hidden_activation = hidden_activation, params = params)
-    
-    return (out)
+#  if (optim_method == &quot;trainwgrad_Momentum&quot;)     {beta2 &lt;- 0.9; beta2 &lt;- 0   ; iter &lt;- maxit1storderA; lr = 0.01; optim_method = &quot;trainwgrad&quot;}
+  if (optim_method == &quot;trainwgrad_RMSprop&quot;)      {beta1 &lt;- 0  ; beta2 &lt;- 0.99; iter &lt;- maxit1storderA; lr = 0.01; optim_method = &quot;trainwgrad&quot;}
+  if (optim_method == &quot;trainwgrad_adam&quot;)         {beta1 &lt;- 0.9; beta2 &lt;- 0.99; iter &lt;- maxit1storderA; lr = 0.01; optim_method = &quot;trainwgrad&quot;}
+  if (optim_method == &quot;trainwpso&quot;)               {beta1 &lt;- NULL; beta2 &lt;- NULL; iter &lt;- maxit1storderA; lr = NULL}
+  
+  return(list(beta1 = beta1, beta2 = beta2, iter = iter, lr = lr, hidden_activation = &#39;tanh&#39;, optim_method = optim_method))
 }
 NNtrain.automl &lt;- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams, ...) {
-    
-    hyper_params &lt;- do.call(hyperParams, list(optim_method, ...))
-    
-    hidden_activation &lt;- hyper_params$hidden_activation
-    # NNreg &lt;- automl::automl_train(Xref = x, Yref = y)
-    
-    NNreg &lt;- automl::automl_train_manual(Xref = x, Yref = y,
-                                         hpar = list(modexec = optim_method,
-                                                     layersshape = c(hidden_neur, 0),
-                                                     layersacttype = c(hidden_activation, &quot;&quot;),
-                                                     verbose = FALSE,
-                                                     seed = as.integer(runif(1)*10000000)))
+  
+  hyper_params &lt;- do.call(hyperParams, list(optim_method, ...))
+  
+  beta1 &lt;- hyper_params$beta1 ; beta2 &lt;- hyper_params$beta2
+  iter &lt;- hyper_params$iter ; lr &lt;- hyper_params$lr
+  hidden_activation &lt;- hyper_params$hidden_activation
+  
+  # NNreg &lt;- automl::automl_train(Xref = x, Yref = y)
+  
+  NNreg &lt;- automl::automl_train_manual(Xref = x, Yref = y,
+                                       hpar = list(modexec = hyper_params$optim_method,
+                                                   beta1 = beta1, beta2 = beta2,
+                                                   numiterations = iter, learningrate = lr,
+                                                   layersshape = c(hidden_neur, 0),
+                                                   layersacttype = c(hidden_activation, &quot;&quot;),
+                                                   verbose = FALSE,
+                                                   seed = as.integer(runif(1)*10000000)))
 
     return (NNreg)
 }
@@ -1612,20 +1611,20 @@ res &lt;- train_and_predict_1data(1, automl.method, &quot;NNtrain.automl&quot;, 
                                pkgname=&quot;automl&quot;, pkgfun=&quot;automl_train_manual&quot;, rdafile=TRUE, odir=odir)</code></pre>
 </div>
 </div>
-<div id="launch-the-nn-package" class="section level1">
-<h1><span class="header-section-number">3</span> Launch the NN package</h1>
-<pre class="r"><code>res &lt;- trainPredict_1pkg(1:2, pkgname = &quot;automl&quot;, pkgfun = &quot;automl_train_manual&quot;, automl.method,
+<div id="launch-packages-trainpredict" class="section level1">
+<h1><span class="header-section-number">2</span> Launch package’s trainPredict</h1>
+<pre class="r"><code>res &lt;- trainPredict_1pkg(1:12, pkgname = &quot;automl&quot;, pkgfun = &quot;automl_train_manual&quot;, automl.method,
   prepareZZ.arg = automl.prepareZZ, nrep = nrep, doplot = FALSE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)</code></pre>
 </div>
 <div id="results" class="section level1">
-<h1><span class="header-section-number">4</span> Results</h1>
+<h1><span class="header-section-number">3</span> Results</h1>
 <pre class="r"><code>#print(res)
-kable(apply(res[,,1,], c(3,1), min), caption = &quot;trainwgrad&quot;)%&gt;%
+kable(apply(res[,,1,], c(3,1), min), caption = &quot;trainwgrad_RMSprop&quot;)%&gt;%
   kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;))</code></pre>
 <table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
-trainwgrad
+trainwgrad_RMSprop
 </caption>
 <thead>
 <tr>
@@ -1654,19 +1653,19 @@ time
 mDette
 </td>
 <td style="text-align:right;">
-6.6104
+0.4734
 </td>
 <td style="text-align:right;">
-43.6974
+0.2241
 </td>
 <td style="text-align:right;">
-4.9915
+0.3598
 </td>
 <td style="text-align:right;">
-28.5757
+2.6230
 </td>
 <td style="text-align:right;">
-0.42
+8.37
 </td>
 </tr>
 <tr>
@@ -1674,19 +1673,19 @@ mDette
 mFriedman
 </td>
 <td style="text-align:right;">
-0.1434
+0.0418
 </td>
 <td style="text-align:right;">
-0.0206
+0.0017
 </td>
 <td style="text-align:right;">
-0.1124
+0.0318
 </td>
 <td style="text-align:right;">
-0.4665
+0.1627
 </td>
 <td style="text-align:right;">
-0.44
+8.11
 </td>
 </tr>
 <tr>
@@ -1694,19 +1693,19 @@ mFriedman
 mIshigami
 </td>
 <td style="text-align:right;">
-2.9653
+0.7727
 </td>
 <td style="text-align:right;">
-8.7927
+0.5971
 </td>
 <td style="text-align:right;">
-2.4737
+0.5606
 </td>
 <td style="text-align:right;">
-9.9941
+3.2619
 </td>
 <td style="text-align:right;">
-0.45
+8.70
 </td>
 </tr>
 <tr>
@@ -1714,19 +1713,19 @@ mIshigami
 mRef153
 </td>
 <td style="text-align:right;">
-10.7472
+3.6206
 </td>
 <td style="text-align:right;">
-115.5033
+13.1088
 </td>
 <td style="text-align:right;">
-8.6922
+2.5636
 </td>
 <td style="text-align:right;">
-27.5641
+13.7640
 </td>
 <td style="text-align:right;">
-0.14
+2.75
 </td>
 </tr>
 <tr>
@@ -1734,19 +1733,19 @@ mRef153
 uDmod1
 </td>
 <td style="text-align:right;">
-0.5614
+0.1279
 </td>
 <td style="text-align:right;">
-0.3151
+0.0163
 </td>
 <td style="text-align:right;">
-0.4949
+0.0990
 </td>
 <td style="text-align:right;">
-0.9230
+0.2929
 </td>
 <td style="text-align:right;">
-0.05
+1.08
 </td>
 </tr>
 <tr>
@@ -1754,19 +1753,19 @@ uDmod1
 uDmod2
 </td>
 <td style="text-align:right;">
-0.4493
+0.0861
 </td>
 <td style="text-align:right;">
-0.2019
+0.0074
 </td>
 <td style="text-align:right;">
-0.3815
+0.0695
 </td>
 <td style="text-align:right;">
-0.8344
+0.2004
 </td>
 <td style="text-align:right;">
-0.05
+1.08
 </td>
 </tr>
 <tr>
@@ -1774,19 +1773,19 @@ uDmod2
 uDreyfus1
 </td>
 <td style="text-align:right;">
-1.2528
+0.0756
 </td>
 <td style="text-align:right;">
-1.5694
+0.0057
 </td>
 <td style="text-align:right;">
-1.0077
+0.0552
 </td>
 <td style="text-align:right;">
-2.5119
+0.1827
 </td>
 <td style="text-align:right;">
-0.06
+1.05
 </td>
 </tr>
 <tr>
@@ -1794,19 +1793,19 @@ uDreyfus1
 uDreyfus2
 </td>
 <td style="text-align:right;">
-1.2076
+0.1160
 </td>
 <td style="text-align:right;">
-1.4582
+0.0135
 </td>
 <td style="text-align:right;">
-0.9548
+0.0920
 </td>
 <td style="text-align:right;">
-2.6136
+0.2642
 </td>
 <td style="text-align:right;">
-0.05
+1.06
 </td>
 </tr>
 <tr>
@@ -1814,19 +1813,19 @@ uDreyfus2
 uGauss1
 </td>
 <td style="text-align:right;">
-27.6088
+3.5603
 </td>
 <td style="text-align:right;">
-762.2483
+12.6759
 </td>
 <td style="text-align:right;">
-22.1318
+2.6931
 </td>
 <td style="text-align:right;">
-61.3010
+10.4343
 </td>
 <td style="text-align:right;">
-0.22
+4.36
 </td>
 </tr>
 <tr>
@@ -1834,19 +1833,19 @@ uGauss1
 uGauss2
 </td>
 <td style="text-align:right;">
-25.7201
+4.0986
 </td>
 <td style="text-align:right;">
-661.5238
+16.7989
 </td>
 <td style="text-align:right;">
-22.5836
+3.0681
 </td>
 <td style="text-align:right;">
-55.0490
+13.7961
 </td>
 <td style="text-align:right;">
-0.22
+4.16
 </td>
 </tr>
 <tr>
@@ -1854,19 +1853,19 @@ uGauss2
 uGauss3
 </td>
 <td style="text-align:right;">
-29.4236
+3.4154
 </td>
 <td style="text-align:right;">
-865.7480
+11.6647
 </td>
 <td style="text-align:right;">
-26.0167
+2.7322
 </td>
 <td style="text-align:right;">
-58.1997
+9.0438
 </td>
 <td style="text-align:right;">
-0.22
+1.82
 </td>
 </tr>
 <tr>
@@ -1874,24 +1873,294 @@ uGauss3
 uNeuroOne
 </td>
 <td style="text-align:right;">
-1.0930
+0.2846
 </td>
 <td style="text-align:right;">
-1.1947
+0.0810
 </td>
 <td style="text-align:right;">
-0.8956
+0.2332
 </td>
 <td style="text-align:right;">
-2.4416
+0.5660
 </td>
 <td style="text-align:right;">
-0.05
+1.04
 </td>
 </tr>
 </tbody>
 </table>
-<pre class="r"><code>kable(apply(res[,,2,], c(3,1), min), caption = &quot;trainwpso&quot;)%&gt;%
+<pre class="r"><code>kable(apply(res[,,2,], c(3,1), min), caption = &quot;trainwgrad_adam&quot;)%&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;))</code></pre>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+trainwgrad_adam
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+RMSE
+</th>
+<th style="text-align:right;">
+MSE
+</th>
+<th style="text-align:right;">
+MAE
+</th>
+<th style="text-align:right;">
+WAE
+</th>
+<th style="text-align:right;">
+time
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+mDette
+</td>
+<td style="text-align:right;">
+0.4883
+</td>
+<td style="text-align:right;">
+0.2385
+</td>
+<td style="text-align:right;">
+0.3833
+</td>
+<td style="text-align:right;">
+1.7848
+</td>
+<td style="text-align:right;">
+9.36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mFriedman
+</td>
+<td style="text-align:right;">
+0.0332
+</td>
+<td style="text-align:right;">
+0.0011
+</td>
+<td style="text-align:right;">
+0.0269
+</td>
+<td style="text-align:right;">
+0.0984
+</td>
+<td style="text-align:right;">
+9.42
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mIshigami
+</td>
+<td style="text-align:right;">
+0.7195
+</td>
+<td style="text-align:right;">
+0.5177
+</td>
+<td style="text-align:right;">
+0.5359
+</td>
+<td style="text-align:right;">
+2.5098
+</td>
+<td style="text-align:right;">
+9.33
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+mRef153
+</td>
+<td style="text-align:right;">
+3.3858
+</td>
+<td style="text-align:right;">
+11.4637
+</td>
+<td style="text-align:right;">
+2.3050
+</td>
+<td style="text-align:right;">
+13.2932
+</td>
+<td style="text-align:right;">
+3.14
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uDmod1
+</td>
+<td style="text-align:right;">
+0.0603
+</td>
+<td style="text-align:right;">
+0.0036
+</td>
+<td style="text-align:right;">
+0.0470
+</td>
+<td style="text-align:right;">
+0.1460
+</td>
+<td style="text-align:right;">
+1.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uDmod2
+</td>
+<td style="text-align:right;">
+0.0611
+</td>
+<td style="text-align:right;">
+0.0037
+</td>
+<td style="text-align:right;">
+0.0491
+</td>
+<td style="text-align:right;">
+0.1312
+</td>
+<td style="text-align:right;">
+1.19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uDreyfus1
+</td>
+<td style="text-align:right;">
+0.0362
+</td>
+<td style="text-align:right;">
+0.0013
+</td>
+<td style="text-align:right;">
+0.0202
+</td>
+<td style="text-align:right;">
+0.1252
+</td>
+<td style="text-align:right;">
+0.82
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uDreyfus2
+</td>
+<td style="text-align:right;">
+0.0944
+</td>
+<td style="text-align:right;">
+0.0089
+</td>
+<td style="text-align:right;">
+0.0752
+</td>
+<td style="text-align:right;">
+0.2221
+</td>
+<td style="text-align:right;">
+0.68
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uGauss1
+</td>
+<td style="text-align:right;">
+3.7974
+</td>
+<td style="text-align:right;">
+14.4201
+</td>
+<td style="text-align:right;">
+2.7945
+</td>
+<td style="text-align:right;">
+13.6836
+</td>
+<td style="text-align:right;">
+4.89
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uGauss2
+</td>
+<td style="text-align:right;">
+3.6521
+</td>
+<td style="text-align:right;">
+13.3379
+</td>
+<td style="text-align:right;">
+2.7436
+</td>
+<td style="text-align:right;">
+13.1870
+</td>
+<td style="text-align:right;">
+4.89
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uGauss3
+</td>
+<td style="text-align:right;">
+2.5172
+</td>
+<td style="text-align:right;">
+6.3364
+</td>
+<td style="text-align:right;">
+2.0068
+</td>
+<td style="text-align:right;">
+8.2477
+</td>
+<td style="text-align:right;">
+4.82
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uNeuroOne
+</td>
+<td style="text-align:right;">
+0.2848
+</td>
+<td style="text-align:right;">
+0.0811
+</td>
+<td style="text-align:right;">
+0.2307
+</td>
+<td style="text-align:right;">
+0.5874
+</td>
+<td style="text-align:right;">
+0.92
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>kable(apply(res[,,3,], c(3,1), min), caption = &quot;trainwpso&quot;)%&gt;%
   kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;))</code></pre>
 <table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -1924,19 +2193,19 @@ time
 mDette
 </td>
 <td style="text-align:right;">
-4.9366
+2.6100
 </td>
 <td style="text-align:right;">
-24.3701
+6.8124
 </td>
 <td style="text-align:right;">
-3.7659
+1.8890
 </td>
 <td style="text-align:right;">
-24.1352
+14.5915
 </td>
 <td style="text-align:right;">
-0.88
+7.42
 </td>
 </tr>
 <tr>
@@ -1944,19 +2213,19 @@ mDette
 mFriedman
 </td>
 <td style="text-align:right;">
-0.1383
+0.1078
 </td>
 <td style="text-align:right;">
-0.0191
+0.0116
 </td>
 <td style="text-align:right;">
-0.1062
+0.0853
 </td>
 <td style="text-align:right;">
-0.4593
+0.2915
 </td>
 <td style="text-align:right;">
-0.94
+9.41
 </td>
 </tr>
 <tr>
@@ -1964,19 +2233,19 @@ mFriedman
 mIshigami
 </td>
 <td style="text-align:right;">
-2.7433
+2.4888
 </td>
 <td style="text-align:right;">
-7.5255
+6.1942
 </td>
 <td style="text-align:right;">
-2.3431
+2.0244
 </td>
 <td style="text-align:right;">
-8.0677
+7.1210
 </td>
 <td style="text-align:right;">
-1.24
+10.15
 </td>
 </tr>
 <tr>
@@ -1984,19 +2253,19 @@ mIshigami
 mRef153
 </td>
 <td style="text-align:right;">
-4.5749
+3.7387
 </td>
 <td style="text-align:right;">
-20.9301
+13.9779
 </td>
 <td style="text-align:right;">
-3.3442
+2.7569
 </td>
 <td style="text-align:right;">
-16.2521
+13.0120
 </td>
 <td style="text-align:right;">
-0.64
+4.08
 </td>
 </tr>
 <tr>
@@ -2004,19 +2273,19 @@ mRef153
 uDmod1
 </td>
 <td style="text-align:right;">
-0.2603
+0.1480
 </td>
 <td style="text-align:right;">
-0.0677
+0.0219
 </td>
 <td style="text-align:right;">
-0.2182
+0.1159
 </td>
 <td style="text-align:right;">
-0.5759
+0.4691
 </td>
 <td style="text-align:right;">
-0.59
+6.33
 </td>
 </tr>
 <tr>
@@ -2024,19 +2293,19 @@ uDmod1
 uDmod2
 </td>
 <td style="text-align:right;">
-0.2587
+0.1563
 </td>
 <td style="text-align:right;">
-0.0669
+0.0244
 </td>
 <td style="text-align:right;">
-0.2251
+0.1352
 </td>
 <td style="text-align:right;">
-0.5075
+0.3168
 </td>
 <td style="text-align:right;">
-0.59
+2.70
 </td>
 </tr>
 <tr>
@@ -2044,19 +2313,19 @@ uDmod2
 uDreyfus1
 </td>
 <td style="text-align:right;">
-0.2693
+0.0712
 </td>
 <td style="text-align:right;">
-0.0725
+0.0051
 </td>
 <td style="text-align:right;">
-0.2120
+0.0477
 </td>
 <td style="text-align:right;">
-0.5290
+0.1549
 </td>
 <td style="text-align:right;">
-0.57
+0.89
 </td>
 </tr>
 <tr>
@@ -2064,19 +2333,19 @@ uDreyfus1
 uDreyfus2
 </td>
 <td style="text-align:right;">
-0.1770
+0.1041
 </td>
 <td style="text-align:right;">
-0.0313
+0.0108
 </td>
 <td style="text-align:right;">
-0.1366
+0.0834
 </td>
 <td style="text-align:right;">
-0.4434
+0.2364
 </td>
 <td style="text-align:right;">
-0.58
+2.55
 </td>
 </tr>
 <tr>
@@ -2084,19 +2353,19 @@ uDreyfus2
 uGauss1
 </td>
 <td style="text-align:right;">
-17.0532
+10.5504
 </td>
 <td style="text-align:right;">
-290.8115
+111.3111
 </td>
 <td style="text-align:right;">
-13.9753
+8.1994
 </td>
 <td style="text-align:right;">
-42.0552
+26.1492
 </td>
 <td style="text-align:right;">
-0.67
+6.61
 </td>
 </tr>
 <tr>
@@ -2104,19 +2373,19 @@ uGauss1
 uGauss2
 </td>
 <td style="text-align:right;">
-10.9377
+4.2267
 </td>
 <td style="text-align:right;">
-119.6339
+17.8652
 </td>
 <td style="text-align:right;">
-8.2666
+3.3492
 </td>
 <td style="text-align:right;">
-29.5736
+13.5698
 </td>
 <td style="text-align:right;">
-0.67
+4.02
 </td>
 </tr>
 <tr>
@@ -2124,19 +2393,19 @@ uGauss2
 uGauss3
 </td>
 <td style="text-align:right;">
-8.7985
+4.2532
 </td>
 <td style="text-align:right;">
-77.4131
+18.0900
 </td>
 <td style="text-align:right;">
-6.3629
+3.4678
 </td>
 <td style="text-align:right;">
-29.3427
+11.7201
 </td>
 <td style="text-align:right;">
-0.67
+6.69
 </td>
 </tr>
 <tr>
@@ -2144,19 +2413,19 @@ uGauss3
 uNeuroOne
 </td>
 <td style="text-align:right;">
-0.2873
+0.2833
 </td>
 <td style="text-align:right;">
-0.0825
+0.0802
 </td>
 <td style="text-align:right;">
-0.2351
+0.2302
 </td>
 <td style="text-align:right;">
-0.5549
+0.5432
 </td>
 <td style="text-align:right;">
-0.56
+2.55
 </td>
 </tr>
 </tbody>
@@ -2213,7 +2482,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

@@ -1,7 +1,7 @@
 ---
 title: "NNbenchmark Ranking Function"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/02/08"
+date: "2020/06/08"
 output:
     html_document:
         toc: true
@@ -20,16 +20,16 @@ validann's CG, SANN, and Nelder-Mead;
 CaDENCE's Rprop and psoptim;
 monmlp's Nelder-Mead.
 
-# Environment and datasets 
+# Setup 
 
-## Setup environment
+## Packages and options
 ```{r message=FALSE, warning=FALSE}
 library(NNbenchmark)
 library(kableExtra)
 library(dplyr)   
 library(stringr) 
 options(scipen = 999)
-odir <- "D:/GSoC2020/Results/2020run02/"
+odir <- "D:/GSoC2020/Results/2020run03/"
 ```
 
 # Read csv files and calculate some statistics for the metrics

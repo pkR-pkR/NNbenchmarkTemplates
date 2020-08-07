@@ -1,7 +1,7 @@
 ---
-title: "NNbenchmark Generic Function"
+title: "NNbenchmark Generic Function with radiant.model"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/02/08"
+date: "2020/08/07"
 output:
     html_document:
         toc: true
@@ -9,16 +9,26 @@ output:
         number_sections: true
 ---
 
-# Environment and datasets 
+# Setup 
 
-## Setup environment
+## Packages and options
 ```{r message=FALSE, warning=FALSE}
 library(NNbenchmark)
 library(kableExtra)
 options(scipen = 999)
-if(dir.exists("D:/GSoC2020/Results/2020run02/"))
+```
+
+## Datasets to test
+```{r}
+NNdataSummary(NNdatasets)
+```
+
+
+## radiant.model trainPredict arguments - inputs "y", data
+```{r}
+if(dir.exists("D:/GSoC2020/Results/2020run03/"))
 {  
-  odir <- "D:/GSoC2020/Results/2020run02/"
+  odir <- "D:/GSoC2020/Results/2020run03/"
 }else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
 {  
   odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
@@ -26,21 +36,11 @@ if(dir.exists("D:/GSoC2020/Results/2020run02/"))
   odir <- "~"
 
 nrep <- 10
-maxit2ndorder <- 200 #predefined in package
-maxit1storder <- 1000
-```
+maxit2ndorder  <-    200
+maxit1storderA <-   1000
+maxit1storderB <-  10000
+maxit1storderC <- 100000
 
-## Datasets to test
-
-```{r}
-NNdataSummary(NNdatasets)
-```
-
-# Dedicated functions by packages
-
-
-## radiant.model Train/predict Functions - arguments xy,y
-```{r}
 #library(radiant.model)
 radiant.model.method <- "none"
 hyperParams.radiant.model <- function(...) {
@@ -70,16 +70,16 @@ res <- trainPredict_1data(1, radiant.model.method, "NNtrain.radiant.model", "hyp
 ```
 
 
-# Launch the NN package
+# Launch package's trainPredict
 
 ```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
-res <- trainPredict_1pkg(1:2, pkgname = "radiant.model", pkgfun = "nn", radiant.model.method,
+res <- trainPredict_1pkg(1:12, pkgname = "radiant.model", pkgfun = "nn", radiant.model.method,
   prepareZZ.arg = radiant.model.prepareZZ, nrep = nrep, doplot = TRUE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
-
 ```
 
 # Results
+
 ```{r}
 #print(res)
 kable(t(apply(res, c(1,4), min)))%>%

@@ -1,7 +1,7 @@
 ---
-title: "NNbenchmark Generic Function"
+title: "NNbenchmark Generic Function with h2o"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/07/12"
+date: "2020/08/07"
 output:
     html_document:
         toc: true
@@ -9,57 +9,51 @@ output:
         number_sections: true
 ---
 
-# Environment and datasets 
+# Setup 
 
-## Setup environment
+## Packages and options
 ```{r message=FALSE, warning=FALSE}
 library(NNbenchmark)
 library(kableExtra)
 options(scipen = 999)
-if(dir.exists("D:/GSoC2020/Results/2020run02/"))
+```
+
+## Datasets to test
+```{r}
+NNdataSummary(NNdatasets)
+```
+
+
+## h2o trainPredict arguments - inputs "y", data
+```{r}
+if(dir.exists("D:/GSoC2020/Results/2020run03/"))
 {  
-  odir <- "D:/GSoC2020/Results/2020run02/"
+  odir <- "D:/GSoC2020/Results/2020run03/"
 }else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
 {  
   odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
 }else
   odir <- "~"
 
-nrep <- 5
+nrep <- 10
 maxit2ndorder  <-    200
 maxit1storderA <-   1000
-maxit1storderB <-   5000
-maxit1storderC <-  10000
-maxit1storderD <- 100000
-```
+maxit1storderB <-  10000
+maxit1storderC <- 100000
 
-## Datasets to test
-
-```{r}
-NNdataSummary(NNdatasets)
-```
-
-# Dedicated functions by packages
-
-
-## h2o Train Function - arguments xy,y
-```{r}
 #library(h2o)
-h2o.method <- "gradientDescent"
+h2o.method <- "first-order"
 hyperParams.h2o <- function(optim_method, ...) {
     
-    if (!is.element(optim_method, c("gradientDescent"))) stop("Invalid Parameters.")
-    
     hidden_activation = "Tanh"
-    iter <- maxit1storderC
+    iter <- maxit1storderB
     rate <- 0.01
     stopping_rounds <- 500
     stopping_tolerance <- 1e-5
     distribution <- "gaussian"
-    params <- paste0("method=", optim_method, "_", "hidden_activation=", hidden_activation)
-    
-    out <- list(hidden_activation = hidden_activation, iter = iter, params = params,
-                rate=rate, stopping_rounds=stopping_rounds, stopping_tolerance=stopping_tolerance,
+
+    out <- list(hidden_activation = hidden_activation, iter = iter, rate=rate, 
+                stopping_rounds=stopping_rounds, stopping_tolerance=stopping_tolerance,
                 distribution=distribution)
     
     return (out)
@@ -82,8 +76,8 @@ NNtrain.h2o <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperP
                                      overwrite_with_best_model = TRUE, 
                                      standardize = FALSE,
                                      activation = hidden_activation,
-                                      adaptive_rate = TRUE,
-                                     #rate = rate,
+                                     adaptive_rate = FALSE,
+                                     rate = rate,
                                      hidden = hidden_neur,
                                      epochs = iter,
                                      train_samples_per_iteration = -1,
@@ -127,16 +121,17 @@ res <- train_and_predict_1data(1, h2o.method, "NNtrain.h2o", "hyperParams.h2o", 
 ```
 
 
-# Launch the NN package
+# Launch package's trainPredict
 
 ```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
-res <- trainPredict_1pkg(1:2, pkgname = "h2o", pkgfun = "h2o.deeplearning", h2o.method,
+res <- trainPredict_1pkg(1:12, pkgname = "h2o", pkgfun = "h2o.deeplearning", h2o.method,
   prepareZZ.arg = h2o.prepareZZ, nrep = nrep, doplot = TRUE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 
 ```
 
 # Results
+
 ```{r}
 #print(res)
 kable(t(apply(res, c(1,4), min)))%>%

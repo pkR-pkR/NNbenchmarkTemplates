@@ -12,7 +12,7 @@
 <meta name="author" content="All members of GSoC 2019 &amp; 2020" />
 
 
-<title>NNbenchmark Generic Function</title>
+<title>NNbenchmark Generic Function with RSNNS</title>
 
 <script>/*! jQuery v1.11.3 | (c) 2005, 2015 jQuery Foundation, Inc. | jquery.org/license */
 !function(a,b){"object"==typeof module&&"object"==typeof module.exports?module.exports=a.document?b(a,!0):function(a){if(!a.document)throw new Error("jQuery requires a window with a document");return b(a)}:b(a)}("undefined"!=typeof window?window:this,function(a,b){var c=[],d=c.slice,e=c.concat,f=c.push,g=c.indexOf,h={},i=h.toString,j=h.hasOwnProperty,k={},l="1.11.3",m=function(a,b){return new m.fn.init(a,b)},n=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,o=/^-ms-/,p=/-([\da-z])/gi,q=function(a,b){return b.toUpperCase()};m.fn=m.prototype={jquery:l,constructor:m,selector:"",length:0,toArray:function(){return d.call(this)},get:function(a){return null!=a?0>a?this[a+this.length]:this[a]:d.call(this)},pushStack:function(a){var b=m.merge(this.constructor(),a);return b.prevObject=this,b.context=this.context,b},each:function(a,b){return m.each(this,a,b)},map:function(a){return this.pushStack(m.map(this,function(b,c){return a.call(b,c,b)}))},slice:function(){return this.pushStack(d.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(a){var b=this.length,c=+a+(0>a?b:0);return this.pushStack(c>=0&&b>c?[this[c]]:[])},end:function(){return this.prevObject||this.constructor(null)},push:f,sort:c.sort,splice:c.splice},m.extend=m.fn.extend=function(){var a,b,c,d,e,f,g=arguments[0]||{},h=1,i=arguments.length,j=!1;for("boolean"==typeof g&&(j=g,g=arguments[h]||{},h++),"object"==typeof g||m.isFunction(g)||(g={}),h===i&&(g=this,h--);i>h;h++)if(null!=(e=arguments[h]))for(d in e)a=g[d],c=e[d],g!==c&&(j&&c&&(m.isPlainObject(c)||(b=m.isArray(c)))?(b?(b=!1,f=a&&m.isArray(a)?a:[]):f=a&&m.isPlainObject(a)?a:{},g[d]=m.extend(j,f,c)):void 0!==c&&(g[d]=c));return g},m.extend({expando:"jQuery"+(l+Math.random()).replace(/\D/g,""),isReady:!0,error:function(a){throw new Error(a)},noop:function(){},isFunction:function(a){return"function"===m.type(a)},isArray:Array.isArray||function(a){return"array"===m.type(a)},isWindow:function(a){return null!=a&&a==a.window},isNumeric:function(a){return!m.isArray(a)&&a-parseFloat(a)+1>=0},isEmptyObject:function(a){var b;for(b in a)return!1;return!0},isPlainObject:function(a){var b;if(!a||"object"!==m.type(a)||a.nodeType||m.isWindow(a))return!1;try{if(a.constructor&&!j.call(a,"constructor")&&!j.call(a.constructor.prototype,"isPrototypeOf"))return!1}catch(c){return!1}if(k.ownLast)for(b in a)return j.call(a,b);for(b in a);return void 0===b||j.call(a,b)},type:function(a){return null==a?a+"":"object"==typeof a||"function"==typeof a?h[i.call(a)]||"object":typeof a},globalEval:function(b){b&&m.trim(b)&&(a.execScript||function(b){a.eval.call(a,b)})(b)},camelCase:function(a){return a.replace(o,"ms-").replace(p,q)},nodeName:function(a,b){return a.nodeName&&a.nodeName.toLowerCase()===b.toLowerCase()},each:function(a,b,c){var d,e=0,f=a.length,g=r(a);if(c){if(g){for(;f>e;e++)if(d=b.apply(a[e],c),d===!1)break}else for(e in a)if(d=b.apply(a[e],c),d===!1)break}else if(g){for(;f>e;e++)if(d=b.call(a[e],e,a[e]),d===!1)break}else for(e in a)if(d=b.call(a[e],e,a[e]),d===!1)break;return a},trim:function(a){return null==a?"":(a+"").replace(n,"")},makeArray:function(a,b){var c=b||[];return null!=a&&(r(Object(a))?m.merge(c,"string"==typeof a?[a]:a):f.call(c,a)),c},inArray:function(a,b,c){var d;if(b){if(g)return g.call(b,a,c);for(d=b.length,c=c?0>c?Math.max(0,d+c):c:0;d>c;c++)if(c in b&&b[c]===a)return c}return-1},merge:function(a,b){var c=+b.length,d=0,e=a.length;while(c>d)a[e++]=b[d++];if(c!==c)while(void 0!==b[d])a[e++]=b[d++];return a.length=e,a},grep:function(a,b,c){for(var d,e=[],f=0,g=a.length,h=!c;g>f;f++)d=!b(a[f],f),d!==h&&e.push(a[f]);return e},map:function(a,b,c){var d,f=0,g=a.length,h=r(a),i=[];if(h)for(;g>f;f++)d=b(a[f],f,c),null!=d&&i.push(d);else for(f in a)d=b(a[f],f,c),null!=d&&i.push(d);return e.apply([],i)},guid:1,proxy:function(a,b){var c,e,f;return"string"==typeof b&&(f=a[b],b=a,a=f),m.isFunction(a)?(c=d.call(arguments,2),e=function(){return a.apply(b||this,c.concat(d.call(arguments)))},e.guid=a.guid=a.guid||m.guid++,e):void 0},now:function(){return+new Date},support:k}),m.each("Boolean Number String Function Array Date RegExp Object Error".split(" "),function(a,b){h["[object "+b+"]"]=b.toLowerCase()});function r(a){var b="length"in a&&a.length,c=m.type(a);return"function"===c||m.isWindow(a)?!1:1===a.nodeType&&b?!0:"array"===c||0===b||"number"==typeof b&&b>0&&b-1 in a}var s=function(a){var b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u="sizzle"+1*new Date,v=a.document,w=0,x=0,y=ha(),z=ha(),A=ha(),B=function(a,b){return a===b&&(l=!0),0},C=1<<31,D={}.hasOwnProperty,E=[],F=E.pop,G=E.push,H=E.push,I=E.slice,J=function(a,b){for(var c=0,d=a.length;d>c;c++)if(a[c]===b)return c;return-1},K="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",L="[\\x20\\t\\r\\n\\f]",M="(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",N=M.replace("w","w#"),O="\\["+L+"*("+M+")(?:"+L+"*([*^$|!~]?=)"+L+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+N+"))|)"+L+"*\\]",P=":("+M+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+O+")*)|.*)\\)|)",Q=new RegExp(L+"+","g"),R=new RegExp("^"+L+"+|((?:^|[^\\\\])(?:\\\\.)*)"+L+"+$","g"),S=new RegExp("^"+L+"*,"+L+"*"),T=new RegExp("^"+L+"*([>+~]|"+L+")"+L+"*"),U=new RegExp("="+L+"*([^\\]'\"]*?)"+L+"*\\]","g"),V=new RegExp(P),W=new RegExp("^"+N+"$"),X={ID:new RegExp("^#("+M+")"),CLASS:new RegExp("^\\.("+M+")"),TAG:new RegExp("^("+M.replace("w","w*")+")"),ATTR:new RegExp("^"+O),PSEUDO:new RegExp("^"+P),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+L+"*(even|odd|(([+-]|)(\\d*)n|)"+L+"*(?:([+-]|)"+L+"*(\\d+)|))"+L+"*\\)|)","i"),bool:new RegExp("^(?:"+K+")$","i"),needsContext:new RegExp("^"+L+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+L+"*((?:-\\d)?\\d*)"+L+"*\\)|)(?=[^-]|$)","i")},Y=/^(?:input|select|textarea|button)$/i,Z=/^h\d$/i,$=/^[^{]+\{\s*\[native \w/,_=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,aa=/[+~]/,ba=/'|\\/g,ca=new RegExp("\\\\([\\da-f]{1,6}"+L+"?|("+L+")|.)","ig"),da=function(a,b,c){var d="0x"+b-65536;return d!==d||c?b:0>d?String.fromCharCode(d+65536):String.fromCharCode(d>>10|55296,1023&d|56320)},ea=function(){m()};try{H.apply(E=I.call(v.childNodes),v.childNodes),E[v.childNodes.length].nodeType}catch(fa){H={apply:E.length?function(a,b){G.apply(a,I.call(b))}:function(a,b){var c=a.length,d=0;while(a[c++]=b[d++]);a.length=c-1}}}function ga(a,b,d,e){var f,h,j,k,l,o,r,s,w,x;if((b?b.ownerDocument||b:v)!==n&&m(b),b=b||n,d=d||[],k=b.nodeType,"string"!=typeof a||!a||1!==k&&9!==k&&11!==k)return d;if(!e&&p){if(11!==k&&(f=_.exec(a)))if(j=f[1]){if(9===k){if(h=b.getElementById(j),!h||!h.parentNode)return d;if(h.id===j)return d.push(h),d}else if(b.ownerDocument&&(h=b.ownerDocument.getElementById(j))&&t(b,h)&&h.id===j)return d.push(h),d}else{if(f[2])return H.apply(d,b.getElementsByTagName(a)),d;if((j=f[3])&&c.getElementsByClassName)return H.apply(d,b.getElementsByClassName(j)),d}if(c.qsa&&(!q||!q.test(a))){if(s=r=u,w=b,x=1!==k&&a,1===k&&"object"!==b.nodeName.toLowerCase()){o=g(a),(r=b.getAttribute("id"))?s=r.replace(ba,"\\$&"):b.setAttribute("id",s),s="[id='"+s+"'] ",l=o.length;while(l--)o[l]=s+ra(o[l]);w=aa.test(a)&&pa(b.parentNode)||b,x=o.join(",")}if(x)try{return H.apply(d,w.querySelectorAll(x)),d}catch(y){}finally{r||b.removeAttribute("id")}}}return i(a.replace(R,"$1"),b,d,e)}function ha(){var a=[];function b(c,e){return a.push(c+" ")>d.cacheLength&&delete b[a.shift()],b[c+" "]=e}return b}function ia(a){return a[u]=!0,a}function ja(a){var b=n.createElement("div");try{return!!a(b)}catch(c){return!1}finally{b.parentNode&&b.parentNode.removeChild(b),b=null}}function ka(a,b){var c=a.split("|"),e=a.length;while(e--)d.attrHandle[c[e]]=b}function la(a,b){var c=b&&a,d=c&&1===a.nodeType&&1===b.nodeType&&(~b.sourceIndex||C)-(~a.sourceIndex||C);if(d)return d;if(c)while(c=c.nextSibling)if(c===b)return-1;return a?1:-1}function ma(a){return function(b){var c=b.nodeName.toLowerCase();return"input"===c&&b.type===a}}function na(a){return function(b){var c=b.nodeName.toLowerCase();return("input"===c||"button"===c)&&b.type===a}}function oa(a){return ia(function(b){return b=+b,ia(function(c,d){var e,f=a([],c.length,b),g=f.length;while(g--)c[e=f[g]]&&(c[e]=!(d[e]=c[e]))})})}function pa(a){return a&&"undefined"!=typeof a.getElementsByTagName&&a}c=ga.support={},f=ga.isXML=function(a){var b=a&&(a.ownerDocument||a).documentElement;return b?"HTML"!==b.nodeName:!1},m=ga.setDocument=function(a){var b,e,g=a?a.ownerDocument||a:v;return g!==n&&9===g.nodeType&&g.documentElement?(n=g,o=g.documentElement,e=g.defaultView,e&&e!==e.top&&(e.addEventListener?e.addEventListener("unload",ea,!1):e.attachEvent&&e.attachEvent("onunload",ea)),p=!f(g),c.attributes=ja(function(a){return a.className="i",!a.getAttribute("className")}),c.getElementsByTagName=ja(function(a){return a.appendChild(g.createComment("")),!a.getElementsByTagName("*").length}),c.getElementsByClassName=$.test(g.getElementsByClassName),c.getById=ja(function(a){return o.appendChild(a).id=u,!g.getElementsByName||!g.getElementsByName(u).length}),c.getById?(d.find.ID=function(a,b){if("undefined"!=typeof b.getElementById&&p){var c=b.getElementById(a);return c&&c.parentNode?[c]:[]}},d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){return a.getAttribute("id")===b}}):(delete d.find.ID,d.filter.ID=function(a){var b=a.replace(ca,da);return function(a){var c="undefined"!=typeof a.getAttributeNode&&a.getAttributeNode("id");return c&&c.value===b}}),d.find.TAG=c.getElementsByTagName?function(a,b){return"undefined"!=typeof b.getElementsByTagName?b.getElementsByTagName(a):c.qsa?b.querySelectorAll(a):void 0}:function(a,b){var c,d=[],e=0,f=b.getElementsByTagName(a);if("*"===a){while(c=f[e++])1===c.nodeType&&d.push(c);return d}return f},d.find.CLASS=c.getElementsByClassName&&function(a,b){return p?b.getElementsByClassName(a):void 0},r=[],q=[],(c.qsa=$.test(g.querySelectorAll))&&(ja(function(a){o.appendChild(a).innerHTML="<a id='"+u+"'></a><select id='"+u+"-\f]' msallowcapture=''><option selected=''></option></select>",a.querySelectorAll("[msallowcapture^='']").length&&q.push("[*^$]="+L+"*(?:''|\"\")"),a.querySelectorAll("[selected]").length||q.push("\\["+L+"*(?:value|"+K+")"),a.querySelectorAll("[id~="+u+"-]").length||q.push("~="),a.querySelectorAll(":checked").length||q.push(":checked"),a.querySelectorAll("a#"+u+"+*").length||q.push(".#.+[+~]")}),ja(function(a){var b=g.createElement("input");b.setAttribute("type","hidden"),a.appendChild(b).setAttribute("name","D"),a.querySelectorAll("[name=d]").length&&q.push("name"+L+"*[*^$|!~]?="),a.querySelectorAll(":enabled").length||q.push(":enabled",":disabled"),a.querySelectorAll("*,:x"),q.push(",.*:")})),(c.matchesSelector=$.test(s=o.matches||o.webkitMatchesSelector||o.mozMatchesSelector||o.oMatchesSelector||o.msMatchesSelector))&&ja(function(a){c.disconnectedMatch=s.call(a,"div"),s.call(a,"[s!='']:x"),r.push("!=",P)}),q=q.length&&new RegExp(q.join("|")),r=r.length&&new RegExp(r.join("|")),b=$.test(o.compareDocumentPosition),t=b||$.test(o.contains)?function(a,b){var c=9===a.nodeType?a.documentElement:a,d=b&&b.parentNode;return a===d||!(!d||1!==d.nodeType||!(c.contains?c.contains(d):a.compareDocumentPosition&&16&a.compareDocumentPosition(d)))}:function(a,b){if(b)while(b=b.parentNode)if(b===a)return!0;return!1},B=b?function(a,b){if(a===b)return l=!0,0;var d=!a.compareDocumentPosition-!b.compareDocumentPosition;return d?d:(d=(a.ownerDocument||a)===(b.ownerDocument||b)?a.compareDocumentPosition(b):1,1&d||!c.sortDetached&&b.compareDocumentPosition(a)===d?a===g||a.ownerDocument===v&&t(v,a)?-1:b===g||b.ownerDocument===v&&t(v,b)?1:k?J(k,a)-J(k,b):0:4&d?-1:1)}:function(a,b){if(a===b)return l=!0,0;var c,d=0,e=a.parentNode,f=b.parentNode,h=[a],i=[b];if(!e||!f)return a===g?-1:b===g?1:e?-1:f?1:k?J(k,a)-J(k,b):0;if(e===f)return la(a,b);c=a;while(c=c.parentNode)h.unshift(c);c=b;while(c=c.parentNode)i.unshift(c);while(h[d]===i[d])d++;return d?la(h[d],i[d]):h[d]===v?-1:i[d]===v?1:0},g):n},ga.matches=function(a,b){return ga(a,null,null,b)},ga.matchesSelector=function(a,b){if((a.ownerDocument||a)!==n&&m(a),b=b.replace(U,"='$1']"),!(!c.matchesSelector||!p||r&&r.test(b)||q&&q.test(b)))try{var d=s.call(a,b);if(d||c.disconnectedMatch||a.document&&11!==a.document.nodeType)return d}catch(e){}return ga(b,n,null,[a]).length>0},ga.contains=function(a,b){return(a.ownerDocument||a)!==n&&m(a),t(a,b)},ga.attr=function(a,b){(a.ownerDocument||a)!==n&&m(a);var e=d.attrHandle[b.toLowerCase()],f=e&&D.call(d.attrHandle,b.toLowerCase())?e(a,b,!p):void 0;return void 0!==f?f:c.attributes||!p?a.getAttribute(b):(f=a.getAttributeNode(b))&&f.specified?f.value:null},ga.error=function(a){throw new Error("Syntax error, unrecognized expression: "+a)},ga.uniqueSort=function(a){var b,d=[],e=0,f=0;if(l=!c.detectDuplicates,k=!c.sortStable&&a.slice(0),a.sort(B),l){while(b=a[f++])b===a[f]&&(e=d.push(f));while(e--)a.splice(d[e],1)}return k=null,a},e=ga.getText=function(a){var b,c="",d=0,f=a.nodeType;if(f){if(1===f||9===f||11===f){if("string"==typeof a.textContent)return a.textContent;for(a=a.firstChild;a;a=a.nextSibling)c+=e(a)}else if(3===f||4===f)return a.nodeValue}else while(b=a[d++])c+=e(b);return c},d=ga.selectors={cacheLength:50,createPseudo:ia,match:X,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(a){return a[1]=a[1].replace(ca,da),a[3]=(a[3]||a[4]||a[5]||"").replace(ca,da),"~="===a[2]&&(a[3]=" "+a[3]+" "),a.slice(0,4)},CHILD:function(a){return a[1]=a[1].toLowerCase(),"nth"===a[1].slice(0,3)?(a[3]||ga.error(a[0]),a[4]=+(a[4]?a[5]+(a[6]||1):2*("even"===a[3]||"odd"===a[3])),a[5]=+(a[7]+a[8]||"odd"===a[3])):a[3]&&ga.error(a[0]),a},PSEUDO:function(a){var b,c=!a[6]&&a[2];return X.CHILD.test(a[0])?null:(a[3]?a[2]=a[4]||a[5]||"":c&&V.test(c)&&(b=g(c,!0))&&(b=c.indexOf(")",c.length-b)-c.length)&&(a[0]=a[0].slice(0,b),a[2]=c.slice(0,b)),a.slice(0,3))}},filter:{TAG:function(a){var b=a.replace(ca,da).toLowerCase();return"*"===a?function(){return!0}:function(a){return a.nodeName&&a.nodeName.toLowerCase()===b}},CLASS:function(a){var b=y[a+" "];return b||(b=new RegExp("(^|"+L+")"+a+"("+L+"|$)"))&&y(a,function(a){return b.test("string"==typeof a.className&&a.className||"undefined"!=typeof a.getAttribute&&a.getAttribute("class")||"")})},ATTR:function(a,b,c){return function(d){var e=ga.attr(d,a);return null==e?"!="===b:b?(e+="","="===b?e===c:"!="===b?e!==c:"^="===b?c&&0===e.indexOf(c):"*="===b?c&&e.indexOf(c)>-1:"$="===b?c&&e.slice(-c.length)===c:"~="===b?(" "+e.replace(Q," ")+" ").indexOf(c)>-1:"|="===b?e===c||e.slice(0,c.length+1)===c+"-":!1):!0}},CHILD:function(a,b,c,d,e){var f="nth"!==a.slice(0,3),g="last"!==a.slice(-4),h="of-type"===b;return 1===d&&0===e?function(a){return!!a.parentNode}:function(b,c,i){var j,k,l,m,n,o,p=f!==g?"nextSibling":"previousSibling",q=b.parentNode,r=h&&b.nodeName.toLowerCase(),s=!i&&!h;if(q){if(f){while(p){l=b;while(l=l[p])if(h?l.nodeName.toLowerCase()===r:1===l.nodeType)return!1;o=p="only"===a&&!o&&"nextSibling"}return!0}if(o=[g?q.firstChild:q.lastChild],g&&s){k=q[u]||(q[u]={}),j=k[a]||[],n=j[0]===w&&j[1],m=j[0]===w&&j[2],l=n&&q.childNodes[n];while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if(1===l.nodeType&&++m&&l===b){k[a]=[w,n,m];break}}else if(s&&(j=(b[u]||(b[u]={}))[a])&&j[0]===w)m=j[1];else while(l=++n&&l&&l[p]||(m=n=0)||o.pop())if((h?l.nodeName.toLowerCase()===r:1===l.nodeType)&&++m&&(s&&((l[u]||(l[u]={}))[a]=[w,m]),l===b))break;return m-=e,m===d||m%d===0&&m/d>=0}}},PSEUDO:function(a,b){var c,e=d.pseudos[a]||d.setFilters[a.toLowerCase()]||ga.error("unsupported pseudo: "+a);return e[u]?e(b):e.length>1?(c=[a,a,"",b],d.setFilters.hasOwnProperty(a.toLowerCase())?ia(function(a,c){var d,f=e(a,b),g=f.length;while(g--)d=J(a,f[g]),a[d]=!(c[d]=f[g])}):function(a){return e(a,0,c)}):e}},pseudos:{not:ia(function(a){var b=[],c=[],d=h(a.replace(R,"$1"));return d[u]?ia(function(a,b,c,e){var f,g=d(a,null,e,[]),h=a.length;while(h--)(f=g[h])&&(a[h]=!(b[h]=f))}):function(a,e,f){return b[0]=a,d(b,null,f,c),b[0]=null,!c.pop()}}),has:ia(function(a){return function(b){return ga(a,b).length>0}}),contains:ia(function(a){return a=a.replace(ca,da),function(b){return(b.textContent||b.innerText||e(b)).indexOf(a)>-1}}),lang:ia(function(a){return W.test(a||"")||ga.error("unsupported lang: "+a),a=a.replace(ca,da).toLowerCase(),function(b){var c;do if(c=p?b.lang:b.getAttribute("xml:lang")||b.getAttribute("lang"))return c=c.toLowerCase(),c===a||0===c.indexOf(a+"-");while((b=b.parentNode)&&1===b.nodeType);return!1}}),target:function(b){var c=a.location&&a.location.hash;return c&&c.slice(1)===b.id},root:function(a){return a===o},focus:function(a){return a===n.activeElement&&(!n.hasFocus||n.hasFocus())&&!!(a.type||a.href||~a.tabIndex)},enabled:function(a){return a.disabled===!1},disabled:function(a){return a.disabled===!0},checked:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&!!a.checked||"option"===b&&!!a.selected},selected:function(a){return a.parentNode&&a.parentNode.selectedIndex,a.selected===!0},empty:function(a){for(a=a.firstChild;a;a=a.nextSibling)if(a.nodeType<6)return!1;return!0},parent:function(a){return!d.pseudos.empty(a)},header:function(a){return Z.test(a.nodeName)},input:function(a){return Y.test(a.nodeName)},button:function(a){var b=a.nodeName.toLowerCase();return"input"===b&&"button"===a.type||"button"===b},text:function(a){var b;return"input"===a.nodeName.toLowerCase()&&"text"===a.type&&(null==(b=a.getAttribute("type"))||"text"===b.toLowerCase())},first:oa(function(){return[0]}),last:oa(function(a,b){return[b-1]}),eq:oa(function(a,b,c){return[0>c?c+b:c]}),even:oa(function(a,b){for(var c=0;b>c;c+=2)a.push(c);return a}),odd:oa(function(a,b){for(var c=1;b>c;c+=2)a.push(c);return a}),lt:oa(function(a,b,c){for(var d=0>c?c+b:c;--d>=0;)a.push(d);return a}),gt:oa(function(a,b,c){for(var d=0>c?c+b:c;++d<b;)a.push(d);return a})}},d.pseudos.nth=d.pseudos.eq;for(b in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})d.pseudos[b]=ma(b);for(b in{submit:!0,reset:!0})d.pseudos[b]=na(b);function qa(){}qa.prototype=d.filters=d.pseudos,d.setFilters=new qa,g=ga.tokenize=function(a,b){var c,e,f,g,h,i,j,k=z[a+" "];if(k)return b?0:k.slice(0);h=a,i=[],j=d.preFilter;while(h){(!c||(e=S.exec(h)))&&(e&&(h=h.slice(e[0].length)||h),i.push(f=[])),c=!1,(e=T.exec(h))&&(c=e.shift(),f.push({value:c,type:e[0].replace(R," ")}),h=h.slice(c.length));for(g in d.filter)!(e=X[g].exec(h))||j[g]&&!(e=j[g](e))||(c=e.shift(),f.push({value:c,type:g,matches:e}),h=h.slice(c.length));if(!c)break}return b?h.length:h?ga.error(a):z(a,i).slice(0)};function ra(a){for(var b=0,c=a.length,d="";c>b;b++)d+=a[b].value;return d}function sa(a,b,c){var d=b.dir,e=c&&"parentNode"===d,f=x++;return b.first?function(b,c,f){while(b=b[d])if(1===b.nodeType||e)return a(b,c,f)}:function(b,c,g){var h,i,j=[w,f];if(g){while(b=b[d])if((1===b.nodeType||e)&&a(b,c,g))return!0}else while(b=b[d])if(1===b.nodeType||e){if(i=b[u]||(b[u]={}),(h=i[d])&&h[0]===w&&h[1]===f)return j[2]=h[2];if(i[d]=j,j[2]=a(b,c,g))return!0}}}function ta(a){return a.length>1?function(b,c,d){var e=a.length;while(e--)if(!a[e](b,c,d))return!1;return!0}:a[0]}function ua(a,b,c){for(var d=0,e=b.length;e>d;d++)ga(a,b[d],c);return c}function va(a,b,c,d,e){for(var f,g=[],h=0,i=a.length,j=null!=b;i>h;h++)(f=a[h])&&(!c||c(f,d,e))&&(g.push(f),j&&b.push(h));return g}function wa(a,b,c,d,e,f){return d&&!d[u]&&(d=wa(d)),e&&!e[u]&&(e=wa(e,f)),ia(function(f,g,h,i){var j,k,l,m=[],n=[],o=g.length,p=f||ua(b||"*",h.nodeType?[h]:h,[]),q=!a||!f&&b?p:va(p,m,a,h,i),r=c?e||(f?a:o||d)?[]:g:q;if(c&&c(q,r,h,i),d){j=va(r,n),d(j,[],h,i),k=j.length;while(k--)(l=j[k])&&(r[n[k]]=!(q[n[k]]=l))}if(f){if(e||a){if(e){j=[],k=r.length;while(k--)(l=r[k])&&j.push(q[k]=l);e(null,r=[],j,i)}k=r.length;while(k--)(l=r[k])&&(j=e?J(f,l):m[k])>-1&&(f[j]=!(g[j]=l))}}else r=va(r===g?r.splice(o,r.length):r),e?e(null,g,r,i):H.apply(g,r)})}function xa(a){for(var b,c,e,f=a.length,g=d.relative[a[0].type],h=g||d.relative[" "],i=g?1:0,k=sa(function(a){return a===b},h,!0),l=sa(function(a){return J(b,a)>-1},h,!0),m=[function(a,c,d){var e=!g&&(d||c!==j)||((b=c).nodeType?k(a,c,d):l(a,c,d));return b=null,e}];f>i;i++)if(c=d.relative[a[i].type])m=[sa(ta(m),c)];else{if(c=d.filter[a[i].type].apply(null,a[i].matches),c[u]){for(e=++i;f>e;e++)if(d.relative[a[e].type])break;return wa(i>1&&ta(m),i>1&&ra(a.slice(0,i-1).concat({value:" "===a[i-2].type?"*":""})).replace(R,"$1"),c,e>i&&xa(a.slice(i,e)),f>e&&xa(a=a.slice(e)),f>e&&ra(a))}m.push(c)}return ta(m)}function ya(a,b){var c=b.length>0,e=a.length>0,f=function(f,g,h,i,k){var l,m,o,p=0,q="0",r=f&&[],s=[],t=j,u=f||e&&d.find.TAG("*",k),v=w+=null==t?1:Math.random()||.1,x=u.length;for(k&&(j=g!==n&&g);q!==x&&null!=(l=u[q]);q++){if(e&&l){m=0;while(o=a[m++])if(o(l,g,h)){i.push(l);break}k&&(w=v)}c&&((l=!o&&l)&&p--,f&&r.push(l))}if(p+=q,c&&q!==p){m=0;while(o=b[m++])o(r,s,g,h);if(f){if(p>0)while(q--)r[q]||s[q]||(s[q]=F.call(i));s=va(s)}H.apply(i,s),k&&!f&&s.length>0&&p+b.length>1&&ga.uniqueSort(i)}return k&&(w=v,j=t),r};return c?ia(f):f}return h=ga.compile=function(a,b){var c,d=[],e=[],f=A[a+" "];if(!f){b||(b=g(a)),c=b.length;while(c--)f=xa(b[c]),f[u]?d.push(f):e.push(f);f=A(a,ya(e,d)),f.selector=a}return f},i=ga.select=function(a,b,e,f){var i,j,k,l,m,n="function"==typeof a&&a,o=!f&&g(a=n.selector||a);if(e=e||[],1===o.length){if(j=o[0]=o[0].slice(0),j.length>2&&"ID"===(k=j[0]).type&&c.getById&&9===b.nodeType&&p&&d.relative[j[1].type]){if(b=(d.find.ID(k.matches[0].replace(ca,da),b)||[])[0],!b)return e;n&&(b=b.parentNode),a=a.slice(j.shift().value.length)}i=X.needsContext.test(a)?0:j.length;while(i--){if(k=j[i],d.relative[l=k.type])break;if((m=d.find[l])&&(f=m(k.matches[0].replace(ca,da),aa.test(j[0].type)&&pa(b.parentNode)||b))){if(j.splice(i,1),a=f.length&&ra(j),!a)return H.apply(e,f),e;break}}}return(n||h(a,o))(f,b,!p,e,aa.test(a)&&pa(b.parentNode)||b),e},c.sortStable=u.split("").sort(B).join("")===u,c.detectDuplicates=!!l,m(),c.sortDetached=ja(function(a){return 1&a.compareDocumentPosition(n.createElement("div"))}),ja(function(a){return a.innerHTML="<a href='#'></a>","#"===a.firstChild.getAttribute("href")})||ka("type|href|height|width",function(a,b,c){return c?void 0:a.getAttribute(b,"type"===b.toLowerCase()?1:2)}),c.attributes&&ja(function(a){return a.innerHTML="<input/>",a.firstChild.setAttribute("value",""),""===a.firstChild.getAttribute("value")})||ka("value",function(a,b,c){return c||"input"!==a.nodeName.toLowerCase()?void 0:a.defaultValue}),ja(function(a){return null==a.getAttribute("disabled")})||ka(K,function(a,b,c){var d;return c?void 0:a[b]===!0?b.toLowerCase():(d=a.getAttributeNode(b))&&d.specified?d.value:null}),ga}(a);m.find=s,m.expr=s.selectors,m.expr[":"]=m.expr.pseudos,m.unique=s.uniqueSort,m.text=s.getText,m.isXMLDoc=s.isXML,m.contains=s.contains;var t=m.expr.match.needsContext,u=/^<(\w+)\s*\/?>(?:<\/\1>|)$/,v=/^.[^:#\[\.,]*$/;function w(a,b,c){if(m.isFunction(b))return m.grep(a,function(a,d){return!!b.call(a,d,a)!==c});if(b.nodeType)return m.grep(a,function(a){return a===b!==c});if("string"==typeof b){if(v.test(b))return m.filter(b,a,c);b=m.filter(b,a)}return m.grep(a,function(a){return m.inArray(a,b)>=0!==c})}m.filter=function(a,b,c){var d=b[0];return c&&(a=":not("+a+")"),1===b.length&&1===d.nodeType?m.find.matchesSelector(d,a)?[d]:[]:m.find.matches(a,m.grep(b,function(a){return 1===a.nodeType}))},m.fn.extend({find:function(a){var b,c=[],d=this,e=d.length;if("string"!=typeof a)return this.pushStack(m(a).filter(function(){for(b=0;e>b;b++)if(m.contains(d[b],this))return!0}));for(b=0;e>b;b++)m.find(a,d[b],c);return c=this.pushStack(e>1?m.unique(c):c),c.selector=this.selector?this.selector+" "+a:a,c},filter:function(a){return this.pushStack(w(this,a||[],!1))},not:function(a){return this.pushStack(w(this,a||[],!0))},is:function(a){return!!w(this,"string"==typeof a&&t.test(a)?m(a):a||[],!1).length}});var x,y=a.document,z=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]*))$/,A=m.fn.init=function(a,b){var c,d;if(!a)return this;if("string"==typeof a){if(c="<"===a.charAt(0)&&">"===a.charAt(a.length-1)&&a.length>=3?[null,a,null]:z.exec(a),!c||!c[1]&&b)return!b||b.jquery?(b||x).find(a):this.constructor(b).find(a);if(c[1]){if(b=b instanceof m?b[0]:b,m.merge(this,m.parseHTML(c[1],b&&b.nodeType?b.ownerDocument||b:y,!0)),u.test(c[1])&&m.isPlainObject(b))for(c in b)m.isFunction(this[c])?this[c](b[c]):this.attr(c,b[c]);return this}if(d=y.getElementById(c[2]),d&&d.parentNode){if(d.id!==c[2])return x.find(a);this.length=1,this[0]=d}return this.context=y,this.selector=a,this}return a.nodeType?(this.context=this[0]=a,this.length=1,this):m.isFunction(a)?"undefined"!=typeof x.ready?x.ready(a):a(m):(void 0!==a.selector&&(this.selector=a.selector,this.context=a.context),m.makeArray(a,this))};A.prototype=m.fn,x=m(y);var B=/^(?:parents|prev(?:Until|All))/,C={children:!0,contents:!0,next:!0,prev:!0};m.extend({dir:function(a,b,c){var d=[],e=a[b];while(e&&9!==e.nodeType&&(void 0===c||1!==e.nodeType||!m(e).is(c)))1===e.nodeType&&d.push(e),e=e[b];return d},sibling:function(a,b){for(var c=[];a;a=a.nextSibling)1===a.nodeType&&a!==b&&c.push(a);return c}}),m.fn.extend({has:function(a){var b,c=m(a,this),d=c.length;return this.filter(function(){for(b=0;d>b;b++)if(m.contains(this,c[b]))return!0})},closest:function(a,b){for(var c,d=0,e=this.length,f=[],g=t.test(a)||"string"!=typeof a?m(a,b||this.context):0;e>d;d++)for(c=this[d];c&&c!==b;c=c.parentNode)if(c.nodeType<11&&(g?g.index(c)>-1:1===c.nodeType&&m.find.matchesSelector(c,a))){f.push(c);break}return this.pushStack(f.length>1?m.unique(f):f)},index:function(a){return a?"string"==typeof a?m.inArray(this[0],m(a)):m.inArray(a.jquery?a[0]:a,this):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(a,b){return this.pushStack(m.unique(m.merge(this.get(),m(a,b))))},addBack:function(a){return this.add(null==a?this.prevObject:this.prevObject.filter(a))}});function D(a,b){do a=a[b];while(a&&1!==a.nodeType);return a}m.each({parent:function(a){var b=a.parentNode;return b&&11!==b.nodeType?b:null},parents:function(a){return m.dir(a,"parentNode")},parentsUntil:function(a,b,c){return m.dir(a,"parentNode",c)},next:function(a){return D(a,"nextSibling")},prev:function(a){return D(a,"previousSibling")},nextAll:function(a){return m.dir(a,"nextSibling")},prevAll:function(a){return m.dir(a,"previousSibling")},nextUntil:function(a,b,c){return m.dir(a,"nextSibling",c)},prevUntil:function(a,b,c){return m.dir(a,"previousSibling",c)},siblings:function(a){return m.sibling((a.parentNode||{}).firstChild,a)},children:function(a){return m.sibling(a.firstChild)},contents:function(a){return m.nodeName(a,"iframe")?a.contentDocument||a.contentWindow.document:m.merge([],a.childNodes)}},function(a,b){m.fn[a]=function(c,d){var e=m.map(this,b,c);return"Until"!==a.slice(-5)&&(d=c),d&&"string"==typeof d&&(e=m.filter(d,e)),this.length>1&&(C[a]||(e=m.unique(e)),B.test(a)&&(e=e.reverse())),this.pushStack(e)}});var E=/\S+/g,F={};function G(a){var b=F[a]={};return m.each(a.match(E)||[],function(a,c){b[c]=!0}),b}m.Callbacks=function(a){a="string"==typeof a?F[a]||G(a):m.extend({},a);var b,c,d,e,f,g,h=[],i=!a.once&&[],j=function(l){for(c=a.memory&&l,d=!0,f=g||0,g=0,e=h.length,b=!0;h&&e>f;f++)if(h[f].apply(l[0],l[1])===!1&&a.stopOnFalse){c=!1;break}b=!1,h&&(i?i.length&&j(i.shift()):c?h=[]:k.disable())},k={add:function(){if(h){var d=h.length;!function f(b){m.each(b,function(b,c){var d=m.type(c);"function"===d?a.unique&&k.has(c)||h.push(c):c&&c.length&&"string"!==d&&f(c)})}(arguments),b?e=h.length:c&&(g=d,j(c))}return this},remove:function(){return h&&m.each(arguments,function(a,c){var d;while((d=m.inArray(c,h,d))>-1)h.splice(d,1),b&&(e>=d&&e--,f>=d&&f--)}),this},has:function(a){return a?m.inArray(a,h)>-1:!(!h||!h.length)},empty:function(){return h=[],e=0,this},disable:function(){return h=i=c=void 0,this},disabled:function(){return!h},lock:function(){return i=void 0,c||k.disable(),this},locked:function(){return!i},fireWith:function(a,c){return!h||d&&!i||(c=c||[],c=[a,c.slice?c.slice():c],b?i.push(c):j(c)),this},fire:function(){return k.fireWith(this,arguments),this},fired:function(){return!!d}};return k},m.extend({Deferred:function(a){var b=[["resolve","done",m.Callbacks("once memory"),"resolved"],["reject","fail",m.Callbacks("once memory"),"rejected"],["notify","progress",m.Callbacks("memory")]],c="pending",d={state:function(){return c},always:function(){return e.done(arguments).fail(arguments),this},then:function(){var a=arguments;return m.Deferred(function(c){m.each(b,function(b,f){var g=m.isFunction(a[b])&&a[b];e[f[1]](function(){var a=g&&g.apply(this,arguments);a&&m.isFunction(a.promise)?a.promise().done(c.resolve).fail(c.reject).progress(c.notify):c[f[0]+"With"](this===d?c.promise():this,g?[a]:arguments)})}),a=null}).promise()},promise:function(a){return null!=a?m.extend(a,d):d}},e={};return d.pipe=d.then,m.each(b,function(a,f){var g=f[2],h=f[3];d[f[1]]=g.add,h&&g.add(function(){c=h},b[1^a][2].disable,b[2][2].lock),e[f[0]]=function(){return e[f[0]+"With"](this===e?d:this,arguments),this},e[f[0]+"With"]=g.fireWith}),d.promise(e),a&&a.call(e,e),e},when:function(a){var b=0,c=d.call(arguments),e=c.length,f=1!==e||a&&m.isFunction(a.promise)?e:0,g=1===f?a:m.Deferred(),h=function(a,b,c){return function(e){b[a]=this,c[a]=arguments.length>1?d.call(arguments):e,c===i?g.notifyWith(b,c):--f||g.resolveWith(b,c)}},i,j,k;if(e>1)for(i=new Array(e),j=new Array(e),k=new Array(e);e>b;b++)c[b]&&m.isFunction(c[b].promise)?c[b].promise().done(h(b,k,c)).fail(g.reject).progress(h(b,j,i)):--f;return f||g.resolveWith(k,c),g.promise()}});var H;m.fn.ready=function(a){return m.ready.promise().done(a),this},m.extend({isReady:!1,readyWait:1,holdReady:function(a){a?m.readyWait++:m.ready(!0)},ready:function(a){if(a===!0?!--m.readyWait:!m.isReady){if(!y.body)return setTimeout(m.ready);m.isReady=!0,a!==!0&&--m.readyWait>0||(H.resolveWith(y,[m]),m.fn.triggerHandler&&(m(y).triggerHandler("ready"),m(y).off("ready")))}}});function I(){y.addEventListener?(y.removeEventListener("DOMContentLoaded",J,!1),a.removeEventListener("load",J,!1)):(y.detachEvent("onreadystatechange",J),a.detachEvent("onload",J))}function J(){(y.addEventListener||"load"===event.type||"complete"===y.readyState)&&(I(),m.ready())}m.ready.promise=function(b){if(!H)if(H=m.Deferred(),"complete"===y.readyState)setTimeout(m.ready);else if(y.addEventListener)y.addEventListener("DOMContentLoaded",J,!1),a.addEventListener("load",J,!1);else{y.attachEvent("onreadystatechange",J),a.attachEvent("onload",J);var c=!1;try{c=null==a.frameElement&&y.documentElement}catch(d){}c&&c.doScroll&&!function e(){if(!m.isReady){try{c.doScroll("left")}catch(a){return setTimeout(e,50)}I(),m.ready()}}()}return H.promise(b)};var K="undefined",L;for(L in m(k))break;k.ownLast="0"!==L,k.inlineBlockNeedsLayout=!1,m(function(){var a,b,c,d;c=y.getElementsByTagName("body")[0],c&&c.style&&(b=y.createElement("div"),d=y.createElement("div"),d.style.cssText="position:absolute;border:0;width:0;height:0;top:0;left:-9999px",c.appendChild(d).appendChild(b),typeof b.style.zoom!==K&&(b.style.cssText="display:inline;margin:0;border:0;padding:1px;width:1px;zoom:1",k.inlineBlockNeedsLayout=a=3===b.offsetWidth,a&&(c.style.zoom=1)),c.removeChild(d))}),function(){var a=y.createElement("div");if(null==k.deleteExpando){k.deleteExpando=!0;try{delete a.test}catch(b){k.deleteExpando=!1}}a=null}(),m.acceptData=function(a){var b=m.noData[(a.nodeName+" ").toLowerCase()],c=+a.nodeType||1;return 1!==c&&9!==c?!1:!b||b!==!0&&a.getAttribute("classid")===b};var M=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,N=/([A-Z])/g;function O(a,b,c){if(void 0===c&&1===a.nodeType){var d="data-"+b.replace(N,"-$1").toLowerCase();if(c=a.getAttribute(d),"string"==typeof c){try{c="true"===c?!0:"false"===c?!1:"null"===c?null:+c+""===c?+c:M.test(c)?m.parseJSON(c):c}catch(e){}m.data(a,b,c)}else c=void 0}return c}function P(a){var b;for(b in a)if(("data"!==b||!m.isEmptyObject(a[b]))&&"toJSON"!==b)return!1;
@@ -1518,35 +1518,20 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">NNbenchmark Generic Function</h1>
+<h1 class="title toc-ignore">NNbenchmark Generic Function with RSNNS</h1>
 <h4 class="author">All members of GSoC 2019 &amp; 2020</h4>
-<h4 class="date">2020/07/12</h4>
+<h4 class="date">2020/08/07</h4>
 
 </div>
 
 
-<div id="environment-and-datasets" class="section level1">
-<h1><span class="header-section-number">1</span> Environment and datasets</h1>
-<div id="setup-environment" class="section level2">
-<h2><span class="header-section-number">1.1</span> Setup environment</h2>
+<div id="setup" class="section level1">
+<h1><span class="header-section-number">1</span> Setup</h1>
+<div id="packages-and-options" class="section level2">
+<h2><span class="header-section-number">1.1</span> Packages and options</h2>
 <pre class="r"><code>library(NNbenchmark)
 library(kableExtra)
-options(scipen = 999)
-if(dir.exists(&quot;D:/GSoC2020/Results/2020run02/&quot;))
-{  
-  odir &lt;- &quot;D:/GSoC2020/Results/2020run02/&quot;
-}else if(dir.exists(&quot;~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/&quot;))
-{  
-  odir &lt;- &quot;~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/&quot;
-}else
-  odir &lt;- &quot;~&quot;
-
-nrep &lt;- 5
-maxit2ndorder  &lt;-    200
-maxit1storderA &lt;-   1000
-maxit1storderB &lt;-   5000
-maxit1storderC &lt;-  10000
-maxit1storderD &lt;- 100000</code></pre>
+options(scipen = 999)</code></pre>
 </div>
 <div id="datasets-to-test" class="section level2">
 <h2><span class="header-section-number">1.2</span> Datasets to test</h2>
@@ -1565,36 +1550,50 @@ maxit1storderD &lt;- 100000</code></pre>
 ## 11   uGauss3    250        1         4           13
 ## 12 uNeuroOne     51        1         2            7</code></pre>
 </div>
-</div>
-<div id="dedicated-functions-by-packages" class="section level1">
-<h1><span class="header-section-number">2</span> Dedicated functions by packages</h1>
-<div id="rsnns-trainpredict-function---arguments-xy" class="section level2">
-<h2><span class="header-section-number">2.1</span> RSNNS Train/predict Function - arguments x,y</h2>
-<pre class="r"><code>#library(RSNNS)
+<div id="rsnns-trainpredict-arguments---inputs-x-y" class="section level2">
+<h2><span class="header-section-number">1.3</span> RSNNS trainPredict arguments - inputs x, y</h2>
+<pre class="r"><code>if(dir.exists(&quot;D:/GSoC2020/Results/2020run03/&quot;))
+{  
+  odir &lt;- &quot;D:/GSoC2020/Results/2020run03/&quot;
+}else if(dir.exists(&quot;~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/&quot;))
+{  
+  odir &lt;- &quot;~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/&quot;
+}else
+  odir &lt;- &quot;~&quot;
+
+nrep &lt;- 10
+maxit2ndorder  &lt;-    200
+maxit1storderA &lt;-   1000
+maxit1storderB &lt;-  10000
+maxit1storderC &lt;- 100000
+
+#library(RSNNS)
 RSNNS.method &lt;- c(&quot;Rprop&quot;,&quot;BackpropBatch&quot;,&quot;BackpropChunk&quot;,&quot;BackpropMomentum&quot;,
                   &quot;BackpropWeightDecay&quot;,&quot;Quickprop&quot;,&quot;SCG&quot;,&quot;Std_Backpropagation&quot;)
 hyperParams.RSNNS &lt;- function(optim_method, ...) {
     
-    if(optim_method %in% c(&quot;Rprop&quot;,&quot;BackpropChunk&quot;,&quot;BackpropMomentum&quot;,&quot;BackpropWeightDecay&quot;,&quot;SCG&quot;,&quot;Std_Backpropagation&quot;))
-      maxiter &lt;- maxit1storderA
-    else
-      maxiter &lt;- maxit1storderC
-    
-    params &lt;- paste0(&quot;method=&quot;, optim_method, &quot;_iter=&quot;, maxiter)
-  
-    out &lt;- list(iter = maxiter, sdnormstart=0.1)
-    return (out)
+    if (optim_method == &quot;Std_Backpropagation&quot;)   {iter &lt;- maxit1storderA} 
+    if (optim_method == &quot;BackpropBatch&quot;)         {iter &lt;- maxit1storderB}
+    if (optim_method == &quot;BackpropChunk&quot;)         {iter &lt;- maxit1storderA}
+    if (optim_method == &quot;BackpropMomentum&quot;)      {iter &lt;- maxit1storderA}
+    if (optim_method == &quot;BackpropWeightDecay&quot;)   {iter &lt;- maxit1storderA}
+    if (optim_method == &quot;Rprop&quot;)                 {iter &lt;- maxit1storderA}
+    if (optim_method == &quot;Quickprop&quot;)             {iter &lt;- maxit1storderB}
+    if (optim_method == &quot;SCG&quot;)                   {iter &lt;- maxit1storderA}
+
+    out &lt;- list(iter = iter)
+    return(out)
 }
 NNtrain.RSNNS &lt;- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams, NNfullformula, NNparam,...) {
     
     hyper_params &lt;- do.call(hyperParams, list(optim_method, ...))
-    
-    start &lt;- round(rnorm(NNparam, sd = hyper_params$sdnormstart), 4)
-    names(start)  &lt;- paste0(&quot;b&quot;, 1:NNparam)
-    
-    NNreg &lt;- RSNNS::mlp(x, y, initFuncParams = start,
-                 size = hidden_neur, learnFunc = optim_method, 
-                 maxit = hyper_params$iter, linOut = TRUE)
+    if (optim_method == &quot;Std_Backpropagation&quot; || optim_method == &quot;BackpropBatch&quot;){
+          NNreg &lt;- RSNNS::mlp(x, y, size = hidden_neur, learnFunc = optim_method, learnFuncParams = c(0.1), #lr 
+                        maxit = hyper_params$iter, linOut = TRUE)
+    } else {
+          NNreg &lt;- RSNNS::mlp(x, y, size = hidden_neur, learnFunc = optim_method,
+                        maxit = hyper_params$iter, linOut = TRUE)
+    }
     
     return (NNreg)
 }
@@ -1612,14 +1611,14 @@ res &lt;- train_and_predict_1data(1, RSNNS.method, &quot;NNtrain.RSNNS&quot;, &q
                                pkgname=&quot;RSNNS&quot;, pkgfun=&quot;mlp&quot;, rdafile=TRUE, odir=odir)</code></pre>
 </div>
 </div>
-<div id="launch-the-nn-package" class="section level1">
-<h1><span class="header-section-number">3</span> Launch the NN package</h1>
-<pre class="r"><code>res &lt;- trainPredict_1pkg(1:2, pkgname = &quot;RSNNS&quot;, pkgfun = &quot;mlp&quot;, RSNNS.method,
+<div id="launch-packages-trainpredict" class="section level1">
+<h1><span class="header-section-number">2</span> Launch package’s trainPredict</h1>
+<pre class="r"><code>res &lt;- trainPredict_1pkg(1:12, pkgname = &quot;RSNNS&quot;, pkgfun = &quot;mlp&quot;, RSNNS.method,
   prepareZZ.arg = RSNNS.prepareZZ, nrep = nrep, doplot = FALSE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)</code></pre>
 </div>
 <div id="results" class="section level1">
-<h1><span class="header-section-number">4</span> Results</h1>
+<h1><span class="header-section-number">3</span> Results</h1>
 <pre class="r"><code>#print(res)
 kable(apply(res[,,1,], c(3,1), min), caption = &quot;Rprop&quot;)%&gt;%
   kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;))</code></pre>
@@ -1654,19 +1653,19 @@ time
 mDette
 </td>
 <td style="text-align:right;">
-0.5399
+0.5709
 </td>
 <td style="text-align:right;">
-0.2914
+0.3259
 </td>
 <td style="text-align:right;">
-0.4103
+0.4394
 </td>
 <td style="text-align:right;">
-2.2670
+2.1676
 </td>
 <td style="text-align:right;">
-0.61
+0.58
 </td>
 </tr>
 <tr>
@@ -1674,19 +1673,19 @@ mDette
 mFriedman
 </td>
 <td style="text-align:right;">
-0.0353
+0.0263
 </td>
 <td style="text-align:right;">
-0.0012
+0.0007
 </td>
 <td style="text-align:right;">
-0.0284
+0.0207
 </td>
 <td style="text-align:right;">
-0.1386
+0.0853
 </td>
 <td style="text-align:right;">
-0.63
+0.58
 </td>
 </tr>
 <tr>
@@ -1694,19 +1693,19 @@ mFriedman
 mIshigami
 </td>
 <td style="text-align:right;">
-0.7942
+0.8069
 </td>
 <td style="text-align:right;">
-0.6308
+0.6510
 </td>
 <td style="text-align:right;">
-0.5832
+0.5909
 </td>
 <td style="text-align:right;">
-3.1182
+3.3266
 </td>
 <td style="text-align:right;">
-0.75
+0.71
 </td>
 </tr>
 <tr>
@@ -1714,19 +1713,19 @@ mIshigami
 mRef153
 </td>
 <td style="text-align:right;">
-3.3021
+3.2667
 </td>
 <td style="text-align:right;">
-10.9037
+10.6712
 </td>
 <td style="text-align:right;">
-2.3505
+2.3033
 </td>
 <td style="text-align:right;">
-12.7875
+13.4889
 </td>
 <td style="text-align:right;">
-0.19
+0.16
 </td>
 </tr>
 <tr>
@@ -1734,36 +1733,16 @@ mRef153
 uDmod1
 </td>
 <td style="text-align:right;">
-0.1085
+0.0578
 </td>
 <td style="text-align:right;">
-0.0118
+0.0033
 </td>
 <td style="text-align:right;">
-0.0776
+0.0445
 </td>
 <td style="text-align:right;">
-0.3090
-</td>
-<td style="text-align:right;">
-0.07
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-uDmod2
-</td>
-<td style="text-align:right;">
-0.0739
-</td>
-<td style="text-align:right;">
-0.0055
-</td>
-<td style="text-align:right;">
-0.0595
-</td>
-<td style="text-align:right;">
-0.1463
+0.1814
 </td>
 <td style="text-align:right;">
 0.08
@@ -1771,19 +1750,39 @@ uDmod2
 </tr>
 <tr>
 <td style="text-align:left;">
+uDmod2
+</td>
+<td style="text-align:right;">
+0.0744
+</td>
+<td style="text-align:right;">
+0.0055
+</td>
+<td style="text-align:right;">
+0.0623
+</td>
+<td style="text-align:right;">
+0.1463
+</td>
+<td style="text-align:right;">
+0.07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 uDreyfus1
 </td>
 <td style="text-align:right;">
-0.0622
+0.0617
 </td>
 <td style="text-align:right;">
-0.0039
+0.0038
 </td>
 <td style="text-align:right;">
-0.0478
+0.0450
 </td>
 <td style="text-align:right;">
-0.1464
+0.1563
 </td>
 <td style="text-align:right;">
 0.06
@@ -1794,16 +1793,16 @@ uDreyfus1
 uDreyfus2
 </td>
 <td style="text-align:right;">
-0.1131
+0.1122
 </td>
 <td style="text-align:right;">
-0.0128
+0.0126
 </td>
 <td style="text-align:right;">
-0.0897
+0.0884
 </td>
 <td style="text-align:right;">
-0.2713
+0.2629
 </td>
 <td style="text-align:right;">
 0.06
@@ -1814,19 +1813,19 @@ uDreyfus2
 uGauss1
 </td>
 <td style="text-align:right;">
-2.8542
+2.8942
 </td>
 <td style="text-align:right;">
-8.1466
+8.3762
 </td>
 <td style="text-align:right;">
-2.2038
+2.2345
 </td>
 <td style="text-align:right;">
-9.5748
+9.7323
 </td>
 <td style="text-align:right;">
-0.31
+0.28
 </td>
 </tr>
 <tr>
@@ -1834,19 +1833,19 @@ uGauss1
 uGauss2
 </td>
 <td style="text-align:right;">
-3.5987
+3.5399
 </td>
 <td style="text-align:right;">
-12.9504
+12.5309
 </td>
 <td style="text-align:right;">
-2.7261
+2.6525
 </td>
 <td style="text-align:right;">
-13.3236
+13.2235
 </td>
 <td style="text-align:right;">
-0.29
+0.26
 </td>
 </tr>
 <tr>
@@ -1854,19 +1853,19 @@ uGauss2
 uGauss3
 </td>
 <td style="text-align:right;">
-2.8680
+2.6559
 </td>
 <td style="text-align:right;">
-8.2254
+7.0538
 </td>
 <td style="text-align:right;">
-2.2601
+2.1042
 </td>
 <td style="text-align:right;">
-7.7111
+7.8999
 </td>
 <td style="text-align:right;">
-0.29
+0.27
 </td>
 </tr>
 <tr>
@@ -1883,10 +1882,10 @@ uNeuroOne
 0.2312
 </td>
 <td style="text-align:right;">
-0.5652
+0.5665
 </td>
 <td style="text-align:right;">
-0.06
+0.04
 </td>
 </tr>
 </tbody>
@@ -1924,19 +1923,19 @@ time
 mDette
 </td>
 <td style="text-align:right;">
-1.9119
+1.3901
 </td>
 <td style="text-align:right;">
-3.6555
+1.9323
 </td>
 <td style="text-align:right;">
-1.5046
+1.1149
 </td>
 <td style="text-align:right;">
-8.9421
+6.5646
 </td>
 <td style="text-align:right;">
-6.14
+5.86
 </td>
 </tr>
 <tr>
@@ -1944,19 +1943,19 @@ mDette
 mFriedman
 </td>
 <td style="text-align:right;">
-0.0331
+0.0356
 </td>
 <td style="text-align:right;">
-0.0011
+0.0013
 </td>
 <td style="text-align:right;">
-0.0255
+0.0274
 </td>
 <td style="text-align:right;">
-0.1137
+0.1387
 </td>
 <td style="text-align:right;">
-6.28
+5.97
 </td>
 </tr>
 <tr>
@@ -1964,19 +1963,19 @@ mFriedman
 mIshigami
 </td>
 <td style="text-align:right;">
-2.5626
+2.6336
 </td>
 <td style="text-align:right;">
-6.5671
+6.9360
 </td>
 <td style="text-align:right;">
-2.2046
+2.2660
 </td>
 <td style="text-align:right;">
-6.6280
+6.7254
 </td>
 <td style="text-align:right;">
-7.87
+7.58
 </td>
 </tr>
 <tr>
@@ -1984,19 +1983,19 @@ mIshigami
 mRef153
 </td>
 <td style="text-align:right;">
-3.3695
+3.5771
 </td>
 <td style="text-align:right;">
-11.3534
+12.7953
 </td>
 <td style="text-align:right;">
-2.4200
+2.6208
 </td>
 <td style="text-align:right;">
-13.7316
+13.7695
 </td>
 <td style="text-align:right;">
-1.81
+1.75
 </td>
 </tr>
 <tr>
@@ -2004,36 +2003,16 @@ mRef153
 uDmod1
 </td>
 <td style="text-align:right;">
-0.2854
+0.3276
 </td>
 <td style="text-align:right;">
-0.0815
+0.1073
 </td>
 <td style="text-align:right;">
-0.2302
+0.2773
 </td>
 <td style="text-align:right;">
-0.6819
-</td>
-<td style="text-align:right;">
-0.79
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-uDmod2
-</td>
-<td style="text-align:right;">
-0.2523
-</td>
-<td style="text-align:right;">
-0.0637
-</td>
-<td style="text-align:right;">
-0.2204
-</td>
-<td style="text-align:right;">
-0.4790
+0.7405
 </td>
 <td style="text-align:right;">
 0.78
@@ -2041,22 +2020,42 @@ uDmod2
 </tr>
 <tr>
 <td style="text-align:left;">
+uDmod2
+</td>
+<td style="text-align:right;">
+0.1722
+</td>
+<td style="text-align:right;">
+0.0296
+</td>
+<td style="text-align:right;">
+0.1346
+</td>
+<td style="text-align:right;">
+0.4173
+</td>
+<td style="text-align:right;">
+0.76
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 uDreyfus1
 </td>
 <td style="text-align:right;">
-0.2007
+0.3256
 </td>
 <td style="text-align:right;">
-0.0403
+0.1060
 </td>
 <td style="text-align:right;">
-0.1616
+0.2575
 </td>
 <td style="text-align:right;">
-0.4618
+0.6937
 </td>
 <td style="text-align:right;">
-0.72
+0.68
 </td>
 </tr>
 <tr>
@@ -2064,19 +2063,19 @@ uDreyfus1
 uDreyfus2
 </td>
 <td style="text-align:right;">
-0.2826
+0.3019
 </td>
 <td style="text-align:right;">
-0.0799
+0.0911
 </td>
 <td style="text-align:right;">
-0.2203
+0.2342
 </td>
 <td style="text-align:right;">
-0.7596
+0.8008
 </td>
 <td style="text-align:right;">
-0.70
+0.69
 </td>
 </tr>
 <tr>
@@ -2084,19 +2083,19 @@ uDreyfus2
 uGauss1
 </td>
 <td style="text-align:right;">
-12.0971
+14.0515
 </td>
 <td style="text-align:right;">
-146.3405
+197.4456
 </td>
 <td style="text-align:right;">
-10.1109
+11.3434
 </td>
 <td style="text-align:right;">
-27.7454
+38.7526
 </td>
 <td style="text-align:right;">
-3.08
+2.99
 </td>
 </tr>
 <tr>
@@ -2104,19 +2103,19 @@ uGauss1
 uGauss2
 </td>
 <td style="text-align:right;">
-9.7359
+12.6808
 </td>
 <td style="text-align:right;">
-94.7877
+160.8028
 </td>
 <td style="text-align:right;">
-7.5675
+10.3220
 </td>
 <td style="text-align:right;">
-26.1171
+26.8884
 </td>
 <td style="text-align:right;">
-2.95
+2.80
 </td>
 </tr>
 <tr>
@@ -2124,19 +2123,19 @@ uGauss2
 uGauss3
 </td>
 <td style="text-align:right;">
-4.8735
+5.9202
 </td>
 <td style="text-align:right;">
-23.7512
+35.0490
 </td>
 <td style="text-align:right;">
-3.8112
+4.6467
 </td>
 <td style="text-align:right;">
-13.5609
+16.3500
 </td>
 <td style="text-align:right;">
-2.90
+2.78
 </td>
 </tr>
 <tr>
@@ -2144,19 +2143,19 @@ uGauss3
 uNeuroOne
 </td>
 <td style="text-align:right;">
-0.6594
+0.2885
 </td>
 <td style="text-align:right;">
-0.4348
+0.0832
 </td>
 <td style="text-align:right;">
-0.5428
+0.2358
 </td>
 <td style="text-align:right;">
-1.5655
+0.6160
 </td>
 <td style="text-align:right;">
-0.67
+0.65
 </td>
 </tr>
 </tbody>
@@ -2194,19 +2193,19 @@ time
 mDette
 </td>
 <td style="text-align:right;">
-0.6754
+0.6634
 </td>
 <td style="text-align:right;">
-0.4561
+0.4401
 </td>
 <td style="text-align:right;">
-0.5013
+0.5049
 </td>
 <td style="text-align:right;">
-2.3052
+2.6444
 </td>
 <td style="text-align:right;">
-0.64
+0.59
 </td>
 </tr>
 <tr>
@@ -2214,19 +2213,19 @@ mDette
 mFriedman
 </td>
 <td style="text-align:right;">
-0.0466
+0.0395
 </td>
 <td style="text-align:right;">
-0.0022
+0.0016
 </td>
 <td style="text-align:right;">
-0.0364
+0.0308
 </td>
 <td style="text-align:right;">
-0.1904
+0.1718
 </td>
 <td style="text-align:right;">
-0.66
+0.62
 </td>
 </tr>
 <tr>
@@ -2234,19 +2233,19 @@ mFriedman
 mIshigami
 </td>
 <td style="text-align:right;">
-1.7931
+1.8762
 </td>
 <td style="text-align:right;">
-3.2152
+3.5200
 </td>
 <td style="text-align:right;">
-1.2643
+1.3996
 </td>
 <td style="text-align:right;">
-7.0129
+7.6244
 </td>
 <td style="text-align:right;">
-0.78
+0.72
 </td>
 </tr>
 <tr>
@@ -2254,19 +2253,19 @@ mIshigami
 mRef153
 </td>
 <td style="text-align:right;">
-3.5003
+3.3911
 </td>
 <td style="text-align:right;">
-12.2519
+11.4996
 </td>
 <td style="text-align:right;">
-2.4834
+2.3498
 </td>
 <td style="text-align:right;">
-13.6747
+12.7548
 </td>
 <td style="text-align:right;">
-0.19
+0.17
 </td>
 </tr>
 <tr>
@@ -2274,19 +2273,19 @@ mRef153
 uDmod1
 </td>
 <td style="text-align:right;">
-0.1762
+0.1306
 </td>
 <td style="text-align:right;">
-0.0310
+0.0171
 </td>
 <td style="text-align:right;">
-0.1386
+0.0888
 </td>
 <td style="text-align:right;">
-0.4070
+0.4049
 </td>
 <td style="text-align:right;">
-0.08
+0.06
 </td>
 </tr>
 <tr>
@@ -2294,19 +2293,19 @@ uDmod1
 uDmod2
 </td>
 <td style="text-align:right;">
-0.0691
+0.0799
 </td>
 <td style="text-align:right;">
-0.0048
+0.0064
 </td>
 <td style="text-align:right;">
-0.0559
+0.0631
 </td>
 <td style="text-align:right;">
-0.1566
+0.1663
 </td>
 <td style="text-align:right;">
-0.08
+0.07
 </td>
 </tr>
 <tr>
@@ -2314,19 +2313,19 @@ uDmod2
 uDreyfus1
 </td>
 <td style="text-align:right;">
-0.0815
+0.0717
 </td>
 <td style="text-align:right;">
-0.0066
+0.0051
 </td>
 <td style="text-align:right;">
-0.0615
+0.0590
 </td>
 <td style="text-align:right;">
-0.1993
+0.1764
 </td>
 <td style="text-align:right;">
-0.07
+0.06
 </td>
 </tr>
 <tr>
@@ -2334,19 +2333,19 @@ uDreyfus1
 uDreyfus2
 </td>
 <td style="text-align:right;">
-0.1185
+0.1175
 </td>
 <td style="text-align:right;">
-0.0140
+0.0138
 </td>
 <td style="text-align:right;">
-0.0940
+0.0930
 </td>
 <td style="text-align:right;">
-0.2710
+0.2637
 </td>
 <td style="text-align:right;">
-0.07
+0.06
 </td>
 </tr>
 <tr>
@@ -2354,36 +2353,16 @@ uDreyfus2
 uGauss1
 </td>
 <td style="text-align:right;">
-2.8649
+2.8405
 </td>
 <td style="text-align:right;">
-8.2077
+8.0685
 </td>
 <td style="text-align:right;">
-2.2613
+2.1772
 </td>
 <td style="text-align:right;">
-8.7302
-</td>
-<td style="text-align:right;">
-0.31
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-uGauss2
-</td>
-<td style="text-align:right;">
-3.5973
-</td>
-<td style="text-align:right;">
-12.9406
-</td>
-<td style="text-align:right;">
-2.9277
-</td>
-<td style="text-align:right;">
-12.5939
+8.4196
 </td>
 <td style="text-align:right;">
 0.29
@@ -2391,22 +2370,42 @@ uGauss2
 </tr>
 <tr>
 <td style="text-align:left;">
+uGauss2
+</td>
+<td style="text-align:right;">
+3.2770
+</td>
+<td style="text-align:right;">
+10.7389
+</td>
+<td style="text-align:right;">
+2.5878
+</td>
+<td style="text-align:right;">
+11.2537
+</td>
+<td style="text-align:right;">
+0.28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 uGauss3
 </td>
 <td style="text-align:right;">
-2.9216
+2.7491
 </td>
 <td style="text-align:right;">
-8.5357
+7.5574
 </td>
 <td style="text-align:right;">
-2.2598
+2.1950
 </td>
 <td style="text-align:right;">
-7.8930
+7.3436
 </td>
 <td style="text-align:right;">
-0.30
+0.28
 </td>
 </tr>
 <tr>
@@ -2414,16 +2413,16 @@ uGauss3
 uNeuroOne
 </td>
 <td style="text-align:right;">
-0.6270
+0.2869
 </td>
 <td style="text-align:right;">
-0.3932
+0.0823
 </td>
 <td style="text-align:right;">
-0.5158
+0.2385
 </td>
 <td style="text-align:right;">
-1.4007
+0.5749
 </td>
 <td style="text-align:right;">
 0.06
@@ -2464,19 +2463,19 @@ time
 mDette
 </td>
 <td style="text-align:right;">
-0.6225
+0.6550
 </td>
 <td style="text-align:right;">
-0.3875
+0.4291
 </td>
 <td style="text-align:right;">
-0.4805
+0.4905
 </td>
 <td style="text-align:right;">
-2.5579
+2.2000
 </td>
 <td style="text-align:right;">
-0.62
+0.57
 </td>
 </tr>
 <tr>
@@ -2484,19 +2483,19 @@ mDette
 mFriedman
 </td>
 <td style="text-align:right;">
-0.0567
+0.0476
 </td>
 <td style="text-align:right;">
-0.0032
+0.0023
 </td>
 <td style="text-align:right;">
-0.0462
+0.0375
 </td>
 <td style="text-align:right;">
-0.1860
+0.1649
 </td>
 <td style="text-align:right;">
-0.64
+0.59
 </td>
 </tr>
 <tr>
@@ -2504,19 +2503,19 @@ mFriedman
 mIshigami
 </td>
 <td style="text-align:right;">
-3.2058
+2.6391
 </td>
 <td style="text-align:right;">
-10.2770
+6.9649
 </td>
 <td style="text-align:right;">
-2.6256
+2.0594
 </td>
 <td style="text-align:right;">
-11.2239
+9.5926
 </td>
 <td style="text-align:right;">
-0.75
+0.70
 </td>
 </tr>
 <tr>
@@ -2524,19 +2523,19 @@ mIshigami
 mRef153
 </td>
 <td style="text-align:right;">
-3.4285
+3.4035
 </td>
 <td style="text-align:right;">
-11.7549
+11.5835
 </td>
 <td style="text-align:right;">
-2.4681
+2.3942
 </td>
 <td style="text-align:right;">
-12.8938
+11.7853
 </td>
 <td style="text-align:right;">
-0.18
+0.17
 </td>
 </tr>
 <tr>
@@ -2544,19 +2543,19 @@ mRef153
 uDmod1
 </td>
 <td style="text-align:right;">
-0.0978
+0.1223
 </td>
 <td style="text-align:right;">
-0.0096
+0.0149
 </td>
 <td style="text-align:right;">
-0.0731
+0.0962
 </td>
 <td style="text-align:right;">
-0.3637
+0.3378
 </td>
 <td style="text-align:right;">
-0.08
+0.07
 </td>
 </tr>
 <tr>
@@ -2564,19 +2563,19 @@ uDmod1
 uDmod2
 </td>
 <td style="text-align:right;">
-0.0806
+0.0681
 </td>
 <td style="text-align:right;">
-0.0065
+0.0046
 </td>
 <td style="text-align:right;">
-0.0648
+0.0570
 </td>
 <td style="text-align:right;">
-0.1797
+0.1612
 </td>
 <td style="text-align:right;">
-0.08
+0.07
 </td>
 </tr>
 <tr>
@@ -2584,19 +2583,19 @@ uDmod2
 uDreyfus1
 </td>
 <td style="text-align:right;">
-0.0769
+0.0801
 </td>
 <td style="text-align:right;">
-0.0059
+0.0064
 </td>
 <td style="text-align:right;">
-0.0607
+0.0613
 </td>
 <td style="text-align:right;">
-0.1878
+0.2021
 </td>
 <td style="text-align:right;">
-0.08
+0.06
 </td>
 </tr>
 <tr>
@@ -2604,16 +2603,16 @@ uDreyfus1
 uDreyfus2
 </td>
 <td style="text-align:right;">
-0.1203
+0.1177
 </td>
 <td style="text-align:right;">
-0.0145
+0.0138
 </td>
 <td style="text-align:right;">
-0.0959
+0.0931
 </td>
 <td style="text-align:right;">
-0.2883
+0.2634
 </td>
 <td style="text-align:right;">
 0.06
@@ -2624,19 +2623,19 @@ uDreyfus2
 uGauss1
 </td>
 <td style="text-align:right;">
-2.7954
+2.7202
 </td>
 <td style="text-align:right;">
-7.8145
+7.3997
 </td>
 <td style="text-align:right;">
-2.1880
+2.1139
 </td>
 <td style="text-align:right;">
-8.7880
+8.0885
 </td>
 <td style="text-align:right;">
-0.31
+0.29
 </td>
 </tr>
 <tr>
@@ -2644,19 +2643,19 @@ uGauss1
 uGauss2
 </td>
 <td style="text-align:right;">
-4.2179
+3.2581
 </td>
 <td style="text-align:right;">
-17.7906
+10.6155
 </td>
 <td style="text-align:right;">
-3.4283
+2.5245
 </td>
 <td style="text-align:right;">
-11.5277
+10.3705
 </td>
 <td style="text-align:right;">
-0.30
+0.28
 </td>
 </tr>
 <tr>
@@ -2664,19 +2663,19 @@ uGauss2
 uGauss3
 </td>
 <td style="text-align:right;">
-2.8561
+2.8889
 </td>
 <td style="text-align:right;">
-8.1573
+8.3458
 </td>
 <td style="text-align:right;">
-2.2605
+2.2397
 </td>
 <td style="text-align:right;">
-7.7433
+7.7426
 </td>
 <td style="text-align:right;">
-0.30
+0.28
 </td>
 </tr>
 <tr>
@@ -2684,16 +2683,16 @@ uGauss3
 uNeuroOne
 </td>
 <td style="text-align:right;">
-0.2887
+0.2840
 </td>
 <td style="text-align:right;">
-0.0834
+0.0807
 </td>
 <td style="text-align:right;">
-0.2386
+0.2325
 </td>
 <td style="text-align:right;">
-0.5941
+0.5243
 </td>
 <td style="text-align:right;">
 0.06
@@ -2734,19 +2733,19 @@ time
 mDette
 </td>
 <td style="text-align:right;">
-0.7422
+0.6556
 </td>
 <td style="text-align:right;">
-0.5509
+0.4298
 </td>
 <td style="text-align:right;">
-0.5644
+0.5026
 </td>
 <td style="text-align:right;">
-3.3898
+2.3936
 </td>
 <td style="text-align:right;">
-0.62
+0.58
 </td>
 </tr>
 <tr>
@@ -2754,19 +2753,19 @@ mDette
 mFriedman
 </td>
 <td style="text-align:right;">
-0.0501
+0.0423
 </td>
 <td style="text-align:right;">
-0.0025
+0.0018
 </td>
 <td style="text-align:right;">
-0.0378
+0.0329
 </td>
 <td style="text-align:right;">
-0.2188
+0.1724
 </td>
 <td style="text-align:right;">
-0.66
+0.61
 </td>
 </tr>
 <tr>
@@ -2774,19 +2773,19 @@ mFriedman
 mIshigami
 </td>
 <td style="text-align:right;">
-2.6289
+2.6245
 </td>
 <td style="text-align:right;">
-6.9110
+6.8878
 </td>
 <td style="text-align:right;">
-2.0369
+2.0449
 </td>
 <td style="text-align:right;">
-9.4351
+8.3924
 </td>
 <td style="text-align:right;">
-0.78
+0.75
 </td>
 </tr>
 <tr>
@@ -2794,19 +2793,19 @@ mIshigami
 mRef153
 </td>
 <td style="text-align:right;">
-3.4214
+3.3903
 </td>
 <td style="text-align:right;">
-11.7062
+11.4940
 </td>
 <td style="text-align:right;">
-2.3917
+2.3312
 </td>
 <td style="text-align:right;">
-13.0799
+13.5369
 </td>
 <td style="text-align:right;">
-0.20
+0.17
 </td>
 </tr>
 <tr>
@@ -2814,19 +2813,19 @@ mRef153
 uDmod1
 </td>
 <td style="text-align:right;">
-0.1430
+0.1398
 </td>
 <td style="text-align:right;">
-0.0205
+0.0196
 </td>
 <td style="text-align:right;">
-0.1052
+0.1026
 </td>
 <td style="text-align:right;">
-0.4363
+0.4284
 </td>
 <td style="text-align:right;">
-0.06
+0.07
 </td>
 </tr>
 <tr>
@@ -2834,16 +2833,16 @@ uDmod1
 uDmod2
 </td>
 <td style="text-align:right;">
-0.0702
+0.0840
 </td>
 <td style="text-align:right;">
-0.0049
+0.0071
 </td>
 <td style="text-align:right;">
-0.0581
+0.0661
 </td>
 <td style="text-align:right;">
-0.1716
+0.2009
 </td>
 <td style="text-align:right;">
 0.08
@@ -2854,19 +2853,19 @@ uDmod2
 uDreyfus1
 </td>
 <td style="text-align:right;">
-0.0794
+0.0793
 </td>
 <td style="text-align:right;">
 0.0063
 </td>
 <td style="text-align:right;">
-0.0612
+0.0604
 </td>
 <td style="text-align:right;">
-0.1869
+0.1641
 </td>
 <td style="text-align:right;">
-0.07
+0.06
 </td>
 </tr>
 <tr>
@@ -2874,19 +2873,19 @@ uDreyfus1
 uDreyfus2
 </td>
 <td style="text-align:right;">
-0.1193
+0.1174
 </td>
 <td style="text-align:right;">
-0.0142
+0.0138
 </td>
 <td style="text-align:right;">
-0.0951
+0.0928
 </td>
 <td style="text-align:right;">
-0.2856
+0.2658
 </td>
 <td style="text-align:right;">
-0.07
+0.06
 </td>
 </tr>
 <tr>
@@ -2894,56 +2893,16 @@ uDreyfus2
 uGauss1
 </td>
 <td style="text-align:right;">
-2.8313
+2.8753
 </td>
 <td style="text-align:right;">
-8.0165
+8.2674
 </td>
 <td style="text-align:right;">
-2.2727
+2.3058
 </td>
 <td style="text-align:right;">
-8.3437
-</td>
-<td style="text-align:right;">
-0.31
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-uGauss2
-</td>
-<td style="text-align:right;">
-4.3509
-</td>
-<td style="text-align:right;">
-18.9301
-</td>
-<td style="text-align:right;">
-3.5161
-</td>
-<td style="text-align:right;">
-12.5282
-</td>
-<td style="text-align:right;">
-0.30
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-uGauss3
-</td>
-<td style="text-align:right;">
-3.0938
-</td>
-<td style="text-align:right;">
-9.5716
-</td>
-<td style="text-align:right;">
-2.4028
-</td>
-<td style="text-align:right;">
-8.3474
+8.5280
 </td>
 <td style="text-align:right;">
 0.29
@@ -2951,19 +2910,59 @@ uGauss3
 </tr>
 <tr>
 <td style="text-align:left;">
+uGauss2
+</td>
+<td style="text-align:right;">
+3.8043
+</td>
+<td style="text-align:right;">
+14.4727
+</td>
+<td style="text-align:right;">
+3.1540
+</td>
+<td style="text-align:right;">
+10.1419
+</td>
+<td style="text-align:right;">
+0.28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+uGauss3
+</td>
+<td style="text-align:right;">
+2.8868
+</td>
+<td style="text-align:right;">
+8.3334
+</td>
+<td style="text-align:right;">
+2.2915
+</td>
+<td style="text-align:right;">
+8.1451
+</td>
+<td style="text-align:right;">
+0.28
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 uNeuroOne
 </td>
 <td style="text-align:right;">
-0.2863
+0.2856
 </td>
 <td style="text-align:right;">
-0.0820
+0.0816
 </td>
 <td style="text-align:right;">
-0.2370
+0.2353
 </td>
 <td style="text-align:right;">
-0.5972
+0.5634
 </td>
 <td style="text-align:right;">
 0.06
@@ -3004,19 +3003,19 @@ time
 mDette
 </td>
 <td style="text-align:right;">
-7.3835
+7.1061
 </td>
 <td style="text-align:right;">
-54.5165
+50.4966
 </td>
 <td style="text-align:right;">
-6.0683
+5.7241
 </td>
 <td style="text-align:right;">
-29.6111
+28.2385
 </td>
 <td style="text-align:right;">
-6.87
+6.46
 </td>
 </tr>
 <tr>
@@ -3024,19 +3023,19 @@ mDette
 mFriedman
 </td>
 <td style="text-align:right;">
-0.1618
+0.1616
 </td>
 <td style="text-align:right;">
-0.0262
+0.0261
 </td>
 <td style="text-align:right;">
-0.1279
+0.1255
 </td>
 <td style="text-align:right;">
-0.4900
+0.5029
 </td>
 <td style="text-align:right;">
-6.84
+6.50
 </td>
 </tr>
 <tr>
@@ -3044,19 +3043,19 @@ mFriedman
 mIshigami
 </td>
 <td style="text-align:right;">
-3.5387
+3.4786
 </td>
 <td style="text-align:right;">
-12.5222
+12.1008
 </td>
 <td style="text-align:right;">
-2.8468
+2.8157
 </td>
 <td style="text-align:right;">
 13.1137
 </td>
 <td style="text-align:right;">
-9.08
+8.72
 </td>
 </tr>
 <tr>
@@ -3064,19 +3063,19 @@ mIshigami
 mRef153
 </td>
 <td style="text-align:right;">
-6.7806
+8.2933
 </td>
 <td style="text-align:right;">
-45.9764
+68.7780
 </td>
 <td style="text-align:right;">
-5.1736
+6.3301
 </td>
 <td style="text-align:right;">
-16.8909
+23.9933
 </td>
 <td style="text-align:right;">
-1.86
+1.80
 </td>
 </tr>
 <tr>
@@ -3084,36 +3083,16 @@ mRef153
 uDmod1
 </td>
 <td style="text-align:right;">
-0.5884
+0.5187
 </td>
 <td style="text-align:right;">
-0.3462
+0.2690
 </td>
 <td style="text-align:right;">
-0.5064
+0.4371
 </td>
 <td style="text-align:right;">
 1.0104
-</td>
-<td style="text-align:right;">
-0.78
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-uDmod2
-</td>
-<td style="text-align:right;">
-0.3533
-</td>
-<td style="text-align:right;">
-0.1248
-</td>
-<td style="text-align:right;">
-0.2630
-</td>
-<td style="text-align:right;">
-0.7218
 </td>
 <td style="text-align:right;">
 0.77
@@ -3121,22 +3100,42 @@ uDmod2
 </tr>
 <tr>
 <td style="text-align:left;">
+uDmod2
+</td>
+<td style="text-align:right;">
+0.3034
+</td>
+<td style="text-align:right;">
+0.0920
+</td>
+<td style="text-align:right;">
+0.2507
+</td>
+<td style="text-align:right;">
+0.7222
+</td>
+<td style="text-align:right;">
+0.76
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 uDreyfus1
 </td>
 <td style="text-align:right;">
-0.2085
+0.1885
 </td>
 <td style="text-align:right;">
-0.0435
+0.0355
 </td>
 <td style="text-align:right;">
-0.1348
+0.1319
 </td>
 <td style="text-align:right;">
-0.5161
+0.5113
 </td>
 <td style="text-align:right;">
-0.72
+0.70
 </td>
 </tr>
 <tr>
@@ -3144,19 +3143,19 @@ uDreyfus1
 uDreyfus2
 </td>
 <td style="text-align:right;">
-0.2389
+0.2410
 </td>
 <td style="text-align:right;">
-0.0571
+0.0581
 </td>
 <td style="text-align:right;">
-0.1865
+0.1938
 </td>
 <td style="text-align:right;">
-0.5190
+0.5141
 </td>
 <td style="text-align:right;">
-0.71
+0.69
 </td>
 </tr>
 <tr>
@@ -3164,19 +3163,19 @@ uDreyfus2
 uGauss1
 </td>
 <td style="text-align:right;">
-24.1977
+27.1904
 </td>
 <td style="text-align:right;">
-585.5267
+739.3189
 </td>
 <td style="text-align:right;">
-20.2614
+21.5229
 </td>
 <td style="text-align:right;">
-57.6756
+66.1948
 </td>
 <td style="text-align:right;">
-3.29
+3.23
 </td>
 </tr>
 <tr>
@@ -3184,16 +3183,16 @@ uGauss1
 uGauss2
 </td>
 <td style="text-align:right;">
-21.1338
+24.6889
 </td>
 <td style="text-align:right;">
-446.6355
+609.5424
 </td>
 <td style="text-align:right;">
-15.5263
+19.6622
 </td>
 <td style="text-align:right;">
-50.8917
+51.2912
 </td>
 <td style="text-align:right;">
 3.03
@@ -3204,19 +3203,19 @@ uGauss2
 uGauss3
 </td>
 <td style="text-align:right;">
-28.5129
+28.0694
 </td>
 <td style="text-align:right;">
-812.9876
+787.8906
 </td>
 <td style="text-align:right;">
-22.6810
+22.3771
 </td>
 <td style="text-align:right;">
-54.2808
+52.4043
 </td>
 <td style="text-align:right;">
-3.18
+2.98
 </td>
 </tr>
 <tr>
@@ -3236,7 +3235,7 @@ uNeuroOne
 1.2829
 </td>
 <td style="text-align:right;">
-0.66
+0.64
 </td>
 </tr>
 </tbody>
@@ -3274,19 +3273,19 @@ time
 mDette
 </td>
 <td style="text-align:right;">
-0.4075
+0.4080
 </td>
 <td style="text-align:right;">
-0.1661
+0.1664
 </td>
 <td style="text-align:right;">
-0.3017
+0.3044
 </td>
 <td style="text-align:right;">
-1.7307
+1.7469
 </td>
 <td style="text-align:right;">
-0.91
+0.88
 </td>
 </tr>
 <tr>
@@ -3294,19 +3293,19 @@ mDette
 mFriedman
 </td>
 <td style="text-align:right;">
-0.0201
+0.0197
 </td>
 <td style="text-align:right;">
 0.0004
 </td>
 <td style="text-align:right;">
-0.0159
+0.0154
 </td>
 <td style="text-align:right;">
-0.0613
+0.0616
 </td>
 <td style="text-align:right;">
-0.86
+0.80
 </td>
 </tr>
 <tr>
@@ -3314,19 +3313,19 @@ mFriedman
 mIshigami
 </td>
 <td style="text-align:right;">
-0.6799
+0.6909
 </td>
 <td style="text-align:right;">
-0.4623
+0.4774
 </td>
 <td style="text-align:right;">
-0.5046
+0.5132
 </td>
 <td style="text-align:right;">
-2.8841
+2.7162
 </td>
 <td style="text-align:right;">
-0.85
+1.18
 </td>
 </tr>
 <tr>
@@ -3334,19 +3333,19 @@ mIshigami
 mRef153
 </td>
 <td style="text-align:right;">
-3.2500
+3.2673
 </td>
 <td style="text-align:right;">
-10.5622
+10.6755
 </td>
 <td style="text-align:right;">
-2.2184
+2.2672
 </td>
 <td style="text-align:right;">
-12.8113
+13.6828
 </td>
 <td style="text-align:right;">
-0.26
+0.24
 </td>
 </tr>
 <tr>
@@ -3354,19 +3353,19 @@ mRef153
 uDmod1
 </td>
 <td style="text-align:right;">
-0.0966
+0.0547
 </td>
 <td style="text-align:right;">
-0.0093
+0.0030
 </td>
 <td style="text-align:right;">
-0.0806
+0.0436
 </td>
 <td style="text-align:right;">
-0.3249
+0.1388
 </td>
 <td style="text-align:right;">
-0.10
+0.11
 </td>
 </tr>
 <tr>
@@ -3374,19 +3373,19 @@ uDmod1
 uDmod2
 </td>
 <td style="text-align:right;">
-0.0724
+0.0523
 </td>
 <td style="text-align:right;">
-0.0052
+0.0027
 </td>
 <td style="text-align:right;">
-0.0570
+0.0437
 </td>
 <td style="text-align:right;">
-0.1688
+0.1159
 </td>
 <td style="text-align:right;">
-0.12
+0.11
 </td>
 </tr>
 <tr>
@@ -3394,19 +3393,19 @@ uDmod2
 uDreyfus1
 </td>
 <td style="text-align:right;">
-0.0430
-</td>
-<td style="text-align:right;">
-0.0019
-</td>
-<td style="text-align:right;">
-0.0365
-</td>
-<td style="text-align:right;">
 0.1002
 </td>
 <td style="text-align:right;">
-0.10
+0.0100
+</td>
+<td style="text-align:right;">
+0.0815
+</td>
+<td style="text-align:right;">
+0.2259
+</td>
+<td style="text-align:right;">
+0.08
 </td>
 </tr>
 <tr>
@@ -3414,19 +3413,19 @@ uDreyfus1
 uDreyfus2
 </td>
 <td style="text-align:right;">
-0.1224
+0.1041
 </td>
 <td style="text-align:right;">
-0.0150
+0.0108
 </td>
 <td style="text-align:right;">
-0.0975
+0.0826
 </td>
 <td style="text-align:right;">
-0.2842
+0.2673
 </td>
 <td style="text-align:right;">
-0.10
+0.09
 </td>
 </tr>
 <tr>
@@ -3434,19 +3433,19 @@ uDreyfus2
 uGauss1
 </td>
 <td style="text-align:right;">
-2.9994
+2.8599
 </td>
 <td style="text-align:right;">
-8.9962
+8.1791
 </td>
 <td style="text-align:right;">
-2.4085
+2.3042
 </td>
 <td style="text-align:right;">
-9.3702
+8.8957
 </td>
 <td style="text-align:right;">
-0.48
+0.47
 </td>
 </tr>
 <tr>
@@ -3454,19 +3453,19 @@ uGauss1
 uGauss2
 </td>
 <td style="text-align:right;">
-3.9741
+5.0971
 </td>
 <td style="text-align:right;">
-15.7937
+25.9805
 </td>
 <td style="text-align:right;">
-3.2304
+3.6184
 </td>
 <td style="text-align:right;">
-11.5696
+14.6431
 </td>
 <td style="text-align:right;">
-0.48
+0.42
 </td>
 </tr>
 <tr>
@@ -3474,19 +3473,19 @@ uGauss2
 uGauss3
 </td>
 <td style="text-align:right;">
-3.6197
+3.6281
 </td>
 <td style="text-align:right;">
-13.1019
+13.1631
 </td>
 <td style="text-align:right;">
-2.7860
+2.7798
 </td>
 <td style="text-align:right;">
-11.3392
+10.6704
 </td>
 <td style="text-align:right;">
-0.50
+0.36
 </td>
 </tr>
 <tr>
@@ -3494,19 +3493,19 @@ uGauss3
 uNeuroOne
 </td>
 <td style="text-align:right;">
-0.2851
+0.2866
 </td>
 <td style="text-align:right;">
-0.0813
+0.0821
 </td>
 <td style="text-align:right;">
-0.2328
+0.2342
 </td>
 <td style="text-align:right;">
-0.6026
+0.6125
 </td>
 <td style="text-align:right;">
-0.08
+0.06
 </td>
 </tr>
 </tbody>
@@ -3544,19 +3543,19 @@ time
 mDette
 </td>
 <td style="text-align:right;">
-0.6154
+0.4917
 </td>
 <td style="text-align:right;">
-0.3788
+0.2418
 </td>
 <td style="text-align:right;">
-0.4609
+0.3797
 </td>
 <td style="text-align:right;">
-2.3324
+1.9109
 </td>
 <td style="text-align:right;">
-0.62
+0.56
 </td>
 </tr>
 <tr>
@@ -3564,19 +3563,19 @@ mDette
 mFriedman
 </td>
 <td style="text-align:right;">
-0.0685
+0.0402
 </td>
 <td style="text-align:right;">
-0.0047
+0.0016
 </td>
 <td style="text-align:right;">
-0.0557
+0.0322
 </td>
 <td style="text-align:right;">
-0.2068
+0.1328
 </td>
 <td style="text-align:right;">
-0.62
+0.59
 </td>
 </tr>
 <tr>
@@ -3584,19 +3583,19 @@ mFriedman
 mIshigami
 </td>
 <td style="text-align:right;">
-1.8882
+0.9781
 </td>
 <td style="text-align:right;">
-3.5651
+0.9566
 </td>
 <td style="text-align:right;">
-1.4788
+0.7572
 </td>
 <td style="text-align:right;">
-5.9373
+3.5234
 </td>
 <td style="text-align:right;">
-0.75
+0.69
 </td>
 </tr>
 <tr>
@@ -3604,19 +3603,19 @@ mIshigami
 mRef153
 </td>
 <td style="text-align:right;">
-3.5522
+3.2695
 </td>
 <td style="text-align:right;">
-12.6178
+10.6895
 </td>
 <td style="text-align:right;">
-2.4388
+2.3606
 </td>
 <td style="text-align:right;">
-12.6512
+13.0491
 </td>
 <td style="text-align:right;">
-0.18
+0.17
 </td>
 </tr>
 <tr>
@@ -3624,19 +3623,19 @@ mRef153
 uDmod1
 </td>
 <td style="text-align:right;">
-0.1552
+0.1106
 </td>
 <td style="text-align:right;">
-0.0241
+0.0122
 </td>
 <td style="text-align:right;">
-0.1115
+0.0871
 </td>
 <td style="text-align:right;">
-0.4937
+0.3298
 </td>
 <td style="text-align:right;">
-0.08
+0.07
 </td>
 </tr>
 <tr>
@@ -3644,19 +3643,19 @@ uDmod1
 uDmod2
 </td>
 <td style="text-align:right;">
-0.0830
+0.0757
 </td>
 <td style="text-align:right;">
-0.0069
+0.0057
 </td>
 <td style="text-align:right;">
-0.0675
+0.0626
 </td>
 <td style="text-align:right;">
-0.1935
+0.1553
 </td>
 <td style="text-align:right;">
-0.08
+0.06
 </td>
 </tr>
 <tr>
@@ -3664,19 +3663,19 @@ uDmod2
 uDreyfus1
 </td>
 <td style="text-align:right;">
-0.0730
+0.1077
 </td>
 <td style="text-align:right;">
-0.0053
+0.0116
 </td>
 <td style="text-align:right;">
-0.0582
+0.0871
 </td>
 <td style="text-align:right;">
-0.1545
+0.2244
 </td>
 <td style="text-align:right;">
-0.07
+0.06
 </td>
 </tr>
 <tr>
@@ -3684,19 +3683,19 @@ uDreyfus1
 uDreyfus2
 </td>
 <td style="text-align:right;">
-0.1192
+0.1289
 </td>
 <td style="text-align:right;">
-0.0142
+0.0166
 </td>
 <td style="text-align:right;">
-0.0949
+0.0998
 </td>
 <td style="text-align:right;">
-0.2861
+0.2835
 </td>
 <td style="text-align:right;">
-0.07
+0.06
 </td>
 </tr>
 <tr>
@@ -3704,19 +3703,19 @@ uDreyfus2
 uGauss1
 </td>
 <td style="text-align:right;">
-2.8637
+2.8593
 </td>
 <td style="text-align:right;">
-8.2006
+8.1756
 </td>
 <td style="text-align:right;">
-2.2726
+2.2813
 </td>
 <td style="text-align:right;">
-7.9984
+8.6746
 </td>
 <td style="text-align:right;">
-0.31
+0.28
 </td>
 </tr>
 <tr>
@@ -3724,19 +3723,19 @@ uGauss1
 uGauss2
 </td>
 <td style="text-align:right;">
-3.9496
+3.4239
 </td>
 <td style="text-align:right;">
-15.5991
+11.7233
 </td>
 <td style="text-align:right;">
-3.1341
+2.6003
 </td>
 <td style="text-align:right;">
-12.2974
+13.0320
 </td>
 <td style="text-align:right;">
-0.29
+0.28
 </td>
 </tr>
 <tr>
@@ -3744,19 +3743,19 @@ uGauss2
 uGauss3
 </td>
 <td style="text-align:right;">
-2.9960
+2.9484
 </td>
 <td style="text-align:right;">
-8.9758
+8.6932
 </td>
 <td style="text-align:right;">
-2.3387
+2.3186
 </td>
 <td style="text-align:right;">
-7.8261
+7.7125
 </td>
 <td style="text-align:right;">
-0.29
+0.28
 </td>
 </tr>
 <tr>
@@ -3764,16 +3763,16 @@ uGauss3
 uNeuroOne
 </td>
 <td style="text-align:right;">
-0.6301
+0.2834
 </td>
 <td style="text-align:right;">
-0.3971
+0.0803
 </td>
 <td style="text-align:right;">
-0.5165
+0.2296
 </td>
 <td style="text-align:right;">
-1.3892
+0.5755
 </td>
 <td style="text-align:right;">
 0.06
@@ -3833,7 +3832,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

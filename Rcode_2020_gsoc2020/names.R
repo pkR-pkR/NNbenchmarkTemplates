@@ -1,10 +1,8 @@
----
-title: "Overall Run for NN benchmarking"
-author: "GSoC 2019, GSoC 2020 members"
-date: "08/08/2020"
-output: html_document
----
-
+setwd("D:/GSoC2020/08/Rmd_2020")
+rmd <- list.files(pattern = '*.Rmd', recursive = T)
+chunks <- paste0("```{r child = '", rmd, "'}\n```\n")
+cat(chunks, sep = '\n')
+"
 ```{r child = 'NNbenchmark-2020-AMORE.Rmd'}
 ```
 
@@ -12,6 +10,9 @@ output: html_document
 ```
 
 ```{r child = 'NNbenchmark-2020-automl.Rmd'}
+```
+
+```{r child = 'NNbenchmark-2020-BNN.Rmd'}
 ```
 
 ```{r child = 'NNbenchmark-2020-brnn.Rmd'}
@@ -36,6 +37,9 @@ output: html_document
 ```
 
 ```{r child = 'NNbenchmark-2020-EnsembleBase.Rmd'}
+```
+
+```{r child = 'NNbenchmark-2020-GMDHreg.Rmd'}
 ```
 
 ```{r child = 'NNbenchmark-2020-h2o.Rmd'}
@@ -77,8 +81,22 @@ output: html_document
 ```{r child = 'NNbenchmark-2020-snnR.Rmd'}
 ```
 
+```{r child = 'NNbenchmark-2020-TrafficBDE.Rmd'}
+```
+
 ```{r child = 'NNbenchmark-2020-traineR.Rmd'}
 ```
 
 ```{r child = 'NNbenchmark-2020-validann.Rmd'}
 ```
+
+```{r child = 'NNbenchmark-2020-yager.Rmd'}
+```
+
+```{r child = 'NNbenchmark-B-try-generic-tpl.Rmd'}
+```
+
+```{r child = 'NNbenchmark-B-try-rank-tpl.Rmd'}
+```
+
+```{r child = 'NNbenchmark-try-generic-tpl.Rmd'}

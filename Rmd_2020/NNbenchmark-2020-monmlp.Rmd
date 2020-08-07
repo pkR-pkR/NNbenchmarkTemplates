@@ -1,7 +1,7 @@
 ---
-title: "NNbenchmark Generic Function"
+title: "NNbenchmark Generic Function with monmlp"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/02/08"
+date: "2020/08/07"
 output:
     html_document:
         toc: true
@@ -9,16 +9,26 @@ output:
         number_sections: true
 ---
 
-# Environment and datasets 
+# Setup 
 
-## Setup environment
+## Packages and options
 ```{r message=FALSE, warning=FALSE}
 library(NNbenchmark)
 library(kableExtra)
 options(scipen = 999)
-if(dir.exists("D:/GSoC2020/Results/2020run02/"))
+```
+
+## Datasets to test
+```{r}
+NNdataSummary(NNdatasets)
+```
+
+
+## monmlp trainPredict arguments - inputs x, y
+```{r}
+if(dir.exists("D:/GSoC2020/Results/2020run03/"))
 {  
-  odir <- "D:/GSoC2020/Results/2020run02/"
+  odir <- "D:/GSoC2020/Results/2020run03/"
 }else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
 {  
   odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
@@ -26,37 +36,27 @@ if(dir.exists("D:/GSoC2020/Results/2020run02/"))
   odir <- "~"
 
 nrep <- 10
-maxit2ndorder <- 200
-maxit1storder <- 1000
-```
+maxit2ndorder  <-    200
+maxit1storderA <-   1000
+maxit1storderB <-  10000
+maxit1storderC <- 100000
 
-## Datasets to test
-
-```{r}
-NNdataSummary(NNdatasets)
-```
-
-# Dedicated functions by packages
-
-## monmlp train/predict functions - arguments x,y
-```{r}
 #library(monmlp)
 monmlp.method <- c("BFGS", "Nelder-Mead")
 hyperParams.monmlp <- function(optim_method, ...) {
-    if (optim_method == "BFGS")         {maxiter <- maxit2ndorder}
-    if (optim_method == "Nelder-Mead")  {maxiter <- maxit1storder} 
-    return (list(iter=maxiter, silent=TRUE, scale=TRUE, method = optim_method))
+    if (optim_method == "BFGS")         {iter <- maxit2ndorder}
+    if (optim_method == "Nelder-Mead")  {iter <- maxit1storderB} 
+    return (list(iter=iter, silent=TRUE, scale=TRUE))
 }
 NNtrain.monmlp <- function(x, y, dataxy, formula, neur, optim_method, hyperParams, ...) {
     
     hyper_params <- do.call(hyperParams, list(optim_method, ...))
     iter <- hyper_params$iter
-    method <- hyper_params$method
     scale <- hyper_params$scale
     silent <- hyper_params$silent
     
     monmlp::monmlp.fit(x, y, hidden1 = neur, scale.y = scale, silent=silent,
-                         method = method, iter.max = iter)
+                         method = optim_method, iter.max = iter)
 }
 NNpredict.monmlp <- function(object, x, ...)
   as.numeric(monmlp::monmlp.predict(x, weights=object))
@@ -72,15 +72,16 @@ res <- trainPredict_1data(1, monmlp.method, "NNtrain.monmlp", "hyperParams.monml
 ```
 
 
-# Launch the NN package
+# Launch package's trainPredict
 
 ```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
-res <- trainPredict_1pkg(1:2, pkgname = "monmlp", pkgfun = "monmlp.fit", monmlp.method,
+res <- trainPredict_1pkg(1:12, pkgname = "monmlp", pkgfun = "monmlp.fit", monmlp.method,
   prepareZZ.arg = monmlp.prepareZZ, nrep = nrep, doplot = FALSE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = TRUE)
 ```
 
 # Results
+
 ```{r}
 #print(res)
 kable(apply(res[,,1,], c(3,1), min), caption = "BFGS")%>%

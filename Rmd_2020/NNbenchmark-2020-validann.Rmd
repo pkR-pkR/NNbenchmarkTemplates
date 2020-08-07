@@ -1,7 +1,7 @@
 ---
-title: "NNbenchmark Generic Function"
+title: "NNbenchmark Generic Function with validann"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/02/08"
+date: "2020/08/07"
 output:
     html_document:
         toc: true
@@ -9,16 +9,26 @@ output:
         number_sections: true
 ---
 
-# Environment and datasets 
+# Setup 
 
-## Setup environment
+## Packages and options
 ```{r message=FALSE, warning=FALSE}
 library(NNbenchmark)
 library(kableExtra)
 options(scipen = 999)
-if(dir.exists("D:/GSoC2020/Results/2020run02/"))
+```
+
+## Datasets to test
+```{r}
+NNdataSummary(NNdatasets)
+```
+
+
+## validann trainPredict arguments - inputs x, y
+```{r}
+if(dir.exists("D:/GSoC2020/Results/2020run03/"))
 {  
-  odir <- "D:/GSoC2020/Results/2020run02/"
+  odir <- "D:/GSoC2020/Results/2020run03/"
 }else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
 {  
   odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
@@ -26,33 +36,22 @@ if(dir.exists("D:/GSoC2020/Results/2020run02/"))
   odir <- "~"
 
 nrep <- 10
-maxit2ndorder <- 200
-maxit1storder <- 1000
-```
+maxit2ndorder  <-    200
+maxit1storderA <-   1000
+maxit1storderB <-  10000
+maxit1storderC <- 100000
 
-## Datasets to test
-
-```{r}
-NNdataSummary(NNdatasets)
-```
-
-# Dedicated functions by packages
-
-## validann Train/predict Function - arguments x,y
-```{r}
 #library(validann)
 validann.method <- c("Nelder-Mead", "BFGS", "CG", "L-BFGS-B", "SANN")
 hyperParams.validann <- function(optim_method, ...) {
     
-    if (optim_method == "Nelder-Mead")  {maxiter <- maxit1storder} 
-    if (optim_method == "BFGS")         {maxiter <- maxit2ndorder}
-    if (optim_method == "CG")           {maxiter <- maxit1storder}
-    if (optim_method == "L-BFGS-B")     {maxiter <- maxit2ndorder}
-    if (optim_method == "SANN")         {maxiter <- maxit1storder}
-    
-    params <- paste0("method=", optim_method, "_iter=", maxiter)
+    if (optim_method == "Nelder-Mead")  {iter <- maxit1storderB} 
+    if (optim_method == "BFGS")         {iter <- maxit2ndorder}
+    if (optim_method == "CG")           {iter <- maxit1storderA}
+    if (optim_method == "L-BFGS-B")     {iter <- maxit2ndorder}
+    if (optim_method == "SANN")         {iter <- maxit1storderA}
   
-    out <- list(iter = maxiter, method = optim_method, params)
+    out <- list(iter = iter)
     return (out)
 }
 NNtrain.validann <- function(x, y, dataxy, formula, neur, optim_method, hyperParams, NNfullformula, NNparam,...) {
@@ -63,7 +62,7 @@ NNtrain.validann <- function(x, y, dataxy, formula, neur, optim_method, hyperPar
     method <- hyper_params$method
     
     NNreg <- validann::ann(x, y, size = neur, 
-                           method = method, maxit = iter)
+                           method = optim_method, maxit = iter)
     
     return (NNreg)
 }
@@ -80,15 +79,16 @@ res <- trainPredict_1data(1, validann.method, "NNtrain.validann", "hyperParams.v
 ```
 
 
-# Launch the NN package
+# Launch package's trainPredict
 
 ```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
-res <- trainPredict_1pkg(1:2, pkgname = "validann", pkgfun = "ann", validann.method,
+res <- trainPredict_1pkg(1:12, pkgname = "validann", pkgfun = "ann", validann.method,
   prepareZZ.arg = validann.prepareZZ, nrep = nrep, doplot = FALSE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 ```
 
 # Results
+
 ```{r}
 #print(res)
 kable(apply(res[,,1,], c(3,1), min), caption = "Nelder-Mead")%>%

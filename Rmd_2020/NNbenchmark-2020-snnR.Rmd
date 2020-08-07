@@ -1,7 +1,7 @@
 ---
-title: "NNbenchmark Generic Function"
+title: "NNbenchmark Generic Function with snnR"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/07/12"
+date: "2020/08/07"
 output:
     html_document:
         toc: true
@@ -9,48 +9,41 @@ output:
         number_sections: true
 ---
 
-# Environment and datasets 
+# Setup 
 
-## Setup environment
+## Packages and options
 ```{r message=FALSE, warning=FALSE}
 library(NNbenchmark)
 library(kableExtra)
 options(scipen = 999)
-if(dir.exists("D:/GSoC2020/Results/2020run02/"))
+```
+
+## Datasets to test
+```{r}
+NNdataSummary(NNdatasets)
+```
+
+
+## snnR trainPredict arguments - inputs x, y
+```{r}
+if(dir.exists("D:/GSoC2020/Results/2020run03/"))
 {  
-  odir <- "D:/GSoC2020/Results/2020run02/"
+  odir <- "D:/GSoC2020/Results/2020run03/"
 }else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
 {  
   odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
 }else
   odir <- "~"
 
-nrep <- 5
+nrep <- 10
 maxit2ndorder  <-    200
 maxit1storderA <-   1000
-maxit1storderB <-   5000
-maxit1storderC <-  10000
-maxit1storderD <- 100000
-```
+maxit1storderB <-  10000
+maxit1storderC <- 100000
 
-## Datasets to test
-
-```{r}
-NNdataSummary(NNdatasets)
-```
-
-# Dedicated functions by packages
-
-
-## snnR Train/predict Function - arguments x,y
-```{r}
 snnR.method <- "none"
 hyperParams.snnR <- function(optim_method, ...) {
-    
-    maxiter <- maxit2ndorder
-    params <- paste0("method=", optim_method, "_iter=", maxiter)
-  
-    out <- list(iter = maxiter, params = params)
+    out <- list(iter = maxit2ndorder)
     return (out)
 }
 NNtrain.snnR <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams,...) {
@@ -77,15 +70,16 @@ res <- train_and_predict_1data(1, simpleNeural.method, "NNtrain.snnR", "hyperPar
 ```
 
 
-# Launch the NN package
+# Launch package's trainPredict
 
 ```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
-res <- trainPredict_1pkg(1:2, pkgname = "snnR", pkgfun = "snnR", snnR.method,
+res <- trainPredict_1pkg(1:12, pkgname = "snnR", pkgfun = "snnR", snnR.method,
   prepareZZ.arg = snnR.prepareZZ, nrep = nrep, doplot = TRUE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 ```
 
 # Results
+
 ```{r}
 #print(res)
 kable(t(apply(res, c(1,4), min)))%>%

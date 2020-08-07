@@ -1,7 +1,7 @@
 ---
-title: "NNbenchmark Generic Function"
+title: "NNbenchmark Generic Function with deepnet"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/07/12"
+date: "2020/08/07"
 output:
     html_document:
         toc: true
@@ -9,56 +9,49 @@ output:
         number_sections: true
 ---
 
-# Environment and datasets 
+# Setup 
 
-## Setup environment
+## Packages and options
 ```{r message=FALSE, warning=FALSE}
 library(NNbenchmark)
 library(kableExtra)
 options(scipen = 999)
-if(dir.exists("D:/GSoC2020/Results/2020run02/"))
+```
+
+## Datasets to test
+```{r}
+NNdataSummary(NNdatasets)
+```
+
+
+## deepnet trainPredict arguments - inputs x, y
+```{r}
+if(dir.exists("D:/GSoC2020/Results/2020run03/"))
 {  
-  odir <- "D:/GSoC2020/Results/2020run02/"
+  odir <- "D:/GSoC2020/Results/2020run03/"
 }else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
 {  
   odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
 }else
   odir <- "~"
 
-nrep <- 5
+nrep <- 10
 maxit2ndorder  <-    200
 maxit1storderA <-   1000
-maxit1storderB <-   5000
-maxit1storderC <-  10000
-maxit1storderD <- 100000
-```
+maxit1storderB <-  10000
+maxit1storderC <- 100000
 
-## Datasets to test
-
-```{r}
-NNdataSummary(NNdatasets)
-```
-
-# Dedicated functions by packages
-
-
-## deepnet Train/predict Function - arguments x,y
-```{r}
 #library(deepnet)
-deepnet.method <- "gradientDescent"
+deepnet.method <- "BP"
 hyperParams.deepnet <- function(optim_method, ...) {
-    
-    if (!is.element(optim_method, c("gradientDescent"))) stop("Invalid Parameters.")
 
-    iter <- maxit1storderC
+    iter <- maxit1storderA
     lr <- 0.8
     dropout <- 0
     momentum <- 0.95
     hidden_activation <- "sigm"
-    
-    params <- paste0("method=", optim_method, "_", "iter=", iter, "_", "lr=", lr, "_", "dropout=", dropout, "_", "momentum=", momentum)
-    
-    out <- list(iter = iter, lr = lr, momentum = momentum, hidden_activation = hidden_activation, dropout = dropout, params = params)
+
+    out <- list(iter = iter, lr = lr, momentum = momentum, hidden_activation = hidden_activation, dropout = dropout)
     
     return (out)
 }
@@ -98,16 +91,17 @@ res <- train_and_predict_1data(1, CaDENCE.method, "NNtrain.deepnet", "hyperParam
 ```
 
 
-# Launch the NN package
+# Launch package's trainPredict
 
 ```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
-res <- trainPredict_1pkg(1:2, pkgname = "deepnet", pkgfun = "nn.train", deepnet.method,
+res <- trainPredict_1pkg(1:12, pkgname = "deepnet", pkgfun = "nn.train", deepnet.method,
   prepareZZ.arg = deepnet.prepareZZ, nrep = nrep, doplot = TRUE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 
 ```
 
 # Results
+
 ```{r}
 #print(res)
 kable(t(apply(res, c(1,4), min)))%>%

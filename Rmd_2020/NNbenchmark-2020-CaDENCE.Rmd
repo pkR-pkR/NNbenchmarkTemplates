@@ -1,7 +1,7 @@
 ---
-title: "NNbenchmark Generic Function"
+title: "NNbenchmark Generic Function with CaDENCE"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/02/08"
+date: "2020/08/07"
 output:
     html_document:
         toc: true
@@ -9,16 +9,26 @@ output:
         number_sections: true
 ---
 
-# Environment and datasets 
+# Setup 
 
-## Setup environment
+## Packages and options
 ```{r message=FALSE, warning=FALSE}
 library(NNbenchmark)
 library(kableExtra)
 options(scipen = 999)
-if(dir.exists("D:/GSoC2020/Results/2020run02/"))
+```
+
+## Datasets to test
+```{r}
+NNdataSummary(NNdatasets)
+```
+
+
+## CaDENCE trainPredict arguments - inputs x, y
+```{r}
+if(dir.exists("D:/GSoC2020/Results/2020run03/"))
 {  
-  odir <- "D:/GSoC2020/Results/2020run02/"
+  odir <- "D:/GSoC2020/Results/2020run03/"
 }else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
 {  
   odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
@@ -26,46 +36,33 @@ if(dir.exists("D:/GSoC2020/Results/2020run02/"))
   odir <- "~"
 
 nrep <- 10
-maxit2ndorder <- 200
-maxit1storder <- 1000
-```
+maxit2ndorder  <-    200
+maxit1storderA <-   1000
+maxit1storderB <-  10000
+maxit1storderC <- 100000
 
-## Datasets to test
-
-```{r}
-NNdataSummary(NNdatasets)
-```
-
-# Dedicated functions by packages
-
-## CaDENCE Train/predict Function - arguments x,y
-```{r}
 #library(CaDENCE)
 CaDENCE.method <- c("optim", "psoptim", "Rprop")
 hyperParams.CaDENCE <- function(optim_method, ...) {
   
-    if (optim_method == "optim")    {iter <- maxit2ndorder} 
-    if (optim_method == "psoptim")  {iter <- maxit1storder}
-    if (optim_method == "Rprop")    {iter <- maxit1storder}
-  
-    params <- paste0("method=", optim_method, "_iter=", iter)
+    if (optim_method == "optim")    {iter <- maxit2ndorder;  epsilon <- 0.01} 
+    if (optim_method == "psoptim")  {iter <- maxit1storderA; epsilon <- 0.01}
+    if (optim_method == "Rprop")    {iter <- maxit1storderA; epsilon <- 0.01}
     
-    out <- list(iter = iter, method = optim_method, params = params, maxit.Nelder=1)
+    out <- list(iter = iter, epsilon = epsilon)
     return (out)
 }
 
 NNtrain.CaDENCE <- function(x, y, dataxy, formula, neur, optim_method, hyperParams,...) {
     
     hyper_params <- do.call(hyperParams, list(optim_method, ...))
-    
-    iter <- hyper_params$iter
-    method <- hyper_params$method
+    iter <- hyper_params$iter ; epsilon <- hyper_params$epsilon
 
     NNreg <- CaDENCE::cadence.fit(x = x, y = y, 
                                 iter.max = iter, 
                                 n.hidden = neur, 
                                 hidden.fcn = tanh, 
-                                method = method, 
+                                method = optim_method, 
                                 n.trials = 1, 
                                 trace = 0, 
                                 maxit.Nelder = 1, 
@@ -73,8 +70,9 @@ NNtrain.CaDENCE <- function(x, y, dataxy, formula, neur, optim_method, hyperPara
                                 distribution = list(density.fcn = dnorm,
                                                     parameters = c("mean", "sd"),
                                                     parameters.fixed = NULL,
-                                                    output.fcns = c(identity, exp)))
-    return (NNreg)
+                                                    output.fcns = c(identity, exp)),
+                                epsilon = epsilon)
+    return(NNreg)
 }
 NNpredict.CaDENCE <- function(object, x, ...)
     CaDENCE::cadence.predict(x = x, fit = object)[,1]
@@ -90,15 +88,16 @@ res <- trainPredict_1data(1, CaDENCE.method, "NNtrain.CaDENCE", "hyperParams.CaD
 ```
 
 
-# Launch the NN package
+# Launch package's trainPredict
 
 ```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
-res <- trainPredict_1pkg(1:2, pkgname = "CaDENCE", pkgfun = "cadence.fit", CaDENCE.method,
+res <- trainPredict_1pkg(1:12, pkgname = "CaDENCE", pkgfun = "cadence.fit", CaDENCE.method,
   prepareZZ.arg = CaDENCE.prepareZZ, nrep = nrep, doplot = FALSE,
-  csvfile = TRUE, rdafile = TRUE, odir = odir, echo = TRUE)
+  csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 ```
 
 # Results
+
 ```{r}
 #print(res)
 kable(apply(res[,,1,], c(3,1), min), caption = "optim")%>%

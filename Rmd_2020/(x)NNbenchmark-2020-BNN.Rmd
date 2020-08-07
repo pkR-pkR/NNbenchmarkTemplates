@@ -1,7 +1,7 @@
 ---
 title: "NNbenchmark Generic Function"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/02/08"
+date: "2020/06/08"
 output:
     html_document:
         toc: true
@@ -9,9 +9,9 @@ output:
         number_sections: true
 ---
 
-# Environment and datasets 
+# Setup 
 
-## Setup environment
+## Packages and options
 ```{r message=FALSE, warning=FALSE}
 library(NNbenchmark)
 library(kableExtra)
@@ -39,10 +39,10 @@ maxit1storderD <- 100000
 NNdataSummary(NNdatasets)
 ```
 
-# Dedicated functions by packages
 
 
-## BNN Train/predict Function - arguments x,y
+
+## BNN trainPredict arguments - inputs x,y
 ```{r}
 #library(BNN)
 BNN.method <- "none"
@@ -76,10 +76,10 @@ res <- trainPredict_1mth1data(1, BNN.method[1], "NNtrain.BNN", "hyperParams.BNN"
 ```
 
 
-# Launch the NN package
+# Launch package's trainPredict
 
 ```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
-res <- trainPredict_1pkg(1:2, pkgname = "BNN", pkgfun = "BNNsel", BNN.method,
+res <- trainPredict_1pkg(1:12, pkgname = "BNN", pkgfun = "BNNsel", BNN.method,
   prepareZZ.arg = BNN.prepareZZ, nrep = nrep, doplot = TRUE,
   csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 ```
