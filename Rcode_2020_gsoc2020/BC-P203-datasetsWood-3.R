@@ -51,15 +51,11 @@ par(op)
 ## brnn::brnn()
 ## ============
 library(brnn)
-system.time(breg <- brnn(y ~ ., data = data, neurons = 10))
+system.time(breg <- brnn(y ~ ., data = data, neurons = 5))
 with(data, plot(y, predict(breg), las = 1, main = "full"))
 abline(a=0, b=1)
 data.frame(ypred = round(ht(predict(breg)), 3))
 
-system.time(bregs <- brnn(y ~ ., data = data_s, neurons = 10))
-with(data_s, plot(y, predict(bregs), las = 1, main = "sample"))
-abline(a=0, b=1)
-data.frame(ypred = round(ht(predict(bregs)), 3))
 
 
 controlpredplot <- function(data, pred, plot.nr, plot.nc, plot.mar=c(4,4,2,1), plot.nobs=1000, var2round,...)
