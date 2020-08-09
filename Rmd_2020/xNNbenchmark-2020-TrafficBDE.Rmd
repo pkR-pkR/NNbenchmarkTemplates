@@ -1,0 +1,86 @@
+---
+title: "NNbenchmark Generic Function"
+author: "All members of GSoC 2019 & 2020"
+date: "2020/06/08"
+output:
+    html_document:
+        toc: true
+        toc_float: true
+        number_sections: true
+---
+
+# Setup 
+
+## Packages and options
+```{r message=FALSE, warning=FALSE}
+library(NNbenchmark)
+library(kableExtra)
+options(scipen = 999)
+if(dir.exists("D:/GSoC2020/Results/2020run04/"))
+{  
+  odir <- "D:/GSoC2020/Results/2020run04/"
+}else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
+{  
+  odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
+}else
+  odir <- "~"
+
+nrep <- 2
+maxit2ndorder  <-    200
+maxit1storderA <-   1000
+maxit1storderB <-   5000
+maxit1storderC <-  10000
+maxit1storderD <- 100000
+
+```
+
+## Datasets to test
+
+```{r}
+NNdataSummary(NNdatasets)
+```
+
+
+
+
+## TrafficBDE trainPredict arguments - inputs x,y
+```{r}
+#library(TrafficBDE)
+TrafficBDE.method <- "none*"
+hyperParams.TrafficBDE <- function(...) {
+    return (list())
+}
+NNtrain.TrafficBDE <- function(x, y, dataxy, formula, neur, method, hyperParams, ...) {
+  TrafficBDE::TrainCR(list(dataxy,dataxy),"y")
+}
+NNpredict.TrafficBDE <- function(object, x, ...)
+    predict(object, x)
+NNclose.TrafficBDE <- function()
+  if("package:TrafficBDE" %in% search())
+    detach("package:TrafficBDE", unload=TRUE)
+TrafficBDE.prepareZZ <- list(xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)
+if(FALSE)
+res <- trainPredict_1data(1, TrafficBDE.method, "NNtrain.TrafficBDE", "hyperParams.TrafficBDE", "NNpredict.TrafficBDE", 
+                               NNsummary, "NNclose.TrafficBDE", NA, TrafficBDE.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="TrafficBDE", pkgfun="TrafficBDE", csvfile=TRUE, rdafile=TRUE, odir=odir)
+    
+```
+
+
+# Launch package's trainPredict
+
+```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+res <- trainPredict_1pkg(c(1:12), pkgname = "TrafficBDE", pkgfun = "TrainCR", TrafficBDE.method,
+  prepareZZ.arg = TrafficBDE.prepareZZ, nrep = nrep, doplot = TRUE,
+  csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
+
+```
+
+# Results
+```{r}
+#print(res)
+kable(t(apply(res, c(1,4), min)))%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(t(apply(res, c(1,4), median)))%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```

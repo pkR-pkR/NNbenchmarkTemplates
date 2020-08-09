@@ -1,84 +1,114 @@
 ---
-title: "Overall Run for NN benchmarking"
+title: "NNbenchmark Generic Function with All Packages"
 author: "GSoC 2019, GSoC 2020 members"
 date: "08/08/2020"
-output: html_document
+output:
+    html_document:
+        toc: true
+        toc_float: true
+        number_sections: true
 ---
 
+# AMORE
 ```{r child = 'NNbenchmark-2020-AMORE.Rmd'}
 ```
 
+# ANN2
 ```{r child = 'NNbenchmark-2020-ANN2.Rmd'}
 ```
 
+# automl
 ```{r child = 'NNbenchmark-2020-automl.Rmd'}
 ```
 
+# brnn
 ```{r child = 'NNbenchmark-2020-brnn.Rmd'}
 ```
 
+# CaDENCE
 ```{r child = 'NNbenchmark-2020-CaDENCE.Rmd'}
 ```
 
+# caret
 ```{r child = 'NNbenchmark-2020-caret.Rmd'}
 ```
 
+# deepdive
 ```{r child = 'NNbenchmark-2020-deepdive.Rmd'}
 ```
 
+# deepnet
 ```{r child = 'NNbenchmark-2020-deepnet.Rmd'}
 ```
 
+# elmNNRcpp
 ```{r child = 'NNbenchmark-2020-elmNNRcpp.Rmd'}
 ```
 
+# ELMR
 ```{r child = 'NNbenchmark-2020-ELMR.Rmd'}
 ```
 
+# EnsembleBase
 ```{r child = 'NNbenchmark-2020-EnsembleBase.Rmd'}
 ```
 
+# h2o
 ```{r child = 'NNbenchmark-2020-h2o.Rmd'}
 ```
 
+# keras
 ```{r child = 'NNbenchmark-2020-keras.Rmd'}
 ```
 
+# MachineShop
 ```{r child = 'NNbenchmark-2020-MachineShop.Rmd'}
 ```
 
+# minpack.lm
 ```{r child = 'NNbenchmark-2020-minpack.lm.Rmd'}
 ```
 
+# monmlp
 ```{r child = 'NNbenchmark-2020-monmlp.Rmd'}
 ```
 
+# nueralnet
 ```{r child = 'NNbenchmark-2020-neuralnet.Rmd'}
 ```
 
+# nlsr
 ```{r child = 'NNbenchmark-2020-nlsr.Rmd'}
 ```
 
+# nnet
 ```{r child = 'NNbenchmark-2020-nnet.Rmd'}
 ```
 
+# qrnn
 ```{r child = 'NNbenchmark-2020-qrnn.Rmd'}
 ```
 
+# radiant.model
 ```{r child = 'NNbenchmark-2020-radiant.model.Rmd'}
 ```
 
+# rminer
 ```{r child = 'NNbenchmark-2020-rminer.Rmd'}
 ```
 
+# RSNNS
 ```{r child = 'NNbenchmark-2020-RSNNS.Rmd'}
 ```
 
+# snnR
 ```{r child = 'NNbenchmark-2020-snnR.Rmd'}
 ```
 
+# traineR
 ```{r child = 'NNbenchmark-2020-traineR.Rmd'}
 ```
 
+# validann
 ```{r child = 'NNbenchmark-2020-validann.Rmd'}
 ```

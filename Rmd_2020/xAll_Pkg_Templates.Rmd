@@ -1,0 +1,17 @@
+---
+title: "Overall Run for NN benchmarking"
+author: "GSoC 2019, GSoC 2020 members"
+date: "8/2/2020"
+output: html_document
+---
+```{r child = '(x)NNbenchmark-2020-BNN.Rmd'}
+```
+
+```{r child = '(x)NNbenchmark-2020-GMDHreg.Rmd'}
+```
+
+```{r child = '(x)NNbenchmark-2020-TrafficBDE.Rmd'}
+```
+
+```{r child = '(x)NNbenchmark-2020-yager.Rmd'}
+```

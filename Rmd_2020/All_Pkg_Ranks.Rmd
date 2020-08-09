@@ -1,7 +1,7 @@
 ---
 title: "NNbenchmark Ranking Function"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/08/07"
+date: "2020/08/08"
 output:
     html_document:
         toc: true
@@ -18,7 +18,7 @@ library(kableExtra)
 library(dplyr)   
 library(stringr) 
 options(scipen = 999)
-odir <- "D:/GSoC2020/Results/2020run03/"
+odir <- "D:/GSoC2020/Results/2020run04/"
 ```
 
 # Read csv files and calculate some statistics for the metrics

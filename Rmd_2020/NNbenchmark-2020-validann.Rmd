@@ -1,7 +1,7 @@
 ---
 title: "NNbenchmark Generic Function with validann"
 author: "All members of GSoC 2019 & 2020"
-date: "2020/08/07"
+date: "2020/08/08"
 output:
     html_document:
         toc: true
@@ -26,16 +26,16 @@ NNdataSummary(NNdatasets)
 
 ## validann trainPredict arguments - inputs x, y
 ```{r}
-if(dir.exists("D:/GSoC2020/Results/2020run03/"))
+if(dir.exists("D:/GSoC2020/Results/2020run04/"))
 {  
-  odir <- "D:/GSoC2020/Results/2020run03/"
+  odir <- "D:/GSoC2020/Results/2020run04/"
 }else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
 {  
   odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
 }else
   odir <- "~"
 
-nrep <- 10
+nrep <- 5
 maxit2ndorder  <-    200
 maxit1storderA <-   1000
 maxit1storderB <-  10000
