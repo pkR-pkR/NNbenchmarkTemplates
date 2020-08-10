@@ -178,7 +178,7 @@ if(FALSE)
    nparNN=41,
    fmlaNN=formula(y ~ b1 + b2 * tanh(b3 + b4 * x1 + b5 * x2 + b6 * x3 + b7 * x4 + b8 * x5 + b9 * x6)
                    + b10 * tanh(b11 + b12 * x1 + b13 * x2 + b14 * x3 + b15 * x4 + b16 * x5 + b17 * x6)
-                   + b18 * tanh(b19 + b20 * x1 + b21 * x22 + b22 * x3 + b23 * x4 + b24 * x5 + b25 * x6)
+                   + b18 * tanh(b19 + b20 * x1 + b21 * x2 + b22 * x3 + b23 * x4 + b24 * x5 + b25 * x6)
                    + b26 * tanh(b27 + b28 * x1 + b29 * x2 + b30 * x3 + b31 * x4 + b32 * x5 + b33 * x6)
                    + b34 * tanh(b35 + b36 * x1 + b37 * x2 + b38 * x3 + b39 * x4 + b40 * x5 + b41 * x6)),     
    Z=as.data.frame(mWoodN1)
