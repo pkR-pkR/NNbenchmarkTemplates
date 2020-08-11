@@ -1,0 +1,158 @@
+---
+title: "NNbenchmark Ranking Function"
+author: "All members of GSoC 2019 & 2020"
+date: "2020/08/08"
+output:
+    html_document:
+        toc: true
+        toc_float: true
+        number_sections: true
+---
+
+# Environment and datasets 
+
+## Setup environment
+```{r message=FALSE, warning=FALSE}
+library(NNbenchmark)
+library(kableExtra)
+library(dplyr)   
+library(stringr) 
+options(scipen = 999)
+odir <- "D:/GSoC2020/Results/2020run05"
+```
+
+# Read csv files and calculate some statistics for the metrics
+
+```{r}
+lf   <- lapply(list.files(odir, pattern = "-results.csv", full.names = TRUE), csv::as.csv)
+names(lf) <- names(NNbigdatasets)
+gfr <- lapply(lf, function(dfr) cbind(
+					  ds   = str_remove(str_extract(dfr$event, "\\w+_"), "_"),
+					  pfa  = str_sub(str_remove(dfr$event, str_extract(dfr$event, "\\w+_")),  1, -4),
+					  run  = str_sub(dfr$event, -2, -1),
+					  dfr[,c("RMSE","MAE","WAE","time")]
+					  ))
+
+yfr <- lapply(gfr, function(dfr) {
+			as.data.frame(dfr %>%
+			group_by(pfa) %>%
+			summarise(time.mean = mean(time), 
+			          RMSE.min = min(RMSE), 
+			          RMSE.med = median(RMSE),
+			          RMSE.d51 = median(RMSE) - min(RMSE),
+			          MAE.med  = median(MAE),
+			          WAE.med  = median(WAE)
+					  )
+			)})
+yfr <- lapply(yfr, function(dfr) transform(dfr, npfa = 1:nrow(dfr)))
+```
+
+# Calculate ranks per datasets and merge results
+```{r}
+rankMOFtime <- function(dfr) {
+	dfrtime <- dfr[order(dfr$time.mean),]
+	dfrRMSE <- dfr[order(dfr$RMSE.min, dfr$time.mean, dfr$RMSE.med),]
+	dfrRMSEmed  <- dfr[order(dfr$RMSE.med, dfr$RMSE.min, dfr$time.mean),]
+	dfrRMSEd51  <- dfr[order(dfr$RMSE.d51),]
+	dfrMAE      <- dfr[order(dfr$MAE.med),]
+	dfrWAE      <- dfr[order(dfr$WAE.med),]
+	transform(dfr, 
+			  time.rank = order(dfrtime$npfa),
+			  RMSE.rank = order(dfrRMSE$npfa),
+			  RMSEmed.rank  = order(dfrRMSEmed$npfa),
+			  RMSEd51.rank  = order(dfrRMSEd51$npfa),
+			  MAE.rank = order(dfrMAE$npfa),
+			  WAE.rank = order(dfrWAE$npfa)
+			  )
+}
+sfr     <- lapply(yfr, rankMOFtime)
+sfrwide <- do.call(cbind, sfr)
+```
+
+# Global scores on combined datasets (final table)
+```{r}
+sfr.time   <- sfrwide[, c(grep("time.rank", colnames(sfrwide)))]
+time.score <- rank(sfr.time, ties.method = "min")
+sfr.RMSE       <- sfrwide[, c(grep("RMSE.rank", colnames(sfrwide)))]
+RMSE.score     <- rank(sfr.RMSE, ties.method = "min")
+sfr.RMSEmed    <- sfrwide[, c(grep("RMSEmed.rank", colnames(sfrwide)))]
+RMSEmed.score  <- rank(sfr.RMSEmed, ties.method = "min")
+sfr.RMSEd51    <- sfrwide[, c(grep("RMSEd51.rank", colnames(sfrwide)))]
+RMSEd51.score  <- rank(sfr.RMSEd51, ties.method = "min")
+sfr.MAE       <- sfrwide[, c(grep("MAE.rank", colnames(sfrwide)))]
+MAE.score     <- rank(sfr.MAE, ties.method = "min")
+sfr.WAE       <- sfrwide[, c(grep("WAE.rank", colnames(sfrwide)))]
+WAE.score     <- rank(sfr.WAE, ties.method = "min")
+
+scoredfr0 <- data.frame(sfr$bWoodN1[,"pfa",drop=FALSE], 
+# scoredfr0 <- data.frame(sfr$uNeuroOne[,c("pfa")], 
+						time.score, 
+					    RMSE.score, 
+					    RMSEmed.score,
+					    RMSEd51.score,
+              MAE.score,
+              WAE.score)
+
+scoredfr <- scoredfr0[order(scoredfr0$RMSE.score),]
+rownames(scoredfr) <- NULL
+
+kable(scoredfr)%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+```
+
+# Figures
+
+## Matrix scatterplot
+```{r}
+
+plot(scoredfr[,c("time.score", "RMSE.score", "RMSEmed.score", "RMSEd51.score")], las = 1)
+```
+
+## Comparison of global scores and scores per dataset
+```{r, fig.width=7, fig.height=7}
+## =====================================
+## GLOBAL SCORE APPLIED TO EVERY DATASET
+## =====================================
+merge_sfr_dfr <- function(x, y) {
+	z <- cbind(
+			x[,c("npfa","pfa","time.mean","RMSE.min","time.rank","RMSE.rank")], 
+			y[,c("time.score","RMSE.score")]
+		)
+	z[order(z$RMSE.score),]
+}
+zfr <- lapply(sfr, merge_sfr_dfr, y = scoredfr0)
+
+
+## =========================
+## GRAPHIC RMSEscore_RMSEmin
+## =========================
+
+for (j in seq_along(zfr)) {
+names(zfr)[j]
+plot(log1p(zfr[[j]][, "RMSE.score"]), log1p(zfr[[j]][, "RMSE.min"]),
+     xlab = "RMSE.score", ylab = "RMSE.min", #Â main = names(zfr)[j], 
+     las = 1, col = 0, xaxt = "n", yaxt = "n")
+mtext(names(zfr)[j], line = -1.2, cex = 0.8)
+text(log1p(zfr[[j]][, "RMSE.score"]), log1p(zfr[[j]][, "RMSE.min"]),
+	 labels = zfr[[j]][, "RMSE.score"])
+}
+mtext("x=RMSE.score (global)   y=RMSE.min (per dataset)", outer = TRUE, line = 1)
+
+
+## ==============================
+## GRAPHIC RMSEscore_timemean
+## ==============================
+
+for (j in seq_along(zfr)) {
+names(zfr)[j]
+plot(log1p(zfr[[j]][, "RMSE.score"]), log1p(zfr[[j]][, "time.mean"]),
+     xlab = "RMSE.score", ylab = "RMSE.min", #Â main = names(zfr)[j], 
+     las = 1, col = 0, xaxt = "n", yaxt = "n")
+mtext(names(zfr)[j], line = -1.2, cex = 0.8)
+text(log1p(zfr[[j]][, "RMSE.score"]), log1p(zfr[[j]][, "time.mean"]),
+	 labels = zfr[[j]][, "RMSE.score"])
+}
+mtext("x=RMSE.score (global)   y=time.mean (per dataset)", outer = TRUE, line = 1)
+```
+
+
