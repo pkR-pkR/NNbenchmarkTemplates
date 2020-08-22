@@ -560,9 +560,9 @@ names(preparelist) <- pkgfunmat[,"pkg"]
 
 resall <- trainPredict_1data(dset=13, method=methodlist, train=trainvect, hyper=hypervect,
                      pred=predvect, summary=NNsummary, close=closevect, 
-                     start=startvect, prepare=preparelist, nrep=nrep, echo=FALSE, doplot=TRUE,
+                     start=startvect, prepare=preparelist, nrep=nrep, echo=TRUE, doplot=TRUE,
                      pkgname=pkgfunmat[,"pkg"], pkgfun=pkgfunmat[,"fun"], 
-                     csvfile = TRUE, rdafile = FALSE, odir = odir)
+                     csvfile = TRUE, rdafile = TRUE, odir = odir)
 
 
 ```
