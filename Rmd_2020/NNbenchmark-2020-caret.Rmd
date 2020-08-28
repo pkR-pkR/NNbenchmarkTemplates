@@ -49,7 +49,7 @@ NNtrain.caret <- function(x, y, dataxy, formula, neur, method, hyperParams, ...)
     
     hyper_params <- do.call(hyperParams, list(...))
     
-    NNreg <- caret::avNNet(x, y, repeats = 3, size = neur, linout = TRUE, trace=hyper_params$trace, bag = TRUE)
+    NNreg <- caret::avNNet(x, y, repeats = 3, size = neur, linout = TRUE, trace=hyper_params$trace, bag = TRUE, maxit = maxit2ndorder)
     return(NNreg)
 }
 NNpredict.caret <- function(object, x, ...)
