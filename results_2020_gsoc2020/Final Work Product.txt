@@ -1,0 +1,65 @@
+# Validation of Neural Network Packages - Salsabila Mahdi
+Google Summer of Code 2020
+
+**Abstract** (from proposal)
+The purpose of this GSoC project is to validate neural network packages that perform
+regression. It is a follow-up of a GSoC 2019 project in which we examined 49
+packages::algorithms but we were short of time to publish the results in a clean format.
+We intend to correct some glitches in the 2019 code and use a more recent code
+prepared by one mentor during winter 2020 that is more flexible and permits an
+evaluation of all packages::algorithms in one run. Our NNbenchmark package,
+published on CRAN and regularly updated, will give the opportunity to package authors
+to eventually modify their code and benchmark it with the provided datasets against
+other packages.
+Finally, we will publish the results on a website and in an article to be published in the
+R-Journal. 
+
+**WORK COMPLETED**
+During GSoC 2020, I have (example commit in parentheses):
+1. understood R better through building it with Rtools40 toolchains on Windows, using it on other systems (Linux Mint and Debian), and configuring settings;
+2. harmonized parameters and uploaded all 2019 code with summaries in the form of figures and tables (https://github.com/pkR-pkR/NNbenchmarkTemplates/commit/cd262f6106fbc8862dbbb96e0ff0837bf9bdf8b1 );
+3. included Ch. Dutang’s new code, metric, and large dataset in the package NNbenchmark while also adapting it to the 2019 results format (https://github.com/pkR-pkR/NNbenchmark/commit/1398792d61414560ae8d06e7d9dce55aef07c479 );
+4. reviewed (documentation etc), then benchmarked all packages against the new package with the inclusion of additional packages coded in 2020 (https://github.com/pkR-pkR/NNbenchmarkTemplates/commit/593f00c3c1afbabead08a85ff42ff3d50f5743c9 );
+5. compared the new results with 2019 code;
+6. consolidated final results into figures and summary tables (above commit + results in article and on web);
+7. updated the website with new results, templates, etc ( https://github.com/theairbend3r/NNbenchmarkWeb/commit/91fe4a371c462997097dd94d830da85109038323 );  
+8. helped with the submission of NNbenchmark to CRAN by performing checks and doing changes;
+9. written comments for all packages and other parts of the article (see repo below);
+ 
+**Highlights**
+- when keras and other packages finally worked better with changed parameters
+- having the idea to make code better, for instance, allowing for nrep = 1 with 2020 trainPredict code
+- getting to know Akshaj's website for NNbenchmark, which was previously handled by him in GSoC 2019
+- seeing the final results from 6 months (GSoC 2019 + GSoC 2020) worth of effort 
+**Challenges**
+- when packages don't work and I had to figure whether the error was from the package or the benchmark setup
+- deciding whether to discard a package or not
+- submitting to CRAN and understanding what to write or not write for the article
+
+**FUTURE WORK**
+- Get NNbenchmark on CRAN and submit article  (??)  
+- Further exploration of current packages included for regression with more attention to parameters such as the learning rate and other details such as computing efficiency
+- Diversify the neural networks that are able to be tested from just ones for regression to classification with new datasets and code
+(??) anything else you all would like to add?
+
+**IMPORTANT LINKS**
+- Call for students (original) : 
+(??) 
+- Call for students (copy)                          : https://www.inmodelia.com/gsoc2019.html    
+- Original project page on Summer of Code website   : 
+https://summerofcode.withgoogle.com/projects/#5592371305119744   
+- NNbenchmark package repo                          : https://github.com/pkR-pkR/NNbenchmark  
+- Companion repo for templates of the packages      : https://github.com/pkR-pkR/NNbenchmarkTemplates   
+- Repo for R Journal submission                     : https://github.com/ApaBila/NNbenchmarkArticle  
+- Akshaj's website repo                             : 
+https://github.com/theairbend3r/NNbenchmarkWeb
+- Akshaj's website for NNbenchmark                  : https://akshajverma.com/NNbenchmarkWeb/index.html  
+
+All commits to the repositories under this pseudo from May 2020 to August 2020 were part of this Google Summer of Code project.
+
+**CREDITS**  
+Fellow student in GSoC 2019: Akshaj Verma, who contributed code for packages AMORE to LilRhino and developed the website
+Mentors:   
+Christophe Dutang   
+John Nash   
+Patrice Kiener
