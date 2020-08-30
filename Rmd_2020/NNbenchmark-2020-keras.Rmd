@@ -47,7 +47,11 @@ hyperParams.keras <- function(optim_method, ...) {
 
     hidden_activation = "tanh"
     iter <- maxit1storderB
-    lr <- 0.1
+    if(optim_method == "adadelta"){
+      lr <- 1
+    } else{
+      lr <- 0.1
+    }
     
     out <- list(hidden_activation = hidden_activation, iter = iter, lr = lr)
     return (out)

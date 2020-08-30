@@ -34,26 +34,25 @@ During GSoC 2020, I have (example commit in parentheses):
 **Challenges**
 - when packages don't work and I had to figure whether the error was from the package or the benchmark setup
 - deciding whether to discard a package or not
-- submitting to CRAN and understanding what to write or not write for the article
+- submitting to CRAN and understanding what to write or not write for the article + how to use LaTeX formatting with rticles package and R Markdown
 
 **FUTURE WORK**
-- Get NNbenchmark on CRAN and submit article  (??)  
+As soon as possible:
+- Finish the revision process of the new NNbenchmark to get it on CRAN [waiting on CRAN reviewer's further responses]
+- Finish editing the article & submitting it to the R Journal [waiting for an agreement on some parts, finalizing others]
+For future projects:
 - Further exploration of current packages included for regression with more attention to parameters such as the learning rate and other details such as computing efficiency
 - Diversify the neural networks that are able to be tested from just ones for regression to classification with new datasets and code
-(??) anything else you all would like to add?
 
-**IMPORTANT LINKS**
-- Call for students (original) : 
-(??) 
-- Call for students (copy)                          : https://www.inmodelia.com/gsoc2019.html    
-- Original project page on Summer of Code website   : 
-https://summerofcode.withgoogle.com/projects/#5592371305119744   
+**IMPORTANT LINKS**  
+- Original proposal for Google Summer of Code 		: 
+https://docs.google.com/document/d/1bkVSgibAjI8pqMEyfpWcOjp523SRNEzWeGCtxanGj5E/edit?usp=sharing 
 - NNbenchmark package repo                          : https://github.com/pkR-pkR/NNbenchmark  
 - Companion repo for templates of the packages      : https://github.com/pkR-pkR/NNbenchmarkTemplates   
 - Repo for R Journal submission                     : https://github.com/ApaBila/NNbenchmarkArticle  
-- Akshaj's website repo                             : 
+- Website repo for presentation of NNbenchmark   	: 
 https://github.com/theairbend3r/NNbenchmarkWeb
-- Akshaj's website for NNbenchmark                  : https://akshajverma.com/NNbenchmarkWeb/index.html  
+- Website for NNbenchmark                  			: https://akshajverma.com/NNbenchmarkWeb/index.html  
 
 All commits to the repositories under this pseudo from May 2020 to August 2020 were part of this Google Summer of Code project.
 
