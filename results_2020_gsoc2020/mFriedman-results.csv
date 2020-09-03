@@ -69,11 +69,6 @@ mFriedman_CaDENCE::cadence.fit_Rprop_02,0.121,0.0146,0.0858,0.511,22.55
 mFriedman_CaDENCE::cadence.fit_Rprop_03,0.1527,0.0233,0.0913,0.5842,22.57
 mFriedman_CaDENCE::cadence.fit_Rprop_04,0.1295,0.0168,0.0891,0.6004,22.31
 mFriedman_CaDENCE::cadence.fit_Rprop_05,0.085,0.0072,0.075,0.1875,22.54
-mFriedman_caret::avNNet_none_01,0.0477,0.0023,0.0381,0.1367,0.16
-mFriedman_caret::avNNet_none_02,0.0392,0.0015,0.0316,0.1133,0.15
-mFriedman_caret::avNNet_none_03,0.0414,0.0017,0.0332,0.1381,0.17
-mFriedman_caret::avNNet_none_04,0.0683,0.0047,0.0551,0.1809,0.14
-mFriedman_caret::avNNet_none_05,0.0682,0.0046,0.0545,0.1966,0.14
 mFriedman_deepdive::deepnet_gradientDescent_01,0.1474,0.0217,0.1154,0.4581,7.61
 mFriedman_deepdive::deepnet_gradientDescent_02,0.1474,0.0217,0.1154,0.4581,7.71
 mFriedman_deepdive::deepnet_gradientDescent_03,0.1474,0.0217,0.1154,0.4581,7.58
@@ -119,11 +114,6 @@ mFriedman_h2o::h2o.deeplearning_first-order_02,0.0225,0.0005,0.0171,0.0843,5.44
 mFriedman_h2o::h2o.deeplearning_first-order_03,0.0254,0.0006,0.0203,0.0901,6.51
 mFriedman_h2o::h2o.deeplearning_first-order_04,0.0261,0.0007,0.0204,0.0902,5.37
 mFriedman_h2o::h2o.deeplearning_first-order_05,0.0262,0.0007,0.0204,0.0982,6.51
-mFriedman_keras::fit_adadelta_01,0.0335,0.0011,0.0264,0.106,134.86
-mFriedman_keras::fit_adadelta_02,0.0749,0.0056,0.0622,0.2452,120.85
-mFriedman_keras::fit_adadelta_03,0.087,0.0076,0.0758,0.2668,158.19
-mFriedman_keras::fit_adadelta_04,0.0321,0.001,0.025,0.1059,243.24
-mFriedman_keras::fit_adadelta_05,0.0317,0.001,0.0249,0.1127,227.48
 mFriedman_keras::fit_adagrad_01,0.0296,0.0009,0.0236,0.0929,17.92
 mFriedman_keras::fit_adagrad_02,0.0858,0.0074,0.0747,0.2012,16.25
 mFriedman_keras::fit_adagrad_03,0.0855,0.0073,0.0748,0.2112,11.47
@@ -299,3 +289,13 @@ mFriedman_validann::ann_SANN_02,0.1537,0.0236,0.1211,0.5223,0.21
 mFriedman_validann::ann_SANN_03,0.1444,0.0208,0.111,0.5629,0.2
 mFriedman_validann::ann_SANN_04,0.1485,0.0221,0.1149,0.5461,0.19
 mFriedman_validann::ann_SANN_05,0.1592,0.0253,0.1218,0.6014,0.22
+mFriedman_caret::avNNet_none_01,0.0123,0.0002,0.0098,0.0422,0.29
+mFriedman_caret::avNNet_none_02,0.0309,0.001,0.0257,0.0845,0.28
+mFriedman_caret::avNNet_none_03,0.0311,0.001,0.0252,0.0957,0.28
+mFriedman_caret::avNNet_none_04,0.0197,0.0004,0.0162,0.0727,0.3
+mFriedman_caret::avNNet_none_05,0.0161,0.0003,0.0133,0.0558,0.29
+mFriedman_keras::fit_adadelta_01,0.0339,0.0011,0.0275,0.1142,27.61
+mFriedman_keras::fit_adadelta_02,0.0257,0.0007,0.0201,0.0774,25.56
+mFriedman_keras::fit_adadelta_03,0.0734,0.0054,0.0613,0.2046,30.97
+mFriedman_keras::fit_adadelta_04,0.0267,0.0007,0.0211,0.0948,24.98
+mFriedman_keras::fit_adadelta_05,0.026,0.0007,0.0205,0.0923,38

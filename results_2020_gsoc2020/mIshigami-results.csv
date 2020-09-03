@@ -69,11 +69,6 @@ mIshigami_CaDENCE::cadence.fit_Rprop_02,2.3133,5.3512,1.3927,10.1262,36.95
 mIshigami_CaDENCE::cadence.fit_Rprop_03,1.9647,3.86,1.1593,8.8022,36.74
 mIshigami_CaDENCE::cadence.fit_Rprop_04,2.5733,6.6219,2.2161,6.5655,37.03
 mIshigami_CaDENCE::cadence.fit_Rprop_05,2.9447,8.6716,2.1767,10.9621,37.02
-mIshigami_caret::avNNet_none_01,1.1064,1.2242,0.8536,4.1914,0.25
-mIshigami_caret::avNNet_none_02,2.4143,5.829,2.0741,5.1128,0.25
-mIshigami_caret::avNNet_none_03,1.7843,3.1838,1.4536,7.6717,0.23
-mIshigami_caret::avNNet_none_04,2.3848,5.6874,1.9645,8.9955,0.24
-mIshigami_caret::avNNet_none_05,1.8293,3.3462,1.4661,6.9393,0.25
 mIshigami_deepdive::deepnet_gradientDescent_01,3.0218,9.1314,2.494,10.236,9.11
 mIshigami_deepdive::deepnet_gradientDescent_02,3.0218,9.1314,2.494,10.236,9.08
 mIshigami_deepdive::deepnet_gradientDescent_03,3.0218,9.1314,2.494,10.236,8.95
@@ -119,11 +114,6 @@ mIshigami_h2o::h2o.deeplearning_first-order_02,0.8467,0.7169,0.645,3.552,6.45
 mIshigami_h2o::h2o.deeplearning_first-order_03,0.9142,0.8358,0.6992,3.5282,6.44
 mIshigami_h2o::h2o.deeplearning_first-order_04,0.8347,0.6968,0.6217,3.6234,6.5
 mIshigami_h2o::h2o.deeplearning_first-order_05,0.8467,0.7169,0.6295,4.1742,6.46
-mIshigami_keras::fit_adadelta_01,2.6476,7.0099,2.2655,7.1026,131.3
-mIshigami_keras::fit_adadelta_02,2.6386,6.9622,2.2614,6.9079,135.33
-mIshigami_keras::fit_adadelta_03,2.6475,7.0091,2.2554,7.6713,132.8
-mIshigami_keras::fit_adadelta_04,2.6443,6.9922,2.265,7.1272,118.17
-mIshigami_keras::fit_adadelta_05,2.671,7.134,2.2959,7.2258,103.13
 mIshigami_keras::fit_adagrad_01,2.4252,5.8816,2.0029,6.489,33.36
 mIshigami_keras::fit_adagrad_02,2.5965,6.7421,2.2228,7.1235,13.88
 mIshigami_keras::fit_adagrad_03,0.8522,0.7263,0.6255,3.3311,89.35
@@ -299,3 +289,13 @@ mIshigami_validann::ann_SANN_02,2.9986,8.9919,2.4922,10.4105,0.26
 mIshigami_validann::ann_SANN_03,3.0748,9.4546,2.564,10.0509,0.29
 mIshigami_validann::ann_SANN_04,3.1097,9.6702,2.5692,11.4354,0.27
 mIshigami_validann::ann_SANN_05,2.9199,8.5256,2.4341,9.4201,0.27
+mIshigami_caret::avNNet_none_01,1.031,1.0629,0.8018,3.7609,0.43
+mIshigami_caret::avNNet_none_02,1.6373,2.6806,1.362,4.6855,0.45
+mIshigami_caret::avNNet_none_03,2.2593,5.1044,1.883,5.607,0.39
+mIshigami_caret::avNNet_none_04,1.6097,2.5913,1.3131,4.7983,0.42
+mIshigami_caret::avNNet_none_05,1.6339,2.6695,1.3615,4.8275,0.4
+mIshigami_keras::fit_adadelta_01,2.4074,5.7956,1.9906,6.8031,55.66
+mIshigami_keras::fit_adadelta_02,2.6007,6.7635,2.2281,6.9829,25.02
+mIshigami_keras::fit_adadelta_03,2.6167,6.847,2.2359,6.8776,21.62
+mIshigami_keras::fit_adadelta_04,2.5732,6.6214,2.2049,6.9997,36.97
+mIshigami_keras::fit_adadelta_05,2.6183,6.8553,2.2458,6.9184,19.11

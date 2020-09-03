@@ -69,11 +69,6 @@ uDmod1_CaDENCE::cadence.fit_Rprop_02,0.299,0.0894,0.2214,0.8382,6.64
 uDmod1_CaDENCE::cadence.fit_Rprop_03,0.2005,0.0402,0.1462,0.5493,6.92
 uDmod1_CaDENCE::cadence.fit_Rprop_04,0.4116,0.1694,0.3162,0.8908,5.87
 uDmod1_CaDENCE::cadence.fit_Rprop_05,0.4223,0.1784,0.326,0.8665,6.92
-uDmod1_caret::avNNet_none_01,0.0855,0.0073,0.0662,0.3245,0.02
-uDmod1_caret::avNNet_none_02,0.0567,0.0032,0.0404,0.2172,0.03
-uDmod1_caret::avNNet_none_03,0.0942,0.0089,0.0701,0.3629,0.01
-uDmod1_caret::avNNet_none_04,0.101,0.0102,0.0619,0.482,0.03
-uDmod1_caret::avNNet_none_05,0.0684,0.0047,0.0519,0.2442,0.01
 uDmod1_deepdive::deepnet_gradientDescent_01,0.3353,0.1124,0.2912,0.7067,5.39
 uDmod1_deepdive::deepnet_gradientDescent_02,0.3353,0.1124,0.2912,0.7067,5.36
 uDmod1_deepdive::deepnet_gradientDescent_03,0.3353,0.1124,0.2912,0.7067,5.27
@@ -119,11 +114,6 @@ uDmod1_h2o::h2o.deeplearning_first-order_02,0.0632,0.004,0.0464,0.1945,3.36
 uDmod1_h2o::h2o.deeplearning_first-order_03,0.0482,0.0023,0.0396,0.1169,3.34
 uDmod1_h2o::h2o.deeplearning_first-order_04,0.048,0.0023,0.0383,0.1171,3.28
 uDmod1_h2o::h2o.deeplearning_first-order_05,0.0494,0.0024,0.0402,0.1185,3.34
-uDmod1_keras::fit_adadelta_01,0.3858,0.1489,0.3369,0.85,76.08
-uDmod1_keras::fit_adadelta_02,0.3587,0.1287,0.3072,0.8421,76.23
-uDmod1_keras::fit_adadelta_03,0.3696,0.1366,0.3201,0.8447,77.47
-uDmod1_keras::fit_adadelta_04,0.3791,0.1437,0.3297,0.8591,76.81
-uDmod1_keras::fit_adadelta_05,0.3721,0.1384,0.3215,0.8566,76.14
 uDmod1_keras::fit_adagrad_01,0.2252,0.0507,0.1765,0.5236,14.13
 uDmod1_keras::fit_adagrad_02,0.3593,0.1291,0.3064,0.8511,3.63
 uDmod1_keras::fit_adagrad_03,0.3617,0.1308,0.3099,0.8467,3.45
@@ -299,3 +289,13 @@ uDmod1_validann::ann_SANN_02,0.2914,0.0849,0.2381,0.6614,0.12
 uDmod1_validann::ann_SANN_03,0.2296,0.0527,0.1864,0.5463,0.13
 uDmod1_validann::ann_SANN_04,0.3046,0.0928,0.2441,0.863,0.14
 uDmod1_validann::ann_SANN_05,0.3065,0.094,0.2567,0.6461,0.13
+uDmod1_caret::avNNet_none_01,0.0535,0.0029,0.0427,0.1366,0.03
+uDmod1_caret::avNNet_none_02,0.0657,0.0043,0.0486,0.2004,0.03
+uDmod1_caret::avNNet_none_03,0.1319,0.0174,0.0927,0.3176,0.03
+uDmod1_caret::avNNet_none_04,0.0948,0.009,0.0602,0.4316,0.03
+uDmod1_caret::avNNet_none_05,0.4705,0.2214,0.2193,1.7446,0.03
+uDmod1_keras::fit_adadelta_01,0.372,0.1384,0.3104,0.8951,12.34
+uDmod1_keras::fit_adadelta_02,0.2331,0.0544,0.1843,0.5428,39.79
+uDmod1_keras::fit_adadelta_03,0.2314,0.0535,0.182,0.5585,28.72
+uDmod1_keras::fit_adadelta_04,0.2333,0.0544,0.184,0.5698,28.09
+uDmod1_keras::fit_adadelta_05,0.3689,0.1361,0.317,0.8582,10.89

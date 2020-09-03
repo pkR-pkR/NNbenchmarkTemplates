@@ -69,11 +69,6 @@ mRef153_CaDENCE::cadence.fit_Rprop_02,3.8586,14.8892,2.8149,12.0118,10
 mRef153_CaDENCE::cadence.fit_Rprop_03,8.8329,78.0207,6.5412,26.8526,9.89
 mRef153_CaDENCE::cadence.fit_Rprop_04,4.3519,18.9393,3.0787,16.5513,9.97
 mRef153_CaDENCE::cadence.fit_Rprop_05,4.3781,19.168,3.0915,20.1998,9.91
-mRef153_caret::avNNet_none_01,3.3191,11.0161,2.4178,11.7195,0.03
-mRef153_caret::avNNet_none_02,3.4505,11.906,2.4506,12.9266,0.02
-mRef153_caret::avNNet_none_03,3.3032,10.911,2.372,13.0399,0.03
-mRef153_caret::avNNet_none_04,3.3647,11.3212,2.3885,12.0313,0.05
-mRef153_caret::avNNet_none_05,3.4416,11.8443,2.3858,12.878,0.05
 mRef153_deepdive::deepnet_gradientDescent_01,4.1805,17.4764,3.1843,14.4946,6.04
 mRef153_deepdive::deepnet_gradientDescent_02,4.1805,17.4764,3.1843,14.4946,5.97
 mRef153_deepdive::deepnet_gradientDescent_03,4.1805,17.4764,3.1843,14.4946,6
@@ -119,11 +114,6 @@ mRef153_h2o::h2o.deeplearning_first-order_02,3.5349,12.4958,2.5157,14.4366,4.41
 mRef153_h2o::h2o.deeplearning_first-order_03,3.2514,10.5717,2.2604,15.0053,4.36
 mRef153_h2o::h2o.deeplearning_first-order_04,3.4491,11.8964,2.55,12.8888,4.42
 mRef153_h2o::h2o.deeplearning_first-order_05,3.6003,12.9623,2.6641,14.8987,4.44
-mRef153_keras::fit_adadelta_01,4.3075,18.5544,3.2841,11.1678,27.37
-mRef153_keras::fit_adadelta_02,4.2067,17.6961,3.0951,14.7812,23.79
-mRef153_keras::fit_adadelta_03,4.0384,16.3085,2.9531,14.4032,28.67
-mRef153_keras::fit_adadelta_04,4.213,17.7492,3.1629,13.8305,23.79
-mRef153_keras::fit_adadelta_05,4.4437,19.7467,3.3027,14.3846,46.85
 mRef153_keras::fit_adagrad_01,3.9503,15.6049,2.9457,14.8398,3.62
 mRef153_keras::fit_adagrad_02,3.8952,15.1728,2.9304,13.7587,2.94
 mRef153_keras::fit_adagrad_03,3.9141,15.3204,2.9143,13.2657,4.7
@@ -299,3 +289,13 @@ mRef153_validann::ann_SANN_02,7.6842,59.0475,5.9016,30.788,0.13
 mRef153_validann::ann_SANN_03,5.7592,33.1688,4.2642,18.8203,0.14
 mRef153_validann::ann_SANN_04,7.3556,54.1054,6.1209,19.8265,0.13
 mRef153_validann::ann_SANN_05,6.4257,41.2894,5.4045,15.5036,0.14
+mRef153_caret::avNNet_none_01,3.3749,11.39,2.3825,12.4032,0.04
+mRef153_caret::avNNet_none_02,3.5956,12.9286,2.6066,11.3103,0.05
+mRef153_caret::avNNet_none_03,3.2329,10.4518,2.3243,12.7439,0.04
+mRef153_caret::avNNet_none_04,3.3172,11.004,2.2355,14.7747,0.04
+mRef153_caret::avNNet_none_05,3.4543,11.932,2.5327,13.3756,0.04
+mRef153_keras::fit_adadelta_01,3.8819,15.0688,2.9028,14.4159,8.54
+mRef153_keras::fit_adadelta_02,3.9063,15.2589,2.8788,14.1054,6.95
+mRef153_keras::fit_adadelta_03,3.8172,14.571,2.8547,14.5763,7.84
+mRef153_keras::fit_adadelta_04,4.0645,16.5205,3.138,14.6395,7.32
+mRef153_keras::fit_adadelta_05,3.9709,15.7681,2.9154,13.069,8.71

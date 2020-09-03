@@ -69,11 +69,6 @@ mDette_CaDENCE::cadence.fit_Rprop_02,6.2641,39.2391,3.8766,31.0108,17.29
 mDette_CaDENCE::cadence.fit_Rprop_03,6.6999,44.8891,4.5406,31.142,17.3
 mDette_CaDENCE::cadence.fit_Rprop_04,5.7488,33.0491,3.379,35.9866,17.27
 mDette_CaDENCE::cadence.fit_Rprop_05,5.6586,32.0203,3.4794,26.1659,16.73
-mDette_caret::avNNet_none_01,0.9874,0.9749,0.7091,6.3623,0.14
-mDette_caret::avNNet_none_02,1.4344,2.0574,1.0551,6.9605,0.12
-mDette_caret::avNNet_none_03,1.3005,1.6912,0.932,7.5078,0.14
-mDette_caret::avNNet_none_04,1.2255,1.5019,0.9378,5.4836,0.13
-mDette_caret::avNNet_none_05,0.669,0.4475,0.5238,2.8064,0.11
 mDette_deepdive::deepnet_gradientDescent_01,4.431,19.6338,3.2628,20.7622,7.35
 mDette_deepdive::deepnet_gradientDescent_02,4.431,19.6338,3.2628,20.7622,7.33
 mDette_deepdive::deepnet_gradientDescent_03,4.431,19.6338,3.2628,20.7622,7.19
@@ -119,11 +114,6 @@ mDette_h2o::h2o.deeplearning_first-order_02,0.3821,0.146,0.2954,1.5816,7.44
 mDette_h2o::h2o.deeplearning_first-order_03,0.3789,0.1436,0.2948,1.1915,5.44
 mDette_h2o::h2o.deeplearning_first-order_04,0.3809,0.1451,0.2967,1.1748,5.47
 mDette_h2o::h2o.deeplearning_first-order_05,0.3696,0.1366,0.2853,1.3532,5.39
-mDette_keras::fit_adadelta_01,1.9347,3.7429,1.2861,11.9932,336.6
-mDette_keras::fit_adadelta_02,2.3723,5.6278,1.7954,11.9725,195.33
-mDette_keras::fit_adadelta_03,2.4671,6.0867,1.7056,14.6417,205.67
-mDette_keras::fit_adadelta_04,2.3192,5.3785,1.7194,12.4886,167.25
-mDette_keras::fit_adadelta_05,0.9613,0.9242,0.7272,4.7287,257.96
 mDette_keras::fit_adagrad_01,2.2691,5.1488,1.5442,13.8073,13.35
 mDette_keras::fit_adagrad_02,2.3107,5.3392,1.6168,13.3914,10.23
 mDette_keras::fit_adagrad_03,2.1998,4.8391,1.5992,12.7204,14.75
@@ -299,3 +289,13 @@ mDette_validann::ann_SANN_02,4.0522,16.4203,2.9633,19.5663,0.18
 mDette_validann::ann_SANN_03,5.1766,26.7972,3.9655,22.632,0.17
 mDette_validann::ann_SANN_04,3.8867,15.1068,2.7613,19.6574,0.17
 mDette_validann::ann_SANN_05,4.2698,18.2314,3.1329,20.7442,0.15
+mDette_caret::avNNet_none_01,0.3175,0.1008,0.2352,1.4256,0.25
+mDette_caret::avNNet_none_02,0.4438,0.1969,0.331,1.9524,0.24
+mDette_caret::avNNet_none_03,0.6858,0.4703,0.5219,3.3592,0.27
+mDette_caret::avNNet_none_04,0.3225,0.104,0.2432,1.8536,0.25
+mDette_caret::avNNet_none_05,0.3514,0.1235,0.2681,1.4242,0.25
+mDette_keras::fit_adadelta_01,2.308,5.327,1.589,13.708,41.62
+mDette_keras::fit_adadelta_02,2.0733,4.2987,1.6009,9.497,33.51
+mDette_keras::fit_adadelta_03,2.3093,5.3329,1.5829,14.0679,27.64
+mDette_keras::fit_adadelta_04,2.3231,5.397,1.5651,13.8888,17.89
+mDette_keras::fit_adadelta_05,2.213,4.8973,1.6616,11.2907,26.2

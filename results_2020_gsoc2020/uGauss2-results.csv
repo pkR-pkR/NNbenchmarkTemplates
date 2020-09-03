@@ -69,11 +69,6 @@ uGauss2_CaDENCE::cadence.fit_Rprop_02,18.7119,350.1366,13.568,46.1266,5.89
 uGauss2_CaDENCE::cadence.fit_Rprop_03,29.4776,868.9288,15.7721,89.1759,5.77
 uGauss2_CaDENCE::cadence.fit_Rprop_04,12.443,154.8279,8.626,34.4466,5.81
 uGauss2_CaDENCE::cadence.fit_Rprop_05,11.7899,139.0007,8.1481,32.3143,5.72
-uGauss2_caret::avNNet_none_01,3.8383,14.7327,3.0475,11.3257,0.05
-uGauss2_caret::avNNet_none_02,3.3273,11.0706,2.536,10.1212,0.06
-uGauss2_caret::avNNet_none_03,3.4279,11.7504,2.7004,9.9572,0.06
-uGauss2_caret::avNNet_none_04,3.7095,13.7602,2.8466,12.7233,0.05
-uGauss2_caret::avNNet_none_05,6.2878,39.5367,4.693,18.2574,0.07
 uGauss2_deepdive::deepnet_gradientDescent_01,28.8118,830.1176,25.177,67.7823,5.89
 uGauss2_deepdive::deepnet_gradientDescent_02,28.8118,830.1176,25.177,67.7823,6
 uGauss2_deepdive::deepnet_gradientDescent_03,28.8118,830.1176,25.177,67.7823,5.98
@@ -119,11 +114,6 @@ uGauss2_h2o::h2o.deeplearning_first-order_02,3.892,15.1478,3.1088,10.9665,4.36
 uGauss2_h2o::h2o.deeplearning_first-order_03,2.8574,8.1646,2.2415,9.4798,4.41
 uGauss2_h2o::h2o.deeplearning_first-order_04,3.4367,11.8109,2.7526,12.1113,4.41
 uGauss2_h2o::h2o.deeplearning_first-order_05,3.4454,11.8707,2.7928,11.6466,4.35
-uGauss2_keras::fit_adadelta_01,15.2204,231.6615,11.6532,36.4682,187.4
-uGauss2_keras::fit_adadelta_02,9.0659,82.1907,6.6744,24.8152,613.7
-uGauss2_keras::fit_adadelta_03,9.2275,85.1459,6.8201,25.4663,487.47
-uGauss2_keras::fit_adadelta_04,15.0943,227.8377,11.9167,32.7243,58.08
-uGauss2_keras::fit_adadelta_05,7.9524,63.2413,5.8779,24.8694,178.59
 uGauss2_keras::fit_adagrad_01,5.0447,25.449,3.6068,18.0398,57.75
 uGauss2_keras::fit_adagrad_02,5.1521,26.5445,3.7059,17.8629,55.75
 uGauss2_keras::fit_adagrad_03,8.881,78.8725,6.5481,25.2992,19
@@ -299,3 +289,13 @@ uGauss2_validann::ann_SANN_02,15.9574,254.6375,12.3112,33.4458,0.2
 uGauss2_validann::ann_SANN_03,15.1506,229.5409,12.0242,32.1496,0.21
 uGauss2_validann::ann_SANN_04,9.9162,98.3301,8.5558,24.4015,0.2
 uGauss2_validann::ann_SANN_05,13.0645,170.6824,10.1395,35.2415,0.2
+uGauss2_caret::avNNet_none_01,3.1956,10.2118,2.4997,9.8629,0.1
+uGauss2_caret::avNNet_none_02,4.2952,18.4487,3.133,16.8133,0.08
+uGauss2_caret::avNNet_none_03,4.942,24.423,3.7854,13.1067,0.1
+uGauss2_caret::avNNet_none_04,3.2653,10.6623,2.6499,9.5769,0.07
+uGauss2_caret::avNNet_none_05,2.424,5.8758,1.9144,7.1385,0.08
+uGauss2_keras::fit_adadelta_01,4.0295,16.2369,2.9096,15.5539,68.27
+uGauss2_keras::fit_adadelta_02,3.8803,15.0566,2.8149,15.271,46.48
+uGauss2_keras::fit_adadelta_03,3.9739,15.7917,2.8916,15.6037,63.67
+uGauss2_keras::fit_adadelta_04,3.8515,14.8341,2.8379,14.5742,30.85
+uGauss2_keras::fit_adadelta_05,3.8918,15.1458,2.9874,13.7933,45.97

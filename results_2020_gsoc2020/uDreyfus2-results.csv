@@ -69,11 +69,6 @@ uDreyfus2_CaDENCE::cadence.fit_Rprop_02,0.1778,0.0316,0.1291,0.5419,3.79
 uDreyfus2_CaDENCE::cadence.fit_Rprop_03,0.2586,0.0669,0.1963,0.7853,3.85
 uDreyfus2_CaDENCE::cadence.fit_Rprop_04,1.0178,1.036,0.6321,2.2141,6.1
 uDreyfus2_CaDENCE::cadence.fit_Rprop_05,0.1684,0.0284,0.1187,0.6003,3.81
-uDreyfus2_caret::avNNet_none_01,0.1279,0.0164,0.1027,0.3469,0
-uDreyfus2_caret::avNNet_none_02,0.1103,0.0122,0.0862,0.2439,0.02
-uDreyfus2_caret::avNNet_none_03,0.1032,0.0106,0.0797,0.2952,0.02
-uDreyfus2_caret::avNNet_none_04,0.1094,0.012,0.0871,0.3183,0.02
-uDreyfus2_caret::avNNet_none_05,0.0988,0.0098,0.0783,0.3012,0.02
 uDreyfus2_deepdive::deepnet_gradientDescent_01,0.357,0.1275,0.2905,0.8478,5.2
 uDreyfus2_deepdive::deepnet_gradientDescent_02,0.357,0.1275,0.2905,0.8478,5.3
 uDreyfus2_deepdive::deepnet_gradientDescent_03,0.357,0.1275,0.2905,0.8478,5.2
@@ -119,11 +114,6 @@ uDreyfus2_h2o::h2o.deeplearning_first-order_02,0.0926,0.0086,0.0737,0.2223,3.36
 uDreyfus2_h2o::h2o.deeplearning_first-order_03,0.0933,0.0087,0.074,0.2459,3.36
 uDreyfus2_h2o::h2o.deeplearning_first-order_04,0.0948,0.009,0.0748,0.2242,3.36
 uDreyfus2_h2o::h2o.deeplearning_first-order_05,0.0938,0.0088,0.0746,0.2479,3.36
-uDreyfus2_keras::fit_adadelta_01,0.3652,0.1333,0.2757,0.9863,37.88
-uDreyfus2_keras::fit_adadelta_02,0.3898,0.1519,0.2831,1.0252,34.75
-uDreyfus2_keras::fit_adadelta_03,0.3878,0.1504,0.2815,1.0386,33.43
-uDreyfus2_keras::fit_adadelta_04,0.3809,0.1451,0.2788,1.0169,36.92
-uDreyfus2_keras::fit_adadelta_05,0.3827,0.1464,0.2807,1.0088,34.2
 uDreyfus2_keras::fit_adagrad_01,0.1847,0.0341,0.134,0.5863,20.56
 uDreyfus2_keras::fit_adagrad_02,0.1961,0.0385,0.142,0.5985,20.72
 uDreyfus2_keras::fit_adagrad_03,0.3627,0.1316,0.2741,0.9391,2.05
@@ -299,3 +289,13 @@ uDreyfus2_validann::ann_SANN_02,0.2972,0.0883,0.2354,0.7668,0.17
 uDreyfus2_validann::ann_SANN_03,0.2788,0.0777,0.2342,0.6264,0.16
 uDreyfus2_validann::ann_SANN_04,0.327,0.107,0.2632,0.7183,0.14
 uDreyfus2_validann::ann_SANN_05,0.3763,0.1416,0.2774,1.0274,0.15
+uDreyfus2_caret::avNNet_none_01,0.0926,0.0086,0.0745,0.2375,0.02
+uDreyfus2_caret::avNNet_none_02,0.1039,0.0108,0.0811,0.2634,0.02
+uDreyfus2_caret::avNNet_none_03,0.1051,0.011,0.0858,0.225,0.04
+uDreyfus2_caret::avNNet_none_04,0.1572,0.0247,0.1261,0.3914,0.01
+uDreyfus2_caret::avNNet_none_05,0.0998,0.01,0.0791,0.2355,0.02
+uDreyfus2_keras::fit_adadelta_01,0.3858,0.1488,0.2805,1.0278,6.75
+uDreyfus2_keras::fit_adadelta_02,0.4011,0.1609,0.2938,1.0515,6.81
+uDreyfus2_keras::fit_adadelta_03,0.3677,0.1352,0.2763,0.9587,8.08
+uDreyfus2_keras::fit_adadelta_04,0.3726,0.1389,0.274,0.9935,6.57
+uDreyfus2_keras::fit_adadelta_05,0.3605,0.1299,0.2746,0.9435,8.03
