@@ -1,7 +1,7 @@
 ---
 title: "Top Packages with Large Datasets"
 author: "All members of GSoC 2019 & 2020"
-date: "8/9/2020"
+date: "2020/10/13"
 output:
     html_document:
         toc: true
@@ -14,6 +14,7 @@ output:
 ```{r setup, message=FALSE, warning=FALSE}
 library(NNbenchmark)
 library(kableExtra)
+library(knitr)
 options(scipen = 999)
 ```
 
@@ -26,7 +27,7 @@ ht(bWoodN1)
 
 # trainPredict_1pkg arguments
 
-## For all packages
+## For all TOP5 packages
 ```{r}
 if(dir.exists("D:/GSoC2020/Results/2020run05/"))
 {  
@@ -35,504 +36,65 @@ if(dir.exists("D:/GSoC2020/Results/2020run05/"))
 {  
   odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
 }else
-  odir <- "~"
+  odir <- "."
 
 nrep <- 5
 maxit2ndorder  <-    400
 maxit1storderA <-   2000
 maxit1storderB <-  10000
 maxit1storderC <- 100000
+
 ```
 
-## For each package
-### automl
+## For each TOP5 package
+
+Extract appropriate R code for NN configuration
 ```{r}
-#library(automl)
-automl.method <- c("trainwgrad_RMSprop","trainwgrad_adam", "trainwpso") #"trainwgrad_Momentum"
-hyperParams.automl <- function(optim_method, ...) {
-#  if (optim_method == "trainwgrad_Momentum")     {beta2 <- 0.9; beta2 <- 0   ; iter <- maxit1storderA; lr = 0.01; optim_method = "trainwgrad"}
-  if (optim_method == "trainwgrad_RMSprop")      {beta1 <- 0  ; beta2 <- 0.99; iter <- maxit1storderA; lr = 0.01; optim_method = "trainwgrad"}
-  if (optim_method == "trainwgrad_adam")         {beta1 <- 0.9; beta2 <- 0.99; iter <- maxit1storderA; lr = 0.01; optim_method = "trainwgrad"}
-  if (optim_method == "trainwpso")               {beta1 <- NULL; beta2 <- NULL; iter <- maxit1storderA; lr = NULL}
-  
-  return(list(beta1 = beta1, beta2 = beta2, iter = iter, lr = lr, hidden_activation = 'tanh', optim_method = optim_method))
-}
-NNtrain.automl <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams, ...) {
-  
-  hyper_params <- do.call(hyperParams, list(optim_method, ...))
-  
-  beta1 <- hyper_params$beta1 ; beta2 <- hyper_params$beta2
-  iter <- hyper_params$iter ; lr <- hyper_params$lr
-  hidden_activation <- hyper_params$hidden_activation
-  
-  # NNreg <- automl::automl_train(Xref = x, Yref = y)
-  
-  NNreg <- automl::automl_train_manual(Xref = x, Yref = y,
-                                       hpar = list(modexec = hyper_params$optim_method,
-                                                   beta1 = beta1, beta2 = beta2,
-                                                   numiterations = iter, learningrate = lr,
-                                                   layersshape = c(hidden_neur, 0),
-                                                   layersacttype = c(hidden_activation, ""),
-                                                   verbose = FALSE,
-                                                   seed = as.integer(runif(1)*10000000)))
+pkglist <- c("nlsr", "rminer", "nnet", "validann", "MachineShop")
 
-    return (NNreg)
-}
-NNpredict.automl <- function(object, x, ...)
-    automl::automl_predict(model=object, X=x)
-NNclose.automl <- function()
-  if("package:automl" %in% search())
-    detach("package:automl", unload=TRUE)
-automl.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
-```
-### brnn
-```{r}
-#library(brnn)
-brnn.method <- "Gauss-Newton"
-hyperParams.brnn <- function(optim_method, ...) {
-    return(list(iter = maxit2ndorder))
-}
-NNtrain.brnn <- function(x, y, dataxy, formula, neur, optim_method, hyperParams,...) {
-    
-    hyper_params <- do.call(hyperParams.brnn, list(brnn.method))
-    iter <- hyper_params$iter
-    
-    NNreg <- brnn::brnn(x, y, neur, normalize = FALSE, epochs = iter, verbose = FALSE)
-    return (NNreg)
-}
-NNpredict.brnn <- function(object, x, ...)
-    predict(object, x)
-NNclose.brnn <- function()
-  if("package:brnn" %in% search())
-    detach("package:brnn", unload=TRUE)
-brnn.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
-```
-### CaDENCE
-```{r}
-#library(CaDENCE)
-CaDENCE.method <- c("optim", "psoptim", "Rprop")
-hyperParams.CaDENCE <- function(optim_method, ...) {
-  
-    if (optim_method == "optim")    {iter <- maxit2ndorder;  epsilon <- 0.01} 
-    if (optim_method == "psoptim")  {iter <- maxit1storderA; epsilon <- 0.01}
-    if (optim_method == "Rprop")    {iter <- maxit1storderA; epsilon <- 0.01}
-    
-    out <- list(iter = iter, epsilon = epsilon)
-    return (out)
-}
-
-NNtrain.CaDENCE <- function(x, y, dataxy, formula, neur, optim_method, hyperParams,...) {
-    
-    hyper_params <- do.call(hyperParams, list(optim_method, ...))
-    iter <- hyper_params$iter ; epsilon <- hyper_params$epsilon
-
-    NNreg <- CaDENCE::cadence.fit(x = x, y = y, 
-                                iter.max = iter, 
-                                n.hidden = neur, 
-                                hidden.fcn = tanh, 
-                                method = optim_method, 
-                                n.trials = 1, 
-                                trace = 0, 
-                                maxit.Nelder = 1, 
-                                f.cost = CaDENCE::cadence.cost,
-                                distribution = list(density.fcn = dnorm,
-                                                    parameters = c("mean", "sd"),
-                                                    parameters.fixed = NULL,
-                                                    output.fcns = c(identity, exp)),
-                                epsilon = epsilon)
-    return(NNreg)
-}
-NNpredict.CaDENCE <- function(object, x, ...)
-    CaDENCE::cadence.predict(x = x, fit = object)[,1]
-NNclose.CaDENCE <- function()
-  if("package:CaDENCE" %in% search())
-    detach("package:CaDENCE", unload=TRUE)
-CaDENCE.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
-```
-### deepnet
-```{r}
-#library(deepnet)
-deepnet.method <- "BP"
-hyperParams.deepnet <- function(optim_method, ...) {
-
-    iter <- maxit1storderA
-    lr <- 0.8
-    dropout <- 0
-    momentum <- 0.95
-    hidden_activation <- "sigm"
-
-    out <- list(iter = iter, lr = lr, momentum = momentum, hidden_activation = hidden_activation, dropout = dropout)
-    
-    return (out)
-}
-
-NNtrain.deepnet <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams, ...) {
-    
-    hyper_params <- do.call(hyperParams, list(optim_method, ...))
-    
-    iter <- hyper_params$iter
-    lr <- hyper_params$lr
-    dropout <- hyper_params$dropout
-    momentum <- hyper_params$momentum
-    hidden_activation <- hyper_params$hidden_activation
-    dropout <- hyper_params$dropout
-
-    NNreg <- deepnet::nn.train(x = x, y = y, 
-                               hidden = c(hidden_neur), 
-                               activationfun = hidden_activation, 
-                               learningrate = lr, 
-                               output = 'linear', 
-                               numepochs = iter, 
-                               hidden_dropout = dropout, 
-                               momentum = momentum)
-    return (NNreg)
-}
-NNpredict.deepnet <- function(object, x, ...)
-    deepnet::nn.predict(nn = object, x = x)
-NNclose.deepnet <- function()
-  if("package:deepnet" %in% search())
-    detach("package:deepnet", unload=TRUE)
-deepnet.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
-```
-### EnsembleBase
-```{r}
-#library(EnsembleBase)
-EnsembleBase.method <- "none"
-hyperParams.EnsembleBase <- function(optim_method, ...) {
-    out <- list(iter = maxit2ndorder, decay = 0)
-    return (out)
-}
-NNtrain.EnsembleBase <- function(x, y, dataxy, formula, neur, optim_method, hyperParams,...) {
-    
-    hyper_params <- do.call(hyperParams.EnsembleBase, list(EnsembleBase.method))
-    
-    iter <- hyper_params$iter ; decay <- hyper_params$decay
-    
-    NNreg <- EnsembleBase::Regression.Batch.Fit(make.configs("nnet", config.df = expand.grid(decay=decay,size=c(neur),maxit=iter)), formula, dataxy, ncores = 1)
-    
-    return (NNreg)
-}
-NNpredict.EnsembleBase <- function(object, x, ...)
-    predict(object, x)
-NNclose.EnsembleBase <- function()
-  if("package:EnsembleBase" %in% search())
-    detach("package:EnsembleBase", unload=TRUE)
-EnsembleBase.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
-if(FALSE)
-res <- trainPredict_1data(1, EnsembleBase.method, "NNtrain.EnsembleBase", "hyperParams.EnsembleBase", "NNpredict.EnsembleBase", 
-                               NNsummary, "NNclose.EnsembleBase", NA, EnsembleBase.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
-                               pkgname="EnsembleBase", pkgfun="EnsembleBase", csvfile=TRUE, rdafile=TRUE, odir=odir)
-```
-### h2o
-```{r}
-#library(h2o)
-h2o.method <- "first-order"
-hyperParams.h2o <- function(optim_method, ...) {
-    
-    hidden_activation = "Tanh"
-    iter <- maxit1storderA
-    rate <- 0.01
-    stopping_rounds <- 500
-    stopping_tolerance <- 1e-5
-    distribution <- "gaussian"
-
-    out <- list(hidden_activation = hidden_activation, iter = iter, rate=rate, 
-                stopping_rounds=stopping_rounds, stopping_tolerance=stopping_tolerance,
-                distribution=distribution)
-    
-    return (out)
-}
-NNtrain.h2o <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams, ...) {
-    
-    hyper_params <- do.call(hyperParams, list(optim_method, ...))
-    
-    hidden_activation <- hyper_params$hidden_activation
-    iter <- hyper_params$iter
-    rate <- hyper_params$rate
-    stopping_rounds <- hyper_params$stopping_rounds
-    stopping_tolerance <- hyper_params$stopping_tolerance
-    distribution <- hyper_params$distribution
-    if(class(dataxy) != "H2OFrame")
-      dataxy <- h2o::as.h2o(dataxy)
-
-    NNreg <-   h2o::h2o.deeplearning(y = "y",
-                                     training_frame = dataxy,
-                                     overwrite_with_best_model = TRUE, 
-                                     standardize = FALSE,
-                                     activation = hidden_activation,
-                                     adaptive_rate = FALSE,
-                                     rate = rate,
-                                     hidden = hidden_neur,
-                                     epochs = iter,
-                                     train_samples_per_iteration = -1,
-                                     initial_weight_distribution = "Normal",
-                                     initial_weight_scale = 0.1,
-                                     loss = "Quadratic",
-                                     distribution = distribution,
-                                     stopping_rounds = stopping_rounds,
-                                     stopping_metric = "RMSE",
-                                     stopping_tolerance = stopping_tolerance,
-                                     seed = as.integer(runif(1)*10000000),
-                                     verbose = FALSE
-                                     )
-    return (NNreg)
-}
-NNpredict.h2o <- function(object, x, ...)
+for(pkg in pkglist)
 {
-  predictions <- h2o::h2o.predict(object, newdata=h2o::as.h2o(x))
-  as.data.frame(predictions)$predict
-}
-NNclose.h2o <- function()
-{
-  h2o::h2o.shutdown(FALSE)
-  if("package:h2o" %in% search())
-    detach("package:h2o", unload=TRUE)
-}
-NNstart.h2o <- function()
-{
-  require("h2o", character.only = TRUE)
-  h2o::h2o.init()
-  h2o::h2o.no_progress()
-}
-h2o.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
-```
-### MachineShop
-```{r}
-#library(MachineShop)
-MachineShop.method <- "none"
-hyperParams.MachineShop <- function(...) {
-    return (list(iter=maxit2ndorder, trace=FALSE, linout=TRUE))
-}
-NNtrain.MachineShop <- function(x, y, dataxy, formula, neur, method, hyperParams, ...) {
-    
-    hyper_params <- do.call(hyperParams, list(...))
-    trace <- hyper_params$trace
-    maxit <- hyper_params$iter
-    linout <- hyper_params$linout #linearoutpputunit
-    myNN <- MachineShop::NNetModel(size = neur, linout = linout, maxit = maxit,
-                                   trace=trace)
-    MachineShop::fit(formula, data = dataxy, model = myNN)
-    
-}
-NNpredict.MachineShop <- function(object, x, ...)
-    as.numeric(predict(object, newdata=x, type="response"))
-NNclose.MachineShop <- function()
-  if("package:MachineShop" %in% search())
-    detach("package:MachineShop", unload=TRUE)
-MachineShop.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
-```
-### monmlp
-```{r}
-#library(monmlp)
-monmlp.method <- c("BFGS", "Nelder-Mead")
-hyperParams.monmlp <- function(optim_method, ...) {
-    if (optim_method == "BFGS")         {iter <- maxit2ndorder}
-    if (optim_method == "Nelder-Mead")  {iter <- maxit1storderB} 
-    return (list(iter=iter, silent=TRUE, scale=TRUE))
-}
-NNtrain.monmlp <- function(x, y, dataxy, formula, neur, optim_method, hyperParams, ...) {
-    
-    hyper_params <- do.call(hyperParams, list(optim_method, ...))
-    iter <- hyper_params$iter
-    scale <- hyper_params$scale
-    silent <- hyper_params$silent
-    
-    monmlp::monmlp.fit(x, y, hidden1 = neur, scale.y = scale, silent=silent,
-                         method = optim_method, iter.max = iter)
-}
-NNpredict.monmlp <- function(object, x, ...)
-  as.numeric(monmlp::monmlp.predict(x, weights=object))
-NNclose.monmlp <- function()
-  if("package:monmlp" %in% search())
-    detach("package:monmlp", unload=TRUE)
-monmlp.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
-```
-### nlsr
-```{r}
-#library(nlsr)
-nlsr.method <- "none"
-hyperParams.nlsr <- function(...) {
-    return (list(iter = maxit2ndorder, sdnormstart = 0.1))
-}
-NNtrain.nlsr <- function(x, y, dataxy, formula, neur, method, hyperParams, NNfullformula, NNparam, ...) {
-    
-    hyper_params <- do.call(hyperParams, list(...))
-    start <- round(rnorm(NNparam, sd = hyper_params$sdnormstart), 4)
-    names(start)  <- paste0("b", 1:NNparam)
-    
-    NNreg <- nlsr::nlxb(NNfullformula, data = dataxy, start = start, control = list(femax = hyper_params$iter))
-    return(NNreg)
-}
-NNpredict.nlsr <- function(object, x, ...)
-  as.numeric(predict(object, x))
-NNclose.nlsr <- function()
-  if("package:nlsr" %in% search())
-    detach("package:nlsr", unload=TRUE)
-nlsr.prepareZZ <- list(xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)
-```
-### nnet
-```{r}
-#library(nnet)
-nnet.method <- "none"
-hyperParams.nnet <- function(...) {
-    return (list(iter=maxit2ndorder, trace=FALSE))
-}
-NNtrain.nnet <- function(x, y, dataxy, formula, neur, method, hyperParams, ...) {
-    
-    hyper_params <- do.call(hyperParams, list(...))
-    
-    NNreg <- nnet::nnet(x, y, size = neur, linout = TRUE, maxit = hyper_params$iter, trace=hyper_params$trace)
-    return(NNreg)
-}
-NNpredict.nnet <- function(object, x, ...)
-    predict(object, newdata=x)
-NNclose.nnet <- function()
-  if("package:nnet" %in% search())
-    detach("package:nnet", unload=TRUE)
-nnet.prepareZZ <- list(xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)
-```
-### qrnn
-```{r}
-#library(qrnn)
-qrnn.method <- "none"
-hyperParams.qrnn <- function(optim_method, ...) {
-    
-    iter <- maxit2ndorder
-    init.range = c(-0.1, 0.1, -0.1, 0.1)
+  pkgname.R <- paste0("NNbenchmark-2020-", pkg, ".R")
+  pkgname.Rmd <- paste0("NNbenchmark-2020-", pkg, ".Rmd")
+  configname.R <- paste0("NNbenchmark-2020-", pkg, "-Config.R")
+  if(!file.exists(pkgname.R))
+    purl(pkgname.Rmd)
+  ConfigFile <- readLines(pkgname.R)
+  ConfigFile.beg <- 28
+  ConfigFile.end <- which(ConfigFile == "if(FALSE)")-1
+  if(length(ConfigFile.end) == 0)
+    ConfigFile.end <- 48
   
-    out <- list(iter = iter, init.range=init.range)
-    return (out)
+  writeLines(ConfigFile[ConfigFile.beg:ConfigFile.end], configname.R)
+  source(configname.R)
 }
-NNtrain.qrnn <- function(x, y, dataxy, formula, neur, optim_method, hyperParams,...) {
-    
-    hyper_params <- do.call(hyperParams, list(optim_method, ...))
-    
-    NNreg <- qrnn::qrnn.fit(x, y, n.hidden = neur, 
-                     iter.max = hyper_params$iter, n.trials = 1,
-                     init.range = hyper_params$init.range, trace=FALSE)
-    
-    return (NNreg)
-}
-NNpredict.qrnn <- function(object, x, ...)
-  qrnn::qrnn.predict(x, object)
-NNclose.qrnn <- function()
-  if("package:qrnn" %in% search())
-    detach("package:qrnn", unload=TRUE)
-qrnn.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 ```
-### radiant.model
-```{r}
-#library(radiant.model)
-radiant.model.method <- "none"
-hyperParams.radiant.model <- function(...) {
-    return (list(iter=maxit2ndorder, type="regression", decay=0))
-}
-NNtrain.radiant.model <- function(x, y, dataxy, formula, neur, method, hyperParams, ...) {
-    
-    hyper_params <- do.call(hyperParams, list(...))
-    
-    radiant.model::nn(dataxy, rvar = "y", evar = attr(terms(formula), "term.labels"),
-                      type = hyper_params$type, size = neur, maxit = hyper_params$iter,
-                      decay = hyper_params$decay)
-    
-}
-NNpredict.radiant.model <- function(object, x, ...)
-   predict(object, pred_data=as.data.frame(x))$Prediction
-NNclose.radiant.model <- function()
-  if("package:radiant.model" %in% search())
-    detach("package:radiant.model", unload=TRUE)
-radiant.model.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
-```
-### rminer
-```{r}
-#library(rminer)
-rminer.method <- "none"
-hyperParams.rminer <- function(...) {
-    return (list(task="reg", iter=maxit2ndorder))
-}
-NNtrain.rminer <- function(x, y, dataxy, formula, neur, method, hyperParams, ...) {
-    
-    hyper_params <- do.call(hyperParams, list(...))
-    
-    rminer::fit(formula, data = dataxy, model = "mlp", task = hyper_params$task, 
-                                        size = neur, maxit = hyper_params$iter)
-}
-NNpredict.rminer <- function(object, x, ...)
-   as.numeric(rminer::predict(object, newdata=as.data.frame(x)))
-NNclose.rminer <- function()
-  if("package:rminer" %in% search())
-    detach("package:rminer", unload=TRUE)
-rminer.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
-```
-### validann
-```{r}
-#library(validann)
-validann.method <- c("Nelder-Mead", "BFGS", "CG", "L-BFGS-B", "SANN")
-hyperParams.validann <- function(optim_method, ...) {
-    
-    if (optim_method == "Nelder-Mead")  {iter <- maxit1storderB} 
-    if (optim_method == "BFGS")         {iter <- maxit2ndorder}
-    if (optim_method == "CG")           {iter <- maxit1storderA}
-    if (optim_method == "L-BFGS-B")     {iter <- maxit2ndorder}
-    if (optim_method == "SANN")         {iter <- maxit1storderA}
-  
-    out <- list(iter = iter)
-    return (out)
-}
-NNtrain.validann <- function(x, y, dataxy, formula, neur, optim_method, hyperParams, NNfullformula, NNparam,...) {
-    
-    hyper_params <- do.call(hyperParams, list(optim_method, ...))
-    
-    iter <- hyper_params$iter
-    method <- hyper_params$method
-    
-    NNreg <- validann::ann(x, y, size = neur, 
-                           method = optim_method, maxit = iter)
-    
-    return (NNreg)
-}
-NNpredict.validann <- function(object, x, ...)
-  predict(object, x)
-NNclose.validann <- function()
-  if("package:validann" %in% search())
-    detach("package:validann", unload=TRUE)
-validann.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
-```
+
+<!--
+if(!file.exists("NNbenchmark-2020-MachineShop.R"))
+    purl("NNbenchmark-2020-MachineShop.Rmd")
+  ConfigFile <- readLines("NNbenchmark-2020-MachineShop.R")[28:48]
+  writeLines(ConfigFile, "NNbenchmark-2020-MachineShop-Config.R")
+#source("NNbenchmark-2020-MachineShop-Config.R")
+-->
+
+
+
 
 
 # Launch trainPredict_1data for all packages
 
 ```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
-methodlist <- list(automl.method[2],
-                   brnn.method, 
-                   CaDENCE.method[1],
-                   deepnet.method,
-                   EnsembleBase.method,
-                   h2o.method,
-                   MachineShop.method, 
-                   #minpack.lm.method, 
-                   monmlp.method[1],
-                   nlsr.method, 
-                   nnet.method, 
-                   qrnn.method,
-                   radiant.model.method,
+methodlist <- list(nlsr.method, 
                    rminer.method,
-                   validann.method[c(2,4)])
-pkgfunmat <- rbind(c("automl","automl_train_manual"),
-                   c("brnn", "brnn"),
-                   c("CaDENCE", "cadence.fit"),
-                   c("deepnet","nn.train"),
-                   c("EnsembleBase","Regression.Batch.Fit"),
-                   c("h2o","h2o.deeplearning"),
-                   c("MachineShop", "fit"),
-                   #c("minpack.lm", "nlsLM"),
-                   c("monmlp", "monmlp.fit"),
-                   c("nlsr", "nlxb"),
-                   c("nnet", "nnet"),
-                   c("qrnn", "qrnn.fit"),
-                   c("radiant.model", "nn"),
-                   c("rminer", "fit"),
-                   c("validann","ann"))
+                   nnet.method, 
+                   validann.method[2],
+                   MachineShop.method)
+pkgfunmat <- rbind(c("nlsr", "nlxb"),
+                    c("rminer", "fit"),
+                    c("nnet", "nnet"),
+                    c("validann","ann"),
+                   c("MachineShop", "fit"))
 colnames(pkgfunmat) <- c("pkg", "fun")  
 trainvect <- paste("NNtrain", pkgfunmat[,"pkg"], sep=".")
 hypervect <- paste("hyperParams", pkgfunmat[,"pkg"], sep=".")
@@ -540,30 +102,54 @@ predvect <- paste("NNpredict", pkgfunmat[,"pkg"], sep=".")
 closevect <- paste("NNclose", pkgfunmat[,"pkg"], sep=".")
 startvect <- rep(NA, length(pkgfunmat[,"pkg"]))
 startvect[pkgfunmat[,"pkg"] == "h2o"] <- "NNstart.h2o"
-preparelist <- list(automl.prepareZZ,
-                   brnn.prepareZZ, 
-                   CaDENCE.prepareZZ,
-                   deepnet.prepareZZ,
-                   EnsembleBase.prepareZZ,
-                   h2o.prepareZZ,
-                   MachineShop.prepareZZ, 
-                   #minpack.lm.prepareZZ, 
-                   monmlp.prepareZZ,
-                   nlsr.prepareZZ, 
-                   nnet.prepareZZ, 
-                   qrnn.prepareZZ,
-                   radiant.model.prepareZZ,
-                   rminer.prepareZZ,
-                   validann.prepareZZ)
+preparelist <- list(nlsr.prepareZZ, 
+                    rminer.prepareZZ,
+                    nnet.prepareZZ, 
+                    validann.prepareZZ,
+                    MachineShop.prepareZZ)
 names(preparelist) <- pkgfunmat[,"pkg"]
-#print(cbind(pkgfunmat, startvect))
 
 resall <- trainPredict_1data(dset=13, method=methodlist, train=trainvect, hyper=hypervect,
                      pred=predvect, summary=NNsummary, close=closevect, 
-                     start=startvect, prepare=preparelist, nrep=nrep, echo=TRUE, doplot=TRUE,
+                     start=startvect, prepare=preparelist, nrep=nrep, echo=FALSE, doplot=TRUE,
                      pkgname=pkgfunmat[,"pkg"], pkgfun=pkgfunmat[,"fun"], 
                      csvfile = TRUE, rdafile = TRUE, odir = odir)
 
+colnames(resall) <- pkgfunmat[,"pkg"]
+rownames(resall) <- 
+  paste0(rep(c("RMSE", "MSE", "MAE", "WAE", "time"), length=5*nrep), ".", rep(1:nrep, each=5))
+
+resmin <- sapply(1:NCOL(resall),
+       function(j)
+       {
+         idx.min <- which.min(resall[grep("RMSE.", rownames(resall)),j])
+          idx <- (idx.min-1)*5+1:5
+          resall[idx, j]
+       })
+colnames(resmin) <- pkgfunmat[,"pkg"]
+rownames(resmin) <- c("RMSE", "MSE", "MAE", "WAE", "time")
+kable(resmin)     
+
+
+which.median <- function(x)
+{
+  n <- length(x)
+  if(n %% 2 == 1)
+    which(rank(x) == n/2+1)
+  else
+    which(rank(x) == n/2)
+}
+
+resmedian <- sapply(1:NCOL(resall),
+       function(j)
+       {
+         idx.min <- which.median(resall[grep("RMSE.", rownames(resall)),j])
+          idx <- (idx.min-1)*5+1:5
+          resall[idx, j]
+       })
+colnames(resmedian) <- pkgfunmat[,"pkg"]
+rownames(resmedian) <- c("RMSE", "MSE", "MAE", "WAE", "time")
+kable(resmedian)     
 
 ```
 
