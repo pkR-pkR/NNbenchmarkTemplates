@@ -1,0 +1,65 @@
+## ----message=FALSE, warning=FALSE-------------------------------------------------------------------
+library(NNbenchmark)
+library(kableExtra)
+options(scipen = 999)
+
+
+## ---------------------------------------------------------------------------------------------------
+NNdataSummary(NNdatasets)
+
+
+## ---------------------------------------------------------------------------------------------------
+if(dir.exists("D:/GSoC2020/Results/2020run04/"))
+{  
+  odir <- "D:/GSoC2020/Results/2020run04/"
+}else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
+{  
+  odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
+}else
+  odir <- "~"
+
+nrep <- 5
+maxit2ndorder  <-    200
+maxit1storderA <-   1000
+maxit1storderB <-  10000
+maxit1storderC <- 100000
+
+#library(rminer)
+rminer.method <- "none"
+hyperParams.rminer <- function(...) {
+    return (list(task="reg", iter=maxit2ndorder))
+}
+NNtrain.rminer <- function(x, y, dataxy, formula, neur, method, hyperParams, ...) {
+    
+    hyper_params <- do.call(hyperParams, list(...))
+    
+    rminer::fit(formula, data = dataxy, model = "mlp", task = hyper_params$task, 
+                                        size = neur, maxit = hyper_params$iter)
+}
+NNpredict.rminer <- function(object, x, ...)
+   as.numeric(rminer::predict(object, newdata=as.data.frame(x)))
+NNclose.rminer <- function()
+  if("package:rminer" %in% search())
+    detach("package:rminer", unload=TRUE)
+rminer.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+if(FALSE)
+res <- trainPredict_1data(1, rminer.method, "NNtrain.rminer", "hyperParams.rminer", "NNpredict.rminer", 
+                               NNsummary, "NNclose.rminer", NA, rminer.prepareZZ, nrep=2,
+                               echo=TRUE, doplot=FALSE, echoreport=0,
+                               pkgname="rminer", pkgfun="fit", csvfile=TRUE, rdafile=TRUE, odir=odir)
+
+
+## ---- message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14----------------------
+res <- trainPredict_1pkg(1:12, pkgname = "rminer", pkgfun = "fit", rminer.method,
+  prepareZZ.arg = rminer.prepareZZ, nrep = nrep, doplot = TRUE,
+  csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
+
+
+
+## ---------------------------------------------------------------------------------------------------
+#print(res)
+kable(t(apply(res, c(1,4), min)))%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(t(apply(res, c(1,4), median)))%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+
