@@ -140,16 +140,16 @@ which.median <- function(x)
     which(rank(x) == n/2)
 }
 
-resmedian <- sapply(1:NCOL(resall),
-       function(j)
-       {
-         idx.min <- which.median(resall[grep("RMSE.", rownames(resall)),j])
-          idx <- (idx.min-1)*5+1:5
-          resall[idx, j]
-       })
-colnames(resmedian) <- pkgfunmat[,"pkg"]
-rownames(resmedian) <- c("RMSE", "MSE", "MAE", "WAE", "time")
-kable(resmedian)     
+# resmedian <- sapply(1:NCOL(resall),
+#        function(j)
+#        {
+#          idx.min <- which.median(resall[grep("RMSE.", rownames(resall)),j])
+#           idx <- (idx.min-1)*5+1:5
+#           resall[idx, j]
+#        })
+# colnames(resmedian) <- pkgfunmat[,"pkg"]
+# rownames(resmedian) <- c("RMSE", "MSE", "MAE", "WAE", "time")
+# kable(resmedian)     
 
 ```
 
