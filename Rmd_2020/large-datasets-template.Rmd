@@ -38,7 +38,7 @@ if(dir.exists("D:/GSoC2020/Results/2020run05/"))
 }else
   odir <- "."
 
-nrep <- 5
+nrep <- 10
 maxit2ndorder  <-    400
 maxit1storderA <-   2000
 maxit1storderB <-  10000
@@ -57,15 +57,19 @@ for(pkg in pkglist)
   pkgname.R <- paste0("NNbenchmark-2020-", pkg, ".R")
   pkgname.Rmd <- paste0("NNbenchmark-2020-", pkg, ".Rmd")
   configname.R <- paste0("NNbenchmark-2020-", pkg, "-Config.R")
-  if(!file.exists(pkgname.R))
-    purl(pkgname.Rmd)
-  ConfigFile <- readLines(pkgname.R)
-  ConfigFile.beg <- 28
-  ConfigFile.end <- which(ConfigFile == "if(FALSE)")-1
-  if(length(ConfigFile.end) == 0)
-    ConfigFile.end <- 48
-  
-  writeLines(ConfigFile[ConfigFile.beg:ConfigFile.end], configname.R)
+  if(!file.exists(configname.R))
+  {
+    if(!file.exists(pkgname.R))
+      purl(pkgname.Rmd)
+    
+    ConfigFile <- readLines(pkgname.R)
+    ConfigFile.beg <- 28
+    ConfigFile.end <- which(ConfigFile == "if(FALSE)")-1
+    if(length(ConfigFile.end) == 0)
+      ConfigFile.end <- 48
+    
+    writeLines(ConfigFile[ConfigFile.beg:ConfigFile.end], configname.R)
+  }
   source(configname.R)
 }
 ```
@@ -128,7 +132,8 @@ resmin <- sapply(1:NCOL(resall),
        })
 colnames(resmin) <- pkgfunmat[,"pkg"]
 rownames(resmin) <- c("RMSE", "MSE", "MAE", "WAE", "time")
-kable(resmin)     
+kable(resmin) 
+
 
 
 which.median <- function(x)
