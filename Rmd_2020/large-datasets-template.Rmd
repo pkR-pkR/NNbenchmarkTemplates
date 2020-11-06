@@ -88,7 +88,7 @@ if(!file.exists("NNbenchmark-2020-MachineShop.R"))
 
 # Launch trainPredict_1data for all packages
 
-```{r, message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14}
+```{r, message=FALSE, warning=FALSE, fig.height=7, fig.width=14}
 methodlist <- list(nlsr.method, 
                    rminer.method,
                    nnet.method, 
