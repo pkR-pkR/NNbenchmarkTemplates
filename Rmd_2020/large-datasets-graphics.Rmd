@@ -134,9 +134,17 @@ load(paste0(odir, "/","bWoodN1_MachineShop_fit_none.RData"))
 idxmin <- which.min(allsummary["RMSE", ])
 cname <- names(idxmin)
 bWoodN1pred <- cbind.data.frame(bWoodN1, ypred=Ypred[, cname])
+
 controlplot(bWoodN1pred, 3, 2, var2round = TRUE, pch=mypch, 
             main="MachineShop average prediction",
             lwd=mylwd)
+
+png("MachineShop.png", width = 800, height = 600)
+controlplot(bWoodN1pred, 3, 2, var2round = TRUE, pch=mypch, 
+            main="MachineShop average prediction",
+            lwd=mylwd)
+dev.off()
+
 
 load(paste0(odir, "/","bWoodN1_validann_ann_BFGS.RData"))
 idxmin <- which.min(allsummary["RMSE", ])
@@ -145,12 +153,22 @@ bWoodN1pred <- cbind.data.frame(bWoodN1, ypred=Ypred[, cname])
 controlplot(bWoodN1pred, 3, 2, var2round = TRUE, pch=mypch, main="validann average prediction",
             lwd=mylwd)
 
+png("validann.png", width = 800, height = 600)
+controlplot(bWoodN1pred, 3, 2, var2round = TRUE, pch=mypch, main="validann average prediction",
+            lwd=mylwd)
+dev.off()
+
 load(paste0(odir, "/","bWoodN1_nnet_nnet_none.RData"))
 idxmin <- which.min(allsummary["RMSE", ])
 cname <- names(idxmin)
 bWoodN1pred <- cbind.data.frame(bWoodN1, ypred=Ypred[, cname])
 controlplot(bWoodN1pred, 3, 2, var2round = TRUE, pch=mypch, main="nnet average prediction",
             lwd=mylwd)
+
+png("nnet.png", width = 800, height = 600)
+controlplot(bWoodN1pred, 3, 2, var2round = TRUE, pch=mypch, main="nnet average prediction",
+            lwd=mylwd)
+dev.off()
 
 load(paste0(odir, "/","bWoodN1_rminer_fit_none.RData"))
 idxmin <- which.min(allsummary["RMSE", ])
@@ -159,6 +177,11 @@ bWoodN1pred <- cbind.data.frame(bWoodN1, ypred=Ypred[, cname])
 controlplot(bWoodN1pred, 3, 2, var2round = TRUE, pch=mypch, main="rminer average prediction",
             lwd=mylwd)
 
+png("rminer.png", width = 800, height = 600)
+controlplot(bWoodN1pred, 3, 2, var2round = TRUE, pch=mypch, main="rminer average prediction",
+            lwd=mylwd)
+dev.off()
+
 load(paste0(odir, "/","bWoodN1_nlsr_nlxb_none.RData"))
 idxmin <- which.min(allsummary["RMSE", ])
 cname <- names(idxmin)
@@ -166,5 +189,9 @@ bWoodN1pred <- cbind.data.frame(bWoodN1, ypred=Ypred[, cname])
 controlplot(bWoodN1pred, 3, 2, var2round = TRUE, pch=mypch, main="nlsr",
             lwd=mylwd)
 
+png("nlsr.png", width = 800, height = 600)
+controlplot(bWoodN1pred, 3, 2, var2round = TRUE, pch=mypch, main="nlsr",
+            lwd=mylwd)
+dev.off()
 ```
 

@@ -1556,15 +1556,29 @@ odir &lt;- &quot;~/Documents/recherche-enseignement/code/R/NNbenchmark-project/N
 <pre class="r"><code>#lf   &lt;- lapply(list.files(odir, pattern = &quot;-results.csv&quot;, full.names = TRUE), csv::as.csv)
 #names(lf) &lt;- names(NNbigdatasets)
 lf &lt;- csv::as.csv(paste0(odir, &quot;/bWoodN1-results.csv&quot;))
-
+head(lf)</code></pre>
+<pre><code>##                              event   RMSE     MSE    MAE     WAE  time
+## 1 bWoodN1_MachineShop::fit_none_01 4.9098 24.1063 4.1272 15.2977 3.000
+## 2 bWoodN1_MachineShop::fit_none_02 5.0506 25.5081 4.1983 15.8010 4.025
+## 3 bWoodN1_MachineShop::fit_none_03 4.8781 23.7960 3.8942 23.3501 2.770
+## 4 bWoodN1_MachineShop::fit_none_04 4.8496 23.5183 3.9767 18.2258 4.586
+## 5 bWoodN1_MachineShop::fit_none_05 4.6998 22.0885 3.8028 15.3019 3.777
+## 6 bWoodN1_MachineShop::fit_none_06 4.5614 20.8065 3.7785 14.7040 4.333</code></pre>
+<pre class="r"><code>colnames(lf) &lt;- c(&quot;event&quot;, &quot;RMSE&quot;, &quot;MSE&quot;, &quot;MAE&quot;, &quot;WAE&quot;, &quot;time&quot;)
 
 glf &lt;- cbind(ds   = str_remove(str_extract(lf$event, &quot;\\w+_&quot;), &quot;_&quot;),
                       pfa  = str_sub(str_remove(lf$event, str_extract(lf$event, &quot;\\w+_&quot;)),  1, -4),
                       run  = str_sub(lf$event, -2, -1),
                       lf[,c(&quot;RMSE&quot;,&quot;MAE&quot;,&quot;WAE&quot;,&quot;time&quot;)])
-
-                       
-summary.glf &lt;- cbind(                       
+head(glf)</code></pre>
+<pre><code>##        ds                   pfa run   RMSE    MAE     WAE  time
+## 1 bWoodN1 MachineShop::fit_none  01 4.9098 4.1272 15.2977 3.000
+## 2 bWoodN1 MachineShop::fit_none  02 5.0506 4.1983 15.8010 4.025
+## 3 bWoodN1 MachineShop::fit_none  03 4.8781 3.8942 23.3501 2.770
+## 4 bWoodN1 MachineShop::fit_none  04 4.8496 3.9767 18.2258 4.586
+## 5 bWoodN1 MachineShop::fit_none  05 4.6998 3.8028 15.3019 3.777
+## 6 bWoodN1 MachineShop::fit_none  06 4.5614 3.7785 14.7040 4.333</code></pre>
+<pre class="r"><code>summary.glf &lt;- cbind(                       
   time.med = tapply(glf$time, glf$pfa, median) ,
   time.mean = tapply(glf$time, glf$pfa, mean) ,
   time.sd = tapply(glf$time, glf$pfa, sd) ,
@@ -1615,25 +1629,25 @@ time.med
 <tbody>
 <tr>
 <td style="text-align:left;">
-MachineShop::fit_none
+validann::ann_BFGS
 </td>
 <td style="text-align:right;">
-3.3603
+3.3599
 </td>
 <td style="text-align:right;">
-4.69980
+4.49705
 </td>
 <td style="text-align:right;">
-1.33950
+1.13715
 </td>
 <td style="text-align:right;">
-3.80280
+3.71070
 </td>
 <td style="text-align:right;">
-15.87055
+15.89260
 </td>
 <td style="text-align:right;">
-3.6005
+140.7880
 </td>
 </tr>
 <tr>
@@ -1644,19 +1658,42 @@ rminer::fit_none
 3.3662
 </td>
 <td style="text-align:right;">
-4.00775
+3.68795
 </td>
 <td style="text-align:right;">
-0.64155
+0.32175
 </td>
 <td style="text-align:right;">
-3.28240
+2.95600
 </td>
 <td style="text-align:right;">
-15.43295
+15.42995
 </td>
 <td style="text-align:right;">
-10.6770
+11.0725
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MachineShop::fit_none
+</td>
+<td style="text-align:right;">
+3.5467
+</td>
+<td style="text-align:right;">
+4.75645
+</td>
+<td style="text-align:right;">
+1.20975
+</td>
+<td style="text-align:right;">
+3.90085
+</td>
+<td style="text-align:right;">
+16.02080
+</td>
+<td style="text-align:right;">
+3.3995
 </td>
 </tr>
 <tr>
@@ -1664,22 +1701,22 @@ rminer::fit_none
 nlsr::nlxb_none
 </td>
 <td style="text-align:right;">
-3.3703
+3.5482
 </td>
 <td style="text-align:right;">
-4.64495
+4.70550
 </td>
 <td style="text-align:right;">
-1.27465
+1.15730
 </td>
 <td style="text-align:right;">
-3.79645
+3.80060
 </td>
 <td style="text-align:right;">
-16.45660
+16.56460
 </td>
 <td style="text-align:right;">
-76.8205
+76.7275
 </td>
 </tr>
 <tr>
@@ -1687,45 +1724,22 @@ nlsr::nlxb_none
 nnet::nnet_none
 </td>
 <td style="text-align:right;">
-3.3725
+3.5499
 </td>
 <td style="text-align:right;">
-4.70280
+4.70570
 </td>
 <td style="text-align:right;">
-1.33030
+1.15580
 </td>
 <td style="text-align:right;">
-3.79835
+3.80055
 </td>
 <td style="text-align:right;">
-15.86420
+16.57275
 </td>
 <td style="text-align:right;">
-3.6125
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-validann::ann_BFGS
-</td>
-<td style="text-align:right;">
-3.3800
-</td>
-<td style="text-align:right;">
-4.64900
-</td>
-<td style="text-align:right;">
-1.26900
-</td>
-<td style="text-align:right;">
-3.79850
-</td>
-<td style="text-align:right;">
-16.06910
-</td>
-<td style="text-align:right;">
-128.2625
+3.3805
 </td>
 </tr>
 </tbody>
