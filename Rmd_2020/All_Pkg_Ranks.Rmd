@@ -18,15 +18,22 @@ library(kableExtra)
 library(dplyr)   
 library(stringr) 
 options(scipen = 999)
-odir <- "D:/GSoC2020/Results/2020run04/"
+if(dir.exists("D:/GSoC2020/Results/2020run04/"))
+{  
+  odir <- "D:/GSoC2020/Results/2020run04/"
+}else
+  odir <- "../results_2020_gsoc2020/"
 ```
 
 # Read csv files and calculate some statistics for the metrics
 
 ```{r}
-lf   <- lapply(list.files(odir, pattern = "-results.csv", full.names = TRUE), csv::as.csv)
+resultfile <- list.files(odir, pattern = "-results.csv", full.names = TRUE)
+
+nonlargeresult <- grep("Wood", resultfile, invert = TRUE, value=TRUE)
+lf   <- lapply(nonlargeresult, csv::as.csv)
 names(lf) <- names(NNdatasets)
-lf <- lf[c(1:4,6,7,10,12)]
+#lf <- lf[c(1:4,6,7,10,12)]
 gfr <- lapply(lf, function(dfr) cbind(
 					  ds   = str_remove(str_extract(dfr$event, "\\w+_"), "_"),
 					  pfa  = str_sub(str_remove(dfr$event, str_extract(dfr$event, "\\w+_")),  1, -4),
@@ -121,7 +128,7 @@ mtext("x=RMSE.score,  y=RMSEd51.score", line = 1.5, font = 2)
 par(op)
 ```
 
-## Comparison of global scores and scores per dataset
+## Comparison of global scores and RMSE value per dataset
 ```{r, fig.width=10, fig.height=15}
 ## =====================================
 ## GLOBAL SCORE APPLIED TO EVERY DATASET
@@ -134,35 +141,66 @@ merge_sfr_dfr <- function(x, y) {
 	z[order(z$RMSE.score),]
 }
 zfr <- lapply(sfr, merge_sfr_dfr, y = scoredfr0)
-
+#str(zfr)
+#str(sfr)
 
 ## =========================
 ## GRAPHIC RMSEscore_RMSEmin
 ## =========================
-op <- par(mfrow = c(4,2), las = 1, mar = c(0,0,0,0), oma = c(1,1,3,1))
+op <- par(mfrow = c(length(yfr)/2,2), las = 1, mar = c(0,4,0,0), oma = c(1,1,3,1))
 for (j in seq_along(zfr)) {
 names(zfr)[j]
 plot(log1p(zfr[[j]][, "RMSE.score"]), log1p(zfr[[j]][, "RMSE.min"]),
-     xlab = "RMSE.score", ylab = "RMSE.min", #Â main = names(zfr)[j], 
-     las = 1, col = 0, xaxt = "n", yaxt = "n")
+     xlab = "RMSE.score (log1p)", ylab = "RMSE.min (log1p)", # main = names(zfr)[j], 
+     las = 1, col = 0, xaxt = "n")
 mtext(names(zfr)[j], line = -1.2, cex = 0.8)
 text(log1p(zfr[[j]][, "RMSE.score"]), log1p(zfr[[j]][, "RMSE.min"]),
 	 labels = zfr[[j]][, "RMSE.score"])
 }
-mtext("x=RMSE.score (global)   y=RMSE.min (per dataset)", outer = TRUE, line = 1)
+mtext("x=log1p(RMSE.score) (global)   y=log1p(RMSE.min) (per dataset)", outer = TRUE, line = 1)
 
+op <- par(mfrow = c(length(yfr)/2,2), las = 1, mar = c(0,4,0,0), oma = c(1,1,3,1))
+for (j in seq_along(zfr)) {
+names(zfr)[j]
+plot(zfr[[j]][, "RMSE.score"], zfr[[j]][, "RMSE.min"],
+     xlab = "RMSE.score", ylab = "RMSE.min", # main = names(zfr)[j], 
+     las = 1, col=0, xaxt = "n", pch=as.character(zfr[[j]][, "RMSE.score"]))
+mtext(names(zfr)[j], line = -1.2, cex = 0.8)
+text(zfr[[j]][, "RMSE.score"], zfr[[j]][, "RMSE.min"],
+	 labels = zfr[[j]][, "RMSE.score"])
+
+}
+mtext("x=RMSE.score (global)   y=RMSE.min (per dataset)", outer = TRUE, line = 1)
+```
+
+
+## Comparison of global scores and time mean per dataset
+```{r, fig.width=10, fig.height=15}
 
 ## ==============================
 ## GRAPHIC RMSEscore_timemean
 ## ==============================
-op <- par(mfrow = c(4,2), las = 1, mar = c(0,0,0,0), oma = c(1,1,3,1))
+op <- par(mfrow = c(length(yfr)/2,2), las = 1, mar = c(0,0,0,0), oma = c(1,1,3,1))
 for (j in seq_along(zfr)) {
 names(zfr)[j]
 plot(log1p(zfr[[j]][, "RMSE.score"]), log1p(zfr[[j]][, "time.mean"]),
-     xlab = "RMSE.score", ylab = "RMSE.min", #Â main = names(zfr)[j], 
+     xlab = "RMSE.score (log1p)", ylab = "time.mean (log1p)", 
      las = 1, col = 0, xaxt = "n", yaxt = "n")
 mtext(names(zfr)[j], line = -1.2, cex = 0.8)
 text(log1p(zfr[[j]][, "RMSE.score"]), log1p(zfr[[j]][, "time.mean"]),
+	 labels = zfr[[j]][, "RMSE.score"])
+}
+mtext("x=log1p(RMSE.score) (global)   y=log1p(time.mean) (per dataset)", outer = TRUE, line = 1)
+
+
+op <- par(mfrow = c(length(yfr)/2,2), las = 1, mar = c(0,4,0,0), oma = c(1,1,3,1))
+for (j in seq_along(zfr)) {
+names(zfr)[j]
+plot(zfr[[j]][, "RMSE.score"], zfr[[j]][, "time.mean"],
+     xlab = "RMSE.score", ylab = "time.mean", 
+     las = 1, col = 0, xaxt = "n")
+mtext(names(zfr)[j], line = -1.2, cex = 0.8)
+text(zfr[[j]][, "RMSE.score"], zfr[[j]][, "time.mean"],
 	 labels = zfr[[j]][, "RMSE.score"])
 }
 mtext("x=RMSE.score (global)   y=time.mean (per dataset)", outer = TRUE, line = 1)
@@ -173,11 +211,11 @@ mtext("x=RMSE.score (global)   y=time.mean (per dataset)", outer = TRUE, line = 
 ## =======================================
 ## GRAPHIC RMSEmin_timemean - 49 algos
 ## =======================================
-op <- par(mfrow = c(4,2), las = 1, mar = c(0,0,0,0), oma = c(1,1,3,1))
+op <- par(mfrow = c(length(yfr)/2,2), las = 1, mar = c(0,0,0,0), oma = c(1,1,3,1))
 for (j in seq_along(zfr)) {
 names(zfr)[j]
 plot(log1p(zfr[[j]][, "RMSE.min"]), log1p(zfr[[j]][, "time.mean"]),
-     xlab = "RMSE.min", ylab = "time.mean", #Â main = names(zfr)[j], 
+     xlab = "RMSE.min", ylab = "time.mean", #Â main = names(zfr)[j], 
      las = 1, col = 0, xaxt = "n", yaxt = "n")
 mtext(names(zfr)[j], line = -1.2, cex = 0.8)
 text(log1p(zfr[[j]][, "RMSE.min"]), log1p(zfr[[j]][, "time.mean"]),
@@ -189,11 +227,11 @@ mtext("x=RMSE.min (per dataset)   y=time.mean (per dataset)    49 algos", outer 
 ## =======================================
 ## GRAPHIC RMSEmin_timemean - 12 algos
 ## =======================================
-op <- par(mfrow = c(4,2), las = 1, mar = c(0,0,0,0), oma = c(1,1,3,1))
+op <- par(mfrow = c(length(yfr)/2,2), las = 1, mar = c(0,0,0,0), oma = c(1,1,3,1))
 for (j in seq_along(zfr)) {
 names(zfr)[j]
 plot(log1p(zfr[[j]][1:12, "RMSE.min"]), log1p(zfr[[j]][1:12, "time.mean"]),
-     xlab = "RMSE.min", ylab = "time.mean", #Â main = names(zfr)[j], 
+     xlab = "RMSE.min", ylab = "time.mean", #Â main = names(zfr)[j], 
      las = 1, col = 0, xaxt = "n", yaxt = "n")
 mtext(names(zfr)[j], line = -1.2, cex = 0.8)
 text(log1p(zfr[[j]][1:12, "RMSE.min"]), log1p(zfr[[j]][1:12, "time.mean"]),
@@ -205,11 +243,11 @@ mtext("x=RMSE.min (per dataset)   y=time.mean (per dataset)    12 algos", outer 
 ## =======================================
 ## GRAPHIC RMSEmin_timemean - 09 algos
 ## =======================================
-op <- par(mfrow = c(4,2), las = 1, mar = c(0,0,0,0), oma = c(1,1,3,1))
+op <- par(mfrow = c(length(yfr)/2,2), las = 1, mar = c(0,0,0,0), oma = c(1,1,3,1))
 for (j in seq_along(zfr)) {
 names(zfr)[j]
 plot(log1p(zfr[[j]][1:9, "RMSE.min"]), log1p(zfr[[j]][1:9, "time.mean"]),
-     xlab = "RMSE.min", ylab = "time.mean", #Â main = names(zfr)[j], 
+     xlab = "RMSE.min", ylab = "time.mean", #Â main = names(zfr)[j], 
      las = 1, col = 0, xaxt = "n", yaxt = "n")
 mtext(names(zfr)[j], line = -1.2, cex = 0.8)
 text(log1p(zfr[[j]][1:9, "RMSE.min"]), log1p(zfr[[j]][1:9, "time.mean"]),
@@ -223,3 +261,49 @@ mtext("x=RMSE.min (per dataset)   y=time.mean (per dataset)    9 algos", outer =
 
 ```
 
+
+
+## Final graphics for article 
+```{r, fig.width=10, fig.height=15}
+
+myscore <- c(rep(2, 10), rep(1, NROW(zfr[[1]])-10))
+myds <- seq_along(zfr)[names(zfr) %in% c("mIshigami", "uDreyfus1")]
+
+png("mIshigami-uDreyfus1-RMSEmin.png", width = 1000, height = 500)
+op <- par(mfrow = c(1,2), las = 1, mar = c(0,3,0,0), oma = c(1,1,3,2))
+for (j in myds) {
+
+plot(cumsum(myscore), zfr[[j]][, "RMSE.min"],
+     xlab = "RMSE.score", ylab = "RMSE.min", 
+     ylim=c(.9*min(zfr[[j]][, "RMSE.min"]), 1.1*max(zfr[[j]][, "RMSE.min"])),
+     las = 1, col=0, xaxt = "n", pch=as.character(zfr[[j]][, "RMSE.score"]))
+mtext(names(zfr)[j], line = -1.2, cex = 1.2)
+text(cumsum(myscore), zfr[[j]][, "RMSE.min"],
+	 labels = zfr[[j]][, "RMSE.score"])
+grid()
+}
+mtext("RMSE.min (per dataset) against RMSE.score (global)", outer = TRUE, line = 1)
+dev.off()
+
+myscore <- c(rep(2, 10), rep(1, NROW(zfr[[1]])-30), rep(2, 20))
+#myscore <- rep(2, NROW(zfr[[1]]))
+
+png("mIshigami-uDreyfus1-timmean.png", width = 1000, height = 500)
+op <- par(mfrow = c(1,2), las = 1, mar = c(0,3,0,0), oma = c(1,1,3,2))
+for (j in myds) {
+  
+  #myscore <- rep(1, NROW(zfr[[j]]))
+  #myscore[zfr[[j]][, "time.mean"] <= 0.5] <- 3
+
+plot(cumsum(myscore), zfr[[j]][, "time.mean"],
+     xlab = "RMSE.score", ylab = "time.mean", 
+     ylim=c(.9*min(zfr[[j]][, "time.mean"]), 1.1*max(zfr[[j]][, "time.mean"])),
+     las = 1, col=0, xaxt = "n", pch=as.character(zfr[[j]][, "RMSE.score"]))
+mtext(names(zfr)[j], line = -1.2, cex = 1.2)
+text(cumsum(myscore), zfr[[j]][, "time.mean"],
+	 labels = zfr[[j]][, "RMSE.score"])
+grid()
+}
+mtext("time.mean (per dataset) against RMSE.score (global)", outer = TRUE, line = 1)
+dev.off()
+```
