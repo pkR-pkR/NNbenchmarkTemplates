@@ -110,6 +110,21 @@ kable(scoredfr)%>%
 
 # Figures
 
+## Score density per package
+
+```{r}
+rkperalgo <- sfrwide[order(scoredfr0$RMSE.score),c(1, grep("RMSE.rank", colnames(sfrwide)))]
+
+n <- NROW(rkperalgo)
+rkproba <- sapply(1:n, function(j)
+  sapply(1:n, function(r) mean(as.numeric(rkperalgo[j, -1]) == r))
+)
+
+heatmap(rkproba, Rowv=NA, Colv=NA, xlab="Package:Algorithm sorted by overall RMSE score", ylab="Score", 
+        main="Score probability over 12 packages")
+```
+
+
 ## Some plots
 ```{r, fig.width=10}
 
