@@ -115,13 +115,32 @@ kable(scoredfr)%>%
 ```{r}
 rkperalgo <- sfrwide[order(scoredfr0$RMSE.score),c(1, grep("RMSE.rank", colnames(sfrwide)))]
 
+pkgname <- sapply(strsplit(rkperalgo$mDette.pfa, "::"), head, n=1)
 n <- NROW(rkperalgo)
 rkproba <- sapply(1:n, function(j)
   sapply(1:n, function(r) mean(as.numeric(rkperalgo[j, -1]) == r))
 )
 
-heatmap(rkproba, Rowv=NA, Colv=NA, xlab="Package:Algorithm sorted by overall RMSE score", ylab="Score", 
-        main="Score probability over 12 packages")
+
+colnames(rkproba) <- paste0(pkgname, ".", rownames(rkperalgo))
+
+BandW <- c("white", "grey90", "grey70", "grey50", "grey30", "grey10")
+Blue <- c("white", "skyblue", "skyblue1", "skyblue2", "skyblue3", "skyblue4")
+
+png(paste0(odir, "/","scoreprobperpkg.png"), width = 800, height = 800)
+reshtm <- heatmap(rkproba, Rowv=NA, Colv=NA, xlab="Package:Algorithm", ylab="RMSE score", 
+        main="Score probabilities over 12 packages", margins = c(6, 3), scale="none",
+        col=Blue)
+legend("topleft", fill = Blue, leg=0:5/5)
+dev.off()
+
+png(paste0(odir, "/","scoreprobperpkgBnW.png"), width = 800, height = 800)
+reshtm <- heatmap(rkproba, Rowv=NA, Colv=NA, xlab="Package:Algorithm", ylab="RMSE score", 
+        main="Score probabilities over 12 packages", margins = c(6, 3), scale="none",
+        col=BandW)
+legend("topleft", fill = BandW, leg=0:5/5)
+dev.off()
+
 ```
 
 
