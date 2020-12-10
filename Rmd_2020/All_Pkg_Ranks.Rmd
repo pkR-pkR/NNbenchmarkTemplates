@@ -55,7 +55,18 @@ yfr <- lapply(gfr, function(dfr) {
 yfr <- lapply(yfr, function(dfr) transform(dfr, npfa = 1:nrow(dfr)))
 ```
 
-# Calculate ranks per datasets and merge results
+## Make csv tables for summaries per package and per dataset
+
+Those csv are used in the supplementary materials of the paper.
+```{r}
+for(j in 1:length(yfr))
+  write.csv(yfr[[j]], file=paste0(odir, names(yfr)[j], "-result-summary.csv"), row.names = FALSE)
+```
+
+
+# Ranks and scores
+
+## Calculate ranks per datasets and merge results
 ```{r}
 rankMOFtime <- function(dfr) {
 	dfrtime <- dfr[order(dfr$time.mean),]
@@ -77,7 +88,7 @@ sfr     <- lapply(yfr, rankMOFtime)
 sfrwide <- do.call(cbind, sfr)
 ```
 
-# Global scores on combined datasets (final table)
+## Global scores on combined datasets (final table)
 ```{r}
 sfr.time   <- sfrwide[, c(grep("time.rank", colnames(sfrwide)))]
 time.score <- rank(apply(sfr.time, 1, sum), ties.method = "min")
@@ -112,7 +123,7 @@ kable(scoredfr)%>%
 
 ## Score density per package
 
-```{r}
+```{r, fig.width=10}
 rkperalgo <- sfrwide[order(scoredfr0$RMSE.score),c(1, grep("RMSE.rank", colnames(sfrwide)))]
 
 pkgname <- sapply(strsplit(rkperalgo$mDette.pfa, "::"), head, n=1)
@@ -125,26 +136,19 @@ rkproba <- sapply(1:n, function(j)
 colnames(rkproba) <- paste0(pkgname, ".", rownames(rkperalgo))
 
 BandW <- c("white", "grey90", "grey70", "grey50", "grey30", "grey10")
-Blue <- c("white", "skyblue", "skyblue1", "skyblue2", "skyblue3", "skyblue4")
 
-png(paste0(odir, "/","scoreprobperpkg.png"), width = 800, height = 800)
-reshtm <- heatmap(rkproba, Rowv=NA, Colv=NA, xlab="Package:Algorithm", ylab="RMSE score", 
-        main="Score probabilities over 12 packages", margins = c(6, 3), scale="none",
-        col=Blue)
-legend("topleft", fill = Blue, leg=0:5/5)
-dev.off()
-
-png(paste0(odir, "/","scoreprobperpkgBnW.png"), width = 800, height = 800)
+#png(paste0(odir, "/","scoreprobperpkgBnW.png"), width = 800, height = 800)
 reshtm <- heatmap(rkproba, Rowv=NA, Colv=NA, xlab="Package:Algorithm", ylab="RMSE score", 
         main="Score probabilities over 12 packages", margins = c(6, 3), scale="none",
         col=BandW)
 legend("topleft", fill = BandW, leg=0:5/5)
-dev.off()
+#dev.off()
 
 ```
 
-
+<!--
 ## Some plots
+
 ```{r, fig.width=10}
 
 plot(scoredfr[,c("time.score", "RMSE.score", "RMSEmed.score", "RMSEd51.score")], las = 1)
@@ -161,6 +165,7 @@ mtext("x=RMSE.score,  y=RMSEd51.score", line = 1.5, font = 2)
 	  # outer = TRUE, line = 2, font = 2)
 par(op)
 ```
+-->
 
 ## Comparison of global scores and RMSE value per dataset
 ```{r, fig.width=10, fig.height=15}
