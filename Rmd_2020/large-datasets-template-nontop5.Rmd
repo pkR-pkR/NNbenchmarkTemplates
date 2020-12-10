@@ -1,0 +1,143 @@
+---
+title: "Non TOP-5 Packages with Large Datasets"
+author: "All members of GSoC 2019 & 2020"
+date: "2020/12/10"
+output:
+    html_document:
+        toc: true
+        toc_float: true
+        number_sections: true
+---
+
+# Setup 
+
+```{r setup, message=FALSE, warning=FALSE}
+library(NNbenchmark)
+library(kableExtra)
+library(knitr)
+options(scipen = 999)
+```
+
+# Dataset to test
+
+```{r}
+NNdataSummary(NNbigdatasets)
+ht(bWoodN1)
+```
+
+# trainPredict_1pkg arguments
+
+## For all TOP5 packages
+```{r}
+if(dir.exists("D:/GSoC2020/Results/2020run05/"))
+{  
+  odir <- "D:/GSoC2020/Results/2020run05/"
+}else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
+{  
+  odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
+}else
+  odir <- "."
+
+nrep <- 2
+maxit2ndorder  <-    400
+maxit1storderA <-   2000
+maxit1storderB <-  10000
+maxit1storderC <- 100000
+
+```
+
+## For each TOP5 package
+
+Extract appropriate R code for NN configuration
+```{r}
+pkglist <- c("traineR", "radiant.model", "monmlp", "CaDENCE", "h2o")
+
+for(pkg in pkglist)
+{
+  pkgname.R <- paste0("NNbenchmark-2020-", pkg, ".R")
+  pkgname.Rmd <- paste0("NNbenchmark-2020-", pkg, ".Rmd")
+  configname.R <- paste0("NNbenchmark-2020-", pkg, "-Config.R")
+  if(!file.exists(configname.R))
+  {
+    if(!file.exists(pkgname.R))
+      purl(pkgname.Rmd)
+    
+    ConfigFile <- readLines(pkgname.R)
+    ConfigFile.beg <- 28
+    ConfigFile.end <- which(ConfigFile == "if(FALSE)")-1
+    if(length(ConfigFile.end) == 0)
+      ConfigFile.end <- 48
+    
+    writeLines(ConfigFile[ConfigFile.beg:ConfigFile.end], configname.R)
+  }
+  source(configname.R)
+}
+```
+
+<!--
+if(!file.exists("NNbenchmark-2020-MachineShop.R"))
+    purl("NNbenchmark-2020-MachineShop.Rmd")
+  ConfigFile <- readLines("NNbenchmark-2020-MachineShop.R")[28:48]
+  writeLines(ConfigFile, "NNbenchmark-2020-MachineShop-Config.R")
+#source("NNbenchmark-2020-MachineShop-Config.R")
+-->
+
+
+
+
+
+# Launch trainPredict_1data for all packages
+
+```{r, message=FALSE, warning=FALSE, fig.height=7, fig.width=14}
+methodlist <- list(CaDENCE.method[1], 
+                   h2o.method,
+                   monmlp.method, 
+                   radiant.model.method,
+                   traineR.method)
+pkgfunmat <- rbind(c("CaDENCE", "cadence.fit"),
+                    c("h2o", "deeplearning"),
+                    c("monmlp", "monmlp.fit"),
+                    c("radiant.model","nn"),
+                   c("traineR", "train.nnet"))
+
+colnames(pkgfunmat) <- c("pkg", "fun")  
+trainvect <- paste("NNtrain", pkgfunmat[,"pkg"], sep=".")
+hypervect <- paste("hyperParams", pkgfunmat[,"pkg"], sep=".")
+predvect <- paste("NNpredict", pkgfunmat[,"pkg"], sep=".")
+closevect <- paste("NNclose", pkgfunmat[,"pkg"], sep=".")
+startvect <- rep(NA, length(pkgfunmat[,"pkg"]))
+startvect[pkgfunmat[,"pkg"] == "h2o"] <- "NNstart.h2o"
+preparelist <- list(CaDENCE.prepareZZ, 
+                    h2o.prepareZZ,
+                    monmlp.prepareZZ, 
+                    radiant.model.prepareZZ,
+                    traineR.prepareZZ)
+names(preparelist) <- pkgfunmat[,"pkg"]
+
+resall <- trainPredict_1data(dset=13, method=methodlist, train=trainvect, hyper=hypervect,
+                     pred=predvect, summary=NNsummary, close=closevect, 
+                     start=startvect, prepare=preparelist, nrep=nrep, echo=FALSE, doplot=FALSE,
+                     pkgname=pkgfunmat[,"pkg"], pkgfun=pkgfunmat[,"fun"], 
+                     csvfile = TRUE, rdafile = TRUE, odir = odir)
+if(is.list(resall))
+  resall <- do.call(cbind, resall)
+
+rownames(resall) <- 
+  paste0(rep(c("RMSE", "MSE", "MAE", "WAE", "time"), length=5*nrep), ".", rep(1:nrep, each=5))
+
+write.csv(resall, file=paste0(odir, "bWoodN1-results-per-pkg-column.csv"))
+
+resmin <- sapply(1:NCOL(resall),
+       function(j)
+       {
+         idx.min <- which.min(resall[grep("RMSE.", rownames(resall)),j])
+          idx <- (idx.min-1)*5+1:5
+          resall[idx, j]
+       })
+colnames(resmin) <- colnames(resall)
+rownames(resmin) <- c("RMSE", "MSE", "MAE", "WAE", "time")
+kable(t(resmin) )
+
+```
+
+
