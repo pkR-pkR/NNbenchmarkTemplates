@@ -38,7 +38,7 @@ if(dir.exists("D:/GSoC2020/Results/2020run05/"))
 }else
   odir <- "."
 
-nrep <- 2
+nrep <- 10
 maxit2ndorder  <-    400
 maxit1storderA <-   2000
 maxit1storderB <-  10000

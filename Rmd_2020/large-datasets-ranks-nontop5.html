@@ -12,7 +12,7 @@
 <meta name="author" content="All members of GSoC 2019 &amp; 2020" />
 
 
-<title>Non TOP-5 Packages with Large Datasets</title>
+<title>NNbenchmark Ranking Function</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1334,6 +1334,230 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<style type="text/css">
+.lightable-minimal {
+border-collapse: separate;
+border-spacing: 16px 1px;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-minimal td {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal th {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal thead tr:last-child th {
+border-bottom: 2px solid #00000050;
+empty-cells: hide;
+}
+.lightable-minimal tbody tr:first-child td {
+padding-top: 0.5em;
+}
+.lightable-minimal.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic {
+border-top: 0.16em solid #111111;
+border-bottom: 0.16em solid #111111;
+width: 100%;
+margin-bottom: 10px;
+margin: 10px 5px;
+}
+.lightable-classic tfoot tr td {
+border: 0;
+}
+.lightable-classic tfoot tr:first-child td {
+border-top: 0.14em solid #111111;
+}
+.lightable-classic caption {
+color: #222222;
+}
+.lightable-classic td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic thead tr:last-child th {
+border-bottom: 0.10em solid #111111;
+}
+.lightable-classic.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic-2 {
+border-top: 3px double #111111;
+border-bottom: 3px double #111111;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-classic-2 tfoot tr td {
+border: 0;
+}
+.lightable-classic-2 tfoot tr:first-child td {
+border-top: 3px double #111111;
+}
+.lightable-classic-2 caption {
+color: #222222;
+}
+.lightable-classic-2 td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic-2 th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic-2 tbody tr:last-child td {
+border-bottom: 3px double #111111;
+}
+.lightable-classic-2 thead tr:last-child th {
+border-bottom: 1px solid #111111;
+}
+.lightable-classic-2.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #EEE;
+border-collapse: collapse;
+margin-bottom: 10px;
+}
+.lightable-material tfoot tr td {
+border: 0;
+}
+.lightable-material tfoot tr:first-child td {
+border-top: 1px solid #EEE;
+}
+.lightable-material th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+}
+.lightable-material td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+border-top: 1px solid #eeeeee;
+}
+.lightable-material.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #ddd;
+}
+.lightable-material-dark {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #FFFFFF12;
+border-collapse: collapse;
+margin-bottom: 10px;
+background-color: #363640;
+}
+.lightable-material-dark tfoot tr td {
+border: 0;
+}
+.lightable-material-dark tfoot tr:first-child td {
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF60;
+}
+.lightable-material-dark td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF;
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark.lightable-hover tbody tr:hover {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material-dark.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #FFFFFF12;
+}
+.lightable-paper {
+width: 100%;
+margin-bottom: 10px;
+color: #444;
+}
+.lightable-paper tfoot tr td {
+border: 0;
+}
+.lightable-paper tfoot tr:first-child td {
+border-top: 1px solid #00000020;
+}
+.lightable-paper thead tr:last-child th {
+color: #666;
+vertical-align: bottom;
+border-bottom: 1px solid #00000020;
+line-height: 1.15em;
+padding: 10px 5px;
+}
+.lightable-paper td {
+vertical-align: middle;
+border-bottom: 1px solid #00000010;
+line-height: 1.15em;
+padding: 7px 5px;
+}
+.lightable-paper.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-paper.lightable-striped tbody tr:nth-child(even) {
+background-color: #00000008;
+}
+.lightable-paper.lightable-striped tbody td {
+border: 0;
+}
+</style>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -1570,698 +1794,296 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Non TOP-5 Packages with Large Datasets</h1>
+<h1 class="title toc-ignore">NNbenchmark Ranking Function</h1>
 <h4 class="author">All members of GSoC 2019 &amp; 2020</h4>
-<h4 class="date">2020/12/10</h4>
+<h4 class="date">2020/10/13</h4>
 
 </div>
 
 
-<div id="setup" class="section level1" number="1">
-<h1 number="1"><span class="header-section-number">1</span> Setup</h1>
+<div id="environment-and-datasets" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Environment and datasets</h1>
+<div id="setup-environment" class="section level2" number="1.1">
+<h2 number="1.1"><span class="header-section-number">1.1</span> Setup environment</h2>
 <pre class="r"><code>library(NNbenchmark)
 library(kableExtra)
-library(knitr)
-options(scipen = 999)</code></pre>
-</div>
-<div id="dataset-to-test" class="section level1" number="2">
-<h1 number="2"><span class="header-section-number">2</span> Dataset to test</h1>
-<pre class="r"><code>NNdataSummary(NNbigdatasets)</code></pre>
-<pre><code>##   Dataset n_rows n_inputs n_neurons n_parameters
-## 1 bWoodN1  20000        6         5           41</code></pre>
-<pre class="r"><code>ht(bWoodN1)</code></pre>
-<pre><code>##              x1         x2        x3        x4        x5        x6          y
-## 1     0.5042050 0.05765295 0.9028320 0.4322548 0.4187889 0.3419781 -15.178295
-## 2     0.9301722 0.53164816 0.4434929 0.8087859 0.6993847 0.5547075  14.048025
-## 3     0.3437977 0.22566605 0.6483183 0.5155759 0.9063721 0.4779758 -20.257463
-## 19998 1.0000000 1.00000000 1.0000000 1.0000000 0.0000000 1.0000000  24.227091
-## 19999 1.0000000 1.00000000 1.0000000 1.0000000 1.0000000 0.0000000   5.560786
-## 20000 1.0000000 1.00000000 1.0000000 1.0000000 1.0000000 1.0000000  24.309251</code></pre>
-</div>
-<div id="trainpredict_1pkg-arguments" class="section level1" number="3">
-<h1 number="3"><span class="header-section-number">3</span> trainPredict_1pkg arguments</h1>
-<div id="for-all-top5-packages" class="section level2" number="3.1">
-<h2 number="3.1"><span class="header-section-number">3.1</span> For all TOP5 packages</h2>
-<pre class="r"><code>if(dir.exists(&quot;D:/GSoC2020/Results/2020run05/&quot;))
-{  
-  odir &lt;- &quot;D:/GSoC2020/Results/2020run05/&quot;
-}else if(dir.exists(&quot;~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/&quot;))
-{  
-  odir &lt;- &quot;~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/&quot;
-}else
-  odir &lt;- &quot;.&quot;
+library(dplyr)   
+library(stringr) 
+options(scipen = 999)
 
-nrep &lt;- 10
-maxit2ndorder  &lt;-    400
-maxit1storderA &lt;-   2000
-maxit1storderB &lt;-  10000
-maxit1storderC &lt;- 100000</code></pre>
-</div>
-<div id="for-each-top5-package" class="section level2" number="3.2">
-<h2 number="3.2"><span class="header-section-number">3.2</span> For each TOP5 package</h2>
-<p>Extract appropriate R code for NN configuration</p>
-<pre class="r"><code>pkglist &lt;- c(&quot;traineR&quot;, &quot;radiant.model&quot;, &quot;monmlp&quot;, &quot;CaDENCE&quot;, &quot;h2o&quot;)
-
-for(pkg in pkglist)
-{
-  pkgname.R &lt;- paste0(&quot;NNbenchmark-2020-&quot;, pkg, &quot;.R&quot;)
-  pkgname.Rmd &lt;- paste0(&quot;NNbenchmark-2020-&quot;, pkg, &quot;.Rmd&quot;)
-  configname.R &lt;- paste0(&quot;NNbenchmark-2020-&quot;, pkg, &quot;-Config.R&quot;)
-  if(!file.exists(configname.R))
-  {
-    if(!file.exists(pkgname.R))
-      purl(pkgname.Rmd)
-    
-    ConfigFile &lt;- readLines(pkgname.R)
-    ConfigFile.beg &lt;- 28
-    ConfigFile.end &lt;- which(ConfigFile == &quot;if(FALSE)&quot;)-1
-    if(length(ConfigFile.end) == 0)
-      ConfigFile.end &lt;- 48
-    
-    writeLines(ConfigFile[ConfigFile.beg:ConfigFile.end], configname.R)
-  }
-  source(configname.R)
-}</code></pre>
-<!--
-if(!file.exists("NNbenchmark-2020-MachineShop.R"))
-    purl("NNbenchmark-2020-MachineShop.Rmd")
-  ConfigFile <- readLines("NNbenchmark-2020-MachineShop.R")[28:48]
-  writeLines(ConfigFile, "NNbenchmark-2020-MachineShop-Config.R")
-#source("NNbenchmark-2020-MachineShop-Config.R")
--->
+odir &lt;- &quot;~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNbenchmarkTemplates/results_2020_gsoc2020&quot;</code></pre>
 </div>
 </div>
-<div id="launch-trainpredict_1data-for-all-packages" class="section level1" number="4">
-<h1 number="4"><span class="header-section-number">4</span> Launch trainPredict_1data for all packages</h1>
-<pre class="r"><code>methodlist &lt;- list(CaDENCE.method[1], 
-                   h2o.method,
-                   monmlp.method, 
-                   radiant.model.method,
-                   traineR.method)
-pkgfunmat &lt;- rbind(c(&quot;CaDENCE&quot;, &quot;cadence.fit&quot;),
-                    c(&quot;h2o&quot;, &quot;deeplearning&quot;),
-                    c(&quot;monmlp&quot;, &quot;monmlp.fit&quot;),
-                    c(&quot;radiant.model&quot;,&quot;nn&quot;),
-                   c(&quot;traineR&quot;, &quot;train.nnet&quot;))
+<div id="read-csv-files-and-calculate-some-statistics-for-the-metrics" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Read csv files and calculate some statistics for the metrics</h1>
+<pre class="r"><code>#lf   &lt;- lapply(list.files(odir, pattern = &quot;-results.csv&quot;, full.names = TRUE), csv::as.csv)
+#names(lf) &lt;- names(NNbigdatasets)
+lf &lt;- csv::as.csv(paste0(odir, &quot;/bWoodN1-results-nontop5.csv&quot;))
+head(lf)</code></pre>
+<pre><code>##                                   event   RMSE     MSE    MAE     WAE    time
+## 1 bWoodN1_CaDENCE::cadence.fit_optim_01 4.4410 19.7228 3.6976 14.8991 281.137
+## 2 bWoodN1_CaDENCE::cadence.fit_optim_02 3.7995 14.4361 3.0423 17.9119 230.945
+## 3 bWoodN1_CaDENCE::cadence.fit_optim_03 4.7062 22.1479 3.7990 16.5927 199.260
+## 4 bWoodN1_CaDENCE::cadence.fit_optim_04 4.7062 22.1482 3.7994 16.5541 244.292
+## 5 bWoodN1_CaDENCE::cadence.fit_optim_05 3.5522 12.6180 2.8558 13.9240 245.869
+## 6 bWoodN1_CaDENCE::cadence.fit_optim_06 5.7935 33.5645 4.7529 19.2572 232.086</code></pre>
+<pre class="r"><code>colnames(lf) &lt;- c(&quot;event&quot;, &quot;RMSE&quot;, &quot;MSE&quot;, &quot;MAE&quot;, &quot;WAE&quot;, &quot;time&quot;)
 
-colnames(pkgfunmat) &lt;- c(&quot;pkg&quot;, &quot;fun&quot;)  
-trainvect &lt;- paste(&quot;NNtrain&quot;, pkgfunmat[,&quot;pkg&quot;], sep=&quot;.&quot;)
-hypervect &lt;- paste(&quot;hyperParams&quot;, pkgfunmat[,&quot;pkg&quot;], sep=&quot;.&quot;)
-predvect &lt;- paste(&quot;NNpredict&quot;, pkgfunmat[,&quot;pkg&quot;], sep=&quot;.&quot;)
-closevect &lt;- paste(&quot;NNclose&quot;, pkgfunmat[,&quot;pkg&quot;], sep=&quot;.&quot;)
-startvect &lt;- rep(NA, length(pkgfunmat[,&quot;pkg&quot;]))
-startvect[pkgfunmat[,&quot;pkg&quot;] == &quot;h2o&quot;] &lt;- &quot;NNstart.h2o&quot;
-preparelist &lt;- list(CaDENCE.prepareZZ, 
-                    h2o.prepareZZ,
-                    monmlp.prepareZZ, 
-                    radiant.model.prepareZZ,
-                    traineR.prepareZZ)
-names(preparelist) &lt;- pkgfunmat[,&quot;pkg&quot;]
+glf &lt;- cbind(ds   = str_remove(str_extract(lf$event, &quot;\\w+_&quot;), &quot;_&quot;),
+                      pfa  = str_sub(str_remove(lf$event, str_extract(lf$event, &quot;\\w+_&quot;)),  1, -4),
+                      run  = str_sub(lf$event, -2, -1),
+                      lf[,c(&quot;RMSE&quot;,&quot;MAE&quot;,&quot;WAE&quot;,&quot;time&quot;)])
+head(glf)</code></pre>
+<pre><code>##        ds                        pfa run   RMSE    MAE     WAE    time
+## 1 bWoodN1 CaDENCE::cadence.fit_optim  01 4.4410 3.6976 14.8991 281.137
+## 2 bWoodN1 CaDENCE::cadence.fit_optim  02 3.7995 3.0423 17.9119 230.945
+## 3 bWoodN1 CaDENCE::cadence.fit_optim  03 4.7062 3.7990 16.5927 199.260
+## 4 bWoodN1 CaDENCE::cadence.fit_optim  04 4.7062 3.7994 16.5541 244.292
+## 5 bWoodN1 CaDENCE::cadence.fit_optim  05 3.5522 2.8558 13.9240 245.869
+## 6 bWoodN1 CaDENCE::cadence.fit_optim  06 5.7935 4.7529 19.2572 232.086</code></pre>
+<pre class="r"><code>summary.glf &lt;- cbind.data.frame(pfa=unique(glf$pfa),                       
+  time.med = tapply(glf$time, glf$pfa, median) ,
+  time.mean = tapply(glf$time, glf$pfa, mean) ,
+  time.sd = tapply(glf$time, glf$pfa, sd) ,
+  RMSE.min = tapply(glf$RMSE, glf$pfa, min) ,
+  RMSE.med = tapply(glf$RMSE, glf$pfa, median) ,
+  RMSE.mean = tapply(glf$RMSE, glf$pfa, mean) ,
+  RMSE.d51 = tapply(glf$RMSE, glf$pfa, function(x) median(x) - min(x)) ,
+  MAE.mean = tapply(glf$MAE, glf$pfa, mean) ,
+  MAE.med = tapply(glf$MAE, glf$pfa, median) ,
+  WAE.mean = tapply(glf$WAE, glf$pfa, mean) ,
+  WAE.med = tapply(glf$WAE, glf$pfa, median))
 
-resall &lt;- trainPredict_1data(dset=13, method=methodlist, train=trainvect, hyper=hypervect,
-                     pred=predvect, summary=NNsummary, close=closevect, 
-                     start=startvect, prepare=preparelist, nrep=nrep, echo=FALSE, doplot=FALSE,
-                     pkgname=pkgfunmat[,&quot;pkg&quot;], pkgfun=pkgfunmat[,&quot;fun&quot;], 
-                     csvfile = TRUE, rdafile = TRUE, odir = odir)</code></pre>
-<pre><code>## n.hidden = 5 --&gt; 1 * NLL = 10301.1 ; penalty = 0; BIC = 21067.67 ; AICc = 20696.43 ; AIC = 20696.2
-## n.hidden = 5 --&gt; 1 * NLL = 7127.565 ; penalty = 0; BIC = 14720.59 ; AICc = 14349.36 ; AIC = 14349.13
-## n.hidden = 5 --&gt; 1 * NLL = 11463.26 ; penalty = 0; BIC = 23391.99 ; AICc = 23020.75 ; AIC = 23020.52
-## n.hidden = 5 --&gt; 1 * NLL = 11463.15 ; penalty = 0; BIC = 23391.77 ; AICc = 23020.53 ; AIC = 23020.31
-## n.hidden = 5 --&gt; 1 * NLL = 5798.915 ; penalty = 0; BIC = 12063.29 ; AICc = 11692.06 ; AIC = 11691.83
-## n.hidden = 5 --&gt; 1 * NLL = 15623.52 ; penalty = 0; BIC = 31712.51 ; AICc = 31341.28 ; AIC = 31341.05
-## n.hidden = 5 --&gt; 1 * NLL = 4615.389 ; penalty = 0; BIC = 9696.243 ; AICc = 9325.005 ; AIC = 9324.779
-## n.hidden = 5 --&gt; 1 * NLL = 15605.58 ; penalty = 0; BIC = 31676.62 ; AICc = 31305.38 ; AIC = 31305.16
-## n.hidden = 5 --&gt; 1 * NLL = 10848.39 ; penalty = 0; BIC = 22162.25 ; AICc = 21791.01 ; AIC = 21790.79
-## n.hidden = 5 --&gt; 1 * NLL = 11220.25 ; penalty = 0; BIC = 22905.97 ; AICc = 22534.74 ; AIC = 22534.51
-## 
-## H2O is not running yet, starting it now...
-## 
-## Note:  In case of errors look at the following log files:
-##     /var/folders/0_/pj8gdbp16vq_bxhn09k5n4_m0000gp/T//RtmpnbMG2Y/file10f76760f66aa/h2o_dutang_started_from_r.out
-##     /var/folders/0_/pj8gdbp16vq_bxhn09k5n4_m0000gp/T//RtmpnbMG2Y/file10f766d1d5f73/h2o_dutang_started_from_r.err
-## 
-## 
-## Starting H2O JVM and connecting: .. Connection successful!
-## 
-## R is connected to the H2O cluster: 
-##     H2O cluster uptime:         2 seconds 745 milliseconds 
-##     H2O cluster timezone:       Europe/Paris 
-##     H2O data parsing timezone:  UTC 
-##     H2O cluster version:        3.32.0.1 
-##     H2O cluster version age:    2 months and 7 days  
-##     H2O cluster name:           H2O_started_from_R_dutang_vcj335 
-##     H2O cluster total nodes:    1 
-##     H2O cluster total memory:   1.78 GB 
-##     H2O cluster total cores:    4 
-##     H2O cluster allowed cores:  4 
-##     H2O cluster healthy:        TRUE 
-##     H2O Connection ip:          localhost 
-##     H2O Connection port:        54321 
-##     H2O Connection proxy:       NA 
-##     H2O Internal Security:      FALSE 
-##     H2O API Extensions:         Amazon S3, XGBoost, Algos, AutoML, Core V3, TargetEncoder, Core V4 
-##     R Version:                  R version 4.0.3 (2020-10-10) 
-## 
-## [1] &quot;A shutdown has been triggered. &quot;
-## # weights:  41
-## initial  value 25290.669157 
-## iter  10 value 9733.796238
-## iter  20 value 8932.564334
-## iter  30 value 8685.518304
-## iter  40 value 8135.040316
-## iter  50 value 7295.783635
-## iter  60 value 6741.725278
-## iter  70 value 6508.471493
-## iter  80 value 6422.570021
-## iter  90 value 6317.012609
-## iter 100 value 6247.817935
-## iter 110 value 6234.501737
-## iter 120 value 6186.979955
-## iter 130 value 6173.463762
-## iter 140 value 6165.142469
-## iter 150 value 6125.939511
-## iter 160 value 6104.107151
-## iter 170 value 6100.114952
-## iter 180 value 6029.960477
-## iter 190 value 5948.374241
-## iter 200 value 5916.910795
-## iter 210 value 5816.055137
-## iter 220 value 5502.448573
-## iter 230 value 5137.978888
-## iter 240 value 5046.333119
-## iter 250 value 4849.101255
-## iter 260 value 4473.239995
-## iter 270 value 4266.578794
-## iter 280 value 4235.959477
-## iter 290 value 4215.178165
-## iter 300 value 4084.525650
-## iter 310 value 3970.004539
-## iter 320 value 3908.106665
-## iter 330 value 3898.981901
-## iter 340 value 3895.731097
-## iter 350 value 3894.159575
-## iter 360 value 3892.797310
-## iter 370 value 3889.363215
-## iter 380 value 3887.051515
-## iter 390 value 3881.693152
-## iter 400 value 3876.902531
-## final  value 3876.902531 
-## stopped after 400 iterations
-## # weights:  41
-## initial  value 22679.819991 
-## iter  10 value 9470.227184
-## iter  20 value 8198.450032
-## iter  30 value 7630.476181
-## iter  40 value 6670.854402
-## iter  50 value 5964.055480
-## iter  60 value 5356.050330
-## iter  70 value 5160.760903
-## iter  80 value 4893.490931
-## iter  90 value 4719.307206
-## iter 100 value 4628.947135
-## iter 110 value 4588.494561
-## iter 120 value 4467.060208
-## iter 130 value 4251.734223
-## iter 140 value 3820.157906
-## iter 150 value 2963.026510
-## iter 160 value 2853.888875
-## iter 170 value 2832.747640
-## iter 180 value 2823.400544
-## iter 190 value 2817.760640
-## iter 200 value 2814.668464
-## iter 210 value 2805.717430
-## iter 220 value 2796.127827
-## iter 230 value 2739.994469
-## iter 240 value 2504.764307
-## iter 250 value 2150.685377
-## iter 260 value 2129.350460
-## iter 270 value 2113.401076
-## iter 280 value 2107.860158
-## iter 290 value 2103.008167
-## iter 300 value 2098.074484
-## iter 310 value 2097.996264
-## iter 320 value 2097.943314
-## iter 330 value 2097.907113
-## final  value 2097.815056 
-## converged
-## # weights:  41
-## initial  value 23159.400214 
-## iter  10 value 9051.332026
-## iter  20 value 8442.704343
-## iter  30 value 8158.177428
-## iter  40 value 7753.700338
-## iter  50 value 6799.761610
-## iter  60 value 5119.747011
-## iter  70 value 4568.205732
-## iter  80 value 4294.146977
-## iter  90 value 4161.010116
-## iter 100 value 4056.328880
-## iter 110 value 3948.274441
-## iter 120 value 3868.173273
-## iter 130 value 3749.301602
-## iter 140 value 3660.377089
-## iter 150 value 3588.359813
-## iter 160 value 3553.953496
-## iter 170 value 3538.204184
-## iter 180 value 3532.647681
-## iter 190 value 3529.761131
-## iter 200 value 3528.565389
-## iter 210 value 3522.568313
-## iter 220 value 3508.274575
-## iter 230 value 3499.709429
-## iter 240 value 3495.530992
-## iter 250 value 3493.416126
-## iter 260 value 3493.280605
-## iter 270 value 3493.223782
-## iter 280 value 3493.090947
-## iter 290 value 3492.915588
-## iter 300 value 3492.815092
-## iter 310 value 3492.021432
-## iter 320 value 3491.328932
-## iter 330 value 3490.930289
-## iter 340 value 3490.779729
-## final  value 3490.759543 
-## converged
-## # weights:  41
-## initial  value 30636.244165 
-## iter  10 value 9530.379038
-## iter  20 value 8688.740698
-## iter  30 value 8006.260780
-## iter  40 value 7337.773237
-## iter  50 value 6667.586492
-## iter  60 value 6541.074457
-## iter  70 value 6433.835646
-## iter  80 value 5942.804813
-## iter  90 value 5102.664195
-## iter 100 value 4682.682264
-## iter 110 value 4455.651462
-## iter 120 value 4170.164907
-## iter 130 value 3980.631011
-## iter 140 value 3769.791374
-## iter 150 value 3665.662483
-## iter 160 value 3615.971829
-## iter 170 value 3596.468215
-## iter 180 value 3557.581129
-## iter 190 value 3544.968047
-## iter 200 value 3524.594837
-## iter 210 value 3508.442428
-## iter 220 value 3472.840344
-## iter 230 value 3469.078744
-## iter 240 value 3463.455878
-## iter 250 value 3460.353611
-## iter 260 value 3459.858421
-## iter 270 value 3459.086158
-## iter 280 value 3458.174961
-## iter 290 value 3457.242791
-## iter 300 value 3455.529060
-## iter 310 value 3453.509098
-## iter 320 value 3452.834471
-## iter 330 value 3452.334606
-## final  value 3452.264964 
-## converged
-## # weights:  41
-## initial  value 20879.357753 
-## iter  10 value 9691.089088
-## iter  20 value 9050.875666
-## iter  30 value 8810.166219
-## iter  40 value 8654.407856
-## iter  50 value 7685.405595
-## iter  60 value 5661.789847
-## iter  70 value 5426.286525
-## iter  80 value 5344.096128
-## iter  90 value 5319.809502
-## iter 100 value 5286.978108
-## iter 110 value 5247.588744
-## iter 120 value 5213.985947
-## iter 130 value 4900.370331
-## iter 140 value 3142.637560
-## iter 150 value 2707.291621
-## iter 160 value 2644.158856
-## iter 170 value 2632.733510
-## iter 180 value 2631.260421
-## iter 190 value 2627.549675
-## iter 200 value 2621.664619
-## iter 210 value 2617.510629
-## iter 220 value 2566.403743
-## iter 230 value 2484.506995
-## iter 240 value 2438.921587
-## iter 250 value 2269.999095
-## iter 260 value 2233.967399
-## iter 270 value 2194.448951
-## iter 280 value 2170.363092
-## iter 290 value 2155.503862
-## iter 300 value 2133.487712
-## iter 310 value 2123.603153
-## iter 320 value 2120.623742
-## iter 330 value 2119.922742
-## iter 340 value 2119.316241
-## iter 350 value 2119.230009
-## iter 360 value 2118.972830
-## iter 370 value 2118.568308
-## iter 380 value 2117.478764
-## iter 390 value 2116.142928
-## iter 400 value 2115.797401
-## final  value 2115.797401 
-## stopped after 400 iterations
-## # weights:  41
-## initial  value 24538.326035 
-## iter  10 value 9322.319755
-## iter  20 value 7548.888118
-## iter  30 value 7325.148674
-## iter  40 value 5879.452666
-## iter  50 value 4740.163230
-## iter  60 value 4474.943759
-## iter  70 value 4332.116930
-## iter  80 value 4275.249073
-## iter  90 value 4245.882988
-## iter 100 value 4225.385658
-## iter 110 value 4203.374956
-## iter 120 value 4194.287896
-## iter 130 value 4130.876603
-## iter 140 value 3889.120890
-## iter 150 value 3806.035452
-## iter 160 value 3784.559144
-## iter 170 value 3762.897321
-## iter 180 value 3731.748775
-## iter 190 value 3713.132269
-## iter 200 value 3709.503967
-## iter 210 value 3698.728438
-## iter 220 value 3686.230736
-## iter 230 value 3684.341502
-## iter 240 value 3683.282518
-## iter 250 value 3682.355902
-## iter 260 value 3682.320158
-## iter 270 value 3682.120237
-## iter 280 value 3681.850523
-## iter 290 value 3681.282311
-## iter 300 value 3680.227547
-## iter 310 value 3679.776304
-## iter 320 value 3679.528139
-## iter 330 value 3679.339290
-## final  value 3679.259221 
-## converged
-## # weights:  41
-## initial  value 25872.884382 
-## iter  10 value 9401.389643
-## iter  20 value 9028.305585
-## iter  30 value 8786.269395
-## iter  40 value 8451.081811
-## iter  50 value 7522.852229
-## iter  60 value 6755.117742
-## iter  70 value 6441.234143
-## iter  80 value 6305.746927
-## iter  90 value 6203.329187
-## iter 100 value 6124.251127
-## iter 110 value 6100.682160
-## iter 120 value 6055.509903
-## iter 130 value 5346.536117
-## iter 140 value 4550.689283
-## iter 150 value 4398.069705
-## iter 160 value 4163.129183
-## iter 170 value 4086.693514
-## iter 180 value 4076.034940
-## iter 190 value 4065.876195
-## iter 200 value 4056.207381
-## iter 210 value 4049.864493
-## iter 220 value 4032.086001
-## iter 230 value 4024.807244
-## iter 240 value 4020.433106
-## iter 250 value 4017.674083
-## iter 260 value 4017.512358
-## iter 270 value 4017.231010
-## iter 280 value 4017.064972
-## iter 290 value 4016.731899
-## iter 300 value 4016.078897
-## iter 310 value 4015.145348
-## iter 320 value 4014.646714
-## iter 330 value 4014.479389
-## final  value 4014.451355 
-## converged
-## # weights:  41
-## initial  value 25921.045626 
-## iter  10 value 10109.327189
-## iter  20 value 8701.559619
-## iter  30 value 7924.520496
-## iter  40 value 7372.839751
-## iter  50 value 5974.146561
-## iter  60 value 5420.241188
-## iter  70 value 5270.788913
-## iter  80 value 5019.537173
-## iter  90 value 4863.205405
-## iter 100 value 4747.802573
-## iter 110 value 4600.762145
-## iter 120 value 4516.839115
-## iter 130 value 3314.663837
-## iter 140 value 2945.444782
-## iter 150 value 2763.584244
-## iter 160 value 2490.969393
-## iter 170 value 2196.943552
-## iter 180 value 2154.128318
-## iter 190 value 2144.394703
-## iter 200 value 2138.955052
-## iter 210 value 2122.364696
-## iter 220 value 2112.491516
-## iter 230 value 2107.573973
-## iter 240 value 2105.508353
-## iter 250 value 2104.748890
-## iter 260 value 2104.253991
-## iter 270 value 2103.621321
-## iter 280 value 2103.123348
-## iter 290 value 2102.729551
-## iter 300 value 2102.336323
-## iter 310 value 2102.013518
-## iter 320 value 2101.570204
-## iter 330 value 2101.342010
-## final  value 2101.299919 
-## converged
-## # weights:  41
-## initial  value 26929.974846 
-## iter  10 value 9862.397239
-## iter  20 value 8817.882483
-## iter  30 value 8122.156856
-## iter  40 value 6931.154352
-## iter  50 value 5506.351009
-## iter  60 value 5058.954202
-## iter  70 value 4670.104128
-## iter  80 value 4379.034883
-## iter  90 value 4196.847295
-## iter 100 value 4070.520343
-## iter 110 value 4005.452388
-## iter 120 value 3917.174921
-## iter 130 value 3798.363290
-## iter 140 value 3654.097980
-## iter 150 value 3573.139457
-## iter 160 value 3534.118513
-## iter 170 value 3521.861845
-## iter 180 value 3517.136211
-## iter 190 value 3514.110277
-## iter 200 value 3512.328872
-## iter 210 value 3507.295025
-## iter 220 value 3496.210850
-## iter 230 value 3489.158146
-## iter 240 value 3486.452193
-## iter 250 value 3485.143504
-## iter 260 value 3484.892639
-## iter 270 value 3484.604646
-## iter 280 value 3484.469350
-## iter 290 value 3484.325162
-## iter 300 value 3483.999842
-## iter 310 value 3483.620703
-## iter 320 value 3483.319723
-## iter 330 value 3483.221147
-## final  value 3483.211773 
-## converged
-## # weights:  41
-## initial  value 22293.627286 
-## iter  10 value 9309.261904
-## iter  20 value 8678.457657
-## iter  30 value 8408.906414
-## iter  40 value 7810.015454
-## iter  50 value 6617.588655
-## iter  60 value 4886.114968
-## iter  70 value 4541.932074
-## iter  80 value 4457.349714
-## iter  90 value 4428.045355
-## iter 100 value 4402.688157
-## iter 110 value 4358.816584
-## iter 120 value 4330.720263
-## iter 130 value 4277.536864
-## iter 140 value 4263.356721
-## iter 150 value 4257.436073
-## iter 160 value 4253.377302
-## iter 170 value 4252.019605
-## iter 180 value 4251.807262
-## iter 190 value 4251.648269
-## iter 200 value 4251.495702
-## iter 210 value 4251.043396
-## iter 220 value 4250.319729
-## iter 230 value 4249.760283
-## iter 240 value 4249.552202
-## iter 250 value 4249.421063
-## iter 260 value 4249.409495
-## iter 260 value 4249.409475
-## iter 260 value 4249.409463
-## final  value 4249.409463 
-## converged</code></pre>
-<pre class="r"><code>if(is.list(resall))
-  resall &lt;- do.call(cbind, resall)
 
-rownames(resall) &lt;- 
-  paste0(rep(c(&quot;RMSE&quot;, &quot;MSE&quot;, &quot;MAE&quot;, &quot;WAE&quot;, &quot;time&quot;), length=5*nrep), &quot;.&quot;, rep(1:nrep, each=5))
 
-write.csv(resall, file=paste0(odir, &quot;bWoodN1-results-per-pkg-column.csv&quot;))
+npfa &lt;- function(x)
+  switch (x,
+    &quot;CaDENCE::cadence.fit_optim&quot;=12,
+    &quot;h2o::deeplearning_first-order&quot;=24,
+    &quot;monmlp::monmlp.fit_BFGS&quot;=34,
+    &quot;monmlp::monmlp.fit_Nelder-Mead&quot;=35,
+    &quot;radiant.model::nn_none&quot;=44,
+    &quot;traineR::train.nnet_none&quot;=55,
+    NA
+  )
+summary.glf$npfa &lt;- sapply(summary.glf$pfa, npfa)</code></pre>
+</div>
+<div id="global-scores" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Global scores</h1>
+<pre class="r"><code>scoredfr0 &lt;- as.data.frame(summary.glf[, 
+        c(&quot;pfa&quot;,&quot;time.mean&quot;,&quot;RMSE.min&quot;,&quot;RMSE.med&quot;,
+          &quot;RMSE.d51&quot;,&quot;MAE.med&quot;,&quot;WAE.med&quot;,&quot;npfa&quot;)])
 
-resmin &lt;- sapply(1:NCOL(resall),
-       function(j)
-       {
-         idx.min &lt;- which.min(resall[grep(&quot;RMSE.&quot;, rownames(resall)),j])
-          idx &lt;- (idx.min-1)*5+1:5
-          resall[idx, j]
-       })
-colnames(resmin) &lt;- colnames(resall)
-rownames(resmin) &lt;- c(&quot;RMSE&quot;, &quot;MSE&quot;, &quot;MAE&quot;, &quot;WAE&quot;, &quot;time&quot;)
-kable(t(resmin) )</code></pre>
-<table>
+scoredfr &lt;- scoredfr0[order(scoredfr0$RMSE.min),]
+write.csv(scoredfr0, paste0(odir, &quot;/bWoodN1-results-summary-nontop5.csv&quot;),
+          row.names = FALSE)
+
+kable(scoredfr)%&gt;%
+  kable_styling(bootstrap_options = c(&quot;striped&quot;, &quot;hover&quot;, &quot;condensed&quot;))</code></pre>
+<table class="table table-striped table-hover table-condensed" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
 </th>
-<th style="text-align:right;">
-RMSE
+<th style="text-align:left;">
+pfa
 </th>
 <th style="text-align:right;">
-MSE
+time.mean
 </th>
 <th style="text-align:right;">
-MAE
+RMSE.min
 </th>
 <th style="text-align:right;">
-WAE
+RMSE.med
 </th>
 <th style="text-align:right;">
-time
+RMSE.d51
+</th>
+<th style="text-align:right;">
+MAE.med
+</th>
+<th style="text-align:right;">
+WAE.med
+</th>
+<th style="text-align:right;">
+npfa
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-CaDENCE::optim
+CaDENCE::cadence.fit_optim
+</td>
+<td style="text-align:left;">
+CaDENCE::cadence.fit_optim
+</td>
+<td style="text-align:right;">
+228.5210
 </td>
 <td style="text-align:right;">
 3.3667
 </td>
 <td style="text-align:right;">
-11.3344
+4.60750
 </td>
 <td style="text-align:right;">
-2.6935
+1.24080
 </td>
 <td style="text-align:right;">
-16.3737
+3.78875
 </td>
 <td style="text-align:right;">
-229.303
+16.57340
+</td>
+<td style="text-align:right;">
+12
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-h2o::first-order
+traineR::train.nnet_none
 </td>
-<td style="text-align:right;">
-4.5704
-</td>
-<td style="text-align:right;">
-20.8888
-</td>
-<td style="text-align:right;">
-3.7135
-</td>
-<td style="text-align:right;">
-16.8486
-</td>
-<td style="text-align:right;">
-129.335
-</td>
-</tr>
-<tr>
 <td style="text-align:left;">
-monmlp::BFGS
+traineR::train.nnet_none
 </td>
 <td style="text-align:right;">
-4.5442
-</td>
-<td style="text-align:right;">
-20.6497
-</td>
-<td style="text-align:right;">
-3.7045
-</td>
-<td style="text-align:right;">
-17.0483
-</td>
-<td style="text-align:right;">
-8.493
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-monmlp::Nelder-Mead
-</td>
-<td style="text-align:right;">
-5.8579
-</td>
-<td style="text-align:right;">
-34.3145
-</td>
-<td style="text-align:right;">
-4.6839
-</td>
-<td style="text-align:right;">
-29.8394
-</td>
-<td style="text-align:right;">
-36.266
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-radiant.model::none
-</td>
-<td style="text-align:right;">
-10.9572
-</td>
-<td style="text-align:right;">
-120.0608
-</td>
-<td style="text-align:right;">
-8.7685
-</td>
-<td style="text-align:right;">
-42.6188
-</td>
-<td style="text-align:right;">
-0.010
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-traineR::none
+3.2575
 </td>
 <td style="text-align:right;">
 3.5488
 </td>
 <td style="text-align:right;">
-12.5939
+4.57530
 </td>
 <td style="text-align:right;">
-2.8517
+1.02650
 </td>
 <td style="text-align:right;">
-14.0257
+3.72975
 </td>
 <td style="text-align:right;">
-3.107
+15.38630
+</td>
+<td style="text-align:right;">
+55
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+monmlp::monmlp.fit_BFGS
+</td>
+<td style="text-align:left;">
+monmlp::monmlp.fit_BFGS
+</td>
+<td style="text-align:right;">
+8.6500
+</td>
+<td style="text-align:right;">
+4.5442
+</td>
+<td style="text-align:right;">
+4.70060
+</td>
+<td style="text-align:right;">
+0.15640
+</td>
+<td style="text-align:right;">
+3.80100
+</td>
+<td style="text-align:right;">
+15.31885
+</td>
+<td style="text-align:right;">
+34
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+h2o::deeplearning_first-order
+</td>
+<td style="text-align:left;">
+h2o::deeplearning_first-order
+</td>
+<td style="text-align:right;">
+127.9933
+</td>
+<td style="text-align:right;">
+4.5704
+</td>
+<td style="text-align:right;">
+4.64945
+</td>
+<td style="text-align:right;">
+0.07905
+</td>
+<td style="text-align:right;">
+3.76315
+</td>
+<td style="text-align:right;">
+17.46895
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+monmlp::monmlp.fit_Nelder-Mead
+</td>
+<td style="text-align:left;">
+monmlp::monmlp.fit_Nelder-Mead
+</td>
+<td style="text-align:right;">
+36.3201
+</td>
+<td style="text-align:right;">
+5.8579
+</td>
+<td style="text-align:right;">
+6.51625
+</td>
+<td style="text-align:right;">
+0.65835
+</td>
+<td style="text-align:right;">
+5.25615
+</td>
+<td style="text-align:right;">
+27.00875
+</td>
+<td style="text-align:right;">
+35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+radiant.model::nn_none
+</td>
+<td style="text-align:left;">
+radiant.model::nn_none
+</td>
+<td style="text-align:right;">
+0.0036
+</td>
+<td style="text-align:right;">
+10.9572
+</td>
+<td style="text-align:right;">
+10.95720
+</td>
+<td style="text-align:right;">
+0.00000
+</td>
+<td style="text-align:right;">
+8.76850
+</td>
+<td style="text-align:right;">
+42.61880
+</td>
+<td style="text-align:right;">
+44
 </td>
 </tr>
 </tbody>
