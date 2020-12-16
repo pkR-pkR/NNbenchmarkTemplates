@@ -1,0 +1,7 @@
+"pfa","time.mean","RMSE.min","RMSE.med","RMSE.d51","MAE.med","WAE.med","npfa"
+"CaDENCE::cadence.fit_optim",228.521,3.3667,4.6075,1.2408,3.78875,16.5734,12
+"h2o::deeplearning_first-order",127.9933,4.5704,4.64945,0.0790499999999996,3.76315,17.46895,24
+"monmlp::monmlp.fit_BFGS",8.65,4.5442,4.7006,0.1564,3.801,15.31885,34
+"monmlp::monmlp.fit_Nelder-Mead",36.3201,5.8579,6.51625,0.65835,5.25615,27.00875,35
+"radiant.model::nn_none",0.0036,10.9572,10.9572,0,8.7685,42.6188,44
+"traineR::train.nnet_none",3.2575,3.5488,4.5753,1.0265,3.72975,15.3863,55
