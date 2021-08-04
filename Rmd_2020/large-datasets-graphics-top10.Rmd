@@ -45,20 +45,6 @@ stopifnot(all(file.exists(f2test)))
 ```
 
 
-# Results
-
-
-```{r}
-
-resultfiles <- paste0(odir, "/", 
-                      c("bWoodN1-results-nontop5-per-pkg-column",
-                        "bWoodN1-results-per-pkg-column"), ".csv")
-bWoodN1_top10 <- cbind(read.csv(resultfiles[1]), read.csv(resultfiles[2])[, -1])
-
-write.csv(bWoodN1_top10, file=paste0(odir, "/", "bWoodN1-results-top10.csv"),
-          row.names = FALSE)
-```
-
 # Graphics
 
 ## Plot functions 
@@ -145,10 +131,19 @@ controlplot <- function(data, plot.nr, plot.nc, plot.mar=c(4,4,2,1), plot.nobs=1
 #graphical param
 mypch <- 1 #see ?points
 mylwd <- 1.25
+
+top10_allsummary <- array(dim=c(5, 10, length(f2test)),
+                          dimnames = list(
+                            c("RMSE", "MSE",  "MAE",  "WAE",  "time"),
+                            paste0("replicate", 1:10),
+                            sapply(strsplit(f2test1, "_"), function(x) x[2])))
+
 for(i in 1:length(f2test))
 {
   cat(f2test1[i], "\n")
   load(f2test[i])
+  top10_allsummary[,,i] <- as.matrix(allsummary[1:5, 1:10])
+  #print(top10_allsummary)
   idxmin <- which.min(allsummary["RMSE", ])
   cname <- names(idxmin)
   bWoodN1pred <- cbind.data.frame(bWoodN1, ypred=Ypred[, cname])
@@ -176,5 +171,25 @@ for(i in 1:length(f2test))
 }
 
 
+```
+
+
+
+# Results
+
+
+```{r}
+
+bWood1_top11_results <- cbind.data.frame(
+  "Package" =   dimnames(top10_allsummary)[[3]],
+  "Time mean" = apply(top10_allsummary["time", , ], 2, mean),
+  "RMSE min" = apply(top10_allsummary["RMSE", , ], 2, min),
+  "RMSE median" = apply(top10_allsummary["RMSE", , ], 2, median),
+  "RMSE D51" = apply(top10_allsummary["RMSE", , ], 2, median) - apply(top10_allsummary["RMSE", , ], 2, min),
+  "MAE median" = apply(top10_allsummary["MAE", , ], 2, median),
+  "WAE median" = apply(top10_allsummary["WAE", , ], 2, median))
+
+write.csv(bWood1_top11_results, file=paste0(odir, "/", "bWoodN1-results-top10.csv"),
+          row.names = FALSE)
 ```
 
