@@ -1,0 +1,200 @@
+## ----message=FALSE, warning=FALSE----------------------------------------
+library(NNbenchmark)
+library(h2o)
+
+library(stringr)
+library(dplyr)
+library(kableExtra)
+
+
+## ------------------------------------------------------------------------
+h2o.init()
+h2o.no_progress()
+options(warn = 0) 
+
+
+## ------------------------------------------------------------------------
+options(scipen = 9999)
+options("digits.secs" = 2)
+timer  <- createTimer(verbose = FALSE)
+
+
+## ------------------------------------------------------------------------
+NNdataSummary(NNdatasets)
+
+
+## ------------------------------------------------------------------------
+hyperParams <- function(optim_method) {
+    
+    if (!is.element(optim_method, c("gradientDescent"))) stop("Invalid Parameters.")
+    
+    hidden_activation = "Tanh"
+    iter <- 10000
+    params <- paste0("method=", optim_method, "_", "hidden_activation=", hidden_activation)
+    
+    out <- list(hidden_activation = hidden_activation, iter = iter, params = params)
+    
+    return (out)
+}
+
+
+
+NNtrain <- function(x, y, train_data, hidden_neur, optim_method) {
+    
+    hyper_params <- hyperParams(optim_method)
+    
+    hidden_activation <- hyper_params$hidden_activation
+    iter <- hyper_params$iter
+
+    NNreg <-   h2o::h2o.deeplearning(y = "y",
+                                     training_frame = train_data,
+                                     overwrite_with_best_model = TRUE, 
+                                     standardize = FALSE,
+                                     activation = hidden_activation,
+                                     adaptive_rate = TRUE,
+                                     #rate = 0.01,
+                                     hidden = hidden_neur,
+                                     epochs = iter,
+                                     train_samples_per_iteration = -1,
+                                     initial_weight_distribution = "Normal",
+                                     initial_weight_scale = 0.1,
+                                     loss = "Quadratic",
+                                     distribution = "gaussian",
+                                     stopping_rounds = 500,
+                                     stopping_metric = "RMSE",
+                                     stopping_tolerance = 1e-5,
+                                     seed = as.integer(runif(1)*10000000),
+                                     verbose = FALSE
+                                     )
+
+    return (NNreg)
+}
+
+
+## ----fig.height=5, fig.width=14, message=FALSE, warning=FALSE, results=FALSE----
+#for (dset in names(NNdatasets)) {
+for (dset in 1) {    
+
+    ## =============================================
+    ## EXTRACT INFORMATION FROM THE SELECTED DATASET
+    ## =============================================
+    ds     <- NNdatasets[[dset]]$ds
+    Z      <- NNdatasets[[dset]]$Z
+    neur   <- NNdatasets[[dset]]$neur
+    nparNN <- NNdatasets[[dset]]$nparNN
+    fmlaNN <- NNdatasets[[dset]]$fmlaNN
+    donotremove  <- c("dset", "dsets", "ds", "Z", "neur", "TF", "nrep", "timer",
+                      "donotremove", "donotremove2")
+    donotremove2 <- c("dset", "dsets") 
+
+
+
+    ## ===================================================
+    ## SELECT THE FORMAT REQUIRED BY THE PACKAGE/ALGORITHM
+    ## d = data.frame, m = matrix, v = vector/numeric
+    ## ATTACH THE OBJECTS CREATED (x, y, Zxy, ... )
+    ## ===================================================
+    ZZ     <- prepareZZ(Z, xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
+    attach(ZZ)
+
+    ## =============================================
+    ## SELECT THE PACKAGE USED FOR TRAINING
+    ## nrep => SELECT THE NUMBER OF INDEPENDANT RUNS
+    ## iter => SELECT THE MAX NUMBER OF ITERATIONS
+    ## TF   => PLOT THE RESULTS
+    ## =============================================
+
+    
+    nrep   <- 2
+    TF     <- TRUE
+    h_Z     <- h2o::as.h2o(Zxy)
+
+    method <- c("gradientDescent")
+        
+    for (m in method) {
+        
+        descr  <- paste(dset, "h2o::h2o.deeplearning", m, sep = "_")
+
+        ## AUTO
+        Ypred  <- list()
+        Rmse   <- numeric(length = nrep)
+        Mae    <- numeric(length = nrep)
+    
+        for(i in 1:nrep){
+            event      <- paste0(descr, sprintf("_%.2d", i))
+            timer$start(event)
+            #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
+            
+            hyper_params <- hyperParams(optim_method = m)
+
+            NNreg      <- tryCatch(
+                            NNtrain(x = x, y = y, train_data = h_Z, hidden_neur = neur, optim_method = m),
+                            error = function(y) {lm(y ~ 0, data = Zxy)}
+                          )     
+            
+            predictions <- h2o::h2o.predict(NNreg, h_Z)
+            
+            y_pred     <- tryCatch(
+                            ym0 + ysd0*as.data.frame(predictions)$predict,
+                            error = ym0
+                          )     
+            ####
+            Ypred[[i]] <- y_pred
+            Rmse[i]    <- funRMSE(y_pred, y0)
+            Mae[i]     <- funMAE(y_pred, y0)
+            timer$stop(event, RMSE = Rmse[i], MAE = Mae[i], params = hyper_params$params, printmsg = FALSE)
+        }
+        best <- which(Rmse == min(Rmse, na.rm = TRUE))[1]
+        best ; Rmse[[best]]
+        
+        ## ================================================
+        ## PLOT ALL MODELS AND THE MODEL WITH THE BEST RMSE
+        ## par OPTIONS CAN BE IMPROVED FOR A BETTER DISPLAY
+        ## ================================================
+        op <- par(mfcol = c(1,2))
+        plotNN(xory, y0, uni, TF, main = descr)
+        for (i in 1:nrep) lipoNN(xory, Ypred[[i]], uni, TF, col = i, lwd = 1)
+        
+        plotNN(xory, y0, uni, TF, main = descr)
+        lipoNN(xory, Ypred[[best]], uni, TF, col = 4, lwd = 4)
+        par(op)
+    }
+
+
+## ===========================
+## DETACH ZZ - END OF THE LOOP
+## ===========================
+    detach(ZZ)
+}
+
+
+## ------------------------------------------------------------------------
+dfr0 <- getTimer(timer) 
+
+dfr  <- data.frame(
+    ds_pkg.fun_algo = stringr::str_sub(dfr0[ ,1], 1, -4),
+    run     = stringr::str_sub(dfr0[ ,1], -2, -1),
+    dfr0[, c("RMSE","MAE")],
+    dataset = stringr::str_replace_all(stringr::str_extract(dfr0[, 1], pattern = "^\\w*_"), fixed("_"), ""),
+    method = stringr::str_replace_all(stringr::str_extract(dfr0[, 1], pattern = "_\\w*_"), fixed("_"), ""),
+    Elapsed = round(dfr0[ ,4], 5),
+    params = dfr0$params
+)
+
+
+dfr
+
+
+## ------------------------------------------------------------------------
+dfr %>%
+    group_by(dataset, method) %>%
+    summarise(minRMSE = min(RMSE), meanRMSE = mean(RMSE), meanTime = mean(Elapsed)) %>%
+    kable() %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+    collapse_rows(columns = 1:2, valign = "middle")
+
+
+## ------------------------------------------------------------------------
+h2o.shutdown(FALSE)
+clearNN(donotremove)
+

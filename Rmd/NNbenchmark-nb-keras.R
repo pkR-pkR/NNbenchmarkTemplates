@@ -1,0 +1,198 @@
+## ----message=FALSE, warning=FALSE----------------------------------------
+library(NNbenchmark)
+library(keras)
+
+library(stringr)
+library(dplyr)
+library(kableExtra)
+
+
+## ------------------------------------------------------------------------
+options(scipen = 9999)
+options("digits.secs" = 2)
+timer  <- createTimer(verbose = FALSE)
+
+
+## ------------------------------------------------------------------------
+NNdataSummary(NNdatasets)
+
+
+## ------------------------------------------------------------------------
+hyperParams <- function(optim_method) {
+    
+    if (!is.element(optim_method, c("adam", "rmsprop", "sgd", "adagrad", "adadelta"))) stop("Invalid Parameters.")
+    
+    hidden_activation = "tanh"
+    iter <- 10000
+    lr <- 0.001
+    
+    params <- paste0("method=", optim_method, "_iter=", iter, "_lr=", lr, "_hidden_activation=", hidden_activation)
+    
+    out <- list(hidden_activation = hidden_activation, iter = iter, lr = lr, params = params)
+    
+    return (out)
+}
+
+
+build_model <- function(optim_method, hidden_neur) {
+    
+    hyper_params <- hyperParams(optim_method)
+    hidden_activation <- hyper_params$hidden_activation
+    lr <- hyper_params$lr
+    
+    
+    if (optim_method == "adam") { op <- optimizer_adam(lr = lr)} 
+    if (optim_method == "rmsprop") { op <- optimizer_rmsprop(lr = lr)}
+    if (optim_method == "adagrad") { op <- optimizer_adagrad(lr = lr)}
+    if (optim_method == "adadelta") { op <- optimizer_adadelta(lr = lr)}
+    if (optim_method == "sgd") { op <- optimizer_sgd(lr = lr)}
+
+    model <- keras_model_sequential() %>%
+        layer_dense(units = hidden_neur, activation = "tanh", input_shape = ncol(x)) %>%
+        layer_dense(units = 1)
+
+    model %>% compile(
+        loss = "mse",
+        optimizer = op,
+        metrics = list("mean_absolute_error")
+    )
+    return (model)
+}
+
+
+NNtrain <- function(x, y, model, iter, optim_method) {
+        
+    hyper_params <- hyperParams(optim_method)
+    iter <- hyper_params$iter
+    early_stop <- callback_early_stopping(monitor = "loss", patience = 20, restore_best_weights = TRUE, mode = "auto", min_delta = 0.00001)
+
+    NNreg <- model %>% fit(x, y, epochs = iter, verbose = 0, callbacks = list(early_stop))
+
+
+    return (NNreg)
+}
+
+
+## ----fig.height=5, fig.width=14, message=FALSE, warning=FALSE------------
+for (dset in names(NNdatasets)[1]) {
+
+    ## =============================================
+    ## EXTRACT INFORMATION FROM THE SELECTED DATASET
+    ## =============================================
+    ds     <- NNdatasets[[dset]]$ds
+    Z      <- NNdatasets[[dset]]$Z
+    neur   <- NNdatasets[[dset]]$neur
+    nparNN <- NNdatasets[[dset]]$nparNN
+    fmlaNN <- NNdatasets[[dset]]$fmlaNN
+    donotremove  <- c("dset", "dsets", "ds", "Z", "neur", "TF", "nrep", "timer",
+                      "donotremove", "donotremove2")
+    donotremove2 <- c("dset", "dsets") 
+
+
+
+    ## ===================================================
+    ## SELECT THE FORMAT REQUIRED BY THE PACKAGE/ALGORITHM
+    ## d = data.frame, m = matrix, v = vector/numeric
+    ## ATTACH THE OBJECTS CREATED (x, y, Zxy, ... )
+    ## ===================================================
+    ZZ     <- prepareZZ(Z, xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
+    attach(ZZ)
+
+    ## =============================================
+    ## SELECT THE PACKAGE USED FOR TRAINING
+    ## nrep => SELECT THE NUMBER OF INDEPENDANT RUNS
+    ## iter => SELECT THE MAX NUMBER OF ITERATIONS
+    ## TF   => PLOT THE RESULTS
+    ## =============================================
+
+    
+    nrep   <- 10
+    TF     <- TRUE 
+
+    method <- c("adam", "rmsprop", "sgd", "adadelta", "adagrad")
+        
+    for (m in method) {
+        
+        descr  <- paste(dset, "keras::model_sequential", m, sep = "_")
+
+        ## AUTO
+        Ypred  <- list()
+        Rmse   <- numeric(length = nrep)
+        Mae    <- numeric(length = nrep)
+    
+        for(i in 1:nrep){
+            event      <- paste0(descr, sprintf("_%.2d", i))
+            timer$start(event)
+            #### ADJUST THE FOLLOWING LINES TO THE PACKAGE::ALGORITHM
+            
+            hyper_params <- hyperParams(optim_method = m)
+            model <- build_model(optim_method = m, hidden_neur = neur)
+
+
+            NNreg      <- tryCatch(
+                            NNtrain(x = x, y = y, model = model, hidden_neur = neur, optim_method = m),
+                            error = function(y) {lm(y ~ 0, data = Zxy)}
+                          )     
+            y_pred     <- tryCatch(
+                            ym0 + ysd0 * model %>% predict(x),
+                            error = ym0
+                          )     
+            ####
+            Ypred[[i]] <- y_pred
+            Rmse[i]    <- funRMSE(y_pred, y0)
+            Mae[i]     <- funMAE(y_pred, y0)
+            timer$stop(event, RMSE = Rmse[i], MAE = Mae[i], params = hyper_params$params, printmsg = FALSE)
+        }
+        best <- which(Rmse == min(Rmse, na.rm = TRUE))[1]
+        best ; Rmse[[best]]
+        
+        ## ================================================
+        ## PLOT ALL MODELS AND THE MODEL WITH THE BEST RMSE
+        ## par OPTIONS CAN BE IMPROVED FOR A BETTER DISPLAY
+        ## ================================================
+        op <- par(mfcol = c(1,2))
+        plotNN(xory, y0, uni, TF, main = descr)
+        for (i in 1:nrep) lipoNN(xory, Ypred[[i]], uni, TF, col = i, lwd = 1)
+        
+        plotNN(xory, y0, uni, TF, main = descr)
+        lipoNN(xory, Ypred[[best]], uni, TF, col = 4, lwd = 4)
+        par(op)
+    }
+
+
+## ===========================
+## DETACH ZZ - END OF THE LOOP
+## ===========================
+    detach(ZZ)
+}
+
+
+## ------------------------------------------------------------------------
+dfr0 <- getTimer(timer) 
+
+dfr  <- data.frame(
+    ds_pkg.fun_algo = stringr::str_sub(dfr0[ ,1], 1, -4),
+    run     = stringr::str_sub(dfr0[ ,1], -2, -1),
+    dfr0[, c("RMSE","MAE")],
+    dataset = stringr::str_replace_all(stringr::str_extract(dfr0[, 1], pattern = "^\\w*_"), fixed("_"), ""),
+    method = stringr::str_replace_all(stringr::str_extract(dfr0[, 1], pattern = "_\\w*_"), fixed("_"), ""),
+    Elapsed = round(dfr0[ ,4], 5),
+    params = dfr0$params
+)
+
+
+dfr
+
+
+## ------------------------------------------------------------------------
+dfr %>%
+    group_by(dataset, method) %>%
+    summarise(minRMSE = min(RMSE), meanRMSE = mean(RMSE), meanTime = mean(Elapsed)) %>%
+    kable() %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive")) %>%
+    collapse_rows(columns = 1:2, valign = "middle")
+
+
+## ------------------------------------------------------------------------
+clearNN(donotremove)
+
