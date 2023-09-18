@@ -1,0 +1,160 @@
+## ----setup, message=FALSE, warning=FALSE-----------------------------------------
+library(NNbenchmark)
+library(kableExtra)
+library(knitr)
+options(scipen = 999)
+
+
+## --------------------------------------------------------------------------------
+NNdataSummary(NNbigdatasets)
+ht(bWoodN1)
+
+
+## --------------------------------------------------------------------------------
+if(dir.exists("D:/GSoC2020/Results/2020run05/"))
+{  
+  odir <- "D:/GSoC2020/Results/2020run05/"
+}else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNbenchmarkTemplates/results_2020_gsoc2020"))
+{  
+  odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNbenchmarkTemplates/results_2020_gsoc2020"
+}else
+  odir <- "."
+
+f2test1 <- grep("bWoodN1", list.files(odir, pattern="RData"), value=TRUE)
+
+f2test <- paste0(odir, "/", f2test1)
+
+stopifnot(all(file.exists(f2test)))
+
+
+## --------------------------------------------------------------------------------
+
+woodfunc <- function(x, j)
+{
+  f0 <- function(x) 5*sin(2*pi*x)
+  f1 <- function(x) exp(3*x)-7
+  f2 <- function(x) 
+    0.5*x^11*(10*(1 - x))^6 - 10*(10*x)^3*(1 - x)^10
+  f3 <- function(x)
+    15*exp(-5*abs(x-1/2))-6
+  f4 <- function(x)
+    2-(x <= 1/3)*(6*x)^3 - (x >= 2/3)*(6-6*x)^3 - (x > 1/3 & x < 2/3)*(8+2*sin(9*(x-1/3)*pi))
+  eta <- 1 + f0(x)+f1(x)+f2(x)+f3(x)+f4(x)+f0(x)
+  meta <- mean(eta)
+  if(missing(j))
+    return(identity(eta))
+  etaj <- do.call(paste0("f", j %% 5), list(x))
+  etaj+meta
+}
+
+
+controlplot <- function(data, plot.nr, plot.nc, plot.mar=c(4,4,2,1), plot.nobs=1000, 
+                        var2round, lwd, theo=TRUE, dolegend=TRUE, ...)
+{
+  if(var2round)
+  {
+    par(mfrow=c(plot.nr,plot.nc), mar=plot.mar)
+    for(j in 1:(plot.nr*plot.nc))
+    {
+      Vjb <- round(data[,paste0("x",j)], 2)
+      plot(sort(unique(Vjb)), tapply(data$y, Vjb, mean), 
+           xlab=paste0("rounded variable ", j), ylab=expression(bar(y)), ...)
+      lines(sort(unique(Vjb)), tapply(data$ypred, Vjb, mean), col="red", lwd=lwd)
+      curve(woodfunc(x, j), add=TRUE, col="green", lwd=lwd)
+      if(dolegend)
+      {
+        if((j >= 1 && j <= 3) || j == 6) 
+          legend("topleft", lty=1, col=c("black","red","green"), 
+                 leg=c("emp.", "pred.", "theo."), box.col = NA)
+        if(j >= 4 && j <= 5) 
+          legend("bottomleft", lty=1, col=c("black","red","green"), 
+                 leg=c("emp.", "pred.", "theo."), box.col = NA)
+      }
+    }
+    
+  }else
+  {
+    n <- min(plot.nobs, NROW(data)) 
+    par(mfrow=c(plot.nr,plot.nc), mar=plot.mar)
+    for(j in 1:(plot.nr*plot.nc))
+    {
+      plot(data[1:n,paste0("x",j)], data$y[1:n], 
+           xlab=paste0("original variable ", j), ylab="y",...)
+      points(data[1:n,paste0("x",j)], data$ypred[1:n], col="red")
+      if(dolegend)
+      {
+        if((j >= 1 && j <= 3) || j == 6) 
+          legend("topleft", pch=1, col=c("black","red","green"), 
+                 leg=c("emp.", "pred.", "theo."), box.col = NA)
+        if(j >= 4 && j <= 5) 
+          legend("bottomleft", pch=1, col=c("black","red","green"), 
+                 leg=c("emp.", "pred.", "theo."), box.col = NA)
+      }
+    }
+  }
+  
+}
+
+
+## --------------------------------------------------------------------------------
+
+
+#graphical param
+mypch <- 1 #see ?points
+mylwd <- 1.25
+
+top10_allsummary <- array(dim=c(5, 10, length(f2test)),
+                          dimnames = list(
+                            c("RMSE", "MSE",  "MAE",  "WAE",  "time"),
+                            paste0("replicate", 1:10),
+                            sapply(strsplit(f2test1, "_"), function(x) x[2])))
+
+for(i in 1:length(f2test))
+{
+  cat(f2test1[i], "\n")
+  load(f2test[i])
+  top10_allsummary[,,i] <- as.matrix(allsummary[1:5, 1:10])
+  #print(top10_allsummary)
+  idxmin <- which.min(allsummary["RMSE", ])
+  cname <- names(idxmin)
+  bWoodN1pred <- cbind.data.frame(bWoodN1, ypred=Ypred[, cname])
+  
+  abserror <- abs(bWoodN1pred[,"y"] - bWoodN1pred[,"ypred"])
+  sqerror <- abserror^2
+  RMSE <- sqrt(mean(sqerror))
+  MAE <- mean(abserror)
+  WAE <- max(abserror)
+  print(c(RMSE, MAE, WAE))
+  
+  myoutput <- paste0(substr(f2test[i], 1, nchar(f2test[i])-5), "png")
+  mypkg <- strsplit(f2test1[i], "_")[[1]][2]
+  mytitle <- paste0(mypkg, " average prediction")
+  
+  controlplot(bWoodN1pred, 3, 2, var2round = TRUE, pch=mypch, 
+            main=mytitle, lwd=mylwd)
+
+  
+  png(myoutput, width = 800, height = 600)
+  controlplot(bWoodN1pred, 3, 2, var2round = TRUE, pch=mypch, 
+            main=mytitle, lwd=mylwd)
+  dev.off()
+
+}
+
+
+
+
+## --------------------------------------------------------------------------------
+
+bWood1_top11_results <- cbind.data.frame(
+  "Package" =   dimnames(top10_allsummary)[[3]],
+  "Time mean" = apply(top10_allsummary["time", , ], 2, mean),
+  "RMSE min" = apply(top10_allsummary["RMSE", , ], 2, min),
+  "RMSE median" = apply(top10_allsummary["RMSE", , ], 2, median),
+  "RMSE D51" = apply(top10_allsummary["RMSE", , ], 2, median) - apply(top10_allsummary["RMSE", , ], 2, min),
+  "MAE median" = apply(top10_allsummary["MAE", , ], 2, median),
+  "WAE median" = apply(top10_allsummary["WAE", , ], 2, median))
+
+write.csv(bWood1_top11_results, file=paste0(odir, "/", "bWoodN1-results-top10.csv"),
+          row.names = FALSE)
+

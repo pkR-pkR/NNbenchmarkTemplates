@@ -1,21 +1,12 @@
----
-title: "New Plot for A single dataset"
-author: "GSoC 2019, GSoC 2020 members"
-date: "8/22/2020"
-output: html_document
----
-
-```{r, include=FALSE}
+## ---- include=FALSE--------------------------------------------------------------
 knitr::opts_chunk$set(echo = TRUE)
-```
 
-# Setup 
 
-```{r, message=FALSE, warning=FALSE}
+## ---- message=FALSE, warning=FALSE-----------------------------------------------
 library(NNbenchmark)
-```
 
-```{r}
+
+## --------------------------------------------------------------------------------
 if(dir.exists("D:/GSoC2020/Results/2020run05/"))
 {  
   odir <- "D:/GSoC2020/Results/2020run05/"
@@ -24,11 +15,9 @@ if(dir.exists("D:/GSoC2020/Results/2020run05/"))
   odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
 }else
   odir <- "~"
-```
 
-# Dedicated function
 
-```{r}
+## --------------------------------------------------------------------------------
 controlpredplot <- function(data, pred, plot.nr, plot.nc, plot.mar=c(4,4,2,1), plot.nobs=1000, var2round,...)
 {
   if(var2round)
@@ -54,13 +43,9 @@ controlpredplot <- function(data, pred, plot.nr, plot.nc, plot.mar=c(4,4,2,1), p
   }
   
 }
-```
 
 
-# Display control plot
-
-
-```{r}
+## --------------------------------------------------------------------------------
 bWoodfullfile <- grep("Wood", list.files(odir, pattern="RData", full.names=TRUE), value=TRUE)
 bWoodfile <- grep("Wood", list.files(odir, pattern="RData"), value=TRUE)
 
@@ -82,4 +67,4 @@ for(i in 1:length(bWoodfullfile))
   title(main=bWoodtitle[i])
   dev.off()
 }
-```
+

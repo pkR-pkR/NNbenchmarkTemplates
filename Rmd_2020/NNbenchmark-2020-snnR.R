@@ -1,0 +1,67 @@
+## ----message=FALSE, warning=FALSE------------------------------------------------
+library(NNbenchmark)
+library(kableExtra)
+options(scipen = 999)
+
+
+## --------------------------------------------------------------------------------
+NNdataSummary(NNdatasets)
+
+
+## --------------------------------------------------------------------------------
+if(dir.exists("D:/GSoC2020/Results/2020run04/"))
+{  
+  odir <- "D:/GSoC2020/Results/2020run04/"
+}else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
+{  
+  odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
+}else
+  odir <- "~"
+
+nrep <- 5
+maxit2ndorder  <-    200
+maxit1storderA <-   1000
+maxit1storderB <-  10000
+maxit1storderC <- 100000
+
+snnR.method <- "none"
+hyperParams.snnR <- function(optim_method, ...) {
+    out <- list(iter = maxit2ndorder)
+    return (out)
+}
+NNtrain.snnR <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams,...) {
+    
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    
+    NNreg <- snnR::snnR(x, y, nHidden = as.matrix(hidden_neur), 
+                 iteramax = hyper_params$iter, verbose=FALSE)
+    return (NNreg)
+}
+NNpredict.snnR <- function(object, x, ...)
+  predict(object, x)
+NNclose.snnR <- function()
+  if("package:snnR" %in% search())
+    detach("package:snnR", unload=TRUE)
+snnR.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
+
+
+if(FALSE)
+res <- train_and_predict_1data(1, simpleNeural.method, "NNtrain.snnR", "hyperParams.snnR", "NNpredict.snnR", 
+                               NNsummary, "NNclose.snnR", NA, simpleNeural.prepareZZ, nrep=5, echo=TRUE, doplot=TRUE,
+                               pkgname="snnR", pkgfun="snnR", rdafile=TRUE, odir=odir, echoreport=1)
+
+
+
+## ---- message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14----
+res <- trainPredict_1pkg(1:12, pkgname = "snnR", pkgfun = "snnR", snnR.method,
+  prepareZZ.arg = snnR.prepareZZ, nrep = nrep, doplot = TRUE,
+  csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
+
+
+## --------------------------------------------------------------------------------
+#print(res)
+kable(t(apply(res, c(1,4), min)))%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(t(apply(res, c(1,4), median)))%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+

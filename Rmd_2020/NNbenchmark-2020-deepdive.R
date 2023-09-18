@@ -1,0 +1,77 @@
+## ----message=FALSE, warning=FALSE------------------------------------------------
+library(NNbenchmark)
+library(kableExtra)
+options(scipen = 999)
+
+
+## --------------------------------------------------------------------------------
+NNdataSummary(NNdatasets)
+
+
+## --------------------------------------------------------------------------------
+if(dir.exists("D:/GSoC2020/Results/2020run04/"))
+{  
+  odir <- "D:/GSoC2020/Results/2020run04/"
+}else if(dir.exists("~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"))
+{  
+  odir <- "~/Documents/recherche-enseignement/code/R/NNbenchmark-project/NNtempresult/"
+}else
+  odir <- "~"
+
+nrep <- 5
+maxit2ndorder  <-    200
+maxit1storderA <-   1000
+maxit1storderB <-  10000
+maxit1storderC <- 100000
+
+#library(deepdive)
+deepdive.method <- c("gradientDescent","momentum","rmsProp","adam")
+hyperParams.deepdive <- function(optim_method, ...) {
+    
+    if (optim_method == "gradientDescent")  {maxiter <- maxit1storderB; eta = 0.4} 
+    if (optim_method == "momentum")         {maxiter <- maxit1storderB; eta = 0.8}
+    if (optim_method == "rmsProp")          {maxiter <- maxit1storderA; eta = 0.8}
+    if (optim_method == "adam")             {maxiter <- maxit1storderA; eta = 0.8}
+  
+    out <- list(iter = maxiter, method = optim_method, modelType = "regress", eta = eta, print = 1000)
+    return (out)
+}
+NNtrain.deepdive <- function(x, y, dataxy, formula, neur, optim_method, hyperParams, NNfullformula, NNparam,...) {
+    
+    hyper_params <- do.call(hyperParams, list(optim_method, ...))
+    
+    NNreg <- deepdive::deepnet(x = x, y = y, c(neur), modelType = hyper_params$modelType,
+                     iterations = hyper_params$iter, eta=hyper_params$eta, 
+                     optimiser=hyper_params$method, printItrSize=hyper_params$print,
+                     normalise = FALSE)
+    
+    return (NNreg)
+}
+NNpredict.deepdive <- function(object, x, ...)
+  predict.deepnet(object,newData=x)$ypred
+NNclose.deepdive <- function()
+  if("package:deepdive" %in% search())
+    detach("package:deepdive", unload=TRUE)
+deepdive.prepareZZ <- list(xdmv = "d", ydmv = "d", zdm = "d", scale = TRUE)
+if(FALSE)
+res <- trainPredict_1data(1, deepdive.method, "NNtrain.deepdive", "hyperParams.deepdive", "NNpredict.deepdive", 
+                               NNsummary, "NNclose.deepdive", NA, deepdive.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                               pkgname="deepdive", pkgfun="ann", csvfile=TRUE, rdafile=TRUE, odir=odir)
+
+
+## ---- message=FALSE, warning=FALSE, results='hide', fig.height=7, fig.width=14----
+res <- trainPredict_1pkg(1:12, pkgname = "deepdive", pkgfun = "deepnet", deepdive.method,
+  prepareZZ.arg = deepdive.prepareZZ, nrep = nrep, doplot = FALSE,
+  csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
+
+
+## --------------------------------------------------------------------------------
+kable(apply(res[,,1,], c(3,1), min), caption = "gradientDescent")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,2,], c(3,1), min), caption = "momentum")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,3,], c(3,1), min), caption = "rmsProp")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+kable(apply(res[,,4,], c(3,1), min), caption = "adam")%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+

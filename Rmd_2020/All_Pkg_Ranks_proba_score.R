@@ -1,0 +1,128 @@
+## ----message=FALSE, warning=FALSE------------------------------------------------
+library(NNbenchmark)
+library(kableExtra)
+library(dplyr)   
+library(stringr) 
+options(scipen = 999)
+if(dir.exists("D:/GSoC2020/Results/2020run04/"))
+{  
+  odir <- "D:/GSoC2020/Results/2020run04/"
+}else
+  odir <- "../results_2020_gsoc2020/"
+
+
+## --------------------------------------------------------------------------------
+resultfile <- list.files(odir, pattern = "-results.csv", full.names = TRUE)
+
+nonlargeresult <- grep("Wood", resultfile, invert = TRUE, value=TRUE)
+lf   <- lapply(nonlargeresult, csv::as.csv)
+names(lf) <- names(NNdatasets)
+#lf <- lf[c(1:4,6,7,10,12)]
+gfr <- lapply(lf, function(dfr) cbind(
+					  ds   = str_remove(str_extract(dfr$event, "\\w+_"), "_"),
+					  pfa  = str_sub(str_remove(dfr$event, str_extract(dfr$event, "\\w+_")),  1, -4),
+					  run  = str_sub(dfr$event, -2, -1),
+					  dfr[,c("RMSE","MAE","WAE","time")]
+					  ))
+
+yfr <- lapply(gfr, function(dfr) {
+			as.data.frame(dfr %>%
+			group_by(pfa) %>%
+			summarise(time.mean = mean(time), 
+			          RMSE.min = min(RMSE), 
+			          RMSE.med = median(RMSE),
+			          RMSE.d51 = median(RMSE) - min(RMSE),
+			          MAE.med  = median(MAE),
+			          WAE.med  = median(WAE)
+					  )
+			)})
+yfr <- lapply(yfr, function(dfr) transform(dfr, npfa = 1:nrow(dfr)))
+
+
+## --------------------------------------------------------------------------------
+rankMOFtime <- function(dfr) {
+	dfrtime <- dfr[order(dfr$time.mean),]
+	dfrRMSE <- dfr[order(dfr$RMSE.min, dfr$time.mean, dfr$RMSE.med),]
+	dfrRMSEmed  <- dfr[order(dfr$RMSE.med, dfr$RMSE.min, dfr$time.mean),]
+	dfrRMSEd51  <- dfr[order(dfr$RMSE.d51),]
+	dfrMAE      <- dfr[order(dfr$MAE.med),]
+	dfrWAE      <- dfr[order(dfr$WAE.med),]
+	transform(dfr, 
+			  time.rank = order(dfrtime$npfa),
+			  RMSE.rank = order(dfrRMSE$npfa),
+			  RMSEmed.rank  = order(dfrRMSEmed$npfa),
+			  RMSEd51.rank  = order(dfrRMSEd51$npfa),
+			  MAE.rank = order(dfrMAE$npfa),
+			  WAE.rank = order(dfrWAE$npfa)
+			  )
+}
+sfr     <- lapply(yfr, rankMOFtime)
+sfrwide <- do.call(cbind, sfr)
+
+
+## --------------------------------------------------------------------------------
+sfr.time   <- sfrwide[, c(grep("time.rank", colnames(sfrwide)))]
+time.score <- rank(apply(sfr.time, 1, sum), ties.method = "min")
+sfr.RMSE       <- sfrwide[, c(grep("RMSE.rank", colnames(sfrwide)))]
+RMSE.score     <- rank(apply(sfr.RMSE, 1, sum), ties.method = "min")
+sfr.RMSEmed    <- sfrwide[, c(grep("RMSEmed.rank", colnames(sfrwide)))]
+RMSEmed.score  <- rank(apply(sfr.RMSEmed, 1, sum), ties.method = "min")
+sfr.RMSEd51    <- sfrwide[, c(grep("RMSEd51.rank", colnames(sfrwide)))]
+RMSEd51.score  <- rank(apply(sfr.RMSEd51, 1, sum), ties.method = "min")
+sfr.MAE       <- sfrwide[, c(grep("MAE.rank", colnames(sfrwide)))]
+MAE.score     <- rank(apply(sfr.MAE, 1, sum), ties.method = "min")
+sfr.WAE       <- sfrwide[, c(grep("WAE.rank", colnames(sfrwide)))]
+WAE.score     <- rank(apply(sfr.WAE, 1, sum), ties.method = "min")
+
+scoredfr0 <- data.frame(sfr$mDette[,"pfa",drop=FALSE], 
+# scoredfr0 <- data.frame(sfr$uNeuroOne[,c("pfa")], 
+						time.score, 
+					    RMSE.score, 
+					    RMSEmed.score,
+					    RMSEd51.score,
+              MAE.score,
+              WAE.score)
+
+scoredfr <- scoredfr0[order(scoredfr0$RMSE.score),]
+rownames(scoredfr) <- NULL
+
+kable(scoredfr)%>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"))
+
+
+## ---- fig.width=10---------------------------------------------------------------
+rkperalgo <- sfrwide[order(scoredfr0$RMSE.score),c(1, grep("RMSE.rank", colnames(sfrwide)))]
+
+pkgname <- sapply(strsplit(rkperalgo$mDette.pfa, "::"), head, n=1)
+n <- NROW(rkperalgo)
+rkproba <- sapply(1:n, function(j)
+  sapply(1:n, function(r) mean(as.numeric(rkperalgo[j, -1]) == r))
+)
+
+
+colnames(rkproba) <- paste0(pkgname, ".", rownames(rkperalgo))
+
+
+BandW <- c("white", "grey90", "grey70", "grey50", "grey30", "grey10")
+require(RColorBrewer)
+Blues <- c("#FFFFFF", brewer.pal(n = 6, name = 'Blues'))
+m <- length(Blues)
+
+
+reshtm <- heatmap(rkproba, Rowv=NA, Colv=NA, xlab="Package:Algorithm", ylab="RMSE score", 
+        main="Score probabilities over 12 datasets", margins = c(6, 3), scale="none",
+        col=Blues)
+legend("topleft", fill = Blues, 
+       leg=paste0(100*round(seq(0, max(rkproba), length=m), 2), "%"))
+
+
+png(paste0(odir, "/","scoreprobperpkgBlues.png"), width = 2000, height = 1600, res=300)
+reshtm <- heatmap(rkproba, Rowv=NA, Colv=NA, xlab="Package:Algorithm", ylab="RMSE score", 
+        main="Score probabilities", margins = c(6, 3), scale="row",
+        col=Blues, cexCol=0.6)
+legend("topleft", fill = Blues, leg=
+         paste0(100*round(seq(0, max(rkproba), length=m), 2), "%"), box.col=NA)
+
+dev.off()
+
+

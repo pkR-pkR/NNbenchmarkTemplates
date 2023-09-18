@@ -1,33 +1,16 @@
----
-title: "Top Packages with Large Datasets"
-author: "All members of GSoC 2019 & 2020"
-date: "2020/10/16"
-output:
-    html_document:
-        toc: true
-        toc_float: true
-        number_sections: true
----
-
-# Setup 
-
-```{r, message=FALSE, warning=FALSE}
+## ---- message=FALSE, warning=FALSE-----------------------------------------------
 library(NNbenchmark)
 library(kableExtra)
 library(knitr)
 options(scipen = 999)
-```
 
-# Dataset to test
 
-```{r}
+## --------------------------------------------------------------------------------
 NNdataSummary(NNbigdatasets)
 ht(bWoodN1)
-```
 
-Check result
 
-```{r}
+## --------------------------------------------------------------------------------
 if(dir.exists("D:/GSoC2020/Results/2020run05/"))
 {  
   odir <- "D:/GSoC2020/Results/2020run05/"
@@ -45,13 +28,9 @@ f2test <- c(
   paste0(odir, "/","bWoodN1_nlsr_nlxb_none.RData"))
 
 stopifnot(all(file.exists(f2test)))
-```
 
 
-# Graphics
-
-## Plot functions 
-```{r}
+## --------------------------------------------------------------------------------
 
 woodfunc <- function(x, j)
 {
@@ -118,12 +97,9 @@ controlplot <- function(data, plot.nr, plot.nc, plot.mar=c(4,4,2,1), plot.nobs=1
   }
   
 }
-```
 
 
-## Graphics
-
-```{r}
+## --------------------------------------------------------------------------------
 
 
 #graphical param
@@ -193,5 +169,4 @@ png("nlsr.png", width = 800, height = 600)
 controlplot(bWoodN1pred, 3, 2, var2round = TRUE, pch=mypch, main="nlsr",
             lwd=mylwd)
 dev.off()
-```
 
