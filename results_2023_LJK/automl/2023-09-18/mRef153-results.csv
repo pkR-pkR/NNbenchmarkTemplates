@@ -1,0 +1,16 @@
+event,RMSE,MSE,MAE,WAE,time
+mRef153_automl::automl_train_manual_trainwgrad_RMSprop_01,4.099,16.802,2.884,14.7955,1.196
+mRef153_automl::automl_train_manual_trainwgrad_RMSprop_02,3.8955,15.1749,2.784,14.3657,4.006
+mRef153_automl::automl_train_manual_trainwgrad_RMSprop_03,3.746,14.0323,2.7439,13.5639,3.981
+mRef153_automl::automl_train_manual_trainwgrad_RMSprop_04,4.0341,16.274,2.845,16.2066,4.039
+mRef153_automl::automl_train_manual_trainwgrad_RMSprop_05,3.9905,15.9241,2.7972,15.9286,3.993
+mRef153_automl::automl_train_manual_trainwgrad_adam_01,3.7404,13.9902,2.7733,15.7848,4.386
+mRef153_automl::automl_train_manual_trainwgrad_adam_02,3.3953,11.5278,2.3064,13.8854,4.351
+mRef153_automl::automl_train_manual_trainwgrad_adam_03,3.7145,13.7972,2.6695,15.9582,4.343
+mRef153_automl::automl_train_manual_trainwgrad_adam_04,3.891,15.14,2.7036,17.0502,4.36
+mRef153_automl::automl_train_manual_trainwgrad_adam_05,4.0169,16.1359,2.7445,20.6919,4.342
+mRef153_automl::automl_train_manual_trainwpso_01,3.8067,14.4911,2.66,14.0954,9.219
+mRef153_automl::automl_train_manual_trainwpso_02,3.5549,12.637,2.5606,13.1013,9.947
+mRef153_automl::automl_train_manual_trainwpso_03,3.7403,13.9901,2.7413,13.6824,10.164
+mRef153_automl::automl_train_manual_trainwpso_04,4.3002,18.4918,3.1076,16.6147,7.182
+mRef153_automl::automl_train_manual_trainwpso_05,4.4523,19.8229,3.0367,18.2678,7.527

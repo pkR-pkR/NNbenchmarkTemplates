@@ -1,0 +1,16 @@
+event,RMSE,MSE,MAE,WAE,time
+mFriedman_automl::automl_train_manual_trainwgrad_RMSprop_01,0.0402,0.0016,0.0311,0.1386,12.94
+mFriedman_automl::automl_train_manual_trainwgrad_RMSprop_02,0.0841,0.0071,0.0748,0.1971,12.947
+mFriedman_automl::automl_train_manual_trainwgrad_RMSprop_03,0.043,0.0018,0.0333,0.1766,12.953
+mFriedman_automl::automl_train_manual_trainwgrad_RMSprop_04,0.0853,0.0073,0.0699,0.2449,12.967
+mFriedman_automl::automl_train_manual_trainwgrad_RMSprop_05,0.1018,0.0104,0.0817,0.2523,12.925
+mFriedman_automl::automl_train_manual_trainwgrad_adam_01,0.0315,0.001,0.025,0.1012,14.272
+mFriedman_automl::automl_train_manual_trainwgrad_adam_02,0.0284,0.0008,0.0227,0.1062,14.261
+mFriedman_automl::automl_train_manual_trainwgrad_adam_03,0.0341,0.0012,0.0272,0.1084,14.263
+mFriedman_automl::automl_train_manual_trainwgrad_adam_04,0.0307,0.0009,0.0238,0.1437,14.271
+mFriedman_automl::automl_train_manual_trainwgrad_adam_05,0.0838,0.007,0.0744,0.1773,14.056
+mFriedman_automl::automl_train_manual_trainwpso_01,0.1091,0.0119,0.0844,0.3642,14.865
+mFriedman_automl::automl_train_manual_trainwpso_02,0.1316,0.0173,0.1022,0.3953,29.076
+mFriedman_automl::automl_train_manual_trainwpso_03,0.1168,0.0136,0.092,0.4345,24.337
+mFriedman_automl::automl_train_manual_trainwpso_04,0.1071,0.0115,0.0854,0.3701,28.721
+mFriedman_automl::automl_train_manual_trainwpso_05,0.1081,0.0117,0.0831,0.2758,21.641

@@ -1,0 +1,16 @@
+event,RMSE,MSE,MAE,WAE,time
+mDette_automl::automl_train_manual_trainwgrad_RMSprop_01,0.4766,0.2271,0.3682,1.8819,12.751
+mDette_automl::automl_train_manual_trainwgrad_RMSprop_02,1.2015,1.4437,0.8667,8.9811,12.626
+mDette_automl::automl_train_manual_trainwgrad_RMSprop_03,0.4716,0.2224,0.3635,1.9645,12.601
+mDette_automl::automl_train_manual_trainwgrad_RMSprop_04,1.0175,1.0352,0.7716,5.5119,12.58
+mDette_automl::automl_train_manual_trainwgrad_RMSprop_05,0.6978,0.487,0.5232,3.8688,12.544
+mDette_automl::automl_train_manual_trainwgrad_adam_01,2.2125,4.8951,1.4553,14.5909,13.907
+mDette_automl::automl_train_manual_trainwgrad_adam_02,0.4234,0.1793,0.3274,1.7732,13.916
+mDette_automl::automl_train_manual_trainwgrad_adam_03,0.6069,0.3683,0.4616,3.0539,13.892
+mDette_automl::automl_train_manual_trainwgrad_adam_04,1.0923,1.1932,0.7851,9.3021,13.918
+mDette_automl::automl_train_manual_trainwgrad_adam_05,2.1671,4.6961,1.4783,13.2586,13.874
+mDette_automl::automl_train_manual_trainwpso_01,2.8224,7.9661,2.0956,18.1849,28.814
+mDette_automl::automl_train_manual_trainwpso_02,3.0199,9.12,2.325,15.4513,15.571
+mDette_automl::automl_train_manual_trainwpso_03,6.8172,46.4738,5.5799,26.9667,25.348
+mDette_automl::automl_train_manual_trainwpso_04,3.8735,15.0044,2.8581,17.2559,20.584
+mDette_automl::automl_train_manual_trainwpso_05,2.3823,5.6752,1.7077,13.8532,28.696
