@@ -1,0 +1,16 @@
+event,RMSE,MSE,MAE,WAE,time
+uNeuroOne_CaDENCE::cadence.fit_optim_01,0.2831,0.0801,0.231,0.5816,0.426
+uNeuroOne_CaDENCE::cadence.fit_optim_02,0.2831,0.0801,0.231,0.5816,0.61
+uNeuroOne_CaDENCE::cadence.fit_optim_03,0.2831,0.0801,0.231,0.5816,0.619
+uNeuroOne_CaDENCE::cadence.fit_optim_04,0.2831,0.0801,0.231,0.5816,0.374
+uNeuroOne_CaDENCE::cadence.fit_optim_05,0.2831,0.0801,0.231,0.5815,0.481
+uNeuroOne_CaDENCE::cadence.fit_psoptim_01,0.7128,0.5081,0.5441,1.9208,5.978
+uNeuroOne_CaDENCE::cadence.fit_psoptim_02,0.777,0.6038,0.5947,2.0087,5.972
+uNeuroOne_CaDENCE::cadence.fit_psoptim_03,0.7408,0.5488,0.5695,1.9221,5.947
+uNeuroOne_CaDENCE::cadence.fit_psoptim_04,0.628,0.3944,0.4849,1.5506,5.952
+uNeuroOne_CaDENCE::cadence.fit_psoptim_05,0.6182,0.3822,0.4743,1.5305,5.943
+uNeuroOne_CaDENCE::cadence.fit_Rprop_01,0.3214,0.1033,0.2575,0.8292,3.936
+uNeuroOne_CaDENCE::cadence.fit_Rprop_02,0.4896,0.2398,0.3883,1.127,3.903
+uNeuroOne_CaDENCE::cadence.fit_Rprop_03,0.5085,0.2585,0.4007,1.1722,3.944
+uNeuroOne_CaDENCE::cadence.fit_Rprop_04,8.226,67.6673,5.9758,12.6992,3.911
+uNeuroOne_CaDENCE::cadence.fit_Rprop_05,0.2864,0.082,0.2352,0.5371,3.909

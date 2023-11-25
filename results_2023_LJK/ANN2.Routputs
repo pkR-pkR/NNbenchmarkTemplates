@@ -1,0 +1,418 @@
+
+R version 4.3.0 (2023-04-21) -- "Already Tomorrow"
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: x86_64-unknown-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> cat("Setting before computation\n")
+Setting before computation
+> print(.libPaths())
+[1] "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+[2] "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+[3] "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+> print(getwd())
+[1] "/home/dutangc/codepourdahu/NNbench"
+> print(installed.packages()[, c("Package", "LibPath", "Version", "Built")])
+              Package        
+KernSmooth    "KernSmooth"   
+MASS          "MASS"         
+Matrix        "Matrix"       
+R6            "R6"           
+RColorBrewer  "RColorBrewer" 
+Rcpp          "Rcpp"         
+RcppArmadillo "RcppArmadillo"
+boot          "boot"         
+brio          "brio"         
+callr         "callr"        
+class         "class"        
+cli           "cli"          
+cluster       "cluster"      
+codetools     "codetools"    
+colorspace    "colorspace"   
+cpp11         "cpp11"        
+crayon        "crayon"       
+desc          "desc"         
+diffobj       "diffobj"      
+digest        "digest"       
+ellipsis      "ellipsis"     
+evaluate      "evaluate"     
+fansi         "fansi"        
+farver        "farver"       
+foreign       "foreign"      
+fs            "fs"           
+ggplot2       "ggplot2"      
+glue          "glue"         
+gtable        "gtable"       
+isoband       "isoband"      
+jsonlite      "jsonlite"     
+labeling      "labeling"     
+lattice       "lattice"      
+lifecycle     "lifecycle"    
+magrittr      "magrittr"     
+mgcv          "mgcv"         
+munsell       "munsell"      
+nlme          "nlme"         
+nnet          "nnet"         
+pillar        "pillar"       
+pkgconfig     "pkgconfig"    
+pkgload       "pkgload"      
+plyr          "plyr"         
+praise        "praise"       
+processx      "processx"     
+ps            "ps"           
+rematch2      "rematch2"     
+reshape2      "reshape2"     
+rlang         "rlang"        
+rpart         "rpart"        
+rprojroot     "rprojroot"    
+scales        "scales"       
+spatial       "spatial"      
+stringi       "stringi"      
+stringr       "stringr"      
+survival      "survival"     
+svglite       "svglite"      
+systemfonts   "systemfonts"  
+testthat      "testthat"     
+tibble        "tibble"       
+utf8          "utf8"         
+vctrs         "vctrs"        
+viridisLite   "viridisLite"  
+waldo         "waldo"        
+withr         "withr"        
+KernSmooth    "KernSmooth"   
+MASS          "MASS"         
+Matrix        "Matrix"       
+boot          "boot"         
+class         "class"        
+cluster       "cluster"      
+codetools     "codetools"    
+foreign       "foreign"      
+lattice       "lattice"      
+mgcv          "mgcv"         
+nlme          "nlme"         
+nnet          "nnet"         
+rpart         "rpart"        
+spatial       "spatial"      
+survival      "survival"     
+base          "base"         
+compiler      "compiler"     
+datasets      "datasets"     
+grDevices     "grDevices"    
+graphics      "graphics"     
+grid          "grid"         
+methods       "methods"      
+parallel      "parallel"     
+splines       "splines"      
+stats         "stats"        
+stats4        "stats4"       
+tcltk         "tcltk"        
+tools         "tools"        
+utils         "utils"        
+              LibPath                                                                    
+KernSmooth    "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+MASS          "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+Matrix        "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+R6            "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+RColorBrewer  "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+Rcpp          "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+RcppArmadillo "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+boot          "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+brio          "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+callr         "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+class         "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+cli           "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+cluster       "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+codetools     "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+colorspace    "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+cpp11         "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+crayon        "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+desc          "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+diffobj       "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+digest        "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+ellipsis      "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+evaluate      "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+fansi         "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+farver        "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+foreign       "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+fs            "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+ggplot2       "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+glue          "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+gtable        "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+isoband       "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+jsonlite      "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+labeling      "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+lattice       "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+lifecycle     "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+magrittr      "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+mgcv          "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+munsell       "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+nlme          "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+nnet          "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+pillar        "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+pkgconfig     "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+pkgload       "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+plyr          "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+praise        "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+processx      "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+ps            "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+rematch2      "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+reshape2      "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+rlang         "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+rpart         "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+rprojroot     "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+scales        "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+spatial       "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+stringi       "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+stringr       "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+survival      "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+svglite       "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+systemfonts   "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+testthat      "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+tibble        "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+utf8          "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+vctrs         "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+viridisLite   "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+waldo         "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+withr         "/gnu/store/b0ibiv6l39xwk47vca9s3ka8jw9lzs32-profile/site-library"         
+KernSmooth    "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+MASS          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+Matrix        "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+boot          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+class         "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+cluster       "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+codetools     "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+foreign       "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+lattice       "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+mgcv          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+nlme          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+nnet          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+rpart         "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+spatial       "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+survival      "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+base          "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+compiler      "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+datasets      "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+grDevices     "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+graphics      "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+grid          "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+methods       "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+parallel      "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+splines       "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+stats         "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+stats4        "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+tcltk         "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+tools         "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+utils         "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+              Version      Built  
+KernSmooth    "2.23-21"    "4.3.0"
+MASS          "7.3-60"     "4.3.0"
+Matrix        "1.5-4"      "4.3.0"
+R6            "2.5.1"      "4.3.0"
+RColorBrewer  "1.1-3"      "4.3.0"
+Rcpp          "1.0.10"     "4.3.0"
+RcppArmadillo "0.12.2.0.0" "4.3.0"
+boot          "1.3-28.1"   "4.3.0"
+brio          "1.1.3"      "4.3.0"
+callr         "3.7.3"      "4.3.0"
+class         "7.3-22"     "4.3.0"
+cli           "3.6.1"      "4.3.0"
+cluster       "2.1.4"      "4.3.0"
+codetools     "0.2-19"     "4.3.0"
+colorspace    "2.1-0"      "4.3.0"
+cpp11         "0.4.3"      "4.3.0"
+crayon        "1.5.2"      "4.3.0"
+desc          "1.4.2"      "4.3.0"
+diffobj       "0.3.5"      "4.3.0"
+digest        "0.6.31"     "4.3.0"
+ellipsis      "0.3.2"      "4.3.0"
+evaluate      "0.21"       "4.3.0"
+fansi         "1.0.4"      "4.3.0"
+farver        "2.1.1"      "4.3.0"
+foreign       "0.8-84"     "4.3.0"
+fs            "1.6.2"      "4.3.0"
+ggplot2       "3.4.2"      "4.3.0"
+glue          "1.6.2"      "4.3.0"
+gtable        "0.3.3"      "4.3.0"
+isoband       "0.2.7"      "4.3.0"
+jsonlite      "1.8.4"      "4.3.0"
+labeling      "0.4.2"      "4.3.0"
+lattice       "0.21-8"     "4.3.0"
+lifecycle     "1.0.3"      "4.3.0"
+magrittr      "2.0.3"      "4.3.0"
+mgcv          "1.8-42"     "4.3.0"
+munsell       "0.5.0"      "4.3.0"
+nlme          "3.1-162"    "4.3.0"
+nnet          "7.3-19"     "4.3.0"
+pillar        "1.9.0"      "4.3.0"
+pkgconfig     "2.0.3"      "4.3.0"
+pkgload       "1.3.2"      "4.3.0"
+plyr          "1.8.8"      "4.3.0"
+praise        "1.0.0"      "4.3.0"
+processx      "3.8.1"      "4.3.0"
+ps            "1.7.5"      "4.3.0"
+rematch2      "2.1.2"      "4.3.0"
+reshape2      "1.4.4"      "4.3.0"
+rlang         "1.1.1"      "4.3.0"
+rpart         "4.1.19"     "4.3.0"
+rprojroot     "2.0.3"      "4.3.0"
+scales        "1.2.1"      "4.3.0"
+spatial       "7.3-16"     "4.3.0"
+stringi       "1.7.12"     "4.3.0"
+stringr       "1.5.0"      "4.3.0"
+survival      "3.5-5"      "4.3.0"
+svglite       "2.1.1"      "4.3.0"
+systemfonts   "1.0.4"      "4.3.0"
+testthat      "3.1.8"      "4.3.0"
+tibble        "3.2.1"      "4.3.0"
+utf8          "1.2.3"      "4.3.0"
+vctrs         "0.6.2"      "4.3.0"
+viridisLite   "0.4.2"      "4.3.0"
+waldo         "0.5.0"      "4.3.0"
+withr         "2.5.0"      "4.3.0"
+KernSmooth    "2.23-20"    "4.2.2"
+MASS          "7.3-58.2"   "4.2.2"
+Matrix        "1.5-3"      "4.2.2"
+boot          "1.3-28.1"   "4.2.2"
+class         "7.3-21"     "4.2.2"
+cluster       "2.1.4"      "4.2.2"
+codetools     "0.2-19"     "4.2.2"
+foreign       "0.8-84"     "4.2.2"
+lattice       "0.20-45"    "4.2.2"
+mgcv          "1.8-41"     "4.2.2"
+nlme          "3.1-162"    "4.2.2"
+nnet          "7.3-18"     "4.2.2"
+rpart         "4.1.19"     "4.2.2"
+spatial       "7.3-16"     "4.2.2"
+survival      "3.5-0"      "4.2.2"
+base          "4.3.0"      "4.3.0"
+compiler      "4.3.0"      "4.3.0"
+datasets      "4.3.0"      "4.3.0"
+grDevices     "4.3.0"      "4.3.0"
+graphics      "4.3.0"      "4.3.0"
+grid          "4.3.0"      "4.3.0"
+methods       "4.3.0"      "4.3.0"
+parallel      "4.3.0"      "4.3.0"
+splines       "4.3.0"      "4.3.0"
+stats         "4.3.0"      "4.3.0"
+stats4        "4.3.0"      "4.3.0"
+tcltk         "4.3.0"      "4.3.0"
+tools         "4.3.0"      "4.3.0"
+utils         "4.3.0"      "4.3.0"
+> 
+> require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
+Loading required package: NNbenchmark
+Loading required package: parallel
+> require(ANN2, lib.loc = "/home/dutangc/Rpersolib")
+Loading required package: ANN2
+> 
+> ## --------------------------------------------------------------------------------
+> #output
+> odir <- "/home/dutangc/codepourdahu/NNbench/output/"
+> if(!dir.exists(odir))
++   dir.create(odir)
+> odir <- "/home/dutangc/codepourdahu/NNbench/output/ANN2"
+> if(!dir.exists(odir))
++   dir.create(odir)
+> odir <- paste0("/home/dutangc/codepourdahu/NNbench/output/ANN2/", Sys.Date())
+> if(!dir.exists(odir))
++   dir.create(odir)
+> 
+> nrep <- 5
+> maxit2ndorder  <-    200
+> maxit1storderA <-   1000
+> maxit1storderB <-  10000
+> maxit1storderC <- 100000
+> 
+> #library(ANN2)
+> ANN2.method <- c("sgd", "adam", "rmsprop")
+> hyperParams.ANN2 <- function(optim_method, ...) 
++ {
++     if (optim_method == "sgd")     { iter <- maxit1storderA; lr <- 0.01} 
++     if (optim_method == "adam")    { iter <- maxit1storderA; lr <- 0.01} 
++     if (optim_method == "rmsprop") { iter <- maxit1storderA; lr <- 0.01} 
++     
++     out <- list(iter = iter, lr = lr)
++     return(out)
++ }
+> 
+> NNtrain.ANN2 <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams, ...)
++ {
++     
++     hyper_params <- do.call(hyperParams, list(optim_method, ...))
++     
++     iter <- hyper_params$iter
++     lr <- hyper_params$lr
++     
++     NNreg <- ANN2::neuralnetwork(X = x, y = y, 
++                            val.prop = 0, 
++                            standardize = FALSE, 
++                            hidden.layers = hidden_neur, 
++                            regression = TRUE,
++                            loss.type = "squared",
++                            n.epochs = iter,
++                            optim.type = optim_method,
++                            learn.rates = lr,
++                            verbose = FALSE,
++                            random.seed = as.integer(runif(1)*10000000))
++     
++    return (NNreg)
++ }
+> NNpredict.ANN2 <- function(object, x, ...)
++     as.numeric(predict(object, x)$predictions)    
+> NNclose.ANN2 <- function()
++   if("package:ANN2" %in% search())
++     detach("package:ANN2", unload=TRUE)
+> ANN2.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+> 
+> ## --------------------------------------------------------------------------------
+> if(FALSE)
++ {
++   res <- train_and_predict_1data(1, ANN2.method, "NNtrain.ANN2", "hyperParams.ANN2", "NNpredict.ANN2", 
++                                NNsummary, "NNclose.ANN2", NA, ANN2.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
++                                pkgname="ANN2", pkgfun="neuralnetwork", rdafile=TRUE, odir=odir)
++ }
+> 
+> ## --------------------------------------------------------------------------------
+> #if(FALSE)
+> #{
+> t1 <- system.time(
++   res <- trainPredict_1pkg(1:12, pkgname = "ANN2", pkgfun = "neuralnetwork", ANN2.method,
++                            prepareZZ.arg = ANN2.prepareZZ, nrep = nrep, doplot = FALSE,
++                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
++ )
+> print(t1)
+   user  system elapsed 
+ 32.684   0.159  27.862 
+> #}
+> 
+> 
+> proc.time()
+   user  system elapsed 
+ 33.830   0.376  29.236 
+Loading required package: ANN2
+Error in .requirePackage(package) : 
+  unable to find required package 'ANN2'
+Calls: <Anonymous> ... .extendsForS3 -> extends -> getClassDef -> .requirePackage
+In addition: Warning message:
+In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+  there is no package called 'ANN2'
+Loading required package: ANN2
+Error in .requirePackage(package) : 
+  unable to find required package 'ANN2'
+Calls: <Anonymous> ... .extendsForS3 -> extends -> getClassDef -> .requirePackage
+In addition: Warning message:
+In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+  there is no package called 'ANN2'

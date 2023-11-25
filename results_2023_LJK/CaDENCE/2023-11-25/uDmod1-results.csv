@@ -1,0 +1,16 @@
+event,RMSE,MSE,MAE,WAE,time
+uDmod1_CaDENCE::cadence.fit_optim_01,0.2314,0.0536,0.1363,0.7745,4.25
+uDmod1_CaDENCE::cadence.fit_optim_02,0.3314,0.1098,0.2295,0.7918,3.927
+uDmod1_CaDENCE::cadence.fit_optim_03,0.1271,0.0162,0.0685,0.6193,4.19
+uDmod1_CaDENCE::cadence.fit_optim_04,0.2805,0.0787,0.1215,1.2961,4.135
+uDmod1_CaDENCE::cadence.fit_optim_05,0.1653,0.0273,0.0896,0.7676,4.137
+uDmod1_CaDENCE::cadence.fit_psoptim_01,0.3451,0.1191,0.2941,0.8305,8.084
+uDmod1_CaDENCE::cadence.fit_psoptim_02,0.3252,0.1057,0.2635,0.7377,8.161
+uDmod1_CaDENCE::cadence.fit_psoptim_03,0.2863,0.082,0.2329,0.815,8.169
+uDmod1_CaDENCE::cadence.fit_psoptim_04,0.3316,0.1099,0.2803,0.7948,8.15
+uDmod1_CaDENCE::cadence.fit_psoptim_05,0.4249,0.1806,0.3439,0.8744,8.069
+uDmod1_CaDENCE::cadence.fit_Rprop_01,0.3933,0.1547,0.2873,0.9542,10.382
+uDmod1_CaDENCE::cadence.fit_Rprop_02,0.3712,0.1378,0.2793,0.881,10.089
+uDmod1_CaDENCE::cadence.fit_Rprop_03,0.6569,0.4315,0.4587,2.0454,10.049
+uDmod1_CaDENCE::cadence.fit_Rprop_04,0.2087,0.0436,0.1458,0.8074,9.988
+uDmod1_CaDENCE::cadence.fit_Rprop_05,0.4384,0.1922,0.3036,1.1319,8.887

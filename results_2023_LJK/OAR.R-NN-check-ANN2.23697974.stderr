@@ -1,0 +1,15 @@
+* installing *source* package 'NNbenchmark' ...
+** using staged installation
+** R
+** data
+*** moving datasets to lazyload DB
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded from temporary location
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (NNbenchmark)
+ERROR: dependencies 'Rcpp', 'reshape2', 'ggplot2', 'viridisLite', 'RcppArmadillo', 'testthat' are not available for package 'ANN2'
+* removing '/home/dutangc/Rpersolib/ANN2'

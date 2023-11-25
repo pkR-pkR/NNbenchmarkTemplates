@@ -1,0 +1,6 @@
+event,RMSE,MSE,MAE,WAE,time
+uNeuroOne_brnn::brnn_Gauss-Newton_01,0.3522,0.124,0.285,0.8238,0.004
+uNeuroOne_brnn::brnn_Gauss-Newton_02,0.3523,0.1241,0.2848,0.8274,0.006
+uNeuroOne_brnn::brnn_Gauss-Newton_03,0.3523,0.1241,0.2848,0.8273,0.007
+uNeuroOne_brnn::brnn_Gauss-Newton_04,0.3523,0.1241,0.2848,0.8271,0.008
+uNeuroOne_brnn::brnn_Gauss-Newton_05,0.3522,0.1241,0.2848,0.8268,0.008

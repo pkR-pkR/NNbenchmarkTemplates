@@ -1,0 +1,16 @@
+event,RMSE,MSE,MAE,WAE,time
+uNeuroOne_automl::automl_train_manual_trainwgrad_RMSprop_01,0.3243,0.1052,0.2627,0.6514,1.423
+uNeuroOne_automl::automl_train_manual_trainwgrad_RMSprop_02,0.6078,0.3695,0.4855,1.5245,1.411
+uNeuroOne_automl::automl_train_manual_trainwgrad_RMSprop_03,0.6171,0.3808,0.505,1.4334,1.395
+uNeuroOne_automl::automl_train_manual_trainwgrad_RMSprop_04,0.6185,0.3825,0.5046,1.456,1.404
+uNeuroOne_automl::automl_train_manual_trainwgrad_RMSprop_05,0.285,0.0812,0.2346,0.585,1.426
+uNeuroOne_automl::automl_train_manual_trainwgrad_adam_01,0.6179,0.3818,0.5049,1.4807,1.581
+uNeuroOne_automl::automl_train_manual_trainwgrad_adam_02,0.288,0.0829,0.2379,0.6299,1.58
+uNeuroOne_automl::automl_train_manual_trainwgrad_adam_03,0.291,0.0847,0.2285,0.7381,1.57
+uNeuroOne_automl::automl_train_manual_trainwgrad_adam_04,0.2887,0.0834,0.2292,0.7075,1.589
+uNeuroOne_automl::automl_train_manual_trainwgrad_adam_05,0.2913,0.0848,0.2387,0.6574,1.576
+uNeuroOne_automl::automl_train_manual_trainwpso_01,0.2837,0.0805,0.2334,0.5331,3.972
+uNeuroOne_automl::automl_train_manual_trainwpso_02,0.325,0.1056,0.2557,1.0259,5.475
+uNeuroOne_automl::automl_train_manual_trainwpso_03,0.2842,0.0808,0.2311,0.5693,5.396
+uNeuroOne_automl::automl_train_manual_trainwpso_04,0.2835,0.0804,0.2325,0.5558,5.826
+uNeuroOne_automl::automl_train_manual_trainwpso_05,0.2983,0.089,0.2413,0.7343,4.787

@@ -1,0 +1,16 @@
+event,RMSE,MSE,MAE,WAE,time
+uGauss2_CaDENCE::cadence.fit_optim_01,16.1966,262.3309,11.7592,39.5028,3.386
+uGauss2_CaDENCE::cadence.fit_optim_02,2.7258,7.43,2.1755,8.1553,3.409
+uGauss2_CaDENCE::cadence.fit_optim_03,31.5172,993.3324,15.5406,95.5668,3.439
+uGauss2_CaDENCE::cadence.fit_optim_04,32.5189,1057.48,16.1235,98.1022,3.408
+uGauss2_CaDENCE::cadence.fit_optim_05,8.7996,77.4336,5.1858,28.5782,3.41
+uGauss2_CaDENCE::cadence.fit_psoptim_01,12.3014,151.3251,8.5053,35.6836,8.43
+uGauss2_CaDENCE::cadence.fit_psoptim_02,19.1869,368.1386,11.4578,57.7316,8.438
+uGauss2_CaDENCE::cadence.fit_psoptim_03,12.1035,146.4952,8.1268,34.8496,8.361
+uGauss2_CaDENCE::cadence.fit_psoptim_04,14.4764,209.5649,8.949,42.7977,8.368
+uGauss2_CaDENCE::cadence.fit_psoptim_05,16.0282,256.9025,11.3008,45.5648,8.409
+uGauss2_CaDENCE::cadence.fit_Rprop_01,17.4549,304.6729,12.5104,42.1542,8.416
+uGauss2_CaDENCE::cadence.fit_Rprop_02,15.0581,226.7467,10.7997,40.6175,8.467
+uGauss2_CaDENCE::cadence.fit_Rprop_03,16.8549,284.0882,12.1616,42.7508,8.453
+uGauss2_CaDENCE::cadence.fit_Rprop_04,18.7451,351.3794,13.0274,53.7667,8.382
+uGauss2_CaDENCE::cadence.fit_Rprop_05,9.4429,89.1677,6.4472,32.0796,8.35

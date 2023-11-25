@@ -1,0 +1,6 @@
+event,RMSE,MSE,MAE,WAE,time
+mDette_brnn::brnn_Gauss-Newton_01,1.433,2.0535,1.2292,4.1645,0.247
+mDette_brnn::brnn_Gauss-Newton_02,2.0587,4.2381,1.4788,12.368,0.194
+mDette_brnn::brnn_Gauss-Newton_03,0.8501,0.7227,0.6291,6.0411,0.155
+mDette_brnn::brnn_Gauss-Newton_04,1.438,2.0677,1.2323,4.2238,0.149
+mDette_brnn::brnn_Gauss-Newton_05,1.4893,2.2181,1.2755,4.7766,0.149

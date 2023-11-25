@@ -1,0 +1,16 @@
+event,RMSE,MSE,MAE,WAE,time
+uDreyfus2_CaDENCE::cadence.fit_optim_01,0.421,0.1772,0.2829,1.2026,2.152
+uDreyfus2_CaDENCE::cadence.fit_optim_02,0.091,0.0083,0.0731,0.2293,2.223
+uDreyfus2_CaDENCE::cadence.fit_optim_03,0.0909,0.0083,0.073,0.2283,2.166
+uDreyfus2_CaDENCE::cadence.fit_optim_04,0.091,0.0083,0.0731,0.2271,2.198
+uDreyfus2_CaDENCE::cadence.fit_optim_05,0.2649,0.0702,0.1781,0.8083,2.071
+uDreyfus2_CaDENCE::cadence.fit_psoptim_01,0.3855,0.1486,0.2769,1.1115,6.523
+uDreyfus2_CaDENCE::cadence.fit_psoptim_02,0.4115,0.1693,0.2742,1.2331,6.5
+uDreyfus2_CaDENCE::cadence.fit_psoptim_03,0.3372,0.1137,0.2322,1.0032,6.536
+uDreyfus2_CaDENCE::cadence.fit_psoptim_04,0.4348,0.1891,0.2815,1.3681,6.519
+uDreyfus2_CaDENCE::cadence.fit_psoptim_05,0.4106,0.1686,0.2763,1.2089,6.497
+uDreyfus2_CaDENCE::cadence.fit_Rprop_01,0.3374,0.1139,0.2307,0.9497,5.495
+uDreyfus2_CaDENCE::cadence.fit_Rprop_02,0.3313,0.1098,0.2388,0.8434,5.447
+uDreyfus2_CaDENCE::cadence.fit_Rprop_03,0.8338,0.6952,0.5029,2.1101,5.47
+uDreyfus2_CaDENCE::cadence.fit_Rprop_04,0.1464,0.0214,0.1156,0.3339,5.467
+uDreyfus2_CaDENCE::cadence.fit_Rprop_05,0.8974,0.8054,0.48,2.9767,5.484

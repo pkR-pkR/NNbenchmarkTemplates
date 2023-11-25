@@ -1,0 +1,596 @@
+
+R version 4.3.0 (2023-04-21) -- "Already Tomorrow"
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: x86_64-unknown-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> cat("Setting before computation\n")
+Setting before computation
+> print(.libPaths())
+[1] "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+[2] "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+[3] "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+> print(getwd())
+[1] "/home/dutangc/codepourdahu/NNbench"
+> print(installed.packages()[, c("Package", "LibPath", "Version", "Built")])
+              Package        
+Formula       "Formula"      
+KernSmooth    "KernSmooth"   
+MASS          "MASS"         
+Matrix        "Matrix"       
+R6            "R6"           
+RColorBrewer  "RColorBrewer" 
+Rcpp          "Rcpp"         
+RcppArmadillo "RcppArmadillo"
+boot          "boot"         
+brio          "brio"         
+callr         "callr"        
+class         "class"        
+cli           "cli"          
+cluster       "cluster"      
+codetools     "codetools"    
+colorspace    "colorspace"   
+cpp11         "cpp11"        
+crayon        "crayon"       
+desc          "desc"         
+diffobj       "diffobj"      
+digest        "digest"       
+ellipsis      "ellipsis"     
+evaluate      "evaluate"     
+fansi         "fansi"        
+farver        "farver"       
+foreign       "foreign"      
+fs            "fs"           
+ggplot2       "ggplot2"      
+glue          "glue"         
+gtable        "gtable"       
+isoband       "isoband"      
+jsonlite      "jsonlite"     
+labeling      "labeling"     
+lattice       "lattice"      
+lifecycle     "lifecycle"    
+magrittr      "magrittr"     
+mgcv          "mgcv"         
+munsell       "munsell"      
+nlme          "nlme"         
+nnet          "nnet"         
+pillar        "pillar"       
+pkgconfig     "pkgconfig"    
+pkgload       "pkgload"      
+plyr          "plyr"         
+praise        "praise"       
+processx      "processx"     
+ps            "ps"           
+rematch2      "rematch2"     
+reshape2      "reshape2"     
+rlang         "rlang"        
+rpart         "rpart"        
+rprojroot     "rprojroot"    
+scales        "scales"       
+spatial       "spatial"      
+stringi       "stringi"      
+stringr       "stringr"      
+survival      "survival"     
+svglite       "svglite"      
+systemfonts   "systemfonts"  
+testthat      "testthat"     
+tibble        "tibble"       
+truncnorm     "truncnorm"    
+utf8          "utf8"         
+vctrs         "vctrs"        
+viridisLite   "viridisLite"  
+waldo         "waldo"        
+withr         "withr"        
+KernSmooth    "KernSmooth"   
+MASS          "MASS"         
+Matrix        "Matrix"       
+boot          "boot"         
+class         "class"        
+cluster       "cluster"      
+codetools     "codetools"    
+foreign       "foreign"      
+lattice       "lattice"      
+mgcv          "mgcv"         
+nlme          "nlme"         
+nnet          "nnet"         
+rpart         "rpart"        
+spatial       "spatial"      
+survival      "survival"     
+base          "base"         
+compiler      "compiler"     
+datasets      "datasets"     
+grDevices     "grDevices"    
+graphics      "graphics"     
+grid          "grid"         
+methods       "methods"      
+parallel      "parallel"     
+splines       "splines"      
+stats         "stats"        
+stats4        "stats4"       
+tcltk         "tcltk"        
+tools         "tools"        
+utils         "utils"        
+              LibPath                                                                    
+Formula       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+KernSmooth    "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+MASS          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+Matrix        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+R6            "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+RColorBrewer  "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+Rcpp          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+RcppArmadillo "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+boot          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+brio          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+callr         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+class         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+cli           "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+cluster       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+codetools     "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+colorspace    "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+cpp11         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+crayon        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+desc          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+diffobj       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+digest        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+ellipsis      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+evaluate      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+fansi         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+farver        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+foreign       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+fs            "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+ggplot2       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+glue          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+gtable        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+isoband       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+jsonlite      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+labeling      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+lattice       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+lifecycle     "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+magrittr      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+mgcv          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+munsell       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+nlme          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+nnet          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+pillar        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+pkgconfig     "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+pkgload       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+plyr          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+praise        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+processx      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+ps            "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+rematch2      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+reshape2      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+rlang         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+rpart         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+rprojroot     "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+scales        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+spatial       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+stringi       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+stringr       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+survival      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+svglite       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+systemfonts   "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+testthat      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+tibble        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+truncnorm     "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+utf8          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+vctrs         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+viridisLite   "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+waldo         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+withr         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+KernSmooth    "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+MASS          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+Matrix        "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+boot          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+class         "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+cluster       "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+codetools     "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+foreign       "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+lattice       "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+mgcv          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+nlme          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+nnet          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+rpart         "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+spatial       "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+survival      "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+base          "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+compiler      "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+datasets      "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+grDevices     "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+graphics      "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+grid          "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+methods       "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+parallel      "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+splines       "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+stats         "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+stats4        "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+tcltk         "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+tools         "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+utils         "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+              Version      Built  
+Formula       "1.2-5"      "4.3.0"
+KernSmooth    "2.23-21"    "4.3.0"
+MASS          "7.3-60"     "4.3.0"
+Matrix        "1.5-4"      "4.3.0"
+R6            "2.5.1"      "4.3.0"
+RColorBrewer  "1.1-3"      "4.3.0"
+Rcpp          "1.0.10"     "4.3.0"
+RcppArmadillo "0.12.2.0.0" "4.3.0"
+boot          "1.3-28.1"   "4.3.0"
+brio          "1.1.3"      "4.3.0"
+callr         "3.7.3"      "4.3.0"
+class         "7.3-22"     "4.3.0"
+cli           "3.6.1"      "4.3.0"
+cluster       "2.1.4"      "4.3.0"
+codetools     "0.2-19"     "4.3.0"
+colorspace    "2.1-0"      "4.3.0"
+cpp11         "0.4.3"      "4.3.0"
+crayon        "1.5.2"      "4.3.0"
+desc          "1.4.2"      "4.3.0"
+diffobj       "0.3.5"      "4.3.0"
+digest        "0.6.31"     "4.3.0"
+ellipsis      "0.3.2"      "4.3.0"
+evaluate      "0.21"       "4.3.0"
+fansi         "1.0.4"      "4.3.0"
+farver        "2.1.1"      "4.3.0"
+foreign       "0.8-84"     "4.3.0"
+fs            "1.6.2"      "4.3.0"
+ggplot2       "3.4.2"      "4.3.0"
+glue          "1.6.2"      "4.3.0"
+gtable        "0.3.3"      "4.3.0"
+isoband       "0.2.7"      "4.3.0"
+jsonlite      "1.8.4"      "4.3.0"
+labeling      "0.4.2"      "4.3.0"
+lattice       "0.21-8"     "4.3.0"
+lifecycle     "1.0.3"      "4.3.0"
+magrittr      "2.0.3"      "4.3.0"
+mgcv          "1.8-42"     "4.3.0"
+munsell       "0.5.0"      "4.3.0"
+nlme          "3.1-162"    "4.3.0"
+nnet          "7.3-19"     "4.3.0"
+pillar        "1.9.0"      "4.3.0"
+pkgconfig     "2.0.3"      "4.3.0"
+pkgload       "1.3.2"      "4.3.0"
+plyr          "1.8.8"      "4.3.0"
+praise        "1.0.0"      "4.3.0"
+processx      "3.8.1"      "4.3.0"
+ps            "1.7.5"      "4.3.0"
+rematch2      "2.1.2"      "4.3.0"
+reshape2      "1.4.4"      "4.3.0"
+rlang         "1.1.1"      "4.3.0"
+rpart         "4.1.19"     "4.3.0"
+rprojroot     "2.0.3"      "4.3.0"
+scales        "1.2.1"      "4.3.0"
+spatial       "7.3-16"     "4.3.0"
+stringi       "1.7.12"     "4.3.0"
+stringr       "1.5.0"      "4.3.0"
+survival      "3.5-5"      "4.3.0"
+svglite       "2.1.1"      "4.3.0"
+systemfonts   "1.0.4"      "4.3.0"
+testthat      "3.1.8"      "4.3.0"
+tibble        "3.2.1"      "4.3.0"
+truncnorm     "1.0-9"      "4.3.0"
+utf8          "1.2.3"      "4.3.0"
+vctrs         "0.6.2"      "4.3.0"
+viridisLite   "0.4.2"      "4.3.0"
+waldo         "0.5.0"      "4.3.0"
+withr         "2.5.0"      "4.3.0"
+KernSmooth    "2.23-20"    "4.2.2"
+MASS          "7.3-58.2"   "4.2.2"
+Matrix        "1.5-3"      "4.2.2"
+boot          "1.3-28.1"   "4.2.2"
+class         "7.3-21"     "4.2.2"
+cluster       "2.1.4"      "4.2.2"
+codetools     "0.2-19"     "4.2.2"
+foreign       "0.8-84"     "4.2.2"
+lattice       "0.20-45"    "4.2.2"
+mgcv          "1.8-41"     "4.2.2"
+nlme          "3.1-162"    "4.2.2"
+nnet          "7.3-18"     "4.2.2"
+rpart         "4.1.19"     "4.2.2"
+spatial       "7.3-16"     "4.2.2"
+survival      "3.5-0"      "4.2.2"
+base          "4.3.0"      "4.3.0"
+compiler      "4.3.0"      "4.3.0"
+datasets      "4.3.0"      "4.3.0"
+grDevices     "4.3.0"      "4.3.0"
+graphics      "4.3.0"      "4.3.0"
+grid          "4.3.0"      "4.3.0"
+methods       "4.3.0"      "4.3.0"
+parallel      "4.3.0"      "4.3.0"
+splines       "4.3.0"      "4.3.0"
+stats         "4.3.0"      "4.3.0"
+stats4        "4.3.0"      "4.3.0"
+tcltk         "4.3.0"      "4.3.0"
+tools         "4.3.0"      "4.3.0"
+utils         "4.3.0"      "4.3.0"
+> 
+> require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
+Loading required package: NNbenchmark
+Loading required package: parallel
+> require(CaDENCE, lib.loc = "/home/dutangc/Rpersolib")
+Loading required package: CaDENCE
+Loading required package: pso
+> 
+> ## --------------------------------------------------------------------------------
+> #output
+> odir <- "/home/dutangc/codepourdahu/NNbench/output/"
+> if(!dir.exists(odir))
++   dir.create(odir)
+> odir <- "/home/dutangc/codepourdahu/NNbench/output/CaDENCE"
+> if(!dir.exists(odir))
++   dir.create(odir)
+> odir <- paste0("/home/dutangc/codepourdahu/NNbench/output/CaDENCE/", Sys.Date())
+> if(!dir.exists(odir))
++   dir.create(odir)
+> 
+> nrep <- 5
+> maxit2ndorder  <-    200
+> maxit1storderA <-   1000
+> maxit1storderB <-  10000
+> maxit1storderC <- 100000
+> 
+> #library(CaDENCE)
+> CaDENCE.method <- c("optim", "psoptim", "Rprop")
+> hyperParams.CaDENCE <- function(optim_method, ...) 
++ {
++   if (optim_method == "optim")    {iter <- maxit2ndorder;  epsilon <- 0.01} 
++   if (optim_method == "psoptim")  {iter <- maxit1storderA; epsilon <- 0.01}
++   if (optim_method == "Rprop")    {iter <- maxit1storderA; epsilon <- 0.01}
++   
++   out <- list(iter = iter, epsilon = epsilon)
++   return (out)
++ }
+> 
+> NNtrain.CaDENCE <- function(x, y, dataxy, formula, neur, optim_method, hyperParams,...) 
++ {
++   hyper_params <- do.call(hyperParams, list(optim_method, ...))
++   iter <- hyper_params$iter ; epsilon <- hyper_params$epsilon
++   
++   NNreg <- CaDENCE::cadence.fit(x = x, y = y, 
++                                 iter.max = iter, 
++                                 n.hidden = neur, 
++                                 hidden.fcn = tanh, 
++                                 method = optim_method, 
++                                 n.trials = 1, 
++                                 trace = 0, 
++                                 maxit.Nelder = 1, 
++                                 f.cost = cadence.cost,
++                                 distribution = list(density.fcn = dnorm,
++                                                     parameters = c("mean", "sd"),
++                                                     parameters.fixed = NULL,
++                                                     output.fcns = c(identity, exp)),
++                                 epsilon = epsilon)
++   return(NNreg)
++ }
+> NNpredict.CaDENCE <- function(object, x, ...)
++   CaDENCE::cadence.predict(x = x, fit = object)[,1]
+> NNclose.CaDENCE <- function()
++   if("package:CaDENCE" %in% search())
++     detach("package:CaDENCE", unload=TRUE)
+> CaDENCE.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+> 
+> ## --------------------------------------------------------------------------------
+> 
+> if(FALSE)
++ {
++   t1 <- system.time(
++     res <- trainPredict_1data(1, CaDENCE.method, "NNtrain.CaDENCE", "hyperParams.CaDENCE", "NNpredict.CaDENCE", 
++                               NNsummary, "NNclose.CaDENCE", NA, CaDENCE.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
++                               pkgname="CaDENCE", pkgfun="cadence.fit", csvfile=TRUE, rdafile=TRUE, odir=odir)
++     
++   )
++   print(t1)
++ }
+> 
+> ## --------------------------------------------------------------------------------
+> #if(FALSE)
+> #{
+> t1 <- system.time(
++   res <- trainPredict_1pkg(1:12, pkgname = "CaDENCE", pkgfun = "cadence.fit", CaDENCE.method,
++                            prepareZZ.arg = CaDENCE.prepareZZ, nrep = nrep, doplot = FALSE,
++                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
++ )
+n.hidden = 5 --> 1 * NLL = -858.4777 ; penalty = 0; BIC = -1518.088 ; AICc = -1648.433 ; AIC = -1652.955
+n.hidden = 5 --> 1 * NLL = -989.138 ; penalty = 0; BIC = -1779.408 ; AICc = -1909.753 ; AIC = -1914.276
+n.hidden = 5 --> 1 * NLL = -961.1387 ; penalty = 0; BIC = -1723.41 ; AICc = -1853.755 ; AIC = -1858.277
+n.hidden = 5 --> 1 * NLL = -537.1774 ; penalty = 0; BIC = -875.4873 ; AICc = -1005.832 ; AIC = -1010.355
+n.hidden = 5 --> 1 * NLL = -848.0761 ; penalty = 0; BIC = -1497.285 ; AICc = -1627.63 ; AIC = -1632.152
+n.hidden = 5 --> 1 * NLL = -133.5666 ; penalty = 0; BIC = -68.26584 ; AICc = -198.6108 ; AIC = -203.1333
+n.hidden = 5 --> 1 * NLL = -125.9026 ; penalty = 0; BIC = -52.93778 ; AICc = -183.2828 ; AIC = -187.8052
+n.hidden = 5 --> 1 * NLL = -127.0964 ; penalty = 0; BIC = -55.32544 ; AICc = -185.6704 ; AIC = -190.1929
+n.hidden = 5 --> 1 * NLL = -71.46411 ; penalty = 0; BIC = 55.93925 ; AICc = -74.40573 ; AIC = -78.92821
+n.hidden = 5 --> 1 * NLL = -48.59656 ; penalty = 0; BIC = 101.6743 ; AICc = -28.67063 ; AIC = -33.19311
+n.hidden = 5 --> 1 * NLL = 14.71848 ; penalty = 0; BIC = 228.3044 ; AICc = 97.95945 ; AIC = 93.43696
+n.hidden = 5 --> 1 * NLL = 218.1128 ; penalty = 0; BIC = 635.0931 ; AICc = 504.7481 ; AIC = 500.2256
+n.hidden = 5 --> 1 * NLL = -263.0664 ; penalty = 0; BIC = -327.2653 ; AICc = -457.6103 ; AIC = -462.1328
+n.hidden = 5 --> 1 * NLL = 105.7478 ; penalty = 0; BIC = 410.3631 ; AICc = 280.0181 ; AIC = 275.4956
+n.hidden = 5 --> 1 * NLL = -32.66502 ; penalty = 0; BIC = 133.5374 ; AICc = 3.192446 ; AIC = -1.330038
+n.hidden = 5 --> 1 * NLL = -562.77 ; penalty = 0; BIC = -864.5265 ; AICc = -1033.636 ; AIC = -1041.54
+n.hidden = 5 --> 1 * NLL = -317.9008 ; penalty = 0; BIC = -374.7881 ; AICc = -543.898 ; AIC = -551.8017
+n.hidden = 5 --> 1 * NLL = 178.147 ; penalty = 0; BIC = 611.0929 ; AICc = 445.8137 ; AIC = 438.294
+n.hidden = 5 --> 1 * NLL = 168.8941 ; penalty = 0; BIC = 598.8017 ; AICc = 429.6919 ; AIC = 421.7881
+n.hidden = 5 --> 1 * NLL = -388.3478 ; penalty = 0; BIC = -515.682 ; AICc = -684.7918 ; AIC = -692.6955
+n.hidden = 5 --> 1 * NLL = 277.5677 ; penalty = 0; BIC = 816.149 ; AICc = 647.0392 ; AIC = 639.1354
+n.hidden = 5 --> 1 * NLL = 237.8792 ; penalty = 0; BIC = 736.7719 ; AICc = 567.6621 ; AIC = 559.7584
+n.hidden = 5 --> 1 * NLL = 97.57701 ; penalty = 0; BIC = 456.1676 ; AICc = 287.0577 ; AIC = 279.154
+n.hidden = 5 --> 1 * NLL = -24.15616 ; penalty = 0; BIC = 212.7012 ; AICc = 43.5914 ; AIC = 35.68768
+n.hidden = 5 --> 1 * NLL = 231.2976 ; penalty = 0; BIC = 723.6088 ; AICc = 554.499 ; AIC = 546.5953
+n.hidden = 5 --> 1 * NLL = 130.8287 ; penalty = 0; BIC = 522.6708 ; AICc = 353.561 ; AIC = 345.6573
+n.hidden = 5 --> 1 * NLL = 14.81061 ; penalty = 0; BIC = 290.6348 ; AICc = 121.5249 ; AIC = 113.6212
+n.hidden = 5 --> 1 * NLL = -47.65629 ; penalty = 0; BIC = 165.701 ; AICc = -3.408858 ; AIC = -11.31258
+n.hidden = 5 --> 1 * NLL = 306.3519 ; penalty = 0; BIC = 873.7174 ; AICc = 704.6075 ; AIC = 696.7038
+n.hidden = 5 --> 1 * NLL = -16.63229 ; penalty = 0; BIC = 227.749 ; AICc = 58.63913 ; AIC = 50.73541
+n.hidden = 10 --> 1 * NLL = 431.4964 ; penalty = 0; BIC = 1248.298 ; AICc = 1004.869 ; AIC = 986.9927
+n.hidden = 10 --> 1 * NLL = -164.4263 ; penalty = 0; BIC = 56.45308 ; AICc = -186.9762 ; AIC = -204.8526
+n.hidden = 10 --> 1 * NLL = 387.5177 ; penalty = 0; BIC = 1160.341 ; AICc = 916.9118 ; AIC = 899.0354
+n.hidden = 10 --> 1 * NLL = 185.5212 ; penalty = 0; BIC = 750.1336 ; AICc = 510.3119 ; AIC = 493.0425
+n.hidden = 10 --> 1 * NLL = 496.6452 ; penalty = 0; BIC = 1378.596 ; AICc = 1135.167 ; AIC = 1117.29
+n.hidden = 10 --> 1 * NLL = 524.598 ; penalty = 0; BIC = 1434.502 ; AICc = 1191.073 ; AIC = 1173.196
+n.hidden = 10 --> 1 * NLL = 541.8547 ; penalty = 0; BIC = 1469.015 ; AICc = 1225.586 ; AIC = 1207.709
+n.hidden = 10 --> 1 * NLL = 552.5652 ; penalty = 0; BIC = 1490.436 ; AICc = 1247.007 ; AIC = 1229.13
+n.hidden = 10 --> 1 * NLL = 331.7505 ; penalty = 0; BIC = 1048.807 ; AICc = 805.3775 ; AIC = 787.501
+n.hidden = 10 --> 1 * NLL = 521.6026 ; penalty = 0; BIC = 1428.511 ; AICc = 1185.082 ; AIC = 1167.205
+n.hidden = 10 --> 1 * NLL = 388.7611 ; penalty = 0; BIC = 1162.828 ; AICc = 919.3986 ; AIC = 901.5221
+n.hidden = 10 --> 1 * NLL = 403.1942 ; penalty = 0; BIC = 1191.694 ; AICc = 948.2649 ; AIC = 930.3885
+n.hidden = 10 --> 1 * NLL = 461.4753 ; penalty = 0; BIC = 1308.256 ; AICc = 1064.827 ; AIC = 1046.951
+n.hidden = 10 --> 1 * NLL = 275.3089 ; penalty = 0; BIC = 929.7089 ; AICc = 689.8872 ; AIC = 672.6178
+n.hidden = 10 --> 1 * NLL = 456.9522 ; penalty = 0; BIC = 1299.21 ; AICc = 1055.781 ; AIC = 1037.904
+n.hidden = 3 --> 1 * NLL = -103.5307 ; penalty = 0; BIC = -86.33086 ; AICc = -149.6864 ; AIC = -159.0614
+n.hidden = 3 --> 1 * NLL = -105.2165 ; penalty = 0; BIC = -79.64153 ; AICc = -147.2901 ; AIC = -158.4329
+n.hidden = 3 --> 1 * NLL = -116.5635 ; penalty = 0; BIC = -107.3661 ; AICc = -172.8908 ; AIC = -183.127
+n.hidden = 3 --> 1 * NLL = -124.9116 ; penalty = 0; BIC = -119.0319 ; AICc = -186.6804 ; AIC = -197.8233
+n.hidden = 3 --> 1 * NLL = -121.6734 ; penalty = 0; BIC = -122.6162 ; AICc = -185.9717 ; AIC = -195.3467
+n.hidden = 3 --> 1 * NLL = -75.19826 ; penalty = 0; BIC = -19.60514 ; AICc = -87.25367 ; AIC = -98.39653
+n.hidden = 3 --> 1 * NLL = -97.14623 ; penalty = 0; BIC = -68.53151 ; AICc = -134.0562 ; AIC = -144.2925
+n.hidden = 3 --> 1 * NLL = -100.1169 ; penalty = 0; BIC = -69.44244 ; AICc = -137.091 ; AIC = -148.2338
+n.hidden = 3 --> 1 * NLL = -103.5521 ; penalty = 0; BIC = -76.3128 ; AICc = -143.9613 ; AIC = -155.1042
+n.hidden = 3 --> 1 * NLL = -92.04253 ; penalty = 0; BIC = -53.29368 ; AICc = -120.9422 ; AIC = -132.0851
+n.hidden = 3 --> 1 * NLL = -20.18989 ; penalty = 0; BIC = 85.38118 ; AICc = 19.85645 ; AIC = 9.620228
+n.hidden = 3 --> 1 * NLL = -76.64024 ; penalty = 0; BIC = -22.4891 ; AICc = -90.13763 ; AIC = -101.2805
+n.hidden = 3 --> 1 * NLL = -52.72839 ; penalty = 0; BIC = 25.33461 ; AICc = -42.31392 ; AIC = -53.45678
+n.hidden = 3 --> 1 * NLL = -75.0675 ; penalty = 0; BIC = -19.34362 ; AICc = -86.99215 ; AIC = -98.135
+n.hidden = 3 --> 1 * NLL = -84.11087 ; penalty = 0; BIC = -37.43035 ; AICc = -105.0789 ; AIC = -116.2217
+n.hidden = 6 --> 1 * NLL = -26.15569 ; penalty = 0; BIC = 49.91609 ; AICc = 58.18862 ; AIC = -0.3113768
+n.hidden = 6 --> 1 * NLL = -3.579618 ; penalty = 0; BIC = 87.20458 ; AICc = 86.99461 ; AIC = 40.84076
+n.hidden = 6 --> 1 * NLL = -45.12564 ; penalty = 0; BIC = 11.97618 ; AICc = 20.24872 ; AIC = -38.25128
+n.hidden = 6 --> 1 * NLL = -38.28432 ; penalty = 0; BIC = 25.65882 ; AICc = 33.93135 ; AIC = -24.56865
+n.hidden = 6 --> 1 * NLL = -38.63066 ; penalty = 0; BIC = 24.96614 ; AICc = 33.23868 ; AIC = -25.26132
+n.hidden = 6 --> 1 * NLL = 43.22043 ; penalty = 0; BIC = 188.6683 ; AICc = 196.9409 ; AIC = 138.4409
+n.hidden = 6 --> 1 * NLL = 32.88131 ; penalty = 0; BIC = 167.9901 ; AICc = 176.2626 ; AIC = 117.7626
+n.hidden = 6 --> 1 * NLL = 31.37843 ; penalty = 0; BIC = 164.9843 ; AICc = 173.2569 ; AIC = 114.7569
+n.hidden = 6 --> 1 * NLL = 40.34571 ; penalty = 0; BIC = 178.9871 ; AICc = 182.6914 ; AIC = 130.6914
+n.hidden = 6 --> 1 * NLL = 45.20879 ; penalty = 0; BIC = 188.7132 ; AICc = 192.4176 ; AIC = 140.4176
+n.hidden = 6 --> 1 * NLL = 25.02514 ; penalty = 0; BIC = 152.2777 ; AICc = 160.5503 ; AIC = 102.0503
+n.hidden = 6 --> 1 * NLL = 24.94147 ; penalty = 0; BIC = 148.1786 ; AICc = 151.8829 ; AIC = 99.88295
+n.hidden = 6 --> 1 * NLL = 52.00158 ; penalty = 0; BIC = 202.2988 ; AICc = 206.0032 ; AIC = 154.0032
+n.hidden = 6 --> 1 * NLL = 0.6192845 ; penalty = 0; BIC = 99.53421 ; AICc = 103.2386 ; AIC = 51.23857
+n.hidden = 6 --> 1 * NLL = 26.09964 ; penalty = 0; BIC = 138.6994 ; AICc = 132.3421 ; AIC = 96.19927
+n.hidden = 5 --> 1 * NLL = -10.20799 ; penalty = 0; BIC = 66.08417 ; AICc = 59.72687 ; AIC = 23.58401
+n.hidden = 5 --> 1 * NLL = -54.21772 ; penalty = 0; BIC = -21.93528 ; AICc = -28.29259 ; AIC = -64.43544
+n.hidden = 5 --> 1 * NLL = -32.74014 ; penalty = 0; BIC = 21.01988 ; AICc = 14.66258 ; AIC = -21.48028
+n.hidden = 5 --> 1 * NLL = -9.86956 ; penalty = 0; BIC = 66.76104 ; AICc = 60.40374 ; AIC = 24.26088
+n.hidden = 5 --> 1 * NLL = -28.02229 ; penalty = 0; BIC = 30.45559 ; AICc = 24.09828 ; AIC = -12.04458
+n.hidden = 5 --> 1 * NLL = 21.60948 ; penalty = 0; BIC = 129.7191 ; AICc = 123.3618 ; AIC = 87.21895
+n.hidden = 5 --> 1 * NLL = 32.57087 ; penalty = 0; BIC = 151.6419 ; AICc = 145.2846 ; AIC = 109.1417
+n.hidden = 5 --> 1 * NLL = 41.75205 ; penalty = 0; BIC = 166.0724 ; AICc = 157.3662 ; AIC = 125.5041
+n.hidden = 5 --> 1 * NLL = 36.83542 ; penalty = 0; BIC = 160.171 ; AICc = 153.8137 ; AIC = 117.6708
+n.hidden = 5 --> 1 * NLL = 35.95221 ; penalty = 0; BIC = 158.4046 ; AICc = 152.0473 ; AIC = 115.9044
+n.hidden = 5 --> 1 * NLL = 45.04961 ; penalty = 0; BIC = 164.8039 ; AICc = 152.6153 ; AIC = 128.0992
+n.hidden = 5 --> 1 * NLL = -8.222811 ; penalty = 0; BIC = 70.05454 ; AICc = 63.69724 ; AIC = 27.55438
+n.hidden = 5 --> 1 * NLL = 6.173312 ; penalty = 0; BIC = 98.84679 ; AICc = 92.48948 ; AIC = 56.34662
+n.hidden = 5 --> 1 * NLL = 4.233402 ; penalty = 0; BIC = 91.03514 ; AICc = 82.32887 ; AIC = 50.4668
+n.hidden = 5 --> 1 * NLL = 11.10516 ; penalty = 0; BIC = 108.7105 ; AICc = 102.3532 ; AIC = 66.21031
+n.hidden = 3 --> 1 * NLL = -181.4572 ; penalty = 0; BIC = -307.8688 ; AICc = -323.2477 ; AIC = -334.9144
+n.hidden = 3 --> 1 * NLL = -198.8487 ; penalty = 0; BIC = -342.6519 ; AICc = -358.0308 ; AIC = -369.6974
+n.hidden = 3 --> 1 * NLL = -115.2289 ; penalty = 0; BIC = -175.4123 ; AICc = -190.7911 ; AIC = -202.4578
+n.hidden = 3 --> 1 * NLL = -169.3094 ; penalty = 0; BIC = -283.5733 ; AICc = -298.9522 ; AIC = -310.6189
+n.hidden = 3 --> 1 * NLL = -154.7999 ; penalty = 0; BIC = -254.5541 ; AICc = -269.933 ; AIC = -281.5997
+n.hidden = 3 --> 1 * NLL = -50.96898 ; penalty = 0; BIC = -46.89241 ; AICc = -62.2713 ; AIC = -73.93797
+n.hidden = 3 --> 1 * NLL = -38.91816 ; penalty = 0; BIC = -22.79077 ; AICc = -38.16966 ; AIC = -49.83633
+n.hidden = 3 --> 1 * NLL = -24.03742 ; penalty = 0; BIC = 6.970709 ; AICc = -8.408183 ; AIC = -20.07485
+n.hidden = 3 --> 1 * NLL = -46.48839 ; penalty = 0; BIC = -37.93122 ; AICc = -53.31011 ; AIC = -64.97678
+n.hidden = 3 --> 1 * NLL = -36.55974 ; penalty = 0; BIC = -18.07393 ; AICc = -33.45282 ; AIC = -45.11949
+n.hidden = 3 --> 1 * NLL = -8.506555 ; penalty = 0; BIC = 38.03245 ; AICc = 22.65356 ; AIC = 10.98689
+n.hidden = 3 --> 1 * NLL = -17.36255 ; penalty = 0; BIC = 20.32046 ; AICc = 4.941567 ; AIC = -6.7251
+n.hidden = 3 --> 1 * NLL = -20.8631 ; penalty = 0; BIC = 13.31936 ; AICc = -2.05953 ; AIC = -13.7262
+n.hidden = 3 --> 1 * NLL = -18.49646 ; penalty = 0; BIC = 18.05264 ; AICc = 2.673752 ; AIC = -8.992915
+n.hidden = 3 --> 1 * NLL = -23.28502 ; penalty = 0; BIC = 8.475511 ; AICc = -6.903382 ; AIC = -18.57005
+n.hidden = 3 --> 1 * NLL = -28.34328 ; penalty = 0; BIC = -1.640992 ; AICc = -17.01988 ; AIC = -28.68655
+n.hidden = 3 --> 1 * NLL = -75.484 ; penalty = 0; BIC = -95.92244 ; AICc = -111.3013 ; AIC = -122.968
+n.hidden = 3 --> 1 * NLL = -75.54963 ; penalty = 0; BIC = -96.0537 ; AICc = -111.4326 ; AIC = -123.0993
+n.hidden = 3 --> 1 * NLL = -75.51943 ; penalty = 0; BIC = -95.9933 ; AICc = -111.3722 ; AIC = -123.0389
+n.hidden = 3 --> 1 * NLL = -46.30844 ; penalty = 0; BIC = -37.57132 ; AICc = -52.95021 ; AIC = -64.61688
+n.hidden = 3 --> 1 * NLL = -18.29145 ; penalty = 0; BIC = 18.46266 ; AICc = 3.083768 ; AIC = -8.582899
+n.hidden = 3 --> 1 * NLL = -25.59337 ; penalty = 0; BIC = 3.858825 ; AICc = -11.52007 ; AIC = -23.18673
+n.hidden = 3 --> 1 * NLL = -33.3678 ; penalty = 0; BIC = -11.69005 ; AICc = -27.06894 ; AIC = -38.7356
+n.hidden = 3 --> 1 * NLL = -26.39257 ; penalty = 0; BIC = 2.260426 ; AICc = -13.11847 ; AIC = -24.78513
+n.hidden = 3 --> 1 * NLL = -27.40543 ; penalty = 0; BIC = 0.2346971 ; AICc = -15.1442 ; AIC = -26.81086
+n.hidden = 3 --> 1 * NLL = -26.14827 ; penalty = 0; BIC = 2.749011 ; AICc = -12.62988 ; AIC = -24.29655
+n.hidden = 3 --> 1 * NLL = -20.85211 ; penalty = 0; BIC = 13.34135 ; AICc = -2.037545 ; AIC = -13.70421
+n.hidden = 3 --> 1 * NLL = -15.45468 ; penalty = 0; BIC = 24.1362 ; AICc = 8.757303 ; AIC = -2.909364
+n.hidden = 3 --> 1 * NLL = -52.72104 ; penalty = 0; BIC = -50.39652 ; AICc = -65.77541 ; AIC = -77.44208
+n.hidden = 3 --> 1 * NLL = -21.80597 ; penalty = 0; BIC = 11.43363 ; AICc = -3.945265 ; AIC = -15.61193
+n.hidden = 5 --> 1 * NLL = -362.6268 ; penalty = 0; BIC = -603.7814 ; AICc = -676.7954 ; AIC = -681.2536
+n.hidden = 5 --> 1 * NLL = -266.4738 ; penalty = 0; BIC = -411.4756 ; AICc = -484.4895 ; AIC = -488.9477
+n.hidden = 5 --> 1 * NLL = -320.5101 ; penalty = 0; BIC = -519.548 ; AICc = -592.562 ; AIC = -597.0201
+n.hidden = 5 --> 1 * NLL = -50.10289 ; penalty = 0; BIC = 21.26637 ; AICc = -51.74762 ; AIC = -56.20577
+n.hidden = 5 --> 1 * NLL = -218.7516 ; penalty = 0; BIC = -316.0311 ; AICc = -389.0451 ; AIC = -393.5033
+n.hidden = 5 --> 1 * NLL = 164.6536 ; penalty = 0; BIC = 450.7794 ; AICc = 377.7654 ; AIC = 373.3072
+n.hidden = 5 --> 1 * NLL = 190.1872 ; penalty = 0; BIC = 501.8465 ; AICc = 428.8325 ; AIC = 424.3743
+n.hidden = 5 --> 1 * NLL = 151.3826 ; penalty = 0; BIC = 424.2374 ; AICc = 351.2234 ; AIC = 346.7653
+n.hidden = 5 --> 1 * NLL = 149.4495 ; penalty = 0; BIC = 420.3711 ; AICc = 347.3572 ; AIC = 342.899
+n.hidden = 5 --> 1 * NLL = 192.4124 ; penalty = 0; BIC = 506.2969 ; AICc = 433.2829 ; AIC = 428.8248
+n.hidden = 5 --> 1 * NLL = -42.59645 ; penalty = 0; BIC = 36.27924 ; AICc = -36.73475 ; AIC = -41.1929
+n.hidden = 5 --> 1 * NLL = 12.73447 ; penalty = 0; BIC = 146.9411 ; AICc = 73.92708 ; AIC = 69.46893
+n.hidden = 5 --> 1 * NLL = 139.4639 ; penalty = 0; BIC = 400.4 ; AICc = 327.386 ; AIC = 322.9279
+n.hidden = 5 --> 1 * NLL = 7.104448 ; penalty = 0; BIC = 135.681 ; AICc = 62.66705 ; AIC = 58.2089
+n.hidden = 5 --> 1 * NLL = -18.61786 ; penalty = 0; BIC = 84.23642 ; AICc = 11.22243 ; AIC = 6.764276
+n.hidden = 4 --> 1 * NLL = -3.025559 ; penalty = 0; BIC = 93.33518 ; AICc = 32.90992 ; AIC = 29.94888
+n.hidden = 4 --> 1 * NLL = -310.0548 ; penalty = 0; BIC = -520.7232 ; AICc = -581.1485 ; AIC = -584.1095
+n.hidden = 4 --> 1 * NLL = -94.93451 ; penalty = 0; BIC = -90.48272 ; AICc = -150.908 ; AIC = -153.869
+n.hidden = 4 --> 1 * NLL = -93.32936 ; penalty = 0; BIC = -87.27243 ; AICc = -147.6977 ; AIC = -150.6587
+n.hidden = 4 --> 1 * NLL = -201.3865 ; penalty = 0; BIC = -303.3866 ; AICc = -363.8119 ; AIC = -366.7729
+n.hidden = 4 --> 1 * NLL = -37.01708 ; penalty = 0; BIC = 25.35214 ; AICc = -35.07311 ; AIC = -38.03415
+n.hidden = 4 --> 1 * NLL = -44.53575 ; penalty = 0; BIC = 10.3148 ; AICc = -50.11046 ; AIC = -53.0715
+n.hidden = 4 --> 1 * NLL = -76.3894 ; penalty = 0; BIC = -53.3925 ; AICc = -113.8178 ; AIC = -116.7788
+n.hidden = 4 --> 1 * NLL = -74.05373 ; penalty = 0; BIC = -48.72116 ; AICc = -109.1464 ; AIC = -112.1075
+n.hidden = 4 --> 1 * NLL = 26.72368 ; penalty = 0; BIC = 152.8337 ; AICc = 92.40841 ; AIC = 89.44737
+n.hidden = 4 --> 1 * NLL = 5.315736 ; penalty = 0; BIC = 110.0178 ; AICc = 49.59251 ; AIC = 46.63147
+n.hidden = 4 --> 1 * NLL = -4.431054 ; penalty = 0; BIC = 90.52419 ; AICc = 30.09893 ; AIC = 27.13789
+n.hidden = 4 --> 1 * NLL = 9.12162 ; penalty = 0; BIC = 117.6295 ; AICc = 57.20428 ; AIC = 54.24324
+n.hidden = 4 --> 1 * NLL = 36.95248 ; penalty = 0; BIC = 173.2913 ; AICc = 112.866 ; AIC = 109.905
+n.hidden = 4 --> 1 * NLL = -119.4556 ; penalty = 0; BIC = -139.5248 ; AICc = -199.9501 ; AIC = -202.9111
+n.hidden = 4 --> 1 * NLL = -298.0445 ; penalty = 0; BIC = -496.7027 ; AICc = -557.128 ; AIC = -560.089
+n.hidden = 4 --> 1 * NLL = -326.5507 ; penalty = 0; BIC = -553.7151 ; AICc = -614.1404 ; AIC = -617.1014
+n.hidden = 4 --> 1 * NLL = -221.5473 ; penalty = 0; BIC = -343.7083 ; AICc = -404.1336 ; AIC = -407.0946
+n.hidden = 4 --> 1 * NLL = -301.1558 ; penalty = 0; BIC = -502.9253 ; AICc = -563.3505 ; AIC = -566.3116
+n.hidden = 4 --> 1 * NLL = -299.2869 ; penalty = 0; BIC = -499.1875 ; AICc = -559.6128 ; AIC = -562.5738
+n.hidden = 4 --> 1 * NLL = 17.94535 ; penalty = 0; BIC = 135.277 ; AICc = 74.85173 ; AIC = 71.89069
+n.hidden = 4 --> 1 * NLL = 34.88832 ; penalty = 0; BIC = 169.1629 ; AICc = 108.7377 ; AIC = 105.7766
+n.hidden = 4 --> 1 * NLL = 47.49209 ; penalty = 0; BIC = 194.3705 ; AICc = 133.9452 ; AIC = 130.9842
+n.hidden = 4 --> 1 * NLL = 76.88397 ; penalty = 0; BIC = 253.1542 ; AICc = 192.729 ; AIC = 189.7679
+n.hidden = 4 --> 1 * NLL = 92.40547 ; penalty = 0; BIC = 284.1972 ; AICc = 223.772 ; AIC = 220.8109
+n.hidden = 4 --> 1 * NLL = 55.31393 ; penalty = 0; BIC = 210.0142 ; AICc = 149.5889 ; AIC = 146.6279
+n.hidden = 4 --> 1 * NLL = -98.21729 ; penalty = 0; BIC = -97.04829 ; AICc = -157.4735 ; AIC = -160.4346
+n.hidden = 4 --> 1 * NLL = -141.1033 ; penalty = 0; BIC = -182.8203 ; AICc = -243.2455 ; AIC = -246.2066
+n.hidden = 4 --> 1 * NLL = -76.2584 ; penalty = 0; BIC = -53.13051 ; AICc = -113.5558 ; AIC = -116.5168
+n.hidden = 4 --> 1 * NLL = 59.53666 ; penalty = 0; BIC = 218.4596 ; AICc = 158.0344 ; AIC = 155.0733
+n.hidden = 2 --> 1 * NLL = -5.321044 ; penalty = 0; BIC = 28.67617 ; AICc = 14.85791 ; AIC = 9.357912
+n.hidden = 2 --> 1 * NLL = -5.321044 ; penalty = 0; BIC = 28.67617 ; AICc = 14.85791 ; AIC = 9.357912
+n.hidden = 2 --> 1 * NLL = -5.321044 ; penalty = 0; BIC = 28.67617 ; AICc = 14.85791 ; AIC = 9.357912
+n.hidden = 2 --> 1 * NLL = -5.321044 ; penalty = 0; BIC = 28.67617 ; AICc = 14.85791 ; AIC = 9.357912
+n.hidden = 2 --> 1 * NLL = -5.321044 ; penalty = 0; BIC = 28.67617 ; AICc = 14.85791 ; AIC = 9.357912
+n.hidden = 2 --> 1 * NLL = 28.54566 ; penalty = 0; BIC = 96.40957 ; AICc = 82.59131 ; AIC = 77.09131
+n.hidden = 2 --> 1 * NLL = 35.03015 ; penalty = 0; BIC = 109.3786 ; AICc = 95.56031 ; AIC = 90.06031
+n.hidden = 2 --> 1 * NLL = 32.91214 ; penalty = 0; BIC = 105.1425 ; AICc = 91.32428 ; AIC = 85.82428
+n.hidden = 2 --> 1 * NLL = 27.8035 ; penalty = 0; BIC = 94.92525 ; AICc = 81.107 ; AIC = 75.607
+n.hidden = 2 --> 1 * NLL = 26.68649 ; penalty = 0; BIC = 92.69124 ; AICc = 78.87298 ; AIC = 73.37298
+n.hidden = 2 --> 1 * NLL = 0.5649599 ; penalty = 0; BIC = 40.44818 ; AICc = 26.62992 ; AIC = 21.12992
+n.hidden = 2 --> 1 * NLL = 14.88174 ; penalty = 0; BIC = 69.08173 ; AICc = 55.26347 ; AIC = 49.76347
+n.hidden = 2 --> 1 * NLL = 16.60154 ; penalty = 0; BIC = 72.52134 ; AICc = 58.70308 ; AIC = 53.20308
+n.hidden = 2 --> 1 * NLL = 109.8835 ; penalty = 0; BIC = 259.0853 ; AICc = 245.267 ; AIC = 239.767
+n.hidden = 2 --> 1 * NLL = -4.633665 ; penalty = 0; BIC = 30.05093 ; AICc = 16.23267 ; AIC = 10.73267
+> print(t1)
+    user   system  elapsed 
+1999.405    0.996 2000.570 
+> #}
+> 
+> 
+> 
+> proc.time()
+    user   system  elapsed 
+2000.116    1.169 2001.461 

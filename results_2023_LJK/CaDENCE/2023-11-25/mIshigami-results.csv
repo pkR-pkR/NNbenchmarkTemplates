@@ -1,0 +1,16 @@
+event,RMSE,MSE,MAE,WAE,time
+mIshigami_CaDENCE::cadence.fit_optim_01,2.3802,5.6654,1.9641,6.3805,22.394
+mIshigami_CaDENCE::cadence.fit_optim_02,2.9441,8.6678,1.7009,10.1697,22.536
+mIshigami_CaDENCE::cadence.fit_optim_03,2.355,5.5459,1.8642,7.1376,22.29
+mIshigami_CaDENCE::cadence.fit_optim_04,2.1759,4.7344,1.5164,7.4718,22.003
+mIshigami_CaDENCE::cadence.fit_optim_05,2.4563,6.0333,2.1106,8.7392,22.246
+mIshigami_CaDENCE::cadence.fit_psoptim_01,2.6367,6.9524,2.2048,8.4546,23.129
+mIshigami_CaDENCE::cadence.fit_psoptim_02,2.7047,7.3152,2.299,8.3667,23.147
+mIshigami_CaDENCE::cadence.fit_psoptim_03,2.7421,7.5192,2.3285,8.6065,23.185
+mIshigami_CaDENCE::cadence.fit_psoptim_04,2.1378,4.5702,1.6161,7.9207,23.258
+mIshigami_CaDENCE::cadence.fit_psoptim_05,2.6693,7.1254,2.2284,8.4415,23.151
+mIshigami_CaDENCE::cadence.fit_Rprop_01,2.6201,6.8648,1.9585,9.8606,55.247
+mIshigami_CaDENCE::cadence.fit_Rprop_02,3.4828,12.13,2.4753,12.7508,55.953
+mIshigami_CaDENCE::cadence.fit_Rprop_03,2.6203,6.8658,2.0744,8.6888,55.502
+mIshigami_CaDENCE::cadence.fit_Rprop_04,2.3413,5.4819,1.6567,8.9332,55.174
+mIshigami_CaDENCE::cadence.fit_Rprop_05,2.9142,8.4927,2.1541,10.4763,55.369

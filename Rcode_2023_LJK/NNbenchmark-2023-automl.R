@@ -6,8 +6,6 @@ print(installed.packages()[, c("Package", "LibPath", "Version", "Built")])
 require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
 require(automl, lib.loc = "/home/dutangc/Rpersolib")
 
-options(scipen = 999)
-
 ## --------------------------------------------------------------------------------
 #output
 odir <- "/home/dutangc/codepourdahu/NNbench/output/"
@@ -80,12 +78,14 @@ if(FALSE)
 }
 
 ## --------------------------------------------------------------------------------
+#if(FALSE)
+#{
 t1 <- system.time(
   res <- trainPredict_1pkg(1:12, pkgname = "automl", pkgfun = "automl_train_manual", automl.method,
                            prepareZZ.arg = automl.prepareZZ, nrep = nrep, doplot = FALSE,
                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
 )
 print(t1)
-
+#}
 
 

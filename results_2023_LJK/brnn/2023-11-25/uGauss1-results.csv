@@ -1,0 +1,6 @@
+event,RMSE,MSE,MAE,WAE,time
+uGauss1_brnn::brnn_Gauss-Newton_01,6.4276,41.3134,4.8879,19.5015,0.063
+uGauss1_brnn::brnn_Gauss-Newton_02,2.2526,5.0741,1.7489,7.2646,0.022
+uGauss1_brnn::brnn_Gauss-Newton_03,2.2526,5.0741,1.7489,7.2646,0.017
+uGauss1_brnn::brnn_Gauss-Newton_04,2.5955,6.7365,1.9979,8.4211,0.02
+uGauss1_brnn::brnn_Gauss-Newton_05,6.6543,44.2792,4.7703,21.1584,0.062

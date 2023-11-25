@@ -1,0 +1,6 @@
+event,RMSE,MSE,MAE,WAE,time
+uDreyfus1_brnn::brnn_Gauss-Newton_01,0.0062,0,0.0053,0.0112,0.008
+uDreyfus1_brnn::brnn_Gauss-Newton_02,0.0173,3e-04,0.0119,0.049,0.007
+uDreyfus1_brnn::brnn_Gauss-Newton_03,0.0106,1e-04,0.0084,0.0199,0.007
+uDreyfus1_brnn::brnn_Gauss-Newton_04,0.0031,0,0.0024,0.0095,0.006
+uDreyfus1_brnn::brnn_Gauss-Newton_05,0.0023,0,0.0018,0.0093,0.004

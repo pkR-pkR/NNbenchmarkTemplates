@@ -1,0 +1,638 @@
+
+R version 4.3.0 (2023-04-21) -- "Already Tomorrow"
+Copyright (C) 2023 The R Foundation for Statistical Computing
+Platform: x86_64-unknown-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> cat("Setting before computation\n")
+Setting before computation
+> print(.libPaths())
+[1] "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+[2] "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+[3] "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+> print(getwd())
+[1] "/home/dutangc/codepourdahu/NNbench"
+> print(installed.packages()[, c("Package", "LibPath", "Version", "Built")])
+              Package        
+Formula       "Formula"      
+KernSmooth    "KernSmooth"   
+MASS          "MASS"         
+Matrix        "Matrix"       
+R6            "R6"           
+RColorBrewer  "RColorBrewer" 
+Rcpp          "Rcpp"         
+RcppArmadillo "RcppArmadillo"
+boot          "boot"         
+brio          "brio"         
+callr         "callr"        
+class         "class"        
+cli           "cli"          
+cluster       "cluster"      
+codetools     "codetools"    
+colorspace    "colorspace"   
+cpp11         "cpp11"        
+crayon        "crayon"       
+desc          "desc"         
+diffobj       "diffobj"      
+digest        "digest"       
+ellipsis      "ellipsis"     
+evaluate      "evaluate"     
+fansi         "fansi"        
+farver        "farver"       
+foreign       "foreign"      
+fs            "fs"           
+ggplot2       "ggplot2"      
+glue          "glue"         
+gtable        "gtable"       
+isoband       "isoband"      
+jsonlite      "jsonlite"     
+labeling      "labeling"     
+lattice       "lattice"      
+lifecycle     "lifecycle"    
+magrittr      "magrittr"     
+mgcv          "mgcv"         
+munsell       "munsell"      
+nlme          "nlme"         
+nnet          "nnet"         
+pillar        "pillar"       
+pkgconfig     "pkgconfig"    
+pkgload       "pkgload"      
+plyr          "plyr"         
+praise        "praise"       
+processx      "processx"     
+ps            "ps"           
+rematch2      "rematch2"     
+reshape2      "reshape2"     
+rlang         "rlang"        
+rpart         "rpart"        
+rprojroot     "rprojroot"    
+scales        "scales"       
+spatial       "spatial"      
+stringi       "stringi"      
+stringr       "stringr"      
+survival      "survival"     
+svglite       "svglite"      
+systemfonts   "systemfonts"  
+testthat      "testthat"     
+tibble        "tibble"       
+truncnorm     "truncnorm"    
+utf8          "utf8"         
+vctrs         "vctrs"        
+viridisLite   "viridisLite"  
+waldo         "waldo"        
+withr         "withr"        
+KernSmooth    "KernSmooth"   
+MASS          "MASS"         
+Matrix        "Matrix"       
+boot          "boot"         
+class         "class"        
+cluster       "cluster"      
+codetools     "codetools"    
+foreign       "foreign"      
+lattice       "lattice"      
+mgcv          "mgcv"         
+nlme          "nlme"         
+nnet          "nnet"         
+rpart         "rpart"        
+spatial       "spatial"      
+survival      "survival"     
+base          "base"         
+compiler      "compiler"     
+datasets      "datasets"     
+grDevices     "grDevices"    
+graphics      "graphics"     
+grid          "grid"         
+methods       "methods"      
+parallel      "parallel"     
+splines       "splines"      
+stats         "stats"        
+stats4        "stats4"       
+tcltk         "tcltk"        
+tools         "tools"        
+utils         "utils"        
+              LibPath                                                                    
+Formula       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+KernSmooth    "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+MASS          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+Matrix        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+R6            "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+RColorBrewer  "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+Rcpp          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+RcppArmadillo "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+boot          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+brio          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+callr         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+class         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+cli           "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+cluster       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+codetools     "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+colorspace    "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+cpp11         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+crayon        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+desc          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+diffobj       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+digest        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+ellipsis      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+evaluate      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+fansi         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+farver        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+foreign       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+fs            "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+ggplot2       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+glue          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+gtable        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+isoband       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+jsonlite      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+labeling      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+lattice       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+lifecycle     "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+magrittr      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+mgcv          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+munsell       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+nlme          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+nnet          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+pillar        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+pkgconfig     "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+pkgload       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+plyr          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+praise        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+processx      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+ps            "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+rematch2      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+reshape2      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+rlang         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+rpart         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+rprojroot     "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+scales        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+spatial       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+stringi       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+stringr       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+survival      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+svglite       "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+systemfonts   "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+testthat      "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+tibble        "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+truncnorm     "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+utf8          "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+vctrs         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+viridisLite   "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+waldo         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+withr         "/gnu/store/qp68n93vr3d3dgi0raqxc09ni8yapddq-profile/site-library"         
+KernSmooth    "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+MASS          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+Matrix        "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+boot          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+class         "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+cluster       "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+codetools     "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+foreign       "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+lattice       "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+mgcv          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+nlme          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+nnet          "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+rpart         "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+spatial       "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+survival      "/gnu/store/c1p5kpf493havg2vq6yyifwgkh6nrhpj-profile/site-library"         
+base          "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+compiler      "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+datasets      "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+grDevices     "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+graphics      "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+grid          "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+methods       "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+parallel      "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+splines       "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+stats         "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+stats4        "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+tcltk         "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+tools         "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+utils         "/gnu/store/0l4c5gkd2rcqcf81yia01skbji2q3mfw-r-minimal-4.3.0/lib/R/library"
+              Version      Built  
+Formula       "1.2-5"      "4.3.0"
+KernSmooth    "2.23-21"    "4.3.0"
+MASS          "7.3-60"     "4.3.0"
+Matrix        "1.5-4"      "4.3.0"
+R6            "2.5.1"      "4.3.0"
+RColorBrewer  "1.1-3"      "4.3.0"
+Rcpp          "1.0.10"     "4.3.0"
+RcppArmadillo "0.12.2.0.0" "4.3.0"
+boot          "1.3-28.1"   "4.3.0"
+brio          "1.1.3"      "4.3.0"
+callr         "3.7.3"      "4.3.0"
+class         "7.3-22"     "4.3.0"
+cli           "3.6.1"      "4.3.0"
+cluster       "2.1.4"      "4.3.0"
+codetools     "0.2-19"     "4.3.0"
+colorspace    "2.1-0"      "4.3.0"
+cpp11         "0.4.3"      "4.3.0"
+crayon        "1.5.2"      "4.3.0"
+desc          "1.4.2"      "4.3.0"
+diffobj       "0.3.5"      "4.3.0"
+digest        "0.6.31"     "4.3.0"
+ellipsis      "0.3.2"      "4.3.0"
+evaluate      "0.21"       "4.3.0"
+fansi         "1.0.4"      "4.3.0"
+farver        "2.1.1"      "4.3.0"
+foreign       "0.8-84"     "4.3.0"
+fs            "1.6.2"      "4.3.0"
+ggplot2       "3.4.2"      "4.3.0"
+glue          "1.6.2"      "4.3.0"
+gtable        "0.3.3"      "4.3.0"
+isoband       "0.2.7"      "4.3.0"
+jsonlite      "1.8.4"      "4.3.0"
+labeling      "0.4.2"      "4.3.0"
+lattice       "0.21-8"     "4.3.0"
+lifecycle     "1.0.3"      "4.3.0"
+magrittr      "2.0.3"      "4.3.0"
+mgcv          "1.8-42"     "4.3.0"
+munsell       "0.5.0"      "4.3.0"
+nlme          "3.1-162"    "4.3.0"
+nnet          "7.3-19"     "4.3.0"
+pillar        "1.9.0"      "4.3.0"
+pkgconfig     "2.0.3"      "4.3.0"
+pkgload       "1.3.2"      "4.3.0"
+plyr          "1.8.8"      "4.3.0"
+praise        "1.0.0"      "4.3.0"
+processx      "3.8.1"      "4.3.0"
+ps            "1.7.5"      "4.3.0"
+rematch2      "2.1.2"      "4.3.0"
+reshape2      "1.4.4"      "4.3.0"
+rlang         "1.1.1"      "4.3.0"
+rpart         "4.1.19"     "4.3.0"
+rprojroot     "2.0.3"      "4.3.0"
+scales        "1.2.1"      "4.3.0"
+spatial       "7.3-16"     "4.3.0"
+stringi       "1.7.12"     "4.3.0"
+stringr       "1.5.0"      "4.3.0"
+survival      "3.5-5"      "4.3.0"
+svglite       "2.1.1"      "4.3.0"
+systemfonts   "1.0.4"      "4.3.0"
+testthat      "3.1.8"      "4.3.0"
+tibble        "3.2.1"      "4.3.0"
+truncnorm     "1.0-9"      "4.3.0"
+utf8          "1.2.3"      "4.3.0"
+vctrs         "0.6.2"      "4.3.0"
+viridisLite   "0.4.2"      "4.3.0"
+waldo         "0.5.0"      "4.3.0"
+withr         "2.5.0"      "4.3.0"
+KernSmooth    "2.23-20"    "4.2.2"
+MASS          "7.3-58.2"   "4.2.2"
+Matrix        "1.5-3"      "4.2.2"
+boot          "1.3-28.1"   "4.2.2"
+class         "7.3-21"     "4.2.2"
+cluster       "2.1.4"      "4.2.2"
+codetools     "0.2-19"     "4.2.2"
+foreign       "0.8-84"     "4.2.2"
+lattice       "0.20-45"    "4.2.2"
+mgcv          "1.8-41"     "4.2.2"
+nlme          "3.1-162"    "4.2.2"
+nnet          "7.3-18"     "4.2.2"
+rpart         "4.1.19"     "4.2.2"
+spatial       "7.3-16"     "4.2.2"
+survival      "3.5-0"      "4.2.2"
+base          "4.3.0"      "4.3.0"
+compiler      "4.3.0"      "4.3.0"
+datasets      "4.3.0"      "4.3.0"
+grDevices     "4.3.0"      "4.3.0"
+graphics      "4.3.0"      "4.3.0"
+grid          "4.3.0"      "4.3.0"
+methods       "4.3.0"      "4.3.0"
+parallel      "4.3.0"      "4.3.0"
+splines       "4.3.0"      "4.3.0"
+stats         "4.3.0"      "4.3.0"
+stats4        "4.3.0"      "4.3.0"
+tcltk         "4.3.0"      "4.3.0"
+tools         "4.3.0"      "4.3.0"
+utils         "4.3.0"      "4.3.0"
+> 
+> require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
+Loading required package: NNbenchmark
+Loading required package: parallel
+> require(brnn, lib.loc = "/home/dutangc/Rpersolib")
+Loading required package: brnn
+Loading required package: Formula
+Loading required package: truncnorm
+> 
+> ## --------------------------------------------------------------------------------
+> #output
+> odir <- "/home/dutangc/codepourdahu/NNbench/output/"
+> if(!dir.exists(odir))
++   dir.create(odir)
+> odir <- "/home/dutangc/codepourdahu/NNbench/output/brnn"
+> if(!dir.exists(odir))
++   dir.create(odir)
+> odir <- paste0("/home/dutangc/codepourdahu/NNbench/output/brnn/", Sys.Date())
+> if(!dir.exists(odir))
++   dir.create(odir)
+> 
+> nrep <- 5
+> maxit2ndorder  <-    200
+> maxit1storderA <-   1000
+> maxit1storderB <-  10000
+> maxit1storderC <- 100000
+> 
+> #library(brnn)
+> brnn.method <- "Gauss-Newton"
+> hyperParams.brnn <- function(optim_method, ...) 
++ {
++   return(list(iter = maxit2ndorder))
++ }
+> NNtrain.brnn <- function(x, y, dataxy, formula, neur, optim_method, hyperParams,...) 
++ {
++   hyper_params <- do.call(hyperParams.brnn, list(brnn.method))
++   iter <- hyper_params$iter
++   
++   NNreg <- brnn::brnn(x, y, neur, normalize = FALSE, epochs = iter, verbose = FALSE)
++   return (NNreg)
++ }
+> NNpredict.brnn <- function(object, x, ...)
++   predict(object, x)
+> NNclose.brnn <- function()
++   if("package:brnn" %in% search())
++     detach("package:brnn", unload=TRUE)
+> brnn.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
+> 
+> ## --------------------------------------------------------------------------------
+> 
+> if(FALSE)
++ {
++   t1 <- system.time(
++     res <- trainPredict_1data(1, brnn.method, "NNtrain.brnn", "hyperParams.brnn", "NNpredict.brnn", 
++                               NNsummary, "NNclose.brnn", NA, brnn.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
++                               pkgname="brnn", pkgfun="brnn", csvfile=TRUE, rdafile=TRUE, odir=odir)
++     
++   )
++   print(t1)
++ }
+> 
+> ## --------------------------------------------------------------------------------
+> #if(FALSE)
+> #{
+> t1 <- system.time(
++   res <- trainPredict_1pkg(1:12, pkgname = "brnn", pkgfun = "brnn", brnn.method,
++                            prepareZZ.arg = brnn.prepareZZ, nrep = nrep, doplot = TRUE,
++                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
++ )
+Number of parameters (weights and biases) to estimate: 25 
+Nguyen-Widrow method
+Scaling factor= 0.7022568 
+gamma= 22.9388 	 alpha= 0.0023 	 beta= 15.5213 
+Number of parameters (weights and biases) to estimate: 25 
+Nguyen-Widrow method
+Scaling factor= 0.7022568 
+gamma= 22.0415 	 alpha= 0.1009 	 beta= 7.5347 
+Number of parameters (weights and biases) to estimate: 25 
+Nguyen-Widrow method
+Scaling factor= 0.7022568 
+gamma= 24.6566 	 alpha= 0.0366 	 beta= 43.9423 
+Number of parameters (weights and biases) to estimate: 25 
+Nguyen-Widrow method
+Scaling factor= 0.7022568 
+gamma= 22.9673 	 alpha= 0.0025 	 beta= 15.4135 
+Number of parameters (weights and biases) to estimate: 25 
+Nguyen-Widrow method
+Scaling factor= 0.7022568 
+gamma= 22.7007 	 alpha= 0.006 	 beta= 14.3769 
+Number of parameters (weights and biases) to estimate: 35 
+Nguyen-Widrow method
+Scaling factor= 0.7022568 
+gamma= 33.6592 	 alpha= 0.0047 	 beta= 1093.186 
+Number of parameters (weights and biases) to estimate: 35 
+Nguyen-Widrow method
+Scaling factor= 0.7022568 
+gamma= 33.5722 	 alpha= 0.0039 	 beta= 1154.597 
+Number of parameters (weights and biases) to estimate: 35 
+Nguyen-Widrow method
+Scaling factor= 0.7022568 
+gamma= 33.4893 	 alpha= 0.0033 	 beta= 1203.985 
+Number of parameters (weights and biases) to estimate: 35 
+Nguyen-Widrow method
+Scaling factor= 0.7022568 
+gamma= 33.445 	 alpha= 0.0031 	 beta= 1222.192 
+Number of parameters (weights and biases) to estimate: 35 
+Nguyen-Widrow method
+Scaling factor= 0.7022568 
+gamma= 33.4602 	 alpha= 0.0031 	 beta= 1221.27 
+Number of parameters (weights and biases) to estimate: 50 
+Nguyen-Widrow method
+Scaling factor= 0.7032311 
+gamma= 44.8377 	 alpha= 0.0786 	 beta= 14.1461 
+Number of parameters (weights and biases) to estimate: 50 
+Nguyen-Widrow method
+Scaling factor= 0.7032311 
+gamma= 44.8149 	 alpha= 0.0792 	 beta= 14.1349 
+Number of parameters (weights and biases) to estimate: 50 
+Nguyen-Widrow method
+Scaling factor= 0.7032311 
+gamma= 44.8121 	 alpha= 0.0784 	 beta= 14.1496 
+Number of parameters (weights and biases) to estimate: 50 
+Nguyen-Widrow method
+Scaling factor= 0.7032311 
+gamma= 46.0534 	 alpha= 0.095 	 beta= 13.8771 
+Number of parameters (weights and biases) to estimate: 50 
+Nguyen-Widrow method
+Scaling factor= 0.7032311 
+gamma= 43.7322 	 alpha= 0.0978 	 beta= 13.7995 
+Number of parameters (weights and biases) to estimate: 21 
+Nguyen-Widrow method
+Scaling factor= 0.7050444 
+gamma= 18.7008 	 alpha= 1.3279 	 beta= 26.4408 
+Number of parameters (weights and biases) to estimate: 21 
+Nguyen-Widrow method
+Scaling factor= 0.7050444 
+gamma= 18.9044 	 alpha= 0.9583 	 beta= 29.2745 
+Number of parameters (weights and biases) to estimate: 21 
+Nguyen-Widrow method
+Scaling factor= 0.7050444 
+gamma= 19.1963 	 alpha= 0.9967 	 beta= 28.3041 
+Number of parameters (weights and biases) to estimate: 21 
+Nguyen-Widrow method
+Scaling factor= 0.7050444 
+gamma= 18.9034 	 alpha= 0.9588 	 beta= 29.2722 
+Number of parameters (weights and biases) to estimate: 21 
+Nguyen-Widrow method
+Scaling factor= 0.7050444 
+gamma= 19.3903 	 alpha= 0.8707 	 beta= 29.1594 
+Number of parameters (weights and biases) to estimate: 18 
+Nguyen-Widrow method
+Scaling factor= 4.2 
+gamma= 16.5632 	 alpha= 0.0242 	 beta= 58.666 
+Number of parameters (weights and biases) to estimate: 18 
+Nguyen-Widrow method
+Scaling factor= 4.2 
+gamma= 0 	 alpha= 0 	 beta= 0.51 
+Number of parameters (weights and biases) to estimate: 18 
+Nguyen-Widrow method
+Scaling factor= 4.2 
+gamma= 16.5607 	 alpha= 0.0242 	 beta= 58.6797 
+Number of parameters (weights and biases) to estimate: 18 
+Nguyen-Widrow method
+Scaling factor= 4.2 
+gamma= 0 	 alpha= 95.9272 	 beta= 0.51 
+Number of parameters (weights and biases) to estimate: 18 
+Nguyen-Widrow method
+Scaling factor= 4.2 
+gamma= 16.561 	 alpha= 0.0242 	 beta= 58.6786 
+Number of parameters (weights and biases) to estimate: 15 
+Nguyen-Widrow method
+Scaling factor= 3.5 
+gamma= 13.857 	 alpha= 0.0301 	 beta= 52.6596 
+Number of parameters (weights and biases) to estimate: 15 
+Nguyen-Widrow method
+Scaling factor= 3.5 
+gamma= 13.8598 	 alpha= 0.0301 	 beta= 52.6512 
+Number of parameters (weights and biases) to estimate: 15 
+Nguyen-Widrow method
+Scaling factor= 3.5 
+gamma= 13.8591 	 alpha= 0.0301 	 beta= 52.6537 
+Number of parameters (weights and biases) to estimate: 15 
+Nguyen-Widrow method
+Scaling factor= 3.5 
+gamma= 13.859 	 alpha= 0.0301 	 beta= 52.6539 
+Number of parameters (weights and biases) to estimate: 15 
+Nguyen-Widrow method
+Scaling factor= 3.5 
+gamma= 12.9168 	 alpha= 0.027 	 beta= 23.0151 
+Number of parameters (weights and biases) to estimate: 9 
+Nguyen-Widrow method
+Scaling factor= 2.1 
+gamma= 8.9882 	 alpha= 0.0628 	 beta= 28165.35 
+Number of parameters (weights and biases) to estimate: 9 
+Nguyen-Widrow method
+Scaling factor= 2.1 
+gamma= 8.9394 	 alpha= 0.066 	 beta= 3644.862 
+Number of parameters (weights and biases) to estimate: 9 
+Nguyen-Widrow method
+Scaling factor= 2.1 
+gamma= 8.9884 	 alpha= 0.0632 	 beta= 9781.219 
+Number of parameters (weights and biases) to estimate: 9 
+Nguyen-Widrow method
+Scaling factor= 2.1 
+gamma= 8.9875 	 alpha= 0.0624 	 beta= 113893.9 
+Number of parameters (weights and biases) to estimate: 9 
+Nguyen-Widrow method
+Scaling factor= 2.1 
+gamma= 8.9912 	 alpha= 0.0623 	 beta= 200534 
+Number of parameters (weights and biases) to estimate: 9 
+Nguyen-Widrow method
+Scaling factor= 2.1 
+gamma= 8.8506 	 alpha= 0.0675 	 beta= 130.7886 
+Number of parameters (weights and biases) to estimate: 9 
+Nguyen-Widrow method
+Scaling factor= 2.1 
+gamma= 8.8506 	 alpha= 0.0675 	 beta= 130.7886 
+Number of parameters (weights and biases) to estimate: 9 
+Nguyen-Widrow method
+Scaling factor= 2.1 
+gamma= 8.8506 	 alpha= 0.0675 	 beta= 130.7886 
+Number of parameters (weights and biases) to estimate: 9 
+Nguyen-Widrow method
+Scaling factor= 2.1 
+gamma= 8.8506 	 alpha= 0.0675 	 beta= 130.7886 
+Number of parameters (weights and biases) to estimate: 9 
+Nguyen-Widrow method
+Scaling factor= 2.1 
+gamma= 8.8506 	 alpha= 0.0675 	 beta= 130.7886 
+Number of parameters (weights and biases) to estimate: 15 
+Nguyen-Widrow method
+Scaling factor= 3.5 
+gamma= 13.8 	 alpha= 0.0051 	 beta= 19.8918 
+Number of parameters (weights and biases) to estimate: 15 
+Nguyen-Widrow method
+Scaling factor= 3.5 
+gamma= 14.7659 	 alpha= 0.0436 	 beta= 161.2961 
+Number of parameters (weights and biases) to estimate: 15 
+Nguyen-Widrow method
+Scaling factor= 3.5 
+gamma= 14.7659 	 alpha= 0.0436 	 beta= 161.2961 
+Number of parameters (weights and biases) to estimate: 15 
+Nguyen-Widrow method
+Scaling factor= 3.5 
+gamma= 13.6581 	 alpha= 0.0271 	 beta= 122.0658 
+Number of parameters (weights and biases) to estimate: 15 
+Nguyen-Widrow method
+Scaling factor= 3.5 
+gamma= 13.6809 	 alpha= 0.0067 	 beta= 18.5689 
+Number of parameters (weights and biases) to estimate: 12 
+Nguyen-Widrow method
+Scaling factor= 2.8 
+gamma= 9.9533 	 alpha= 3e-04 	 beta= 54.8861 
+Number of parameters (weights and biases) to estimate: 12 
+Nguyen-Widrow method
+Scaling factor= 2.8 
+gamma= 11.4697 	 alpha= 0.0212 	 beta= 120.2874 
+Number of parameters (weights and biases) to estimate: 12 
+Nguyen-Widrow method
+Scaling factor= 2.8 
+gamma= 11.4697 	 alpha= 0.0212 	 beta= 120.2874 
+Number of parameters (weights and biases) to estimate: 12 
+Nguyen-Widrow method
+Scaling factor= 2.8 
+gamma= 11.4698 	 alpha= 0.0212 	 beta= 120.2876 
+Number of parameters (weights and biases) to estimate: 12 
+Nguyen-Widrow method
+Scaling factor= 2.8 
+gamma= 11.4698 	 alpha= 0.0212 	 beta= 120.2877 
+Number of parameters (weights and biases) to estimate: 12 
+Nguyen-Widrow method
+Scaling factor= 2.8 
+gamma= 11.1022 	 alpha= 0.0534 	 beta= 124.0394 
+Number of parameters (weights and biases) to estimate: 12 
+Nguyen-Widrow method
+Scaling factor= 2.8 
+gamma= 11.1365 	 alpha= 0.0546 	 beta= 123.8732 
+Number of parameters (weights and biases) to estimate: 12 
+Nguyen-Widrow method
+Scaling factor= 2.8 
+gamma= 11.1022 	 alpha= 0.0534 	 beta= 124.0395 
+Number of parameters (weights and biases) to estimate: 12 
+Nguyen-Widrow method
+Scaling factor= 2.8 
+gamma= 11.1022 	 alpha= 0.0534 	 beta= 124.0394 
+Number of parameters (weights and biases) to estimate: 12 
+Nguyen-Widrow method
+Scaling factor= 2.8 
+gamma= 11.1022 	 alpha= 0.0534 	 beta= 124.0394 
+Number of parameters (weights and biases) to estimate: 6 
+Nguyen-Widrow method
+Scaling factor= 1.4 
+gamma= 5.7318 	 alpha= 0.0811 	 beta= 5.9054 
+Number of parameters (weights and biases) to estimate: 6 
+Nguyen-Widrow method
+Scaling factor= 1.4 
+gamma= 5.7327 	 alpha= 0.0814 	 beta= 5.9025 
+Number of parameters (weights and biases) to estimate: 6 
+Nguyen-Widrow method
+Scaling factor= 1.4 
+gamma= 5.7327 	 alpha= 0.0814 	 beta= 5.9025 
+Number of parameters (weights and biases) to estimate: 6 
+Nguyen-Widrow method
+Scaling factor= 1.4 
+gamma= 5.7327 	 alpha= 0.0814 	 beta= 5.9028 
+Number of parameters (weights and biases) to estimate: 6 
+Nguyen-Widrow method
+Scaling factor= 1.4 
+gamma= 5.7327 	 alpha= 0.0813 	 beta= 5.9032 
+> print(t1)
+   user  system elapsed 
+  6.656   2.877   6.425 
+> #}
+> 
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  7.313   3.033   7.248 

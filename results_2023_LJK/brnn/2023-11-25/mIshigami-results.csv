@@ -1,0 +1,6 @@
+event,RMSE,MSE,MAE,WAE,time
+mIshigami_brnn::brnn_Gauss-Newton_01,0.6625,0.4389,0.51,2.9354,0.15
+mIshigami_brnn::brnn_Gauss-Newton_02,0.6628,0.4393,0.5101,2.9359,0.197
+mIshigami_brnn::brnn_Gauss-Newton_03,0.6625,0.4389,0.5099,2.9353,0.24
+mIshigami_brnn::brnn_Gauss-Newton_04,0.668,0.4463,0.5084,2.965,0.112
+mIshigami_brnn::brnn_Gauss-Newton_05,0.6716,0.4511,0.5116,2.9352,0.163

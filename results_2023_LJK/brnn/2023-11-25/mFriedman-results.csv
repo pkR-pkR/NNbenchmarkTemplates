@@ -1,0 +1,6 @@
+event,RMSE,MSE,MAE,WAE,time
+mFriedman_brnn::brnn_Gauss-Newton_01,0.0049,0,0.0039,0.0146,0.176
+mFriedman_brnn::brnn_Gauss-Newton_02,0.0047,0,0.0038,0.0144,0.175
+mFriedman_brnn::brnn_Gauss-Newton_03,0.0046,0,0.0037,0.0141,0.174
+mFriedman_brnn::brnn_Gauss-Newton_04,0.0046,0,0.0037,0.0139,0.174
+mFriedman_brnn::brnn_Gauss-Newton_05,0.0046,0,0.0037,0.014,0.175

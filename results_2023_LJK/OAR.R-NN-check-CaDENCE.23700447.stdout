@@ -1,0 +1,22 @@
+Default profile on
+The following packages are currently installed in /home/dutangc/.guix-profile/:
+glibc-locales	2.33 	out	/gnu/store/ixzmi6614baf4w37qfjgqrv8hwsl8jcv-glibc-locales-2.33
+r            	4.2.2	out	/gnu/store/ds5a1xbhqq6b549pndvpffx162b8lvyz-r-4.2.2
+Activate profile  /var/guix/profiles/per-user/dutangc/RNNbench
+The following packages are currently installed in /var/guix/profiles/per-user/dutangc/RNNbench:
+r              	4.3.0     	out	/gnu/store/ic61ryy1p2zshhfl6njnhyivsjladkl1-r-4.3.0
+r-pkgload      	1.3.2     	out	/gnu/store/6rbin3jk9vypy8cy0mjsvbxnyklimpsf-r-pkgload-1.3.2
+r-r6           	2.5.1     	out	/gnu/store/l0mig5ifkkwla0b6q1l5fkjzz58lw57g-r-r6-2.5.1
+r-rcpp         	1.0.10    	out	/gnu/store/sr81lpmzs4j1h9vbh71dszfjambwy97a-r-rcpp-1.0.10
+r-reshape2     	1.4.4     	out	/gnu/store/p08i55xzh25mbr2ywm38jqv9szz08pw4-r-reshape2-1.4.4
+r-ggplot2      	3.4.2     	out	/gnu/store/ki53f1c5q3vb8mjf201i5r6vwx3lacf1-r-ggplot2-3.4.2
+r-viridislite  	0.4.2     	out	/gnu/store/4f2s82c8nb8lzax0nb2yj0biysr7r9f5-r-viridislite-0.4.2
+r-rcpparmadillo	0.12.2.0.0	out	/gnu/store/7k75b9jx4rb9495hddla7z2blrsc8xkk-r-rcpparmadillo-0.12.2.0.0
+r-testthat     	3.1.8     	out	/gnu/store/k93vxwfqw6c2kkswvnpszz6ifv240aac-r-testthat-3.1.8
+r-formula      	1.2-5     	out	/gnu/store/b97vkyb5j7ljnfy5rikklcrgyf6mgn89-r-formula-1.2-5
+r-truncnorm    	1.0-9     	out	/gnu/store/ayrzpw5y4nxspnaxhblm0mf8gq5nzdi9-r-truncnorm-1.0-9
+*** debut install paquets
+in method for 'psoptim' with signature '"test.problem","missing","missing","missing","missing","ANY"': no definition for class "test.problem"
+fin install paquets ***
+*** debut NN bench
+fin ***

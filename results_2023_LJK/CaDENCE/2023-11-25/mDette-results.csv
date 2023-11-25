@@ -1,0 +1,16 @@
+event,RMSE,MSE,MAE,WAE,time
+mDette_CaDENCE::cadence.fit_optim_01,2.5876,6.6958,1.0673,17.3142,10.802
+mDette_CaDENCE::cadence.fit_optim_02,0.47,0.2209,0.2994,2.1973,10.771
+mDette_CaDENCE::cadence.fit_optim_03,0.3271,0.107,0.2367,1.5805,10.631
+mDette_CaDENCE::cadence.fit_optim_04,4.6494,21.6168,1.9764,26.7901,10.642
+mDette_CaDENCE::cadence.fit_optim_05,0.501,0.251,0.3448,2.2577,10.868
+mDette_CaDENCE::cadence.fit_psoptim_01,4.4247,19.5776,2.3822,26.0764,16.981
+mDette_CaDENCE::cadence.fit_psoptim_02,3.0104,9.0627,1.7119,18.4606,16.959
+mDette_CaDENCE::cadence.fit_psoptim_03,3.3202,11.0238,1.8876,18.2965,16.992
+mDette_CaDENCE::cadence.fit_psoptim_04,4.3293,18.7427,2.3662,23.3127,16.944
+mDette_CaDENCE::cadence.fit_psoptim_05,4.5097,20.3373,2.4531,25.2799,16.933
+mDette_CaDENCE::cadence.fit_Rprop_01,3.7694,14.2082,2.3053,25.3008,25.899
+mDette_CaDENCE::cadence.fit_Rprop_02,5.8948,34.7484,3.7434,30.5835,25.965
+mDette_CaDENCE::cadence.fit_Rprop_03,5.5134,30.3972,2.0225,56.0181,26.02
+mDette_CaDENCE::cadence.fit_Rprop_04,4.2057,17.6879,2.5311,28.9727,25.965
+mDette_CaDENCE::cadence.fit_Rprop_05,4.1458,17.1875,2.3583,26.2196,26.049

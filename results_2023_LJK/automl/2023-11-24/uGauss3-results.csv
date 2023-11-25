@@ -1,0 +1,16 @@
+event,RMSE,MSE,MAE,WAE,time
+uGauss3_automl::automl_train_manual_trainwgrad_RMSprop_01,3.7203,13.8403,3.0069,9.4501,5.725
+uGauss3_automl::automl_train_manual_trainwgrad_RMSprop_02,3.7736,14.2403,2.9266,10.723,5.705
+uGauss3_automl::automl_train_manual_trainwgrad_RMSprop_03,3.7242,13.87,2.999,10.4191,5.694
+uGauss3_automl::automl_train_manual_trainwgrad_RMSprop_04,3.5382,12.5188,2.7823,9.5819,5.681
+uGauss3_automl::automl_train_manual_trainwgrad_RMSprop_05,3.2622,10.6418,2.6151,9.2046,5.691
+uGauss3_automl::automl_train_manual_trainwgrad_adam_01,20.5792,423.5024,14.8738,49.7197,3.878
+uGauss3_automl::automl_train_manual_trainwgrad_adam_02,3.0012,9.0069,2.4609,8.2219,6.362
+uGauss3_automl::automl_train_manual_trainwgrad_adam_03,3.2084,10.2935,2.5633,8.865,6.324
+uGauss3_automl::automl_train_manual_trainwgrad_adam_04,3.5908,12.8939,2.8047,10.7947,6.328
+uGauss3_automl::automl_train_manual_trainwgrad_adam_05,4.2362,17.9458,3.3568,12.0474,6.317
+uGauss3_automl::automl_train_manual_trainwpso_01,4.7791,22.8397,3.8337,13.4351,9.725
+uGauss3_automl::automl_train_manual_trainwpso_02,9.8665,97.3476,6.8536,31.2723,9.385
+uGauss3_automl::automl_train_manual_trainwpso_03,4.0192,16.1539,3.0396,12.3797,11.319
+uGauss3_automl::automl_train_manual_trainwpso_04,3.6933,13.6405,2.9083,10.8858,8.54
+uGauss3_automl::automl_train_manual_trainwpso_05,4.1553,17.2662,3.0184,14.0924,5.502
