@@ -71,7 +71,7 @@ if(FALSE)
 {
   t1 <- system.time(
     res <- trainPredict_1data(1, automl.method, "NNtrain.automl", "hyperParams.automl", "NNpredict.automl", 
-                              NNsummary, "NNclose.automl", NA, automl.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                              NNsummary, "NNclose.automl", NA, automl.prepareZZ, nrep=5, echo=FALSE, doplot=FALSE,
                               pkgname="automl", pkgfun="automl_train_manual", rdafile=TRUE, odir=odir)
   )
   print(t1)

@@ -51,7 +51,7 @@ if(FALSE)
 {
   t1 <- system.time(
     res <- trainPredict_1data(1, brnn.method, "NNtrain.brnn", "hyperParams.brnn", "NNpredict.brnn", 
-                              NNsummary, "NNclose.brnn", NA, brnn.prepareZZ, nrep=5, echo=TRUE, doplot=FALSE,
+                              NNsummary, "NNclose.brnn", NA, brnn.prepareZZ, nrep=5, echo=FALSE, doplot=FALSE,
                               pkgname="brnn", pkgfun="brnn", csvfile=TRUE, rdafile=TRUE, odir=odir)
     
   )

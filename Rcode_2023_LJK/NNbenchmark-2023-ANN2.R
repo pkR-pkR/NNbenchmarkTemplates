@@ -69,7 +69,7 @@ ANN2.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 if(FALSE)
 {
   res <- train_and_predict_1data(1, ANN2.method, "NNtrain.ANN2", "hyperParams.ANN2", "NNpredict.ANN2", 
-                               NNsummary, "NNclose.ANN2", NA, ANN2.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
+                               NNsummary, "NNclose.ANN2", NA, ANN2.prepareZZ, nrep=2, echo=FALSE, doplot=FALSE,
                                pkgname="ANN2", pkgfun="neuralnetwork", rdafile=TRUE, odir=odir)
 }
 

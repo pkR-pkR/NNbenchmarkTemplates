@@ -70,7 +70,7 @@ if(FALSE)
 {
   t1 <- system.time(
     res <- trainPredict_1data(1, CaDENCE.method, "NNtrain.CaDENCE", "hyperParams.CaDENCE", "NNpredict.CaDENCE", 
-                              NNsummary, "NNclose.CaDENCE", NA, CaDENCE.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
+                              NNsummary, "NNclose.CaDENCE", NA, CaDENCE.prepareZZ, nrep=2, echo=FALSE, doplot=FALSE,
                               pkgname="CaDENCE", pkgfun="cadence.fit", csvfile=TRUE, rdafile=TRUE, odir=odir)
     
   )

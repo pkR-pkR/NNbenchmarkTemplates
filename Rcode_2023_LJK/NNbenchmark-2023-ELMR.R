@@ -1,0 +1,88 @@
+cat("Setting before computation\n")
+print(.libPaths())
+print(getwd())
+print(installed.packages()[, c("Package", "LibPath", "Version", "Built")])
+
+require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
+require(ELMR, lib.loc = "/home/dutangc/Rpersolib")
+
+## --------------------------------------------------------------------------------
+#output
+odir <- "/home/dutangc/codepourdahu/NNbench/output/"
+if(!dir.exists(odir))
+  dir.create(odir)
+odir <- "/home/dutangc/codepourdahu/NNbench/output/ELMR"
+if(!dir.exists(odir))
+  dir.create(odir)
+odir <- paste0("/home/dutangc/codepourdahu/NNbench/output/ELMR/", Sys.Date())
+if(!dir.exists(odir))
+  dir.create(odir)
+
+nrep <- 5
+maxit2ndorder  <-    200
+maxit1storderA <-   1000
+maxit1storderB <-  10000
+maxit1storderC <- 100000
+
+#library(ELMR)
+ELMR.method <- "extremeML"
+hyperParams.ELMR <- function(optim_method, ...) {
+  
+  hidden_activation <- "sig"
+  size_first_block <- 50
+  size_each_chunk <- 50
+  
+  out <- list(hidden_activation = hidden_activation,
+              size_first_block=size_first_block, size_each_chunk=size_each_chunk)
+  return (out)
+}
+NNtrain.ELMR <- function(x, y, dataxy, formula, hidden_neur, optim_method, hyperParams, ...) {
+  
+  hyper_params <- do.call(hyperParams, list(optim_method, ...))
+  
+  hidden_activation <- hyper_params$hidden_activation
+  size_each_chunk <- hyper_params$size_each_chunk
+  size_first_block <- hyper_params$size_first_block
+  
+  #OSelm_train.formula() call OSelm_training()
+  NNreg <- ELMR::OSelm_train.formula(formula = formula,
+                                     data = dataxy,
+                                     Elm_type = "regression",
+                                     nHiddenNeurons = hidden_neur,
+                                     ActivationFunction = hidden_activation,
+                                     N0 = size_first_block, Block = size_each_chunk)
+  
+  return (NNreg)
+}
+NNpredict.ELMR <- function(object, x, xy)
+  ELMR::predict_elm(model = object, test = xy)$predicted
+NNclose.ELMR <- function()
+  if("package:ELMR" %in% search())
+    detach("package:ELMR", unload=TRUE)
+ELMR.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
+
+## --------------------------------------------------------------------------------
+
+if(FALSE)
+{
+  t1 <- system.time(
+    res <- train_and_predict_1data(1, ELMR.method, "NNtrain.ELMR", "hyperParams.ELMR", "NNpredict.ELMR", 
+                                   NNsummary, "NNclose.ELMR", NA, ELMR.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
+                                   pkgname="ELMR", pkgfun="OSelm_train", rdafile=TRUE, odir=odir)
+    
+  )
+  print(t1)
+}
+
+## --------------------------------------------------------------------------------
+#if(FALSE)
+#{
+t1 <- system.time(
+  res <- trainPredict_1pkg(1:12, pkgname = "ELMR", pkgfun = "OSelm_train.formula", ELMR.method,
+                           prepareZZ.arg = ELMR.prepareZZ, nrep = nrep, doplot = FALSE,
+                           csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
+)
+print(t1)
+#}
+
+
