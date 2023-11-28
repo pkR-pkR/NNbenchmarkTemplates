@@ -1,7 +1,7 @@
 cat("Setting before computation\n")
 print(.libPaths())
 print(getwd())
-print(installed.packages()[, c("Package", "LibPath", "Version", "Built")])
+print(installed.packages()[, c("Package", "Version", "Built")])
 
 require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
 require(automl, lib.loc = "/home/dutangc/Rpersolib")
@@ -72,7 +72,8 @@ if(FALSE)
   t1 <- system.time(
     res <- trainPredict_1data(1, automl.method, "NNtrain.automl", "hyperParams.automl", "NNpredict.automl", 
                               NNsummary, "NNclose.automl", NA, automl.prepareZZ, nrep=5, echo=FALSE, doplot=FALSE,
-                              pkgname="automl", pkgfun="automl_train_manual", rdafile=TRUE, odir=odir)
+                              pkgname="automl", pkgfun="automl_train_manual", rdafile=TRUE, odir=odir, 
+                              lib.loc = "/home/dutangc/Rpersolib")
   )
   print(t1)
 }
@@ -83,7 +84,8 @@ if(FALSE)
 t1 <- system.time(
   res <- trainPredict_1pkg(1:12, pkgname = "automl", pkgfun = "automl_train_manual", automl.method,
                            prepareZZ.arg = automl.prepareZZ, nrep = nrep, doplot = FALSE,
-                           csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
+                           csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE, 
+                           lib.loc = "/home/dutangc/Rpersolib")
 )
 print(t1)
 #}

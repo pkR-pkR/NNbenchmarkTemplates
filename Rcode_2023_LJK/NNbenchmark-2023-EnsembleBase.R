@@ -1,7 +1,7 @@
 cat("Setting before computation\n")
 print(.libPaths())
 print(getwd())
-print(installed.packages()[, c("Package", "LibPath", "Version", "Built")])
+print(installed.packages()[, c("Package", "Version", "Built")])
 
 require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
 require(EnsembleBase, lib.loc = "/home/dutangc/Rpersolib")
@@ -30,8 +30,8 @@ hyperParams.EnsembleBase <- function(optim_method, ...) {
   out <- list(iter = maxit2ndorder, decay = 0)
   return (out)
 }
-NNtrain.EnsembleBase <- function(x, y, dataxy, formula, neur, optim_method, hyperParams,...) {
-  
+NNtrain.EnsembleBase <- function(x, y, dataxy, formula, neur, optim_method, hyperParams,...) 
+{
   hyper_params <- do.call(hyperParams.EnsembleBase, list(EnsembleBase.method))
   
   iter <- hyper_params$iter ; decay <- hyper_params$decay
@@ -54,7 +54,8 @@ if(FALSE)
   t1 <- system.time(
     res <- trainPredict_1data(1, EnsembleBase.method, "NNtrain.EnsembleBase", "hyperParams.EnsembleBase", "NNpredict.EnsembleBase", 
                               NNsummary, "NNclose.EnsembleBase", NA, EnsembleBase.prepareZZ, nrep=5, echo=FALSE, doplot=FALSE,
-                              pkgname="EnsembleBase", pkgfun="EnsembleBase", csvfile=TRUE, rdafile=TRUE, odir=odir)
+                              pkgname="EnsembleBase", pkgfun="EnsembleBase", csvfile=TRUE, rdafile=TRUE, odir=odir, 
+                              lib.loc = "/home/dutangc/Rpersolib")
     
   )
   print(t1)
@@ -66,7 +67,8 @@ if(FALSE)
 t1 <- system.time(
   res <- trainPredict_1pkg(1:12, pkgname = "EnsembleBase", pkgfun = "Regression.Batch.Fit", EnsembleBase.method,
                            prepareZZ.arg = EnsembleBase.prepareZZ, nrep = nrep, doplot = FALSE,
-                           csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
+                           csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE,
+                           lib.loc = "/home/dutangc/Rpersolib")
 )
 print(t1)
 #}
