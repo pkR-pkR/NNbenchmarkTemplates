@@ -1,7 +1,7 @@
 cat("Setting before computation\n")
 print(.libPaths())
 print(getwd())
-print(installed.packages()[, c("Package", "LibPath", "Version", "Built")])
+print(installed.packages()[, c("Package", "Version", "Built")])
 
 require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
 require(monmlp, lib.loc = "/home/dutangc/Rpersolib")

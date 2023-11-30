@@ -1,7 +1,7 @@
 cat("Setting before computation\n")
 print(.libPaths())
 print(getwd())
-print(installed.packages()[, c("Package", "LibPath", "Version", "Built")])
+print(installed.packages()[, c("Package", "Version", "Built")])
 
 require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
 require(validann, lib.loc = "/home/dutangc/Rpersolib")
@@ -73,10 +73,9 @@ if(FALSE)
 #if(FALSE)
 #{
 t1 <- system.time(
-  res <- trainPredict_1pkg(1:12, pkgname = "validann", pkgfun = "ann", validann.method,
+  useless <- capture.output(res <- trainPredict_1pkg(1:12, pkgname = "validann", pkgfun = "ann", validann.method,
                            prepareZZ.arg = validann.prepareZZ, nrep = nrep, doplot = FALSE,
-                           csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
-  
+                           csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE))
 )
 print(t1)
 #}
