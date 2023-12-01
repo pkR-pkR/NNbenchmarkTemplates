@@ -80,10 +80,10 @@ if(FALSE)
 #if(FALSE)
 #{
 t1 <- system.time(
-  res <- trainPredict_1pkg(1:12, pkgname = "ANN2", pkgfun = "neuralnetwork", ANN2.method,
+  useless <- capture.output(res <- trainPredict_1pkg(1:12, pkgname = "ANN2", pkgfun = "neuralnetwork", ANN2.method,
                            prepareZZ.arg = ANN2.prepareZZ, nrep = nrep, doplot = FALSE,
                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE, 
-                           lib.loc = "/home/dutangc/Rpersolib")
+                           lib.loc = "/home/dutangc/Rpersolib"))
 )
 print(t1)
 #}

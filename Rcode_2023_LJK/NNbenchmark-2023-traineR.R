@@ -6,6 +6,8 @@ print(installed.packages()[, c("Package", "Version", "Built")])
 require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
 require(traineR, lib.loc = "/home/dutangc/Rpersolib")
 
+print(sessionInfo())
+
 ## --------------------------------------------------------------------------------
 #output
 odir <- "/home/dutangc/codepourdahu/NNbench/output/"

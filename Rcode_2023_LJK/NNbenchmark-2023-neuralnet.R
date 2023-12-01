@@ -6,6 +6,8 @@ print(installed.packages()[, c("Package", "Version", "Built")])
 require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
 require(neuralnet, lib.loc = "/home/dutangc/Rpersolib")
 
+print(sessionInfo())
+
 ## --------------------------------------------------------------------------------
 #output
 odir <- "/home/dutangc/codepourdahu/NNbench/output/"
@@ -67,9 +69,9 @@ if(FALSE)
 #if(FALSE)
 #{
 t1 <- system.time(
-  res <- trainPredict_1pkg(1:12, pkgname = "neuralnet", pkgfun = "neuralnet", neuralnet.method,
+  useless <- capture.output(res <- trainPredict_1pkg(1:12, pkgname = "neuralnet", pkgfun = "neuralnet", neuralnet.method,
                            prepareZZ.arg = neuralnet.prepareZZ, nrep = nrep, doplot = FALSE,
-                           csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE)
+                           csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE))
 )
 print(t1)
 #}

@@ -6,6 +6,8 @@ print(installed.packages()[, c("Package", "Version", "Built")])
 require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
 require(validann, lib.loc = "/home/dutangc/Rpersolib")
 
+print(sessionInfo())
+
 ## --------------------------------------------------------------------------------
 #output
 odir <- "/home/dutangc/codepourdahu/NNbench/output/"
@@ -44,7 +46,7 @@ NNtrain.validann <- function(x, y, dataxy, formula, neur, optim_method, hyperPar
   iter <- hyper_params$iter
   method <- hyper_params$method
   
-  NNreg <- validann::ann(x, y, size = neur, 
+  NNreg <- validann::ann(x, y, size = neur, trace=FALSE,
                          method = optim_method, maxit = iter)
   
   return (NNreg)
