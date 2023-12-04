@@ -4,7 +4,7 @@ print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
 require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(h2o, lib.loc = "/home/dutangc/Rpersolib")
+require(h2o)
 
 print(sessionInfo())
 
