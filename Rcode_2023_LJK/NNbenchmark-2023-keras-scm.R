@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(keras, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(keras)
 
 print(sessionInfo())
 
@@ -89,19 +89,6 @@ NNclose.keras <- function()
 keras.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 
 ## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- train_and_predict_1data(1, keras.method, "NNtrain.keras", "hyperParams.keras", "NNpredict.keras", 
-                                   NNsummary, "NNclose.keras", NA, keras.prepareZZ, nrep=2, echo=FALSE, doplot=FALSE,
-                                   pkgname="keras", pkgfun="fit", rdafile=TRUE, odir=odir, echoreport=2)
-    
-  )
-  print(t1)
-}
-
-## --------------------------------------------------------------------------------
 #if(FALSE)
 #{
 t1 <- system.time(
@@ -111,4 +98,9 @@ t1 <- system.time(
   
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}

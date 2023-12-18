@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(neuralnet, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(neuralnet)
 
 print(sessionInfo())
 
@@ -52,18 +52,6 @@ NNclose.neuralnet <- function()
     detach("package:neuralnet", unload=TRUE)
 neuralnet.prepareZZ <- list(xdmv = "d", ydmv = "d", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- train_and_predict_1data(1, neuralnet.method, "NNtrain.neuralnet", "hyperParams.neuralnet", "NNpredict.neuralnet", 
-                                   NNsummary, "NNclose.neuralnet", NA, neuralnet.prepareZZ, nrep=2,
-                                   echo=FALSE, doplot=FALSE, echoreport=0,
-                                   pkgname="neuralnet", pkgfun="neuralnet", rdafile=TRUE, odir=odir)
-      )
-  print(t1)
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
@@ -74,4 +62,9 @@ t1 <- system.time(
                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE))
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}

@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(rminer, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(rminer)
 
 print(sessionInfo())
 
@@ -45,18 +45,6 @@ NNclose.rminer <- function()
     detach("package:rminer", unload=TRUE)
 rminer.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- trainPredict_1data(1, rminer.method, "NNtrain.rminer", "hyperParams.rminer", "NNpredict.rminer", 
-                              NNsummary, "NNclose.rminer", NA, rminer.prepareZZ, nrep=2,
-                              echo=FALSE, doplot=FALSE, echoreport=0,
-                              pkgname="rminer", pkgfun="fit", csvfile=TRUE, rdafile=TRUE, odir=odir)
-      )
-  print(t1)
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
@@ -69,4 +57,9 @@ t1 <- system.time(
   
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}

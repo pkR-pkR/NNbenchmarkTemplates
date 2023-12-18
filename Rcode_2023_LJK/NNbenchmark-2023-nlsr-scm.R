@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(nlsr, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(nlsr)
 
 print(sessionInfo())
 
@@ -49,18 +49,6 @@ NNclose.nlsr <- function()
     detach("package:nlsr", unload=TRUE)
 nlsr.prepareZZ <- list(xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- trainPredict_1data(1, nlsr.method, "NNtrain.nlsr", "hyperParams.nlsr", "NNpredict.nlsr", 
-                              NNsummary, "NNclose.nlsr", NA, nlsr.prepareZZ, nrep=5,
-                              echo=FALSE, doplot=FALSE, echoreport=0,
-                              pkgname="nlsr", pkgfun="nlxb", csvfile=TRUE, rdafile=TRUE, odir=odir)
-      )
-  print(t1)
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
@@ -71,4 +59,9 @@ t1 <- system.time(
                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE))
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}

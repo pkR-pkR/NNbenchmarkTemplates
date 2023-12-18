@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(EnsembleBase, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(EnsembleBase)
 
 print(sessionInfo())
 
@@ -50,27 +50,17 @@ NNclose.EnsembleBase <- function()
 EnsembleBase.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
 
 ## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- trainPredict_1data(1, EnsembleBase.method, "NNtrain.EnsembleBase", "hyperParams.EnsembleBase", "NNpredict.EnsembleBase", 
-                              NNsummary, "NNclose.EnsembleBase", NA, EnsembleBase.prepareZZ, nrep=5, echo=FALSE, doplot=FALSE,
-                              pkgname="EnsembleBase", pkgfun="EnsembleBase", csvfile=TRUE, rdafile=TRUE, odir=odir, 
-                              lib.loc = "/home/dutangc/Rpersolib")
-    
-  )
-  print(t1)
-}
-
-## --------------------------------------------------------------------------------
 #if(FALSE)
 #{
 t1 <- system.time(
   useless <- capture.output(res <- trainPredict_1pkg(1:12, pkgname = "EnsembleBase", pkgfun = "Regression.Batch.Fit", EnsembleBase.method,
                            prepareZZ.arg = EnsembleBase.prepareZZ, nrep = nrep, doplot = FALSE,
-                           csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE,
-                           lib.loc = "/home/dutangc/Rpersolib"))
+                           csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE))
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}

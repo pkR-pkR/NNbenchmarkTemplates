@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(monmlp, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(monmlp)
 
 print(sessionInfo())
 
@@ -52,17 +52,6 @@ NNclose.monmlp <- function()
     detach("package:monmlp", unload=TRUE)
 monmlp.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- trainPredict_1data(1, monmlp.method, "NNtrain.monmlp", "hyperParams.monmlp", "NNpredict.monmlp", 
-                              NNsummary, "NNclose.monmlp", NA, monmlp.prepareZZ, nrep=2,
-                              echo=FALSE, doplot=FALSE, echoreport=0,
-                              pkgname="monmlp", pkgfun="monmlp.fit", csvfile=TRUE, rdafile=TRUE, odir=odir)  )
-  print(t1)
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
@@ -73,4 +62,9 @@ t1 <- system.time(
                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE))
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}

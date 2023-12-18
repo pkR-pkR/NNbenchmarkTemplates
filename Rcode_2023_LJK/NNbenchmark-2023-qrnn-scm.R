@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(qrnn, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(qrnn)
 
 print(sessionInfo())
 
@@ -55,17 +55,6 @@ NNclose.qrnn <- function()
     detach("package:qrnn", unload=TRUE)
 qrnn.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- trainPredict_1data(1, qrnn.method, "NNtrain.qrnn", "hyperParams.qrnn", "NNpredict.qrnn", 
-                              NNsummary, "NNclose.qrnn", NA, qrnn.prepareZZ, nrep=5, echo=FALSE, doplot=FALSE,
-                              pkgname="qrnn", pkgfun="qrnn.fit", csvfile=TRUE, rdafile=TRUE, odir=odir)
-      )
-  print(t1)
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
@@ -76,4 +65,9 @@ t1 <- system.time(
                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE))
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}

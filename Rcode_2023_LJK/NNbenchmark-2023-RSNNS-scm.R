@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(RSNNS, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(RSNNS)
 
 print(sessionInfo())
 
@@ -63,18 +63,6 @@ NNclose.RSNNS <- function()
     detach("package:RSNNS", unload=TRUE)
 RSNNS.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- train_and_predict_1data(1, RSNNS.method, "NNtrain.RSNNS", "hyperParams.RSNNS", "NNpredict.RSNNS", 
-                                   NNsummary, "NNclose.RSNNS", NA, RSNNS.prepareZZ, nrep=5, echo=FALSE, doplot=FALSE,
-                                   pkgname="RSNNS", pkgfun="mlp", rdafile=TRUE, odir=odir)
-    
-      )
-  print(t1)
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
@@ -85,4 +73,9 @@ t1 <- system.time(
                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE))
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}

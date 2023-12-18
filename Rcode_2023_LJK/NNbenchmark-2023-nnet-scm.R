@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(nnet, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(nnet)
 
 print(sessionInfo())
 
@@ -46,19 +46,6 @@ NNclose.nnet <- function()
     detach("package:nnet", unload=TRUE)
 nnet.prepareZZ <- list(xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- trainPredict_1data(1, nnet.method, "NNtrain.nnet", "hyperParams.nnet", "NNpredict.nnet", 
-                              NNsummary, "NNclose.nnet", NA, nnet.prepareZZ, nrep=5, echo=FALSE, doplot=FALSE,
-                              pkgname="nnet", pkgfun="nnet", csvfile=TRUE, rdafile=TRUE, odir=odir)
-    
-    
-      )
-  print(t1)
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
@@ -70,4 +57,9 @@ t1 <- system.time(
   
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}

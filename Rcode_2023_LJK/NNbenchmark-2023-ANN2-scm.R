@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(ANN2, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(ANN2)
 
 print(sessionInfo())
 
@@ -67,14 +67,6 @@ NNclose.ANN2 <- function()
     detach("package:ANN2", unload=TRUE)
 ANN2.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-if(FALSE)
-{
-  res <- train_and_predict_1data(1, ANN2.method, "NNtrain.ANN2", "hyperParams.ANN2", "NNpredict.ANN2", 
-                               NNsummary, "NNclose.ANN2", NA, ANN2.prepareZZ, nrep=2, echo=FALSE, doplot=FALSE,
-                               pkgname="ANN2", pkgfun="neuralnetwork", rdafile=TRUE, odir=odir, 
-                               lib.loc = "/home/dutangc/Rpersolib")
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
@@ -82,8 +74,7 @@ if(FALSE)
 t1 <- system.time(
   useless <- capture.output(res <- trainPredict_1pkg(1:12, pkgname = "ANN2", pkgfun = "neuralnetwork", ANN2.method,
                            prepareZZ.arg = ANN2.prepareZZ, nrep = nrep, doplot = FALSE,
-                           csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE, 
-                           lib.loc = "/home/dutangc/Rpersolib"))
+                           csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE))
 )
 print(t1)
 if(length(useless) > 0)

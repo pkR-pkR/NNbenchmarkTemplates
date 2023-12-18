@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(MachineShop, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(MachineShop)
 
 print(sessionInfo())
 
@@ -51,19 +51,6 @@ NNclose.MachineShop <- function()
     detach("package:MachineShop", unload=TRUE)
 MachineShop.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- trainPredict_1data(1, MachineShop.method, "NNtrain.MachineShop", "hyperParams.MachineShop", "NNpredict.MachineShop", 
-                              NNsummary, "NNclose.MachineShop", NA, MachineShop.prepareZZ, nrep=5,
-                              echo=FALSE, doplot=FALSE, echoreport=0,
-                              pkgname="MachineShop", pkgfun="fit", csvfile=TRUE, rdafile=TRUE, odir=odir)
-    
-  )
-  print(t1)
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
@@ -74,4 +61,9 @@ t1 <- system.time(
                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE))
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}

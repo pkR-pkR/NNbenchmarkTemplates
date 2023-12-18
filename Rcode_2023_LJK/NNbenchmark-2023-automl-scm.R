@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(automl, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(automl)
 
 print(sessionInfo())
 
@@ -67,29 +67,22 @@ NNclose.automl <- function()
     detach("package:automl", unload=TRUE)
 automl.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- trainPredict_1data(1, automl.method, "NNtrain.automl", "hyperParams.automl", "NNpredict.automl", 
-                              NNsummary, "NNclose.automl", NA, automl.prepareZZ, nrep=5, echo=FALSE, doplot=FALSE,
-                              pkgname="automl", pkgfun="automl_train_manual", rdafile=TRUE, odir=odir, 
-                              lib.loc = "/home/dutangc/Rpersolib")
-  )
-  print(t1)
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
 #{
 t1 <- system.time(
-  res <- trainPredict_1pkg(1:12, pkgname = "automl", pkgfun = "automl_train_manual", automl.method,
+  useless <- capture.output(res <- trainPredict_1pkg(1:12, pkgname = "automl", pkgfun = "automl_train_manual", automl.method,
                            prepareZZ.arg = automl.prepareZZ, nrep = nrep, doplot = FALSE,
                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE, 
-                           lib.loc = "/home/dutangc/Rpersolib")
+                           lib.loc = "/home/dutangc/Rpersolib"))
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}
 
 

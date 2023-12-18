@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(minpack.lm, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(minpack.lm)
 
 print(sessionInfo())
 
@@ -45,18 +45,6 @@ NNclose.minpack.lm <- function()
     detach("package:minpack.lm", unload=TRUE)
 minpack.lm.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- trainPredict_1data(1, minpack.lm.method, "NNtrain.minpack.lm", "hyperParams.minpack.lm", "NNpredict.minpack.lm", 
-                              NNsummary, "NNclose.minpack.lm", NA, minpack.lm.prepareZZ, nrep=5,
-                              echo=FALSE, doplot=FALSE, echoreport=0,
-                              pkgname="minpack.lm", pkgfun="nlsLM", csvfile=TRUE, rdafile=TRUE, odir=odir)
-  )
-  print(t1)
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
@@ -67,4 +55,9 @@ t1 <- system.time(
                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE))
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}

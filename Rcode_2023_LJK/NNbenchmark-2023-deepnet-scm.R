@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(deepnet, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(deepnet)
 
 print(sessionInfo())
 
@@ -69,18 +69,6 @@ NNclose.deepnet <- function()
     detach("package:deepnet", unload=TRUE)
 deepnet.prepareZZ <- list(xdmv = "m", ydmv = "v", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- train_and_predict_1data(1, CaDENCE.method, "NNtrain.deepnet", "hyperParams.deepnet", "NNpredict.deepnet", 
-                                   NNsummary, "NNclose.deepnet", NA, deepnet.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
-                                   pkgname="deepnet", pkgfun="nn.train", rdafile=TRUE, odir=odir)
-    
-  )
-  print(t1)
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
@@ -91,4 +79,9 @@ t1 <- system.time(
                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE))
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}

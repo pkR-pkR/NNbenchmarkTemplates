@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(ELMR, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(ELMR)
 
 print(sessionInfo())
 
@@ -63,18 +63,6 @@ NNclose.ELMR <- function()
     detach("package:ELMR", unload=TRUE)
 ELMR.prepareZZ <- list(xdmv = "m", ydmv = "m", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- train_and_predict_1data(1, ELMR.method, "NNtrain.ELMR", "hyperParams.ELMR", "NNpredict.ELMR", 
-                                   NNsummary, "NNclose.ELMR", NA, ELMR.prepareZZ, nrep=2, echo=TRUE, doplot=FALSE,
-                                   pkgname="ELMR", pkgfun="OSelm_train", rdafile=TRUE, odir=odir)
-    
-  )
-  print(t1)
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
@@ -85,4 +73,9 @@ t1 <- system.time(
                            csvfile = TRUE, rdafile = TRUE, odir = odir, echo = FALSE))
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}

@@ -3,8 +3,8 @@ print(.libPaths())
 print(getwd())
 print(installed.packages()[, c("Package", "Version", "Built")])
 
-require(NNbenchmark, lib.loc = "/home/dutangc/Rpersolib")
-require(traineR, lib.loc = "/home/dutangc/Rpersolib")
+require(NNbenchmark)
+require(traineR)
 
 print(sessionInfo())
 
@@ -44,18 +44,6 @@ NNclose.traineR <- function()
     detach("package:traineR", unload=TRUE)
 traineR.prepareZZ <- list(xdmv = "d", ydmv = "v", zdm = "d", scale = TRUE)
 
-## --------------------------------------------------------------------------------
-
-if(FALSE)
-{
-  t1 <- system.time(
-    res <- trainPredict_1data(1, traineR.method, "NNtrain.traineR", "hyperParams.traineR", "NNpredict.traineR", 
-                              NNsummary, "NNclose.traineR", NA, traineR.prepareZZ, nrep=5, echo=FALSE, doplot=FALSE,
-                              pkgname="traineR", pkgfun="traineR", csvfile=TRUE, rdafile=TRUE, odir=odir)
-    
-      )
-  print(t1)
-}
 
 ## --------------------------------------------------------------------------------
 #if(FALSE)
@@ -67,4 +55,9 @@ t1 <- system.time(
   
 )
 print(t1)
+if(length(useless) > 0)
+{
+  print(head(useless))
+  print(tail(useless))
+}
 #}
