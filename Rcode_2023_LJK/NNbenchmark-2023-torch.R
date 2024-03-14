@@ -1,5 +1,6 @@
 #install.packages("torch")
 library(torch)
+library(NNbenchmark)
 mRef153
 
 maxit2ndorder  <-    200
@@ -71,7 +72,8 @@ NNtrain.torch <- function(x, y, dataxy, formula, hidden_neur, optim_method, hype
 }
     
 hypar <- hyperParams.torch("adadelta")
-NNtrain.torch(mRef153[, grep("y", colnames(mRef153), invert = TRUE)], mRef153[,"y"],
+xcol <- grep("y", colnames(mRef153), invert = TRUE)
+NNtrain.torch(mRef153[, xcol], mRef153[,"y"],
               NULL, NULL,
               3, "adadelta", hypar)
 
